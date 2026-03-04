@@ -34,7 +34,7 @@ function getCardStyle(i, current) {
   };
 }
 
-export default function SceneResolution({ isActive, activeLang, onGotoTab }) {
+export default function SceneResolution({ isActive, activeLang, onGotoTab, onShowHowVideo }) {
   const copy          = getLangCopy(activeLang);
   const [statIdx, setStatIdx] = useState(0);
   const statIdxRef    = useRef(0);
@@ -153,15 +153,27 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab }) {
           </button>
         </div>
 
-        {/* Single CTA: Explore */}
-        <div className="rex-cta-group rex-delay-4">
+        {/* Two CTAs: How it works (left) | Design Studio (right) */}
+        <div className="rex-cta-group rex-cta-split rex-cta-resolution rex-delay-4">
           <div className="rex-cta-row rex-delay-5">
             <button
               type="button"
               className="rex-btn rex-btn-primary"
-              onClick={() => onGotoTab('studio')}
+              onClick={() => onShowHowVideo?.()}
+              aria-label="Watch how it works"
             >
-              {copy.cta_primary}
+              {copy.cta_explore_rex}
+            </button>
+            <button
+              type="button"
+              className="rex-btn rex-btn-ghost rex-btn-goto"
+              onClick={() => onGotoTab('studio')}
+              aria-label="Go to Design Studio"
+            >
+              {copy.cta_next}
+              <svg className="rex-btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </button>
           </div>
         </div>

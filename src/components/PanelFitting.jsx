@@ -1,12 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import SceneMannequin     from './scenes/SceneMannequin';
-import SceneWrapStyles    from './scenes/SceneWrapStyles';
-import SceneCompareDesign from './scenes/SceneCompareDesign';
+import SceneMannequin  from './scenes/SceneMannequin';
+import SceneWrapStyles from './scenes/SceneWrapStyles';
 
-const TOTAL = 3;
+const TOTAL = 2;
 const DELAY = 8000;
 
-const SLIDE_LABELS = ['Body Scanner', 'Wrap Styles', 'Compare Design'];
+const SLIDE_LABELS = ['Body Scanner', 'Wrap Styles'];
 
 export default function PanelFitting({ isActive, onTabChange }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -117,17 +116,13 @@ export default function PanelFitting({ isActive, onTabChange }) {
       >
         <div
           className="fit-slider"
-          style={{ transform: `translateX(${-currentSlide * (100 / 3)}%)` }}
+          style={{ transform: `translateX(${-currentSlide * (100 / TOTAL)}%)` }}
         >
           <SceneMannequin
             isActive={currentSlide === 0}
           />
           <SceneWrapStyles
             isActive={currentSlide === 1}
-          />
-          <SceneCompareDesign
-            isActive={currentSlide === 2}
-            onGotoTab={onTabChange}
           />
         </div>
       </main>

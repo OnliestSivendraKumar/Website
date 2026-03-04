@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { createPortal } from 'react-dom';
 import { getLangCopy } from '../../i18n';
 import useCardParticles from '../../hooks/useCardParticles';
 
@@ -81,6 +80,7 @@ export default function SceneAIReadsYou({
   activeLang,
   onTierChange,
   greetingText,
+  onShowHowVideo,
 }) {
   const copy = getLangCopy(activeLang);
 
@@ -93,13 +93,42 @@ export default function SceneAIReadsYou({
   const s2IdxRef                  = useRef(0);
   const s2TimerRef                = useRef(null);
 
-  /* How it works — video modal */
-  const [showHowVideo, setShowHowVideo] = useState(false);
-  const howVideoRef               = useRef(null);
-
   /* Card particles canvas */
   const cardParticlesRef          = useRef(null);
   useCardParticles(cardParticlesRef);
+
+  /* Interactive fitting score bar */
+  const [fittingScore, setFittingScore] = useState(94);
+  const scoreTrackRef             = useRef(null);
+  const isDraggingRef             = useRef(false);
+
+  function getScoreFromY(clientY) {
+    const el = scoreTrackRef.current;
+    if (!el) return 94;
+    const rect = el.getBoundingClientRect();
+    const y = clientY - rect.top;
+    const pct = Math.round(100 - (y / rect.height) * 100);
+    return clamp(pct, 0, 100);
+  }
+  function handleScorePointerDown(e) {
+    if (s2Idx !== 4) return;
+    isDraggingRef.current = true;
+    setFittingScore(getScoreFromY(e.clientY ?? e.touches?.[0]?.clientY));
+    const onMove = (ev) => setFittingScore(getScoreFromY(ev.clientY ?? ev.touches?.[0]?.clientY));
+    const onUp = () => {
+      isDraggingRef.current = false;
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+      window.removeEventListener('touchmove', onMove);
+      window.removeEventListener('touchend', onUp);
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('touchend', onUp);
+  }
+
+  const scoreBadge = fittingScore >= 75 ? "Excellent — you're here" : fittingScore >= 50 ? "Great" : fittingScore >= 25 ? "Good" : "Fair";
 
   /* S2 carousel — 5 slides */
   const S2_TOTAL = 5;
@@ -120,31 +149,6 @@ export default function SceneAIReadsYou({
     startS2Auto();
     return stopS2Auto;
   }, []);
-
-  /* How it works modal: play on open, pause on close */
-  useEffect(() => {
-    const el = howVideoRef.current;
-    if (!el) return;
-    if (showHowVideo) {
-      el.play().catch(() => {});
-    } else {
-      el.pause();
-      el.currentTime = 0;
-    }
-  }, [showHowVideo]);
-
-  function closeHowVideo() {
-    setShowHowVideo(false);
-  }
-
-  useEffect(() => {
-    if (!showHowVideo) return;
-    function onKey(e) {
-      if (e.key === 'Escape') closeHowVideo();
-    }
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [showHowVideo]);
 
   /* Chip click handler */
   function handleChip(groupId, value) {
@@ -188,14 +192,18 @@ export default function SceneAIReadsYou({
           <p className="rex-signal-text rex-delay-2">
             Silk, Kanjivaram, Bridal —<br />your signature is forming.
           </p>
-          <button
-            type="button"
-            className="rex-how-it-works-btn rex-delay-2"
-            onClick={() => setShowHowVideo(true)}
-            aria-label="Watch how it works"
-          >
-            How it works
-          </button>
+          <div className="rex-cta-group rex-cta-split rex-delay-4">
+            <div className="rex-cta-row">
+              <button
+                type="button"
+                className="rex-btn rex-btn-primary"
+                onClick={() => onShowHowVideo?.()}
+                aria-label="Watch how it works"
+              >
+                {copy.cta_how_it_works}
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* ── Right: 5-slide carousel (1 video, 2 couture video, 3 blouse, 4–5 TBD) ── */}
@@ -220,10 +228,10 @@ export default function SceneAIReadsYou({
                 muted
                 loop
                 playsInline
-                aria-label="Editorial atelier"
+                aria-label="OASIS REX editorial"
               />
               <div className="rex-s2-video-card-overlay">
-                <p className="rex-blouse-card-label">Welcome to the Atelier</p>
+                <p className="rex-blouse-card-label">Welcome to the OASIS REX</p>
                 <p className="rex-blouse-card-sub">Your journey begins</p>
               </div>
             </div>
@@ -306,7 +314,7 @@ export default function SceneAIReadsYou({
                 </div>
               ))}
               <p className="rex-s2-prefs-footer">
-                Your preferences shape your atelier experience.
+                Your preferences shape your OASIS REX experience.
               </p>
             </div>
 
@@ -323,22 +331,35 @@ export default function SceneAIReadsYou({
                 {/* Left 50%: score + bar */}
                 <div className="rex-s2-score-left">
                   <div className="rex-s2-score-center" id="rex-fitting-score-desc">
-                    <p className="rex-s2-score-card-number" aria-label="94 percent">
-                      <span className="rex-s2-score-card-num" aria-hidden="true">94</span>
+                    <p className="rex-s2-score-card-number" aria-label={`${fittingScore} percent`}>
+                      <span className="rex-s2-score-card-num" aria-hidden="true">{fittingScore}</span>
                       <span className="rex-s2-score-card-pct" aria-hidden="true">%</span>
                     </p>
                     <p className="rex-s2-score-card-indication">
-                      <span className="rex-s2-score-badge">Excellent — you’re here</span>
+                      <span className="rex-s2-score-badge">{scoreBadge}</span>
                     </p>
                     <p className="rex-s2-score-card-hint">
                       Higher on the bar = better we matched you.
                     </p>
                   </div>
                   <div
-                    className="rex-s2-score-vertical-wrap"
-                    role="img"
-                    aria-label="Score scale from Fair at bottom to Excellent at top. Your score 94% is in the Excellent range. Display only, not adjustable."
-                    tabIndex={-1}
+                    className="rex-s2-score-vertical-wrap rex-s2-score-interactive"
+                    role="slider"
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-valuenow={fittingScore}
+                    aria-label="Fitting score. Drag or use arrow keys to adjust."
+                    tabIndex={s2Idx === 4 ? 0 : -1}
+                    onKeyDown={(e) => {
+                      if (s2Idx !== 4) return;
+                      if (e.key === 'ArrowUp' || e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        setFittingScore((v) => clamp(v + 5, 0, 100));
+                      } else if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        setFittingScore((v) => clamp(v - 5, 0, 100));
+                      }
+                    }}
                   >
                     <div className="rex-s2-score-vertical-legends" aria-hidden="true">
                       <span className="rex-s2-score-legend rex-s2-legend-green">Excellent</span>
@@ -346,13 +367,28 @@ export default function SceneAIReadsYou({
                       <span className="rex-s2-score-legend rex-s2-legend-orange">Good</span>
                       <span className="rex-s2-score-legend rex-s2-legend-red">Fair</span>
                     </div>
-                    <div className="rex-s2-score-vertical-track">
+                    <div
+                      ref={scoreTrackRef}
+                      className="rex-s2-score-vertical-track"
+                      onMouseDown={handleScorePointerDown}
+                      onTouchStart={handleScorePointerDown}
+                      role="presentation"
+                    >
                       <div className="rex-s2-score-segment rex-s2-seg-green rex-s2-seg-current" aria-hidden="true" />
                       <div className="rex-s2-score-segment rex-s2-seg-yellow" aria-hidden="true" />
                       <div className="rex-s2-score-segment rex-s2-seg-orange" aria-hidden="true" />
                       <div className="rex-s2-score-segment rex-s2-seg-red" aria-hidden="true" />
-                      <div className="rex-s2-score-vertical-fill" aria-hidden="true" />
-                      <div className="rex-s2-score-marker" aria-hidden="true" title="94% — Excellent" />
+                      <div
+                        className="rex-s2-score-vertical-fill"
+                        aria-hidden="true"
+                        style={{ height: `${fittingScore}%` }}
+                      />
+                      <div
+                        className="rex-s2-score-marker"
+                        aria-hidden="true"
+                        title={`${fittingScore}% — ${scoreBadge}`}
+                        style={{ bottom: `${fittingScore}%` }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -360,7 +396,7 @@ export default function SceneAIReadsYou({
                 <figure className="rex-s2-score-figure" aria-hidden="true">
                   <img
                     src="fit.png"
-                    alt="Your look at 94% fit — editorial"
+                    alt={`Your look at ${fittingScore}% fit — editorial`}
                     className="rex-s2-score-figure-img"
                   />
                 </figure>
@@ -385,40 +421,6 @@ export default function SceneAIReadsYou({
         </div>{/* /rex-s2-carousel */}
 
       </div>
-
-      {/* How it works — video modal (portaled to body so it centers in viewport) */}
-      {showHowVideo && createPortal(
-        <div
-          className="rex-how-modal-backdrop"
-          onClick={closeHowVideo}
-          aria-hidden="false"
-        >
-          <div
-            className="rex-how-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-label="How it works video"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              className="rex-how-modal-close"
-              onClick={closeHowVideo}
-              aria-label="Close video"
-            />
-            <video
-              ref={howVideoRef}
-              className="rex-how-modal-video"
-              src="slide1-live-movements.mp4"
-              controls
-              playsInline
-              aria-label="How OASIS REX works"
-            />
-            <p className="rex-how-modal-caption">How OASIS REX reads you</p>
-          </div>
-        </div>,
-        document.body
-      )}
     </section>
   );
 }

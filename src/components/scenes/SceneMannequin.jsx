@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 
 const MEASUREMENTS = [
   { label: 'Height',        value: '165', unit: 'cm', zone: 'full'  },
@@ -12,8 +11,6 @@ const MEASUREMENTS = [
 ];
 
 export default function SceneMannequin({ isActive }) {
-  const fileRef = useRef(null);
-
   return (
     <section
       className={`fit-scene${isActive ? ' active' : ''}`}
@@ -29,23 +26,16 @@ export default function SceneMannequin({ isActive }) {
 
       <div className="fit-mannequin-layout rex-reveal">
 
-        {/* ── LEFT: copy → video fills space → actions row ── */}
-        <div className="fit-scanner-left rex-delay-0">
+        {/* ── LEFT: copy, video, actions (grid rows 1–3) ── */}
+        <div className="fit-scanner-copy rex-delay-0">
+          <p className="rex-over">AI Body Intelligence</p>
+          <h2 className="rex-scene-h">
+            Capture.<br /><em>Dress Precisely.</em>
+          </h2>
+        </div>
 
-          {/* Copy — compact */}
-          <div className="fit-scanner-copy">
-            <p className="rex-over">AI Body Intelligence</p>
-            <h2 className="rex-scene-h">
-              Capture.<br /><em>Dress Precisely.</em>
-            </h2>
-            <p className="fit-scanner-desc">
-              Upload a photo or video — AI sculpts your 3D mannequin,
-              drapes the saree &amp; extracts 8 measurements instantly.
-            </p>
-          </div>
-
-          {/* Video — flex:1, grows to fill remaining column height */}
-          <div className="fit-video-frame rex-delay-1">
+        {/* Video — row 2, same height as card */}
+        <div className="fit-video-frame rex-delay-1">
             <span className="rex-vc rex-vc-tl" aria-hidden="true" />
             <span className="rex-vc rex-vc-tr" aria-hidden="true" />
             <span className="rex-vc rex-vc-bl" aria-hidden="true" />
@@ -66,25 +56,10 @@ export default function SceneMannequin({ isActive }) {
                 <span className="fit-live-dot" />AI Live
               </span>
             </div>
-          </div>
+        </div>
 
-          {/* Actions — upload + stat chips in one row */}
-          <div className="fit-video-actions rex-delay-2">
-            <button
-              className="fit-upload-btn"
-              onClick={() => fileRef.current?.click()}
-              aria-label="Upload image or video"
-            >
-              <svg className="fit-upload-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.3" />
-                <path d="M12 15.5V9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                <path d="M9.5 11.5L12 9L14.5 11.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M8 17h8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
-              </svg>
-              Upload
-            </button>
-            <input ref={fileRef} type="file" accept="image/*,video/*" hidden aria-hidden="true" />
-
+        {/* Actions — stat chips */}
+        <div className="fit-video-actions rex-delay-2">
             <div className="fit-stat-chips">
               <span className="fit-stat-chip">
                 <span className="fit-stat-val">97%</span>
@@ -101,10 +76,12 @@ export default function SceneMannequin({ isActive }) {
             </div>
           </div>
 
-        </div>
-
-        {/* ── RIGHT: unified glass output card ── */}
-        <div className="fit-output-card rex-glass rex-delay-1">
+        {/* ── RIGHT: output card — same row as video, matches video box height ── */}
+        <div className="fit-output-card rex-delay-1">
+          <span className="rex-vc rex-vc-tl" aria-hidden="true" />
+          <span className="rex-vc rex-vc-tr" aria-hidden="true" />
+          <span className="rex-vc rex-vc-bl" aria-hidden="true" />
+          <span className="rex-vc rex-vc-br" aria-hidden="true" />
 
           {/* Card header */}
           <div className="fit-card-header">
