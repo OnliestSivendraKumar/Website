@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import { getLangCopy } from '../../i18n';
 
 const STAT_CARDS = [
-  'Preference Intelligence Engine',
-  'AI Fabric Suggestion System',
-  'Body-Proportion Fitment Scoring',
-  'Blouse Precision Mapping',
-  'AR 3D Mannequin Try-On',
-  'Self-Learning Style Memory',
+  { name: 'Preference Intelligence Engine', label: 'Preference Intelligence', image: 'tech.admin_onliest_fashion_technology_visualization_showing_A_fc80bc37-89bc-4184-83a9-ae871176ce8c_2.png', alt: 'Couture preference intelligence', objectPosition: '50% 50%' },
+  { name: 'AI Fabric Suggestion System', label: 'AI Fabric Suggestion', image: 'tech.admin_onliest_fashion_technology_concept_showing_AI_fabr_d7f74d94-5c03-4642-adcf-9362cf3ae0f9_3.png', alt: 'AI fabric suggestions', objectPosition: '50% 50%' },
+  { name: 'Body-Proportion Fitment Scoring', label: 'Body-Proportion Fitment', image: 'body-proportion-fitment.png', alt: 'Body proportion fitment with measurement overlays', objectPosition: '50% 50%' },
+  { name: 'Blouse Precision Mapping', label: 'Blouse Precision Mapping', image: 'blouse-precision-mapping.png', alt: 'Blouse precision mapping with digital grid overlay', objectPosition: '50% 50%' },
+  { name: 'AR 3D Mannequin Try-On', label: 'AR 3D Mannequin Try-On', image: 'tech.admin_onliest_3D_fashion_mannequin_standing_in_neutral_p_373c752a-2f0a-488d-952f-9b5bc0cee731_1.png', alt: 'AR 3D mannequin try-on', objectPosition: '50% 50%' },
+  { name: 'Self-Learning Style Memory', label: 'Self-Learning Style', image: 'tech.admin_onliest_fashion_technology_visualization_showing_s_23e06dca-a6e0-4bf2-b58c-0f501f5745f0_2.png', alt: 'Self-learning style memory', objectPosition: '50% 50%' },
 ];
 
 const N = STAT_CARDS.length;
@@ -22,9 +22,9 @@ function getCardStyle(i, current) {
   let tx, tz, ry, sc, op;
 
   if (abs === 0)      { tx = 0;         tz = 0;    ry = 0;          sc = 1;    op = 1;    }
-  else if (abs === 1) { tx = dir * 230;  tz = -90;  ry = -dir * 22;  sc = 0.82; op = 0.58; }
-  else if (abs === 2) { tx = dir * 410;  tz = -190; ry = -dir * 40;  sc = 0.63; op = 0.26; }
-  else                { tx = dir * 580;  tz = -280; ry = -dir * 56;  sc = 0.46; op = 0;    }
+  else if (abs === 1) { tx = dir * 132;  tz = -70;  ry = -dir * 18;  sc = 0.9;  op = 0.78; }
+  else if (abs === 2) { tx = dir * 252;  tz = -150; ry = -dir * 32;  sc = 0.76; op = 0.42; }
+  else                { tx = dir * 362;  tz = -220; ry = -dir * 46;  sc = 0.58; op = 0;    }
 
   return {
     transform:     `translateX(${tx}px) translateZ(${tz}px) rotateY(${ry}deg) scale(${sc})`,
@@ -86,8 +86,6 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab }) {
       <div className="rex-resolution rex-reveal">
 
         <div className="rex-resolution-top rex-delay-0">
-          <div className="rex-brand-mark" aria-hidden="true">&#9671;</div>
-          <p className="rex-over rex-delay-1">An invitation</p>
           <h2 className="rex-resolution-h rex-delay-2">
             {resLines[0]}<br />
             {resLines[1] && <em>{resLines[1]}</em>}
@@ -123,14 +121,22 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab }) {
             }}
           >
             <div className="rex-statcards" id="rexStatCards">
-              {STAT_CARDS.map((name, i) => (
+              {STAT_CARDS.map((card, i) => (
                 <div
-                  key={name}
+                  key={card.name}
                   className={`rex-statcard rex-glass${statIdx === i ? ' is-active' : ''}`}
                   style={getCardStyle(i, statIdx)}
                 >
-                  <span className="rex-statcard-mark" aria-hidden="true">&#9671;</span>
-                  <p className="rex-statcard-name">{name}</p>
+                  <div className="rex-statcard-pictorial" aria-hidden="true">
+                    <img
+                      src={card.image}
+                      alt={card.alt}
+                      className="rex-statcard-img"
+                      style={{ objectPosition: card.objectPosition || '50% 50%' }}
+                      onError={(e) => { e.target.onerror = null; e.target.src = 'resolution-editorial.jpg'; }}
+                    />
+                  </div>
+                  <p className="rex-statcard-name" title={card.name}>{card.label}</p>
                 </div>
               ))}
             </div>
@@ -147,14 +153,8 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab }) {
           </button>
         </div>
 
-        {/* CTAs + scarcity */}
+        {/* Single CTA: Explore */}
         <div className="rex-cta-group rex-delay-4">
-          <div className="rex-scarcity" id="rexScarcity" aria-label="Limited edition drop">
-            <span className="rex-scarcity-pulse" aria-hidden="true" />
-            <p className="rex-scarcity-text">{copy.scarcity_badge}</p>
-            <p className="rex-scarcity-sub">Released in limited editions.</p>
-          </div>
-
           <div className="rex-cta-row rex-delay-5">
             <button
               type="button"
@@ -163,35 +163,8 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab }) {
             >
               {copy.cta_primary}
             </button>
-            <button type="button" className="rex-btn rex-btn-ghost">
-              {copy.cta_secondary}
-            </button>
           </div>
         </div>
-
-        <nav className="rex-footer-nav rex-delay-5" aria-label="Platform links">
-          <a href="index.html" className="rex-footer-link">Learn</a>
-          <span className="rex-footer-sep" aria-hidden="true">&#9671;</span>
-          <button
-            type="button"
-            className="rex-footer-link rex-footer-btn"
-            onClick={() => onGotoTab('studio')}
-          >
-            Design Studio
-          </button>
-          <span className="rex-footer-sep" aria-hidden="true">&#9671;</span>
-          <button
-            type="button"
-            className="rex-footer-link rex-footer-btn"
-            onClick={() => onGotoTab('fitting')}
-          >
-            Fitting Room
-          </button>
-        </nav>
-
-        <p className="rex-footer-brand rex-delay-5">
-          OASIS REX by Onliest&nbsp;·&nbsp;Ultra Couture Elite Edition
-        </p>
       </div>
     </section>
   );

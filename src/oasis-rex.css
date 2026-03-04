@@ -1521,7 +1521,7 @@ body[data-theme="light"] .rex-s2-bg-overlay {
     z-index: 5;
     text-align: left;
     display: flex; flex-direction: column;
-    align-items: flex-start; gap: 1.5rem;
+    align-items: flex-start; gap: 2.5rem;
 }
 .rex-brand-mark {
     font-size: 2rem; color: var(--gold);
@@ -2410,9 +2410,11 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
 /* ─── 3D Coverflow Carousel ─────────────────────────── */
 .rex-carousel-outer {
     width: 100%;
+    max-width: 92%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.5rem;
 }
 
 /* 3D embossed arrow buttons */
@@ -2459,16 +2461,18 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
         inset 0 3px 8px rgba(0,0,0,0.45);
 }
 
-/* Perspective viewport */
+/* Perspective viewport — narrower so buttons don’t overlay cards */
 .rex-statcards-wrap {
-    flex: 1;
-    height: 155px;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 82%;
+    height: 300px;
     position: relative;
     perspective: 820px;
     perspective-origin: 50% 50%;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 16%, black 84%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 .rex-statcards {
     position: absolute;
@@ -2476,45 +2480,79 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
     transform-style: preserve-3d;
 }
 
-/* Cards: absolutely centered, JS drives 3D transforms */
+/* Cards: no padding — image and text edge-to-edge */
 .rex-statcard {
     position: absolute;
-    width: 200px;
-    top: 8px; bottom: 8px;
-    left: calc(50% - 100px);
-    padding: 1.3rem 1.4rem;
-    border-radius: var(--radius);
-    border-color: var(--glass-border);
-    display: flex; flex-direction: column; gap: 0.9rem;
+    width: 212px;
+    top: 6px; bottom: 6px;
+    left: calc(50% - 106px);
+    padding: 0;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    display: flex; flex-direction: column; align-items: stretch; gap: 0.35rem;
     will-change: transform, opacity;
     overflow: hidden;
     cursor: default;
+    background: linear-gradient(165deg, rgba(28,18,22,0.78) 0%, rgba(18,12,15,0.92) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     transition:
-        transform  0.70s cubic-bezier(0.22, 0.61, 0.36, 1),
-        opacity    0.70s cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform  0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity    0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
         box-shadow 0.35s var(--ease),
         border-color 0.35s var(--ease);
 }
 .rex-statcard::after {
     content: '';
-    position: absolute; bottom: 0; left: 10%; right: 10%;
+    position: absolute; bottom: 0; left: 15%; right: 15%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, rgba(198,167,94,0.5), transparent);
     transform: scaleX(0);
-    transition: transform 0.5s var(--ease);
+    transition: transform 0.45s var(--ease);
 }
 .rex-statcard.is-active::after { transform: scaleX(1); }
 .rex-statcard.is-active {
-    border-color: var(--gold-border);
-    box-shadow: 0 8px 40px rgba(198,167,94,0.14), 0 2px 14px rgba(0,0,0,0.38);
+    border-color: rgba(198,167,94,0.5);
+    box-shadow:
+        0 0 0 1px rgba(198,167,94,0.1),
+        0 10px 40px rgba(0,0,0,0.4),
+        0 2px 16px rgba(198,167,94,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.05);
 }
-.rex-statcard-mark {
-    font-size: 0.85rem; color: var(--gold);
-    opacity: 0.55; display: block;
+.rex-statcard-pictorial {
+    margin: 0;
+    height: 240px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: rgba(0,0,0,0.3);
+    position: relative;
+}
+.rex-statcard-pictorial::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.18) 100%);
+    pointer-events: none;
+}
+.rex-statcard-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    vertical-align: middle;
 }
 .rex-statcard-name {
-    font-size: 0.9rem; color: var(--plat-70);
-    line-height: 1.55; font-weight: 400;
+    font-size: 0.86rem; color: rgba(255,255,255,0.96);
+    line-height: 1.28; font-weight: 500;
+    letter-spacing: 0.01em;
+    margin: 0;
+    padding: 0.35rem 0 0.25rem;
+    word-break: keep-all;
+    hyphens: none;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
 }
 
 /* Scarcity badge */
@@ -2721,7 +2759,7 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
 
     /* ── Scene 3 (Resolution) ── */
     .rex-res-image-col { height: 50vw; min-height: 180px; max-height: 280px; }
-    .rex-resolution { padding: 1.5rem 1.25rem 2rem; gap: 1rem; }
+    .rex-resolution { padding: 1.5rem 1.25rem 2rem; gap: 2rem; }
     .rex-resolution-h { font-size: clamp(1.4rem, 5vw, 2rem); }
     .rex-brand-mark { font-size: 1.2rem; }
 
@@ -2729,6 +2767,7 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
     .rex-carousel-outer { gap: 0.5rem; }
     .rex-carousel-btn { width: 2.2rem; height: 2.2rem; }
     .rex-statcard { padding: 1.2rem 1rem; min-width: 160px; }
+    .rex-statcard-pictorial { margin: -1.2rem -1rem 0 -1rem; height: 140px; border-radius: 10px 10px 0 0; }
     .rex-statcard-name { font-size: 0.85rem; }
 
     /* CTAs */
@@ -2754,11 +2793,12 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
 
     /* ── Scene 3 (Resolution) ── */
     .rex-res-image-col { height: 48vw; }
-    .rex-resolution { padding: 1.2rem 1rem 1.8rem; }
+    .rex-resolution { padding: 1.2rem 1rem 1.8rem; gap: 1.8rem; }
     .rex-resolution-h { font-size: clamp(1.2rem, 6vw, 1.6rem); }
     .rex-cta-row { flex-direction: column; align-items: stretch; }
     .rex-btn { text-align: center; width: 100%; max-width: 280px; margin: 0 auto; }
     .rex-statcard { min-width: 140px; padding: 1rem 0.8rem; }
+    .rex-statcard-pictorial { margin: -1rem -0.8rem 0 -0.8rem; height: 120px; border-radius: 8px 8px 0 0; }
     .rex-statcard-name { font-size: 0.82rem; }
 }
 
