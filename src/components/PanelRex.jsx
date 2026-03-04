@@ -54,15 +54,6 @@ export default function PanelRex({ isActive, activeLang, onTabChange }) {
     try { localStorage.setItem('rexTier', String(t)); } catch {}
   }
 
-  /* Greeting text — derived from tier + activeLang */
-  const greetingMsgs = [
-    copy.greeting_tier_0,
-    copy.greeting_tier_1,
-    copy.greeting_tier_2,
-    copy.greeting_tier_3,
-  ];
-  const greetingText = greetingMsgs[clamp(tier, 0, 3)];
-
   /* ── Auto-advance bar ── */
   function restartAutobar() {
     const el = autobarRef.current;
@@ -162,24 +153,26 @@ export default function PanelRex({ isActive, activeLang, onTabChange }) {
       aria-hidden={!isActive}
     >
       {/* Prev / Next arrows */}
-      <button
-        className="rex-arrow rex-arrow-prev"
-        id="rexPrev"
-        aria-label="Previous scene"
-        disabled={currentSlide === 0}
-        onClick={() => goTo(currentRef.current - 1)}
-      >
-        &#8592;
-      </button>
-      <button
-        className="rex-arrow rex-arrow-next"
-        id="rexNext"
-        aria-label="Next scene"
-        disabled={currentSlide === TOTAL - 1}
-        onClick={() => goTo(currentRef.current + 1)}
-      >
-        &#8594;
-      </button>
+      {currentSlide > 0 && (
+        <button
+          className="rex-arrow rex-arrow-prev"
+          id="rexPrev"
+          aria-label="Previous scene"
+          onClick={() => goTo(currentRef.current - 1)}
+        >
+          &#8592;
+        </button>
+      )}
+      {currentSlide < TOTAL - 1 && (
+        <button
+          className="rex-arrow rex-arrow-next"
+          id="rexNext"
+          aria-label="Next scene"
+          onClick={() => goTo(currentRef.current + 1)}
+        >
+          &#8594;
+        </button>
+      )}
 
       {/* Auto-advance gold bar (bottom) */}
       <div className="rex-autobar" aria-hidden="true">
@@ -203,7 +196,6 @@ export default function PanelRex({ isActive, activeLang, onTabChange }) {
             isActive={currentSlide === 0}
             activeLang={activeLang}
             onTierChange={handleTierChange}
-            greetingText={greetingText}
             onShowHowVideo={() => setShowHowVideo(true)}
           />
           <SceneResolution
@@ -243,7 +235,7 @@ export default function PanelRex({ isActive, activeLang, onTabChange }) {
               playsInline
               aria-label="How OASIS REX works"
             />
-            <p className="rex-how-modal-caption">How OASIS REX reads you</p>
+            <p className="rex-how-modal-caption">How OASIS REX understands you</p>
           </div>
         </div>,
         document.body

@@ -22,9 +22,9 @@ function getCardStyle(i, current) {
   let tx, tz, ry, sc, op;
 
   if (abs === 0)      { tx = 0;         tz = 0;    ry = 0;          sc = 1;    op = 1;    }
-  else if (abs === 1) { tx = dir * 132;  tz = -70;  ry = -dir * 18;  sc = 0.9;  op = 0.78; }
-  else if (abs === 2) { tx = dir * 252;  tz = -150; ry = -dir * 32;  sc = 0.76; op = 0.42; }
-  else                { tx = dir * 362;  tz = -220; ry = -dir * 46;  sc = 0.58; op = 0;    }
+  else if (abs === 1) { tx = dir * 155;  tz = -70;  ry = -dir * 18;  sc = 0.9;  op = 0.78; }
+  else if (abs === 2) { tx = dir * 295;  tz = -150; ry = -dir * 32;  sc = 0.76; op = 0.42; }
+  else                { tx = dir * 425;  tz = -220; ry = -dir * 46;  sc = 0.58; op = 0;    }
 
   return {
     transform:     `translateX(${tx}px) translateZ(${tz}px) rotateY(${ry}deg) scale(${sc})`,

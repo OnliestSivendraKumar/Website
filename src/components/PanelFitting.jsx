@@ -75,22 +75,24 @@ export default function PanelFitting({ isActive, onTabChange }) {
       aria-hidden={!isActive}
     >
       {/* Slide arrows */}
-      <button
-        className="rex-arrow rex-arrow-prev"
-        aria-label={currentSlide > 0 ? SLIDE_LABELS[currentSlide - 1] : 'Previous'}
-        disabled={currentSlide === 0}
-        onClick={() => goTo(currentRef.current - 1)}
-      >
-        &#8592;
-      </button>
-      <button
-        className="rex-arrow rex-arrow-next"
-        aria-label={currentSlide < TOTAL - 1 ? SLIDE_LABELS[currentSlide + 1] : 'Next'}
-        disabled={currentSlide === TOTAL - 1}
-        onClick={() => goTo(currentRef.current + 1)}
-      >
-        &#8594;
-      </button>
+      {currentSlide > 0 && (
+        <button
+          className="rex-arrow rex-arrow-prev"
+          aria-label={SLIDE_LABELS[currentSlide - 1]}
+          onClick={() => goTo(currentRef.current - 1)}
+        >
+          &#8592;
+        </button>
+      )}
+      {currentSlide < TOTAL - 1 && (
+        <button
+          className="rex-arrow rex-arrow-next"
+          aria-label={SLIDE_LABELS[currentSlide + 1]}
+          onClick={() => goTo(currentRef.current + 1)}
+        >
+          &#8594;
+        </button>
+      )}
 
       {/* Slide indicator dots */}
       <div className="fit-dots" aria-hidden="true">

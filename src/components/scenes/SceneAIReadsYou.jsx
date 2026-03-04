@@ -66,6 +66,33 @@ const CHIP_GROUPS = [
       { value: 'organza',    label: 'Organza'    },
     ],
   },
+  {
+    id: 'ai_style',
+    label: 'AI Recommendation Style',
+    chips: [
+      { value: 'curated',    label: 'Curated Picks', defaultActive: true },
+      { value: 'surprise',   label: 'Surprise Me'   },
+      { value: 'refine',     label: 'Refine Gradually' },
+    ],
+  },
+  {
+    id: 'design_intensity',
+    label: 'Design Intensity',
+    chips: [
+      { value: 'subtle',     label: 'Subtle',     defaultActive: true },
+      { value: 'statement',  label: 'Statement'   },
+      { value: 'bold',       label: 'Bold'       },
+    ],
+  },
+  {
+    id: 'fit_priority',
+    label: 'Fit Priority',
+    chips: [
+      { value: 'comfort',    label: 'Comfort First', defaultActive: true },
+      { value: 'form',       label: 'Form-Fitting' },
+      { value: 'draped',     label: 'Draped Ease'  },
+    ],
+  },
 ];
 
 /* Build default active-chip map */
@@ -79,7 +106,6 @@ export default function SceneAIReadsYou({
   isActive,
   activeLang,
   onTierChange,
-  greetingText,
   onShowHowVideo,
 }) {
   const copy = getLangCopy(activeLang);
@@ -174,24 +200,15 @@ export default function SceneAIReadsYou({
         <span className="rex-scene-lname">AI Reads You</span>
       </aside>
 
-      {/* Greeting badge */}
-      <div className="rex-greeting" aria-live="polite">{greetingText}</div>
-
       <div className="rex-scene-layout rex-layout-split rex-reveal">
 
-        {/* ── Left: editorial copy ── */}
+        {/* ── Left: editorial copy (slide 1 OASIS REX tab) ── */}
         <div className="rex-split-text rex-delay-0">
           <p className="rex-over">{copy.subheadline}</p>
-          <h2 className="rex-scene-h">
-            OASIS REX reads<br />
-            your preferences<br />
-            <em>and interprets<br />your essence.</em>
-          </h2>
-          <p className="rex-scene-sub">Observant. Respectful.<br />Interpretive.</p>
-
-          <p className="rex-signal-text rex-delay-2">
-            Silk, Kanjivaram, Bridal —<br />your signature is forming.
-          </p>
+          <h2 className="rex-scene-h">{copy.rex_headline}</h2>
+          <p className="rex-scene-sub">{copy.rex_intro}</p>
+          <p className="rex-signal-text rex-delay-2">{copy.rex_tagline}</p>
+          <p className="rex-rex-closing rex-delay-3">{copy.rex_closing}</p>
           <div className="rex-cta-group rex-cta-split rex-delay-4">
             <div className="rex-cta-row">
               <button
@@ -276,15 +293,16 @@ export default function SceneAIReadsYou({
 
             {/* Slide 4 — Chips & Occasion (preferences) */}
             <div className="rex-glass rex-prefs-glass rex-s2-card rex-s2-card-prefs">
-              {CHIP_GROUPS.map(group => (
-                <div key={group.id}>
-                  <p className="rex-prefs-label">{group.label}</p>
-                  <div
-                    className={`rex-chips${group.isSwatches ? ' rex-swatches' : ''}`}
-                    role="group"
-                    aria-label={group.label}
-                  >
-                    {group.chips.map(chip =>
+              <div className="rex-prefs-grid">
+                {CHIP_GROUPS.map(group => (
+                  <div key={group.id}>
+                    <p className="rex-prefs-label">{group.label}</p>
+                    <div
+                      className={`rex-chips${group.isSwatches ? ' rex-swatches' : ''}`}
+                      role="group"
+                      aria-label={group.label}
+                    >
+                      {group.chips.map(chip =>
                       group.isSwatches ? (
                         <button
                           key={chip.value}
@@ -310,9 +328,10 @@ export default function SceneAIReadsYou({
                         </button>
                       )
                     )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
               <p className="rex-s2-prefs-footer">
                 Your preferences shape your OASIS REX experience.
               </p>
@@ -361,12 +380,6 @@ export default function SceneAIReadsYou({
                       }
                     }}
                   >
-                    <div className="rex-s2-score-vertical-legends" aria-hidden="true">
-                      <span className="rex-s2-score-legend rex-s2-legend-green">Excellent</span>
-                      <span className="rex-s2-score-legend rex-s2-legend-yellow">Great</span>
-                      <span className="rex-s2-score-legend rex-s2-legend-orange">Good</span>
-                      <span className="rex-s2-score-legend rex-s2-legend-red">Fair</span>
-                    </div>
                     <div
                       ref={scoreTrackRef}
                       className="rex-s2-score-vertical-track"
@@ -374,21 +387,24 @@ export default function SceneAIReadsYou({
                       onTouchStart={handleScorePointerDown}
                       role="presentation"
                     >
-                      <div className="rex-s2-score-segment rex-s2-seg-green rex-s2-seg-current" aria-hidden="true" />
-                      <div className="rex-s2-score-segment rex-s2-seg-yellow" aria-hidden="true" />
-                      <div className="rex-s2-score-segment rex-s2-seg-orange" aria-hidden="true" />
-                      <div className="rex-s2-score-segment rex-s2-seg-red" aria-hidden="true" />
-                      <div
-                        className="rex-s2-score-vertical-fill"
-                        aria-hidden="true"
-                        style={{ height: `${fittingScore}%` }}
-                      />
+                      <div className="rex-s2-score-track-inner">
+                        <div className={`rex-s2-score-segment rex-s2-seg-green${fittingScore >= 75 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                        <div className={`rex-s2-score-segment rex-s2-seg-yellow${fittingScore >= 50 && fittingScore < 75 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                        <div className={`rex-s2-score-segment rex-s2-seg-orange${fittingScore >= 25 && fittingScore < 50 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                        <div className={`rex-s2-score-segment rex-s2-seg-red${fittingScore < 25 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                      </div>
                       <div
                         className="rex-s2-score-marker"
                         aria-hidden="true"
                         title={`${fittingScore}% — ${scoreBadge}`}
                         style={{ bottom: `${fittingScore}%` }}
                       />
+                    </div>
+                    <div className="rex-s2-score-vertical-legends" aria-hidden="true">
+                      <span className="rex-s2-score-legend rex-s2-legend-green">EXCELLENT</span>
+                      <span className="rex-s2-score-legend rex-s2-legend-yellow">GREAT</span>
+                      <span className="rex-s2-score-legend rex-s2-legend-orange">GOOD</span>
+                      <span className="rex-s2-score-legend rex-s2-legend-red">FAIR</span>
                     </div>
                   </div>
                 </div>
