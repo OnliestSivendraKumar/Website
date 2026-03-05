@@ -19,6 +19,9 @@ export default function PanelFitting({ isActive, onTabChange }) {
   const [showHowVideo, setShowHowVideo] = useState(false);
   const howVideoRef = useRef(null);
 
+  /* Privacy & data plan modal (Fitting Room slide 1) */
+  const [showPrivacyPlan, setShowPrivacyPlan] = useState(false);
+
   useEffect(() => {
     const el = howVideoRef.current;
     if (!el) return;
@@ -38,6 +41,15 @@ export default function PanelFitting({ isActive, onTabChange }) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [showHowVideo]);
+
+  useEffect(() => {
+    if (!showPrivacyPlan) return;
+    function onKey(e) {
+      if (e.key === 'Escape') setShowPrivacyPlan(false);
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [showPrivacyPlan]);
 
   function restartAutobar() {
     const el = autobarRef.current;
@@ -136,6 +148,7 @@ export default function PanelFitting({ isActive, onTabChange }) {
           <SceneMannequin
             isActive={currentSlide === 0}
             onShowHowVideo={() => setShowHowVideo(true)}
+            onShowPrivacyPlan={() => setShowPrivacyPlan(true)}
           />
           <SceneWrapStyles
             isActive={currentSlide === 1}
@@ -174,6 +187,39 @@ export default function PanelFitting({ isActive, onTabChange }) {
               aria-label="How OASIS REX works"
             />
             <p className="rex-how-modal-caption">How OASIS REX understands you</p>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* Privacy & data plan modal (Fitting Room slide 1) */}
+      {showPrivacyPlan && createPortal(
+        <div
+          className="rex-how-modal-backdrop rex-privacy-backdrop"
+          onClick={() => setShowPrivacyPlan(false)}
+          aria-hidden="false"
+        >
+          <div
+            className="rex-how-modal rex-privacy-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Privacy and data plan"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="rex-how-modal-close"
+              onClick={() => setShowPrivacyPlan(false)}
+              aria-label="Close"
+            />
+            <div className="rex-privacy-modal-inner">
+              <h3 className="rex-privacy-modal-title">Privacy & data</h3>
+              <ul className="rex-privacy-modal-list">
+                <li><strong>Privacy and encryption</strong> — Your body data is encrypted and stored securely. We do not share it with third parties for marketing.</li>
+                <li><strong>Sharing key</strong> — You control access with a unique key; only people you authorize can view or use your mannequin.</li>
+                <li><strong>Restrictions</strong> — Copy, download, forward and other uses are restricted to protect your data and identity.</li>
+              </ul>
+            </div>
           </div>
         </div>,
         document.body

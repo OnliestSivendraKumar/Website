@@ -708,6 +708,38 @@ html { font-size: 18px; }
     color: var(--gold-dim);
     text-align: center;
 }
+/* Privacy & data modal (Fitting Room slide 1) — text only */
+.rex-privacy-modal {
+    max-width: 420px;
+}
+.rex-privacy-modal-inner {
+    padding: 1.5rem 2rem 1.75rem;
+}
+.rex-privacy-modal-title {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+}
+.rex-privacy-modal-list {
+    margin: 0;
+    padding-left: 1.15rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--platinum);
+}
+.rex-privacy-modal-list li {
+    margin-bottom: 0.65rem;
+}
+.rex-privacy-modal-list li:last-child {
+    margin-bottom: 0;
+}
+.rex-privacy-modal-list strong {
+    color: var(--gold-dim);
+    font-weight: 600;
+}
 /* ─── Scene 2 — 2-card carousel ────────────────────────── */
 .rex-s2-carousel {
     position: relative;
@@ -3620,14 +3652,47 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
     gap: 0.75rem;
 }
 .fit-how-cta {
-    align-self: flex-start;
-    margin-top: 1rem;
     padding: 0.5rem 1.25rem;
     font-size: 0.75rem;
     border-radius: 999px;
+    line-height: 1.2;
 }
 .fit-how-cta:hover {
     transform: translateY(-1px);
+}
+.fit-privacy-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    border: 1px solid rgba(198,167,94,0.35);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    cursor: pointer;
+    margin-top: 25px;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.fit-privacy-link:hover {
+    opacity: 1;
+    color: var(--gold);
+    border-color: var(--gold-border);
+    background: rgba(198,167,94,0.06);
+}
+.fit-privacy-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.fit-privacy-icon svg {
+    display: block;
 }
 .fit-step-chip {
     display: flex;

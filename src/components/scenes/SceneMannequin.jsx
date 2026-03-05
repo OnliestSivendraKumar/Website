@@ -32,7 +32,7 @@ const UNIT_OPTIONS = [
   { value: 'imperial', label: 'Imperial – ft/in' },
 ];
 
-export default function SceneMannequin({ isActive, onShowHowVideo }) {
+export default function SceneMannequin({ isActive, onShowHowVideo, onShowPrivacyPlan }) {
   const [unitSystem, setUnitSystem] = useState('metric');
   const [unitDropdownOpen, setUnitDropdownOpen] = useState(false);
   const unitDropdownRef = useRef(null);
@@ -107,6 +107,19 @@ export default function SceneMannequin({ isActive, onShowHowVideo }) {
                 aria-label="Watch how it works"
               >
                 How it works
+              </button>
+            )}
+            {onShowPrivacyPlan && (
+              <button
+                type="button"
+                className="fit-privacy-link"
+                onClick={() => onShowPrivacyPlan()}
+                aria-label="Privacy and data plan"
+              >
+                <span className="fit-privacy-icon" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
+                Privacy & data
               </button>
             )}
           </div>
