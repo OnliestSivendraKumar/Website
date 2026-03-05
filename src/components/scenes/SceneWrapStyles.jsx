@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 
-/* Videos from public folder */
+/* Videos from public folder — first: Compare your designs, second: Try Out Different Draping Styles */
 const WRAP_CAROUSEL_VIDEOS = [
-  { src: '/fitting.mp4', label: 'Fitting' },
-  { src: '/wrap.mp4', label: 'Wrap Styles' },
+  { src: '/fitting.mp4', label: 'Fitting', tag: 'Compare your designs' },
+  { src: '/wrap.mp4', label: 'Wrap Styles', tag: 'Try Out Different Draping Styles' },
 ];
 
 const WRAP_STYLES = [
@@ -19,22 +19,22 @@ const WRAP_CAROUSEL_DELAY = 7000;
 /* Left-column copy per carousel slide: Fitting (0) and Wrap Styles (1) */
 const CAROUSEL_COPY = [
   {
-    over: 'Fitting Room',
+    over: 'Compare Designs',
     headline: 'See your fit.',
     headlineEm: 'Live.',
     sub: 'Your mannequin and measurements in one place. Try different looks and drape styles when you switch to Wrap Styles.',
-    hint: 'Use the dots below to switch between Fitting and Wrap Styles.',
+    // hint: 'Use the dots below to switch between Fitting and Wrap Styles.',
   },
   {
     over: 'Wrap Styles',
     headline: 'One saree.',
     headlineEm: 'Many ways to wear.',
     sub: 'The video shows your mannequin in a saree. Select a drape style below — the mannequin updates to that way of wearing so you can see how it looks before you choose.',
-    hint: 'Select a style to see it on the mannequin.',
+    // hint: 'Select a style to see it on the mannequin.',
   },
 ];
 
-export default function SceneWrapStyles({ isActive }) {
+export default function SceneWrapStyles({ isActive, onGotoTab, onGoToSlide }) {
   const [activeStyle, setActiveStyle] = useState('nivi');
   const [wrapIdx, setWrapIdx] = useState(0);
   const wrapTimerRef = useRef(null);
@@ -155,7 +155,7 @@ export default function SceneWrapStyles({ isActive }) {
                       </div>
                       <div className="fit-preview-tags">
                         <span className="fit-preview-tag fit-wrap-now">
-                          Now Showing: {v.label}
+                          {v.tag}
                         </span>
                       </div>
                     </div>
@@ -177,6 +177,36 @@ export default function SceneWrapStyles({ isActive }) {
                 ))}
               </div>
             )}
+          </div>
+
+          {/* Explore Fitting Room | Next — Explore has background; Next small with right space */}
+          <div className="fit-cta-wrap rex-cta-resolution">
+            <div className="rex-cta-row">
+              <button
+                type="button"
+                className="rex-btn rex-btn-primary fit-cta-explore"
+                onClick={() => {
+                  onGotoTab?.('fitting');
+                  onGoToSlide?.();
+                }}
+                aria-label="Explore Fitting Room"
+              >
+                Explore Fitting Room
+              </button>
+              <button
+                type="button"
+                className="rex-btn rex-btn-ghost rex-btn-goto fit-cta-next"
+                onClick={() => {
+                  if (onGotoTab) onGotoTab('atelier');
+                }}
+                aria-label="Go to OASIS Atelier"
+              >
+                Next
+                <svg className="rex-btn-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>

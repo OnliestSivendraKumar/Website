@@ -1,23 +1,55 @@
+import { useState, useRef, useEffect } from 'react';
 
 const MEASUREMENTS = [
-  { label: 'Height',        value: '165', unit: 'cm', zone: 'full'  },
-  { label: 'Shoulder',      value: '40',  unit: 'cm', zone: 'upper' },
-  { label: 'Bust',          value: '88',  unit: 'cm', zone: 'upper' },
-  { label: 'Waist',         value: '72',  unit: 'cm', zone: 'mid'   },
-  { label: 'Hips',          value: '94',  unit: 'cm', zone: 'lower' },
-  { label: 'Blouse Length', value: '38',  unit: 'cm', zone: 'upper' },
-  { label: 'Saree Drop',    value: '104', unit: 'cm', zone: 'lower' },
-  { label: 'Inseam',        value: '74',  unit: 'cm', zone: 'lower' },
+  { label: 'Height',        value: '165', unit: 'cm', zone: 'full',  max: 200 },
+  { label: 'Shoulder',      value: '40',  unit: 'cm', zone: 'upper', max: 55  },
+  { label: 'Bust',          value: '88',  unit: 'cm', zone: 'upper', max: 120 },
+  { label: 'Waist',         value: '72',  unit: 'cm', zone: 'mid',   max: 100 },
+  { label: 'Hips',          value: '94',  unit: 'cm', zone: 'lower', max: 120 },
+  { label: 'Blouse Length', value: '38',  unit: 'cm', zone: 'upper', max: 50  },
+  { label: 'Saree Drop',    value: '104', unit: 'cm', zone: 'lower', max: 120 },
+  { label: 'Inseam',        value: '74',  unit: 'cm', zone: 'lower', max: 90  },
 ];
 
 /* Short, punchy steps — how the Fitting Room flow works (Slide 1: Mannequin) */
 const BODY_SCANNER_STEPS = [
   { step: '1', title: 'Upload', line: 'Capture with camera or upload photos/videos — AI generates your 3D double' },
-  { step: '2', title: 'Dress', line: 'Saree & blouse on a real woman. No guesswork.' },
-  { step: '3', title: 'Measure', line: 'Body + measurements in two columns. Done.' },
+  { step: '2', title: 'Mannequin', line: 'Your personalized 3D mannequin is ready — use it to try looks and get precise fit.' },
+  { step: '3', title: 'Design', line: 'Dress your mannequin in saree & blouse with real 3D models. See how it looks and fits before you choose.' },
+];
+
+function cmToFtIn(cm) {
+  const totalIn = Number(cm) / 2.54;
+  const ft = Math.floor(totalIn / 12);
+  const inVal = Math.round(totalIn % 12);
+  if (ft === 0) return `${inVal} in`;
+  if (inVal === 0) return `${ft} ft`;
+  return `${ft} ft ${inVal} in`;
+}
+
+const UNIT_OPTIONS = [
+  { value: 'metric', label: 'Metric – cm' },
+  { value: 'imperial', label: 'Imperial – ft/in' },
 ];
 
 export default function SceneMannequin({ isActive, onShowHowVideo }) {
+  const [unitSystem, setUnitSystem] = useState('metric');
+  const [unitDropdownOpen, setUnitDropdownOpen] = useState(false);
+  const unitDropdownRef = useRef(null);
+
+  useEffect(() => {
+    if (!unitDropdownOpen) return;
+    function handleClickOutside(e) {
+      if (unitDropdownRef.current && !unitDropdownRef.current.contains(e.target)) {
+        setUnitDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [unitDropdownOpen]);
+
+  const currentUnitLabel = UNIT_OPTIONS.find((o) => o.value === unitSystem)?.label ?? 'Metric – cm';
+
   return (
     <section
       className={`fit-scene${isActive ? ' active' : ''}`}
@@ -37,7 +69,7 @@ export default function SceneMannequin({ isActive, onShowHowVideo }) {
         <div className="fit-scanner-copy rex-delay-0">
           <p className="rex-over">AI Body Intelligence</p>
           <h2 className="rex-scene-h">
-            Capture.<br /><em>Dress Precisely.</em>
+            Capture Your Mannequin <em>Precisely</em>
           </h2>
         </div>
 
@@ -65,22 +97,18 @@ export default function SceneMannequin({ isActive, onShowHowVideo }) {
             </div>
         </div>
 
-        {/* Actions — stat chips */}
+        {/* Actions — How it works (replaces stat chips) */}
         <div className="fit-video-actions rex-delay-2">
-            <div className="fit-stat-chips">
-              <span className="fit-stat-chip">
-                <span className="fit-stat-val">97%</span>
-                <span className="fit-stat-lbl">Accuracy</span>
-              </span>
-              <span className="fit-stat-chip">
-                <span className="fit-stat-val">8</span>
-                <span className="fit-stat-lbl">Points</span>
-              </span>
-              <span className="fit-stat-chip">
-                <span className="fit-stat-val">3D</span>
-                <span className="fit-stat-lbl">Model</span>
-              </span>
-            </div>
+            {onShowHowVideo && (
+              <button
+                type="button"
+                className="rex-btn rex-btn-primary rex-how-it-works-btn fit-how-cta"
+                onClick={() => onShowHowVideo()}
+                aria-label="Watch how it works"
+              >
+                How it works
+              </button>
+            )}
           </div>
 
         {/* ── RIGHT: AI Analysis Complete card + How it works below ── */}
@@ -91,18 +119,8 @@ export default function SceneMannequin({ isActive, onShowHowVideo }) {
             <span className="rex-vc rex-vc-bl" aria-hidden="true" />
             <span className="rex-vc rex-vc-br" aria-hidden="true" />
 
-            <div className="fit-card-header">
-              <span className="fit-card-header-label">
-                <span aria-hidden="true">&#9671;</span> AI Analysis Complete
-              </span>
-              <span className="fit-card-accuracy">
-                97% <span className="fit-card-accuracy-sub">Scan Accuracy</span>
-              </span>
-            </div>
-
             <div className="fit-card-body">
               <div className="fit-body-inner">
-                <p className="fit-col-head">3D Mannequin</p>
                 <div className="fit-figure-wrap">
                   <img
                     src="/doll.png"
@@ -115,19 +133,67 @@ export default function SceneMannequin({ isActive, onShowHowVideo }) {
               <div className="fit-card-divider" aria-hidden="true" />
 
               <div className="fit-measure-inner">
-                <p className="fit-col-head">Body Measurements</p>
-                <div className="fit-measure-list">
-                  {MEASUREMENTS.map((m) => (
-                    <div key={m.label} className={`fit-measure-row fit-zone-${m.zone}`}>
-                      <span className="fit-measure-dot" aria-hidden="true" />
-                      <span className="fit-measure-label">{m.label}</span>
-                      <span className="fit-measure-val">
-                        {m.value}<span className="fit-measure-unit"> {m.unit}</span>
-                      </span>
-                    </div>
-                  ))}
+                <div className="fit-measure-head-row">
+                  <p className="fit-col-head">Body Measurements</p>
+                  <div className="fit-measure-unit-dropdown" ref={unitDropdownRef}>
+                    <button
+                      type="button"
+                      className="fit-measure-unit-trigger"
+                      onClick={() => setUnitDropdownOpen((o) => !o)}
+                      aria-haspopup="listbox"
+                      aria-expanded={unitDropdownOpen}
+                      aria-label="Unit system"
+                    >
+                      <span>{currentUnitLabel}</span>
+                      <span className="fit-measure-unit-chevron" aria-hidden="true">▼</span>
+                    </button>
+                    {unitDropdownOpen && (
+                      <ul
+                        className="fit-measure-unit-menu"
+                        role="listbox"
+                        aria-label="Unit system"
+                      >
+                        {UNIT_OPTIONS.map((opt) => (
+                          <li
+                            key={opt.value}
+                            role="option"
+                            aria-selected={unitSystem === opt.value}
+                            className={`fit-measure-unit-option${unitSystem === opt.value ? ' selected' : ''}`}
+                            onClick={() => {
+                              setUnitSystem(opt.value);
+                              setUnitDropdownOpen(false);
+                            }}
+                          >
+                            {opt.label}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </div>
-                <p className="fit-measure-ai-tag">&#9671; AI Extracted · 8 Points</p>
+                <div className="fit-measure-list">
+                  {MEASUREMENTS.map((m) => {
+                    const numVal = Number(m.value);
+                    const pct = Math.min(100, Math.round((numVal / (m.max || 100)) * 100));
+                    return (
+                      <div key={m.label} className={`fit-measure-row fit-zone-${m.zone}`}>
+                        <span className="fit-measure-dot" aria-hidden="true" />
+                        <span className="fit-measure-label">{m.label}</span>
+                        <div className="fit-measure-bar" role="presentation" aria-hidden="true">
+                          <div className="fit-measure-bar-fill" style={{ width: `${pct}%` }} />
+                        </div>
+                        <span className="fit-measure-val">
+                          {unitSystem === 'metric'
+                            ? `${m.value}`
+                            : cmToFtIn(m.value)}
+                          <span className="fit-measure-unit">
+                            {unitSystem === 'metric' ? ' cm' : ''}
+                          </span>
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -146,16 +212,6 @@ export default function SceneMannequin({ isActive, onShowHowVideo }) {
                 </div>
               ))}
             </div>
-            {onShowHowVideo && (
-              <button
-                type="button"
-                className="rex-btn rex-btn-primary fit-how-cta"
-                onClick={() => onShowHowVideo()}
-                aria-label="Watch how it works"
-              >
-                How it works
-              </button>
-            )}
           </div>
         </div>
 

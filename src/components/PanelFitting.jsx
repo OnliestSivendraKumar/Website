@@ -139,6 +139,8 @@ export default function PanelFitting({ isActive, onTabChange }) {
           />
           <SceneWrapStyles
             isActive={currentSlide === 1}
+            onGotoTab={onTabChange}
+            onGoToSlide={() => goTo(0)}
           />
         </div>
       </main>
