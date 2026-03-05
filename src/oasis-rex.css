@@ -1074,7 +1074,7 @@ html { font-size: 18px; }
     color: #fff;
     font-size: 0.8125rem;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.35;
     white-space: pre-line;
     text-transform: none;
     width: max-content;
@@ -1095,8 +1095,9 @@ html { font-size: 18px; }
 }
 .rex-s2-legend-green  { color: #66BB6A; }
 .rex-s2-legend-yellow { color: #FFC107; }
-.rex-s2-legend-orange { color: #FF9800; }
-.rex-s2-legend-red    { color: #F44336; }
+.rex-s2-legend-orange  { color: #FF9800; }
+.rex-s2-legend-moderate { color: #FF5722; }
+.rex-s2-legend-red     { color: #F44336; }
 .rex-s2-score-vertical-track {
     width: 28px;
     min-width: 28px;
@@ -1130,7 +1131,7 @@ html { font-size: 18px; }
 .rex-s2-score-segment + .rex-s2-score-segment {
     border-top: none;
 }
-/* Segmented progress bar: EXCELLENT → GREAT → GOOD → FAIR (top to bottom) */
+/* Segmented progress bar: EXCELLENT → GREAT → GOOD → MODERATE → FAIR (top to bottom) */
 .rex-s2-seg-green {
     background-color: #66BB6A;
     background-image: linear-gradient(180deg, #7ED957 0%, #66BB6A 50%, #8BC34A 100%);
@@ -1142,6 +1143,10 @@ html { font-size: 18px; }
 .rex-s2-seg-orange {
     background-color: #FF9800;
     background-image: linear-gradient(180deg, #FFEB3B 0%, #FFC107 30%, #FF9800 70%, #FF5722 100%);
+}
+.rex-s2-seg-moderate {
+    background-color: #FF5722;
+    background-image: linear-gradient(180deg, #FF5722 0%, #FF9800 30%, #F4511E 70%, #E64A19 100%);
 }
 .rex-s2-seg-red {
     background-color: #F44336;
@@ -2599,9 +2604,10 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
 }
 .rex-resolution-top {
     display: flex; flex-direction: column;
-    align-items: flex-start; gap: 0.85rem;
-    text-align: left;
-    padding-left: 2.25rem;
+    align-items: center; gap: 0.85rem;
+    text-align: center;
+    padding-left: 150px;
+    padding-right: 0;
 }
 
 /* ─── 3D Coverflow Carousel ─────────────────────────── */
@@ -3418,7 +3424,7 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
     width: 100%;
     height: 100%;
     max-width: none;
-    max-height: 300px;
+    max-height: 310px;
     object-fit: contain;
     object-position: center center;
     display: block;

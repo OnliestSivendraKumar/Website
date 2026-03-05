@@ -154,7 +154,7 @@ export default function SceneAIReadsYou({
     window.addEventListener('touchend', onUp);
   }
 
-  const scoreBadge = fittingScore >= 75 ? "Excellent — you're here" : fittingScore >= 50 ? "Great" : fittingScore >= 25 ? "Good" : "Fair";
+  const scoreBadge = fittingScore >= 90 ? "Perfect" : fittingScore >= 75 ? "Excellent — you're here" : fittingScore >= 60 ? "Great" : fittingScore >= 40 ? "Moderate" : "Fair";
 
   /* S2 carousel — 5 slides */
   const S2_TOTAL = 5;
@@ -388,10 +388,11 @@ export default function SceneAIReadsYou({
                       role="presentation"
                     >
                       <div className="rex-s2-score-track-inner">
-                        <div className={`rex-s2-score-segment rex-s2-seg-green${fittingScore >= 75 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
-                        <div className={`rex-s2-score-segment rex-s2-seg-yellow${fittingScore >= 50 && fittingScore < 75 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
-                        <div className={`rex-s2-score-segment rex-s2-seg-orange${fittingScore >= 25 && fittingScore < 50 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
-                        <div className={`rex-s2-score-segment rex-s2-seg-red${fittingScore < 25 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                        <div className={`rex-s2-score-segment rex-s2-seg-green${fittingScore >= 90 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                        <div className={`rex-s2-score-segment rex-s2-seg-yellow${fittingScore >= 75 && fittingScore < 90 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                        <div className={`rex-s2-score-segment rex-s2-seg-orange${fittingScore >= 60 && fittingScore < 75 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                        <div className={`rex-s2-score-segment rex-s2-seg-moderate${fittingScore >= 40 && fittingScore < 60 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
+                        <div className={`rex-s2-score-segment rex-s2-seg-red${fittingScore < 40 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
                       </div>
                       <div
                         className="rex-s2-score-marker rex-s2-score-marker-tooltip"
@@ -413,9 +414,13 @@ export default function SceneAIReadsYou({
                         <span className="rex-s2-legend-label">GOOD</span>
                         <span className="rex-s2-legend-range">(60–74)</span>
                       </span>
-                      <span className="rex-s2-score-legend rex-s2-legend-red" data-tooltip={'Moderate (Some alignment with your preferences).\n\nLow (Limited compatibility with your style profile).'}>
+                      <span className="rex-s2-score-legend rex-s2-legend-moderate" data-tooltip={'Moderate (Some alignment with your preferences).'}>
+                        <span className="rex-s2-legend-label">MODERATE</span>
+                        <span className="rex-s2-legend-range">(40–59)</span>
+                      </span>
+                      <span className="rex-s2-score-legend rex-s2-legend-red" data-tooltip={'Low (Limited compatibility with your style profile).'}>
                         <span className="rex-s2-legend-label">FAIR</span>
-                        <span className="rex-s2-legend-range">(0–59)</span>
+                        <span className="rex-s2-legend-range">(0–39)</span>
                       </span>
                     </div>
                   </div>
