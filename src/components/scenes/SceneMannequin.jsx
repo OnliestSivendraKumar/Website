@@ -12,7 +12,7 @@ const MEASUREMENTS = [
 
 /* Short, punchy steps — how the Fitting Room flow works (Slide 1: Mannequin) */
 const BODY_SCANNER_STEPS = [
-  { step: '1', title: 'Upload', line: 'Camera or image → AI builds your 3D double' },
+  { step: '1', title: 'Upload', line: 'Capture with camera or upload photos/videos — AI generates your 3D double' },
   { step: '2', title: 'Dress', line: 'Saree & blouse on a real woman. No guesswork.' },
   { step: '3', title: 'Measure', line: 'Body + measurements in two columns. Done.' },
 ];
@@ -83,7 +83,7 @@ export default function SceneMannequin({ isActive, onShowHowVideo }) {
             </div>
           </div>
 
-        {/* ── RIGHT: output card + feature highlights ── */}
+        {/* ── RIGHT: AI Analysis Complete card + How it works below ── */}
         <div className="fit-right-col rex-delay-1">
           <div className="fit-output-card">
             <span className="rex-vc rex-vc-tl" aria-hidden="true" />
@@ -132,8 +132,9 @@ export default function SceneMannequin({ isActive, onShowHowVideo }) {
             </div>
           </div>
 
-          <div className="fit-features-panel">
-            <p className="fit-features-head">How it works</p>
+          {/* How it works — below AI Analysis Complete */}
+          <div className="fit-features-panel fit-how-below-card">
+            <p className="fit-features-head">Steps</p>
             <div className="fit-features-steps" role="list" aria-label="Body scanner steps">
               {BODY_SCANNER_STEPS.map((s, i) => (
                 <div key={i} className="fit-step-chip" role="listitem">

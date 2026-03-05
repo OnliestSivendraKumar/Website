@@ -16,6 +16,24 @@ const WRAP_STYLES = [
 
 const WRAP_CAROUSEL_DELAY = 7000;
 
+/* Left-column copy per carousel slide: Fitting (0) and Wrap Styles (1) */
+const CAROUSEL_COPY = [
+  {
+    over: 'Fitting Room',
+    headline: 'See your fit.',
+    headlineEm: 'Live.',
+    sub: 'Your mannequin and measurements in one place. Try different looks and drape styles when you switch to Wrap Styles.',
+    hint: 'Use the dots below to switch between Fitting and Wrap Styles.',
+  },
+  {
+    over: 'Wrap Styles',
+    headline: 'One saree.',
+    headlineEm: 'Many ways to wear.',
+    sub: 'The video shows your mannequin in a saree. Select a drape style below — the mannequin updates to that way of wearing so you can see how it looks before you choose.',
+    hint: 'Select a style to see it on the mannequin.',
+  },
+];
+
 export default function SceneWrapStyles({ isActive }) {
   const [activeStyle, setActiveStyle] = useState('nivi');
   const [wrapIdx, setWrapIdx] = useState(0);
@@ -60,21 +78,44 @@ export default function SceneWrapStyles({ isActive }) {
 
       <div className="fit-room-layout rex-reveal">
 
-        {/* Left: copy */}
+        {/* Left: copy — updates with carousel slide, fade effect; Drape style in content when Wrap Styles */}
         <div className="fit-preview-col rex-delay-0">
-          <div className="fit-preview-info">
-            <p className="rex-over">Wrap Styles</p>
-            <h2 className="rex-scene-h">
-              One saree.<br /><em>Many ways to wear.</em>
-            </h2>
-            <p className="rex-scene-sub">
-              The video shows your mannequin in a saree. Select a drape style
-              below — the mannequin updates to that way of wearing so you can
-              see how it looks before you choose.
-            </p>
-            <p className="fit-wrap-hint rex-delay-1">
-              Select a style to see it on the mannequin.
-            </p>
+          <div className="fit-preview-info fit-preview-info-fade">
+            <div key={wrapIdx} className="fit-preview-copy-block">
+              <p className="rex-over">{CAROUSEL_COPY[wrapIdx].over}</p>
+              <h2 className="rex-scene-h">
+                {CAROUSEL_COPY[wrapIdx].headline}<br /><em>{CAROUSEL_COPY[wrapIdx].headlineEm}</em>
+              </h2>
+              <p className="rex-scene-sub">
+                {CAROUSEL_COPY[wrapIdx].sub}
+              </p>
+              <p className="fit-wrap-hint rex-delay-1">
+                {CAROUSEL_COPY[wrapIdx].hint}
+              </p>
+              {/* Drape style — only in left content when Wrap Styles slide (2nd screen) */}
+              {wrapIdx === 1 && (
+                <div className="fit-wrap-section fit-wrap-section-enter">
+                  <p className="fit-custom-label">Drape style</p>
+                  <div
+                    className="fit-style-chips"
+                    role="group"
+                    aria-label="Wrap style options"
+                  >
+                    {WRAP_STYLES.map(s => (
+                      <button
+                        key={s.id}
+                        type="button"
+                        className={`fit-style-chip${activeStyle === s.id ? ' active' : ''}`}
+                        aria-pressed={activeStyle === s.id}
+                        onClick={() => setActiveStyle(s.id)}
+                      >
+                        {s.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -136,26 +177,6 @@ export default function SceneWrapStyles({ isActive }) {
                 ))}
               </div>
             )}
-          </div>
-
-          <div className="fit-wrap-section">
-            <p className="fit-custom-label">Drape style</p>
-            <div
-              className="fit-style-chips"
-              role="group"
-              aria-label="Wrap style options"
-            >
-              {WRAP_STYLES.map(s => (
-                <button
-                  key={s.id}
-                  className={`fit-style-chip${activeStyle === s.id ? ' active' : ''}`}
-                  aria-pressed={activeStyle === s.id}
-                  onClick={() => setActiveStyle(s.id)}
-                >
-                  {s.label}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       </div>
