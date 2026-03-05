@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import SceneMannequin  from './scenes/SceneMannequin';
 import SceneWrapStyles from './scenes/SceneWrapStyles';
 
@@ -13,6 +14,30 @@ export default function PanelFitting({ isActive, onTabChange }) {
   const pausedRef   = useRef(false);
   const timerRef    = useRef(null);
   const autobarRef  = useRef(null);
+
+  /* How it works — video modal (same as OASIS REX tab) */
+  const [showHowVideo, setShowHowVideo] = useState(false);
+  const howVideoRef = useRef(null);
+
+  useEffect(() => {
+    const el = howVideoRef.current;
+    if (!el) return;
+    if (showHowVideo) {
+      el.play().catch(() => {});
+    } else {
+      el.pause();
+      el.currentTime = 0;
+    }
+  }, [showHowVideo]);
+
+  useEffect(() => {
+    if (!showHowVideo) return;
+    function onKey(e) {
+      if (e.key === 'Escape') setShowHowVideo(false);
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [showHowVideo]);
 
   function restartAutobar() {
     const el = autobarRef.current;
@@ -94,18 +119,6 @@ export default function PanelFitting({ isActive, onTabChange }) {
         </button>
       )}
 
-      {/* Slide indicator dots */}
-      <div className="fit-dots" aria-hidden="true">
-        {Array.from({ length: TOTAL }).map((_, i) => (
-          <button
-            key={i}
-            className={`fit-dot${currentSlide === i ? ' active' : ''}`}
-            onClick={() => goTo(i)}
-            aria-label={SLIDE_LABELS[i]}
-          />
-        ))}
-      </div>
-
       {/* Auto-advance bar */}
       <div className="rex-autobar fit-autobar" aria-hidden="true">
         <div className="rex-autobar-fill fit-autobar-fill" ref={autobarRef} />
@@ -122,12 +135,47 @@ export default function PanelFitting({ isActive, onTabChange }) {
         >
           <SceneMannequin
             isActive={currentSlide === 0}
+            onShowHowVideo={() => setShowHowVideo(true)}
           />
           <SceneWrapStyles
             isActive={currentSlide === 1}
           />
         </div>
       </main>
+
+      {/* How it works — video modal (same as OASIS REX) */}
+      {showHowVideo && createPortal(
+        <div
+          className="rex-how-modal-backdrop"
+          onClick={() => setShowHowVideo(false)}
+          aria-hidden="false"
+        >
+          <div
+            className="rex-how-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="How it works video"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="rex-how-modal-close"
+              onClick={() => setShowHowVideo(false)}
+              aria-label="Close video"
+            />
+            <video
+              ref={howVideoRef}
+              className="rex-how-modal-video"
+              src="/slide1-live-movements.mp4"
+              controls
+              playsInline
+              aria-label="How OASIS REX works"
+            />
+            <p className="rex-how-modal-caption">How OASIS REX understands you</p>
+          </div>
+        </div>,
+        document.body
+      )}
     </div>
   );
 }
