@@ -894,11 +894,12 @@ html { font-size: 18px; }
     font-weight: 400;
 }
 .rex-s2-score-card-hint {
-    margin: 0.5rem 0 0;
-    font-size: 0.88rem;
+    margin: 0;
+    font-size: 18px;
     color: rgba(255,255,255,0.7);
     letter-spacing: 0.04em;
     line-height: 1.4;
+    text-align: left;
 }
 .rex-s2-score-card-row {
     display: grid;
@@ -913,10 +914,10 @@ html { font-size: 18px; }
     grid-column: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
+    justify-content: flex-start;
+    gap: 2rem;
     min-width: 0;
-    padding-right: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
 }
 .rex-s2-score-center {
     display: flex;
@@ -925,12 +926,19 @@ html { font-size: 18px; }
     justify-content: center;
     text-align: center;
     min-width: 0;
+    gap: 1.25rem;
 }
 .rex-s2-score-center .rex-s2-score-card-number {
     justify-content: center;
+    align-self: center;
 }
 .rex-s2-score-center .rex-s2-score-card-indication {
     text-align: center;
+    align-self: center;
+}
+.rex-s2-score-center .rex-s2-score-card-hint {
+    text-align: center;
+    align-self: center;
 }
 .rex-s2-score-card-footer {
     width: 100%;
@@ -965,16 +973,18 @@ html { font-size: 18px; }
     color: rgba(198,167,94,0.85);
 }
 .rex-s2-score-card-indication {
-    margin: 0.4rem 0 0.5rem 0;
+    margin: 0;
 }
 .rex-s2-score-badge {
     display: inline-block;
-    padding: 0.32rem 0.85rem;
+    padding: calc(0.32rem + 2px) calc(0.85rem + 2px);
     border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
     background: rgba(198,167,94,0.08);
     color: rgba(198,167,94,0.95);
     border: 1px solid rgba(198,167,94,0.32);
@@ -1002,7 +1012,7 @@ html { font-size: 18px; }
     justify-content: flex-start;
     gap: 0.7rem;
     flex-shrink: 0;
-    min-height: 280px;
+    min-height: 364px;
     width: 120px;
 }
 .rex-s2-score-interactive .rex-s2-score-vertical-track {
@@ -1045,6 +1055,44 @@ html { font-size: 18px; }
     padding: 0.25rem 0;
     line-height: 1.2;
 }
+.rex-s2-score-legend {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    position: relative;
+    cursor: help;
+}
+.rex-s2-score-legend[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 0.5rem);
+    padding: 0.5rem 0.85rem;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    white-space: pre-line;
+    text-transform: none;
+    width: max-content;
+    max-width: 780px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 100;
+    pointer-events: none;
+}
+.rex-s2-legend-label {
+    display: block;
+}
+.rex-s2-legend-range {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+}
 .rex-s2-legend-green  { color: #66BB6A; }
 .rex-s2-legend-yellow { color: #FFC107; }
 .rex-s2-legend-orange { color: #FF9800; }
@@ -1053,8 +1101,8 @@ html { font-size: 18px; }
     width: 28px;
     min-width: 28px;
     flex: 0 0 28px;
-    min-height: 280px;
-    height: 280px;
+    min-height: 364px;
+    height: 364px;
     border-radius: 14px;
     overflow: visible;
     position: relative;
@@ -1130,6 +1178,31 @@ html { font-size: 18px; }
 .rex-s2-score-marker::before {
     display: none;
 }
+.rex-s2-score-marker-tooltip[data-tooltip] {
+    cursor: help;
+}
+.rex-s2-score-marker-tooltip[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 0.5rem);
+    padding: 0.5rem 0.85rem;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    white-space: normal;
+    text-transform: none;
+    width: max-content;
+    max-width: 740px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 100;
+    pointer-events: none;
+}
 .rex-s2-score-card.visible .rex-s2-score-marker {
     opacity: 1;
     box-shadow:
@@ -1164,12 +1237,12 @@ html { font-size: 18px; }
         object-position: center 25%;
     }
     .rex-s2-score-vertical-wrap {
-        min-height: 220px;
+        min-height: 286px;
         width: 100px;
     }
     .rex-s2-score-vertical-track {
-        min-height: 200px;
-        height: 200px;
+        min-height: 260px;
+        height: 260px;
         width: 26px;
         min-width: 26px;
         flex: 0 0 26px;

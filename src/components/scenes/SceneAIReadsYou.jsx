@@ -341,7 +341,7 @@ export default function SceneAIReadsYou({
             <section
               className={`rex-glass rex-s2-card rex-s2-score-card${s2Idx === 4 ? ' visible' : ''}`}
               aria-labelledby="rex-fitting-score-title"
-              aria-describedby="rex-fitting-score-desc rex-fitting-score-next"
+              aria-describedby="rex-fitting-score-desc"
             >
               <h2 id="rex-fitting-score-title" className="rex-s2-score-card-over">
                 Your Fitting Score
@@ -355,10 +355,10 @@ export default function SceneAIReadsYou({
                       <span className="rex-s2-score-card-pct" aria-hidden="true">%</span>
                     </p>
                     <p className="rex-s2-score-card-indication">
-                      <span className="rex-s2-score-badge">{scoreBadge}</span>
+                      <span className="rex-s2-score-badge">Personal Style Match</span>
                     </p>
                     <p className="rex-s2-score-card-hint">
-                      Higher on the bar = better we matched you.
+                      Score represents how harmoniously a design matches your unique style identity.
                     </p>
                   </div>
                   <div
@@ -394,17 +394,29 @@ export default function SceneAIReadsYou({
                         <div className={`rex-s2-score-segment rex-s2-seg-red${fittingScore < 25 ? ' rex-s2-seg-current' : ''}`} aria-hidden="true" />
                       </div>
                       <div
-                        className="rex-s2-score-marker"
+                        className="rex-s2-score-marker rex-s2-score-marker-tooltip"
                         aria-hidden="true"
-                        title={`${fittingScore}% — ${scoreBadge}`}
+                        data-tooltip={`${fittingScore}% — ${scoreBadge}`}
                         style={{ bottom: `${fittingScore}%` }}
                       />
                     </div>
                     <div className="rex-s2-score-vertical-legends" aria-hidden="true">
-                      <span className="rex-s2-score-legend rex-s2-legend-green">EXCELLENT</span>
-                      <span className="rex-s2-score-legend rex-s2-legend-yellow">GREAT</span>
-                      <span className="rex-s2-score-legend rex-s2-legend-orange">GOOD</span>
-                      <span className="rex-s2-score-legend rex-s2-legend-red">FAIR</span>
+                      <span className="rex-s2-score-legend rex-s2-legend-green" data-tooltip={'Perfect (Design strongly aligns with your preferences,\nbody profile, and style identity)'}>
+                        <span className="rex-s2-legend-label">EXCELLENT</span>
+                        <span className="rex-s2-legend-range">(90–100)</span>
+                      </span>
+                      <span className="rex-s2-score-legend rex-s2-legend-yellow" data-tooltip={'Excellent (Highly compatible design\nwith strong aesthetic harmony)'}>
+                        <span className="rex-s2-legend-label">GREAT</span>
+                        <span className="rex-s2-legend-range">(75–89)</span>
+                      </span>
+                      <span className="rex-s2-score-legend rex-s2-legend-orange" data-tooltip={'Good (A well-suited design\nwith minor style deviations)'}>
+                        <span className="rex-s2-legend-label">GOOD</span>
+                        <span className="rex-s2-legend-range">(60–74)</span>
+                      </span>
+                      <span className="rex-s2-score-legend rex-s2-legend-red" data-tooltip={'Moderate (Some alignment with your preferences).\n\nLow (Limited compatibility with your style profile).'}>
+                        <span className="rex-s2-legend-label">FAIR</span>
+                        <span className="rex-s2-legend-range">(0–59)</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -417,9 +429,6 @@ export default function SceneAIReadsYou({
                   />
                 </figure>
               </div>
-              <p id="rex-fitting-score-next" className="rex-s2-score-card-footer">
-                Your look is ready — Design Studio & Fitting Room await.
-              </p>
             </section>
 
           </div>{/* /rex-s2-track */}
