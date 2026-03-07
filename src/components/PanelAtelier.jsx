@@ -7,7 +7,7 @@ import { INTRO_FEATURES, ATELIER_FEATURES } from './scenes/atelierConstants';
 const TOTAL_SLIDES = 1; /* 2nd slide hidden for now — set to 2 to show Watch Demo slide */
 const INTRO_DEFAULT_IMAGE = '/at-1.png';
 const SLIDE_DELAY = 7000;
-const FEATURE_ORDER = ['video', 'chat', 'screenshare', 'whiteboard', 'participants', 'layout'];
+const FEATURE_ORDER = ['chat', 'screenshare', 'whiteboard'];
 const AUTO_ADVANCE_MS = 6000;
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
@@ -196,9 +196,15 @@ export default function PanelAtelier({ isActive }) {
           <SceneAtelierIntro
             isActive={isActive && currentSlide === 0}
             selectedIntroId={introBgId}
-            onSelectIntroFeature={setIntroBgId}
+            onSelectIntroFeature={(id) => {
+              setIntroBgId(id);
+              setSelectedFeatureId(null);
+            }}
             selectedId={selectedFeatureId}
-            onSelectFeature={setSelectedFeatureId}
+            onSelectFeature={(id) => {
+              setIntroBgId(null);
+              setSelectedFeatureId(id ?? null);
+            }}
             onShowHowVideo={() => setShowHowVideo(true)}
             onWatchDemo={() => setShowWatchDemo(true)}
           />

@@ -324,7 +324,7 @@ html, body { min-height: 100%; }
     font-family: inherit;
     font-size: 1.1rem;
     line-height: 1.5;
-    color: var(--gold-muted);
+    color: #fff;
     margin: 0;
 }
 .atelier-intro-btn {
@@ -398,6 +398,18 @@ html, body { min-height: 100%; }
     background: rgba(198,167,94,0.2);
     color: var(--gold-muted);
     border-color: var(--gold-muted);
+}
+.atelier-intro-tabs-arrow.disabled,
+.atelier-intro-tabs-arrow:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.atelier-intro-tabs-arrow.disabled:hover,
+.atelier-intro-tabs-arrow:disabled:hover {
+    background: rgba(255,255,255,0.08);
+    color: var(--gold-muted);
+    border-color: var(--gold-border);
 }
 .atelier-intro-tabs-scroll {
     flex: 1 1 0;
@@ -4954,13 +4966,13 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
     flex-direction: column;
     flex: 1;
     justify-content: flex-start;
-    gap: 0.2rem;
+    gap: 0.25rem;
     width: 100%;
     min-width: 0;
 }
 .fit-measure-row {
     display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.24rem 0.2rem;
+    padding: 0.2rem 0.2rem;
     border-bottom: 1px solid rgba(255,255,255,0.04);
     transition: background 0.25s var(--ease);
     width: 100%;
@@ -4992,6 +5004,7 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
     background: rgba(255,255,255,0.08);
     overflow: hidden;
     align-self: center;
+    visibility: hidden;
 }
 .fit-measure-bar-fill {
     height: 100%;

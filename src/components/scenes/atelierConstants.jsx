@@ -1,20 +1,18 @@
 /* Shared OASIS Atelier constants */
 
-/* Intro slide: 4 feature cards — each maps to a hero image */
+/* Intro slide: 4 feature cards — each maps to hero image at-1 … at-4 */
 export const INTRO_FEATURES = [
   { id: 'expert', title: 'Live Expert Guidance', description: 'Navigate with a pro.', icon: 'expert', image: '/at-1.png' },
   { id: 'cobrowse', title: 'Secure Co-Browsing', description: 'Share your screen safely.', icon: 'screenshare', image: '/at-2.png' },
-  { id: 'video-support', title: 'Video Support', description: 'Talk to a designer live.', icon: 'video', image: '/a-2.png' },
-  { id: 'learn', title: 'Learn Faster', description: 'Master tools quickly.', icon: 'learn', image: '/a-5.png' },
+  { id: 'video-support', title: 'Video Support', description: 'Talk to a designer live.', icon: 'video', image: '/at-3.png' },
+  { id: 'learn', title: 'Learn Faster', description: 'Master tools quickly.', icon: 'learn', image: '/at-4.png' },
 ];
 
+/* Core features: hero images at-5 … at-10 (Live Video Call tab removed) */
 export const ATELIER_FEATURES = [
-  { id: 'video', title: 'Live Video Call', description: 'HD video with your design team.', icon: 'video', image: '/a-1.png' },
-  { id: 'chat', title: 'Chat Interface', description: 'Share files and notes in real-time.', icon: 'chat', image: '/a-3.png' },
-  { id: 'screenshare', title: 'Liveshare', description: 'Share your design studio canvas.', icon: 'screenshare', image: '/a-4.png' },
-  { id: 'whiteboard', title: 'Whiteboard', description: 'Sketch and annotate together.', icon: 'pen', image: '/a-4.png', video: '/whiteboard.mp4' },
-  { id: 'participants', title: 'Participants & Permissions', description: 'Add, invite, and manage access.', icon: 'people', image: '/a-5.png' },
-  { id: 'layout', title: 'Layout Management', description: 'Split, speaker, or gallery view.', icon: 'grid', image: '/a-6.png' },
+  { id: 'chat', title: 'In-Meeting Chat', description: 'Share files and notes in real-time.', icon: 'chat', image: '/at-5.png' },
+  { id: 'screenshare', title: 'Liveshare', description: 'Share your design studio canvas.', icon: 'screenshare', image: '/at-6.png' },
+  { id: 'whiteboard', title: 'Whiteboard', description: 'Sketch and annotate together.', icon: 'pen', image: '/at-7.png' },
 ];
 
 export function FeatureIcon({ name }) {

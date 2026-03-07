@@ -26,15 +26,55 @@ function SecurityIcon({ name }) {
   return null;
 }
 
+function useScrollArrows(scrollRef, isActive) {
+  /* Default both true so arrows are enabled until we measure (avoids both disabled before layout) */
+  const [arrows, setArrows] = useState({ left: true, right: true });
+
+  const update = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    const atStart = scrollLeft <= 1;
+    const atEnd = scrollWidth <= clientWidth || scrollLeft + clientWidth >= scrollWidth - 1;
+    setArrows((prev) => {
+      const next = { left: !atStart, right: !atEnd };
+      if (prev.left === next.left && prev.right === next.right) return prev;
+      return next;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!isActive) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    update();
+    /* Re-measure after layout in case scrollWidth wasn't ready on first paint */
+    const raf = requestAnimationFrame(() => update());
+    el.addEventListener('scroll', update);
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener('scroll', update);
+      ro.disconnect();
+    };
+  }, [isActive, update]);
+
+  return arrows;
+}
+
 export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDemo, selectedIntroId = null, onSelectIntroFeature, selectedId = null, onSelectFeature }) {
   const tabsScrollRef = useRef(null);
   const [tooltip, setTooltip] = useState(null);
+  const { left: canScrollLeft, right: canScrollRight } = useScrollArrows(tabsScrollRef, isActive);
 
   const scrollTabs = useCallback((direction) => {
     const el = tabsScrollRef.current;
     if (!el) return;
+    if (direction === 'left' && !canScrollLeft) return;
+    if (direction === 'right' && !canScrollRight) return;
     el.scrollBy({ left: direction === 'left' ? -SCROLL_STEP : SCROLL_STEP, behavior: 'smooth' });
-  }, []);
+  }, [canScrollLeft, canScrollRight]);
 
   useEffect(() => {
     if (!tooltip) return;
@@ -85,8 +125,10 @@ export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDem
           )}
           <button
             type="button"
-            className="atelier-intro-tabs-arrow atelier-intro-tabs-arrow--left"
+            className={`atelier-intro-tabs-arrow atelier-intro-tabs-arrow--left${!canScrollLeft ? ' disabled' : ''}`}
             aria-label="Scroll tabs left"
+            aria-disabled={!canScrollLeft}
+            disabled={!canScrollLeft}
             onClick={() => scrollTabs('left')}
           >
             ‹
@@ -123,8 +165,10 @@ export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDem
           </div>
           <button
             type="button"
-            className="atelier-intro-tabs-arrow atelier-intro-tabs-arrow--right"
+            className={`atelier-intro-tabs-arrow atelier-intro-tabs-arrow--right${!canScrollRight ? ' disabled' : ''}`}
             aria-label="Scroll tabs right"
+            aria-disabled={!canScrollRight}
+            disabled={!canScrollRight}
             onClick={() => scrollTabs('right')}
           >
             ›

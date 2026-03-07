@@ -127,11 +127,6 @@ export default function SceneMannequin({ isActive, onShowHowVideo, onShowPrivacy
         {/* ── RIGHT: AI Analysis Complete card + How it works below ── */}
         <div className="fit-right-col rex-delay-1">
           <div className="fit-output-card">
-            <span className="rex-vc rex-vc-tl" aria-hidden="true" />
-            <span className="rex-vc rex-vc-tr" aria-hidden="true" />
-            <span className="rex-vc rex-vc-bl" aria-hidden="true" />
-            <span className="rex-vc rex-vc-br" aria-hidden="true" />
-
             <div className="fit-card-body">
               <div className="fit-body-inner">
                 <div className="fit-figure-wrap">
