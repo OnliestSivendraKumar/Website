@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import NavChrome    from './components/NavChrome';
 import PanelRex     from './components/PanelRex';
 import PanelFitting from './components/PanelFitting';
+import PanelAtelier from './components/PanelAtelier';
 import EmptyPanel   from './components/EmptyPanel';
 import useConstellationParticles from './hooks/useConstellationParticles';
-import './oasis-rex.css';
 
 export default function App() {
   /* ── Theme ── */
@@ -85,13 +85,7 @@ export default function App() {
           onTabChange={setActiveTab}
         />
 
-        <EmptyPanel
-          id="panel-atelier"
-          tabId="atelier"
-          isActive={activeTab === 'atelier'}
-          title="OASIS Atelier"
-          sub={<>Live collaboration.<br />Stylists, family, co-creation — in a private virtual studio.</>}
-        />
+        <PanelAtelier isActive={activeTab === 'atelier'} />
 
         <EmptyPanel
           id="panel-halo"

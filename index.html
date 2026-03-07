@@ -9,9 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body class="rex-body" style="background:#0B0B0F;color:#F4F4F4;margin:0;">
-  <div id="root" style="min-height:100vh;position:relative;">
-    <p id="root-loading" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;color:#C6A75E;font-family:system-ui,sans-serif;">Loading…</p>
+  <div id="root" style="min-height:100vh;width:100%;position:relative;display:block;">
+    <p id="root-loading" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99999;color:#C6A75E;font-family:system-ui,sans-serif;font-size:1.1rem;">Loading OASIS REX…</p>
   </div>
   <script type="module" src="/src/main.jsx"></script>
+  <script>
+    setTimeout(function(){
+      var r=document.getElementById('root');
+      var loading=document.getElementById('root-loading');
+      if(r&&loading&&!r.querySelector('.rex-chrome')){
+        loading.textContent='App failed to load. Check console (F12) for errors.';
+        loading.style.color='#ff6b6b';
+      }
+    },3000);
+  </script>
 </body>
 </html>

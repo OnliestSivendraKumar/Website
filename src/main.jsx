@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './oasis-rex.css';
 import App from './App';
 import ErrorBoundary from './ErrorBoundary';
 
