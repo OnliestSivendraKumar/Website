@@ -202,7 +202,7 @@ export default function SceneAIReadsYou({
 
       <div className="rex-scene-layout rex-layout-split rex-reveal">
 
-        {/* ── Left: editorial copy (slide 1 OASIS REX tab) ── */}
+        {/* ── Left: editorial copy (slide 1 Onliest REX tab) ── */}
         <div className="rex-split-text rex-delay-0">
           <p className="rex-over">{copy.subheadline}</p>
           <h2 className="rex-scene-h">{copy.rex_headline}</h2>
@@ -245,10 +245,10 @@ export default function SceneAIReadsYou({
                 muted
                 loop
                 playsInline
-                aria-label="OASIS REX editorial"
+                aria-label="Onliest REX editorial"
               />
               <div className="rex-s2-video-card-overlay">
-                <p className="rex-blouse-card-label">Welcome to the OASIS REX</p>
+                <p className="rex-blouse-card-label">Welcome to the Onliest REX</p>
                 <p className="rex-blouse-card-sub">Your journey begins</p>
               </div>
             </div>
@@ -333,7 +333,7 @@ export default function SceneAIReadsYou({
                 ))}
               </div>
               <p className="rex-s2-prefs-footer">
-                Your preferences shape your OASIS REX experience.
+                Your preferences shape your Onliest REX experience.
               </p>
             </div>
 

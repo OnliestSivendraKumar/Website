@@ -1,4 +1,4 @@
-/* OASIS Atelier — Layout: Left = CORE FEATURES + branding. Right = image card. */
+/* Onliest Atelier — Layout: Left = CORE FEATURES + branding. Right = image card. */
 import { ATELIER_FEATURES, FeatureIcon } from './atelierConstants';
 
 const FALLBACK_IMAGE = '/a-1.png';
@@ -17,7 +17,7 @@ export default function SceneAtelier({ isActive, selectedFeatureId, onSelectFeat
   const showVideo = featureImage && featureVideo;
 
   return (
-    <section className={`atelier-scene atelier-exact${isActive ? ' active' : ''}`} aria-label="OASIS Atelier">
+    <section className={`atelier-scene atelier-exact${isActive ? ' active' : ''}`} aria-label="Onliest Atelier">
       <div className="atelier-exact-layout">
         {/* Left: headline + tagline first, then CORE FEATURES */}
         <div className="atelier-exact-left">
@@ -59,13 +59,13 @@ export default function SceneAtelier({ isActive, selectedFeatureId, onSelectFeat
                   loop
                   muted
                   playsInline
-                  aria-label={`OASIS Atelier — ${selectedFeature?.title || 'Collaboration'}`}
+                  aria-label={`Onliest Atelier — ${selectedFeature?.title || 'Collaboration'}`}
                   key={`${featureId}-video`}
                 />
               ) : (
                 <img
                   src={featureImage}
-                  alt={`OASIS Atelier — ${selectedFeature?.title || 'Collaboration'}`}
+                  alt={`Onliest Atelier — ${selectedFeature?.title || 'Collaboration'}`}
                   className="atelier-exact-img"
                   key={`${featureId ?? 'default'}-${featureImage}`}
                   onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_IMAGE; }}

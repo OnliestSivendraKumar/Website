@@ -1,4 +1,4 @@
-/* OASIS Atelier — Slide 1: Full layout per design */
+/* Onliest Atelier — Slide 1: Full layout per design */
 import { useRef, useCallback, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { INTRO_FEATURES, ATELIER_FEATURES, FeatureIcon } from './atelierConstants';
@@ -58,12 +58,12 @@ export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDem
   return (
     <section
       className={`atelier-scene atelier-intro${isActive ? ' active' : ''}`}
-      aria-label="OASIS Atelier"
+      aria-label="Onliest Atelier"
     >
       <div className="atelier-intro-inner">
         {/* Title at top with black background */}
         <div className="atelier-intro-header">
-          <h1 className="atelier-intro-title">OASIS Atelier</h1>
+          <h1 className="atelier-intro-title">Onliest Atelier</h1>
           <p className="atelier-intro-tagline">Real-Time Design Collaboration<br />with Experts and Friends</p>
         </div>
 

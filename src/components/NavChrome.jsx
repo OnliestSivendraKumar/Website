@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 
 const TABS = [
-  { id: 'rex',     label: 'OASIS REX'     },
+  { id: 'rex',     label: 'Onliest REX'     },
   { id: 'studio',  label: 'Design Studio' },
   { id: 'fitting', label: 'Fitting Room'  },
-  { id: 'atelier', label: 'OASIS Atelier' },
-  { id: 'halo',    label: 'OASIS HALO'    },
+  { id: 'atelier', label: 'Onliest Atelier' },
+  { id: 'halo',    label: 'Onliest HALO'    },
 ];
 
 const LANGS = [
@@ -51,7 +51,7 @@ export default function NavChrome({
   }, [langOpen]);
 
   return (
-    <nav className="rex-chrome" role="tablist" aria-label="OASIS sections">
+    <nav className="rex-chrome" role="tablist" aria-label="Onliest sections">
 
       {/* Language selector (left) */}
       <div className="rex-lang-wrap" id="rexLangWrap">

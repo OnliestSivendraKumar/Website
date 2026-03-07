@@ -14,7 +14,7 @@ const MEASUREMENTS = [
 /* Short, punchy steps — how the Fitting Room flow works (Slide 1: Mannequin) */
 const BODY_SCANNER_STEPS = [
   { step: '1', title: 'Upload', line: 'Capture with camera or upload photos/videos — AI generates your 3D double' },
-  { step: '2', title: 'Mannequin', line: 'Your personalized 3D mannequin is ready — use it to try looks and get precise fit.' },
+  { step: '2', title: 'Create', line: 'Your personalized 3D mannequin is ready — use it to try looks and get precise fit.' },
   { step: '3', title: 'Design', line: 'Dress your mannequin in saree & blouse with real 3D models. See how it looks and fits before you choose.' },
 ];
 

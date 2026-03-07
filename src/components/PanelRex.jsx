@@ -233,9 +233,9 @@ export default function PanelRex({ isActive, activeLang, onTabChange }) {
               src="slide1-live-movements.mp4"
               controls
               playsInline
-              aria-label="How OASIS REX works"
+              aria-label="How Onliest REX works"
             />
-            <p className="rex-how-modal-caption">How OASIS REX understands you</p>
+            <p className="rex-how-modal-caption">How Onliest REX understands you</p>
           </div>
         </div>,
         document.body

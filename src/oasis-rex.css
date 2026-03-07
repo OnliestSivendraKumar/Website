@@ -3120,7 +3120,7 @@ body[data-theme="light"] .rex-s2-bg-overlay {
     z-index: 5;
     text-align: left;
     display: flex; flex-direction: column;
-    align-items: flex-start; gap: 3rem;
+    align-items: flex-start; gap: 1rem;
 }
 .rex-brand-mark {
     font-size: 2rem; color: var(--gold);
@@ -4706,7 +4706,7 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
     gap: 0.65rem;
     flex-wrap: wrap;
     flex-shrink: 0;
-    margin-top: 5.4rem;
+    margin-top: 7.4rem;
 }
 .fit-upload-btn {
     display: flex; align-items: center; gap: 0.5rem;

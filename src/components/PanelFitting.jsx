@@ -15,7 +15,7 @@ export default function PanelFitting({ isActive, onTabChange }) {
   const timerRef    = useRef(null);
   const autobarRef  = useRef(null);
 
-  /* How it works — video modal (same as OASIS REX tab) */
+  /* How it works — video modal (same as Onliest REX tab) */
   const [showHowVideo, setShowHowVideo] = useState(false);
   const howVideoRef = useRef(null);
 
@@ -158,7 +158,7 @@ export default function PanelFitting({ isActive, onTabChange }) {
         </div>
       </main>
 
-      {/* How it works — video modal (same as OASIS REX) */}
+      {/* How it works — video modal (same as Onliest REX) */}
       {showHowVideo && createPortal(
         <div
           className="rex-how-modal-backdrop"
@@ -184,9 +184,9 @@ export default function PanelFitting({ isActive, onTabChange }) {
               src="/slide1-live-movements.mp4"
               controls
               playsInline
-              aria-label="How OASIS REX works"
+              aria-label="How Onliest REX works"
             />
-            <p className="rex-how-modal-caption">How OASIS REX understands you</p>
+            <p className="rex-how-modal-caption">How Onliest REX understands you</p>
           </div>
         </div>,
         document.body

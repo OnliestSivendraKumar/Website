@@ -213,7 +213,7 @@ export default function PanelAtelier({ isActive }) {
         </div>
       </main>
 
-      {/* How it works — video modal (reused from OASIS REX / Fitting Room) */}
+      {/* How it works — video modal (reused from Onliest REX / Fitting Room) */}
       {showHowVideo && createPortal(
         <div
           className="rex-how-modal-backdrop"
@@ -239,9 +239,9 @@ export default function PanelAtelier({ isActive }) {
               src="/slide1-live-movements.mp4"
               controls
               playsInline
-              aria-label="How OASIS Atelier works"
+              aria-label="How Onliest Atelier works"
             />
-            <p className="rex-how-modal-caption">How OASIS Atelier works</p>
+            <p className="rex-how-modal-caption">How Onliest Atelier works</p>
           </div>
         </div>,
         document.body
@@ -273,9 +273,9 @@ export default function PanelAtelier({ isActive }) {
               src="/slide1-live-movements.mp4"
               controls
               playsInline
-              aria-label="OASIS Atelier demo"
+              aria-label="Onliest Atelier demo"
             />
-            <p className="rex-how-modal-caption">Watch OASIS Atelier demo</p>
+            <p className="rex-how-modal-caption">Watch Onliest Atelier demo</p>
           </div>
         </div>,
         document.body

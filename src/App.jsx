@@ -91,7 +91,7 @@ export default function App() {
           id="panel-halo"
           tabId="halo"
           isActive={activeTab === 'halo'}
-          title="OASIS HALO"
+          title="Onliest HALO"
           sub={<>Your AI saree companion.<br />Ask, discover, and compose through conversation.</>}
         />
       </div>

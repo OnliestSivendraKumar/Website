@@ -199,7 +199,7 @@ export default function SceneWrapStyles({ isActive, onGotoTab, onGoToSlide }) {
                 onClick={() => {
                   if (onGotoTab) onGotoTab('atelier');
                 }}
-                aria-label="Go to OASIS Atelier"
+                aria-label="Go to Onliest Atelier"
               >
                 Next
                 <svg className="rex-btn-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
