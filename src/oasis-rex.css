@@ -298,6 +298,7 @@ html, body { min-height: 100%; }
     text-align: center;
 }
 .atelier-intro-header {
+    display: none;
     width: fit-content;
     max-width: 100%;
     margin: 0;
@@ -541,28 +542,35 @@ html, body { min-height: 100%; }
     color: var(--plat-70);
     line-height: 1.35;
 }
-/* Security footer — match site microcopy */
+/* Security footer — trust strip, visually distinct from tabs (no pill/button look) */
 .atelier-intro-security {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.9rem;
-    padding: 0.5rem 0.85rem;
-    background: rgba(0,0,0,0.85);
-    border-radius: var(--radius);
+    align-items: center;
+    gap: 0 1.25rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 0.25rem;
+    /* no background, no border-radius — reads as caption/trust strip, not tabs */
 }
 .atelier-intro-security-item {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.35rem;
     font-family: inherit;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     line-height: 1.3;
-    color: var(--plat-70);
+    color: rgba(244, 244, 244, 0.62);
+    text-transform: none;
 }
 .atelier-intro-security-item svg {
     flex-shrink: 0;
-    color: var(--gold-dim);
+    width: 14px;
+    height: 14px;
+    color: rgba(255,255,255,0.5);
 }
 .atelier-intro-cta-below {
     display: flex;
