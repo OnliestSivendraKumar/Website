@@ -1,5 +1,14 @@
 /* OASIS Atelier — Slide 1: Full layout per design */
-import { INTRO_FEATURES, FeatureIcon } from './atelierConstants';
+import { useRef, useCallback, useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { INTRO_FEATURES, ATELIER_FEATURES, FeatureIcon } from './atelierConstants';
+
+const SCROLL_STEP = 320;
+/* All tabs in one row: intro (4) then core (6); each has source for click/active */
+const ALL_TABS = [
+  ...INTRO_FEATURES.map((f) => ({ ...f, source: 'intro' })),
+  ...ATELIER_FEATURES.map((f) => ({ ...f, source: 'core' })),
+];
 
 const SECURITY_ITEMS = [
   { icon: 'lock', label: 'Encrypted Sessions' },
@@ -17,7 +26,35 @@ function SecurityIcon({ name }) {
   return null;
 }
 
-export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDemo, selectedId = null, onSelectFeature }) {
+export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDemo, selectedIntroId = null, onSelectIntroFeature, selectedId = null, onSelectFeature }) {
+  const tabsScrollRef = useRef(null);
+  const [tooltip, setTooltip] = useState(null);
+
+  const scrollTabs = useCallback((direction) => {
+    const el = tabsScrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: direction === 'left' ? -SCROLL_STEP : SCROLL_STEP, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
+    if (!tooltip) return;
+    const el = tabsScrollRef.current;
+    if (!el) return;
+    const onScroll = () => setTooltip(null);
+    el.addEventListener('scroll', onScroll);
+    return () => el.removeEventListener('scroll', onScroll);
+  }, [tooltip]);
+
+  const showTooltip = useCallback((e, text) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setTooltip({
+      text,
+      left: rect.left + rect.width / 2,
+      top: rect.top,
+    });
+  }, []);
+  const hideTooltip = useCallback(() => setTooltip(null), []);
+
   return (
     <section
       className={`atelier-scene atelier-intro${isActive ? ' active' : ''}`}
@@ -27,33 +64,71 @@ export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDem
         {/* Title at top with black background */}
         <div className="atelier-intro-header">
           <h1 className="atelier-intro-title">OASIS Atelier</h1>
-          <p className="atelier-intro-tagline">Design. Connect. Create. Instantly.</p>
+          <p className="atelier-intro-tagline">Real-Time Design Collaboration<br />with Experts and Friends</p>
         </div>
 
         {/* Lower block: moved down, solid black so image is visible above */}
         <div className="atelier-intro-lower">
-        {/* Feature cards — click to change entire slide background image */}
-        <div className="atelier-intro-features" role="tablist" aria-label="Feature highlights">
-          {INTRO_FEATURES.map((f) => (
-            <button
-              key={f.id}
-              type="button"
-              className={`atelier-intro-card${selectedId === f.id ? ' active' : ''}`}
-              onClick={() => onSelectFeature?.(selectedId === f.id ? null : f.id)}
-              role="tab"
-              aria-pressed={selectedId === f.id}
-              aria-selected={selectedId === f.id}
-              data-tooltip={f.description}
-              title={f.description}
-              aria-label={`${f.title}. ${f.description}`}
+        <div className="atelier-intro-tabs-wrap">
+          {tooltip && createPortal(
+            <div
+              className="atelier-intro-tooltip"
+              style={{
+                left: tooltip.left,
+                top: tooltip.top,
+              }}
+              role="tooltip"
             >
-              <span className="atelier-intro-card-icon"><FeatureIcon name={f.icon} /></span>
-              <span className="atelier-intro-card-copy">
-                <span className="atelier-intro-card-title">{f.title}</span>
-                <span className="atelier-intro-card-desc">{f.description}</span>
-              </span>
-            </button>
-          ))}
+              {tooltip.text}
+            </div>,
+            document.body
+          )}
+          <button
+            type="button"
+            className="atelier-intro-tabs-arrow atelier-intro-tabs-arrow--left"
+            aria-label="Scroll tabs left"
+            onClick={() => scrollTabs('left')}
+          >
+            ‹
+          </button>
+          <div className="atelier-intro-tabs-scroll" ref={tabsScrollRef} role="region" aria-label="Feature tabs">
+            <div className="atelier-intro-tabs-row" role="tablist">
+              {ALL_TABS.map((f) => {
+                const isIntro = f.source === 'intro';
+                const isActive = isIntro ? selectedIntroId === f.id : selectedId === f.id;
+                return (
+                  <button
+                    key={`${f.source}-${f.id}`}
+                    type="button"
+                    className={`atelier-intro-card atelier-intro-card--inline${isActive ? ' active' : ''}`}
+                    onClick={() => {
+                      if (isIntro) onSelectIntroFeature?.(isActive ? null : f.id);
+                      else onSelectFeature?.(isActive ? null : f.id);
+                    }}
+                    onMouseEnter={(e) => showTooltip(e, f.description)}
+                    onMouseLeave={hideTooltip}
+                    role="tab"
+                    aria-pressed={isActive}
+                    aria-selected={isActive}
+                    aria-label={`${f.title}. ${f.description}`}
+                  >
+                    <span className="atelier-intro-card-icon"><FeatureIcon name={f.icon} /></span>
+                    <span className="atelier-intro-card-copy">
+                      <span className="atelier-intro-card-title">{f.title}</span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <button
+            type="button"
+            className="atelier-intro-tabs-arrow atelier-intro-tabs-arrow--right"
+            aria-label="Scroll tabs right"
+            onClick={() => scrollTabs('right')}
+          >
+            ›
+          </button>
         </div>
 
         {/* Security footer */}

@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import SceneAtelierIntro from './scenes/SceneAtelierIntro';
 import SceneAtelier from './scenes/SceneAtelier';
-import { INTRO_FEATURES } from './scenes/atelierConstants';
+import { INTRO_FEATURES, ATELIER_FEATURES } from './scenes/atelierConstants';
 
-const TOTAL_SLIDES = 2;
+const TOTAL_SLIDES = 1; /* 2nd slide hidden for now — set to 2 to show Watch Demo slide */
 const INTRO_DEFAULT_IMAGE = '/at-1.png';
 const SLIDE_DELAY = 7000;
 const FEATURE_ORDER = ['video', 'chat', 'screenshare', 'whiteboard', 'participants', 'layout'];
@@ -20,10 +20,17 @@ export default function PanelAtelier({ isActive }) {
   const [selectedFeatureId, setSelectedFeatureId] = useState(null);
   const [introBgId, setIntroBgId] = useState(null);
   const [showHowVideo, setShowHowVideo] = useState(false);
-  const introBgImage = introBgId
-    ? (INTRO_FEATURES.find((f) => f.id === introBgId)?.image ?? INTRO_DEFAULT_IMAGE)
-    : INTRO_DEFAULT_IMAGE;
+  const [showWatchDemo, setShowWatchDemo] = useState(false);
+  /* Slide 0 background: prefer intro card (4 tabs), else core feature (6 tabs), else default */
+  const introFeature = introBgId
+    ? INTRO_FEATURES.find((f) => f.id === introBgId)
+    : selectedFeatureId
+      ? ATELIER_FEATURES.find((f) => f.id === selectedFeatureId)
+      : null;
+  const introBgImage = introFeature?.image ?? INTRO_DEFAULT_IMAGE;
+  const introBgVideo = introFeature?.video;
   const howVideoRef = useRef(null);
+  const demoVideoRef = useRef(null);
 
   function goTo(index, resetTimer = true) {
     const next = clamp(index, 0, TOTAL_SLIDES - 1);
@@ -108,6 +115,17 @@ export default function PanelAtelier({ isActive }) {
   }, [showHowVideo]);
 
   useEffect(() => {
+    const el = demoVideoRef.current;
+    if (!el) return;
+    if (showWatchDemo) {
+      el.play().catch(() => {});
+    } else {
+      el.pause();
+      el.currentTime = 0;
+    }
+  }, [showWatchDemo]);
+
+  useEffect(() => {
     if (!showHowVideo) return;
     function onKey(e) {
       if (e.key === 'Escape') setShowHowVideo(false);
@@ -115,6 +133,15 @@ export default function PanelAtelier({ isActive }) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [showHowVideo]);
+
+  useEffect(() => {
+    if (!showWatchDemo) return;
+    function onKey(e) {
+      if (e.key === 'Escape') setShowWatchDemo(false);
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [showWatchDemo]);
 
   return (
     <div
@@ -152,29 +179,37 @@ export default function PanelAtelier({ isActive }) {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        {/* Full panel background for slide 0 only — full width & height, not container-level */}
+        {/* Full panel background for slide 0 — uses same feature image/video as slide 2 */}
         {isActive && currentSlide === 0 && (
           <div className="atelier-intro-bg-panel" aria-hidden="true">
-            <img src={introBgImage} alt="" key={introBgImage} />
+            {introBgVideo ? (
+              <video src={introBgVideo} autoPlay loop muted playsInline key={introBgVideo} />
+            ) : (
+              <img src={introBgImage} alt="" key={introBgImage} />
+            )}
           </div>
         )}
         <div
-          className="rex-slider atelier-slider"
+          className={`rex-slider atelier-slider${TOTAL_SLIDES === 1 ? ' atelier-slider--single' : ''}`}
           style={{ transform: `translateX(${-currentSlide * (100 / TOTAL_SLIDES)}%)` }}
         >
           <SceneAtelierIntro
             isActive={isActive && currentSlide === 0}
-            selectedId={introBgId}
-            onSelectFeature={setIntroBgId}
-            onShowHowVideo={() => setShowHowVideo(true)}
-            onWatchDemo={() => goTo(1)}
-          />
-          <SceneAtelier
-            isActive={isActive && currentSlide === 1}
-            selectedFeatureId={selectedFeatureId}
+            selectedIntroId={introBgId}
+            onSelectIntroFeature={setIntroBgId}
+            selectedId={selectedFeatureId}
             onSelectFeature={setSelectedFeatureId}
             onShowHowVideo={() => setShowHowVideo(true)}
+            onWatchDemo={() => setShowWatchDemo(true)}
           />
+          {TOTAL_SLIDES > 1 && (
+            <SceneAtelier
+              isActive={isActive && currentSlide === 1}
+              selectedFeatureId={selectedFeatureId}
+              onSelectFeature={setSelectedFeatureId}
+              onShowHowVideo={() => setShowHowVideo(true)}
+            />
+          )}
         </div>
       </main>
 
@@ -207,6 +242,40 @@ export default function PanelAtelier({ isActive }) {
               aria-label="How OASIS Atelier works"
             />
             <p className="rex-how-modal-caption">How OASIS Atelier works</p>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* Watch Demo — video popup */}
+      {showWatchDemo && createPortal(
+        <div
+          className="rex-how-modal-backdrop"
+          onClick={() => setShowWatchDemo(false)}
+          aria-hidden="false"
+        >
+          <div
+            className="rex-how-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Watch Demo video"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="rex-how-modal-close"
+              onClick={() => setShowWatchDemo(false)}
+              aria-label="Close demo"
+            />
+            <video
+              ref={demoVideoRef}
+              className="rex-how-modal-video"
+              src="/slide1-live-movements.mp4"
+              controls
+              playsInline
+              aria-label="OASIS Atelier demo"
+            />
+            <p className="rex-how-modal-caption">Watch OASIS Atelier demo</p>
           </div>
         </div>,
         document.body

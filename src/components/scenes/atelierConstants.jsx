@@ -3,7 +3,7 @@
 /* Intro slide: 4 feature cards — each maps to a hero image */
 export const INTRO_FEATURES = [
   { id: 'expert', title: 'Live Expert Guidance', description: 'Navigate with a pro.', icon: 'expert', image: '/at-1.png' },
-  { id: 'cobrowse', title: 'Secure Co-Browsing', description: 'Share your screen safely.', icon: 'screenshare', image: '/a-4.png' },
+  { id: 'cobrowse', title: 'Secure Co-Browsing', description: 'Share your screen safely.', icon: 'screenshare', image: '/at-2.png' },
   { id: 'video-support', title: 'Video Support', description: 'Talk to a designer live.', icon: 'video', image: '/a-2.png' },
   { id: 'learn', title: 'Learn Faster', description: 'Master tools quickly.', icon: 'learn', image: '/a-5.png' },
 ];
