@@ -5860,7 +5860,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 .halo-hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     animation: halo-img-fade 0.35s var(--ease-reveal);
 }
@@ -6213,6 +6213,8 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 /* ── Left copy panel ── */
 .ds-copy {
     flex: 0 0 42%;
+    min-width: 0;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6272,10 +6274,48 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     margin: 0;
 }
 
-.ds-features {
+/* Horizontal marquee — two rows sliding in opposite directions */
+.ds-marquee-wrap {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.55rem;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    /* clip strictly to the copy column width */
+    contain: layout style;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.ds-marquee-track {
+    display: flex;
+    gap: 0.55rem;
+    width: max-content;
+    will-change: transform;
+}
+
+.ds-marquee--left {
+    animation: ds-marquee-left 22s linear infinite;
+}
+
+.ds-marquee--right {
+    animation: ds-marquee-right 26s linear infinite;
+}
+
+/* Pause on hover */
+.ds-marquee-wrap:hover .ds-marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes ds-marquee-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@keyframes ds-marquee-right {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
 }
 
 .ds-chip {

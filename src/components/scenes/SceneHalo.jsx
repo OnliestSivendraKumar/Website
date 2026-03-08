@@ -1,13 +1,29 @@
-/* Onliest HALO — Carousel with 5 category slides, hero image + message bubbles per slide */
+/* Onliest HALO — Carousel with 6 category slides (slide 0 = greeting), hero image + message bubbles per slide */
 import { useState, useEffect, useRef } from 'react';
 
 const HALO_GREETING = 'Hi, How may I help you today?';
 
 const CAROUSEL_SLIDES = [
   {
+    id: 'welcome',
+    label: 'Welcome',
+    image: '/chat-0.png',
+    desc: 'Your AI saree companion — ask anything, get instant answers.',
+    messages: [
+      { id: 'a1', type: 'agent', text: 'Hi! How may I help you today?' },
+      { id: 'u1', type: 'user', text: 'I want to explore saree styles.' },
+      { id: 'a2', type: 'agent', text: 'Great! I can help you find the perfect saree, blouse design, and styling tips.' },
+      { id: 'u2', type: 'user', text: 'That sounds amazing!' },
+      { id: 'a3', type: 'agent', text: 'Let\'s get started — tell me the occasion and your favourite colours.' },
+      { id: 'u3', type: 'user', text: 'Wedding. I love deep reds and gold.' },
+    ],
+    chips: ['Saree styles', 'Blouse design', 'Color match'],
+  },
+  {
     id: 'design-studio',
     label: 'Design Studio',
     image: '/chat-1.png',
+    desc: 'Customise neck, sleeves and back styles — design your blouse visually.',
     messages: [
       { id: 'u1', type: 'user', text: 'How can I design my blouse?' },
       { id: 'a1', type: 'agent', text: 'You can start in our Design Studio where you can customize neck, sleeves, and back styles.' },
@@ -22,6 +38,7 @@ const CAROUSEL_SLIDES = [
     id: 'fashion-guidance',
     label: 'Fashion Guidance',
     image: '/chat-2.png',
+    desc: 'Get expert blouse pairings, colour matches and style ideas for any saree.',
     messages: [
       { id: 'u1', type: 'user', text: 'What blouse would go with my ivory saree?' },
       { id: 'a1', type: 'agent', text: 'A soft gold or champagne blouse pairs beautifully with ivory sarees.' },
@@ -36,6 +53,7 @@ const CAROUSEL_SLIDES = [
     id: 'conversational',
     label: 'Conversational Help',
     image: '/chat-3.png',
+    desc: 'Describe your occasion and saree — get personalised recommendations instantly.',
     messages: [
       { id: 'u1', type: 'user', text: 'Hi, I need help choosing a blouse.' },
       { id: 'a1', type: 'agent', text: 'Of course! Tell me about your saree color and occasion.' },
@@ -50,6 +68,7 @@ const CAROUSEL_SLIDES = [
     id: 'multilang',
     label: 'Multi-Language',
     image: '/chat-4.png',
+    desc: 'Chat in Telugu, Hindi, English and more — your language, your comfort.',
     messages: [
       { id: 'u1', type: 'user', text: 'Can I change the language?' },
       { id: 'a1', type: 'agent', text: 'Yes, you can switch the chat language anytime.' },
@@ -64,6 +83,7 @@ const CAROUSEL_SLIDES = [
     id: 'order-status',
     label: 'Order Status',
     image: '/chat-5.png',
+    desc: 'Track your blouse order in real time — from stitching to delivery at your door.',
     messages: [
       { id: 'u1', type: 'user', text: 'Where is my order?' },
       { id: 'a1', type: 'agent', text: 'Let me check that for you. Could you share your order ID?' },
@@ -194,7 +214,7 @@ export default function SceneHalo({ isActive }) {
         </div>
         <div className="halo-questions-bottom" aria-describedby="halo-desc">
           <p id="halo-desc" className="halo-questions-bottom-desc">
-            Ask, discover, and compose through conversation.
+            {slide?.desc ?? 'Ask, discover, and compose through conversation.'}
           </p>
           <p className="halo-questions-bottom-hint">Try asking:</p>
           <div className="halo-quick-questions" role="list">
