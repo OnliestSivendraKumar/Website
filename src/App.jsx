@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import NavChrome    from './components/NavChrome';
 import PanelRex     from './components/PanelRex';
+import PanelStudio  from './components/PanelStudio';
 import PanelFitting from './components/PanelFitting';
 import PanelAtelier from './components/PanelAtelier';
 import PanelHalo    from './components/PanelHalo';
-import EmptyPanel   from './components/EmptyPanel';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -73,13 +73,7 @@ export default function App() {
           onTabChange={setActiveTab}
         />
 
-        <EmptyPanel
-          id="panel-studio"
-          tabId="studio"
-          isActive={activeTab === 'studio'}
-          title="Design Studio"
-          sub={<>Compose your couture.<br />Fabric, silhouette, embroidery — all in one canvas.</>}
-        />
+        <PanelStudio isActive={activeTab === 'studio'} />
 
         <PanelFitting
           isActive={activeTab === 'fitting'}

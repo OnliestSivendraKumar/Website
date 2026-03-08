@@ -5666,6 +5666,13 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     padding: 1.25rem 1.5rem;
 }
 
+.rex-panel-studio .studio-main {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    display: flex;
+}
+
 .halo-scene {
     position: relative;
     width: 100%;
@@ -6185,4 +6192,223 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 @media (max-width: 560px) {
     .halo-hero-frame { width: 280px; }
     .halo-questions-bottom { max-width: 280px; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   DESIGN STUDIO SCENE
+   ═══════════════════════════════════════════════════════ */
+
+.ds-scene {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background:
+        radial-gradient(ellipse 60% 55% at 20% 50%, rgba(198, 167, 94, 0.06) 0%, transparent 70%),
+        linear-gradient(160deg, #0b0b0f 0%, #100d08 50%, #0b0b0f 100%);
+}
+
+/* ── Left copy panel ── */
+.ds-copy {
+    flex: 0 0 42%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3.5rem 3rem 3.5rem 4rem;
+    gap: 1.4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.ds-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(198, 167, 94, 0.35);
+    background: rgba(198, 167, 94, 0.08);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.ds-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.2vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--platinum);
+    margin: 0;
+}
+
+.ds-headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--gold) 0%, #e8d48a 60%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ds-desc {
+    font-size: 0.97rem;
+    line-height: 1.65;
+    color: var(--silver);
+    max-width: 420px;
+    margin: 0;
+}
+
+.ds-all-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(198, 167, 94, 0.7);
+    margin: 0;
+}
+
+.ds-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.ds-chip {
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--silver);
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+    cursor: default;
+}
+
+.ds-chip:hover {
+    border-color: rgba(198, 167, 94, 0.45);
+    background: rgba(198, 167, 94, 0.08);
+    color: var(--gold);
+}
+
+.ds-actions {
+    display: flex;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+}
+
+.ds-btn {
+    padding: 0.65rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.22s var(--ease);
+    border: none;
+    outline: none;
+}
+
+.ds-btn--primary {
+    background: linear-gradient(135deg, #c6a75e 0%, #e8d48a 50%, #c6a75e 100%);
+    color: #0b0b0f;
+    box-shadow: 0 4px 20px rgba(198, 167, 94, 0.35);
+}
+
+.ds-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(198, 167, 94, 0.5);
+}
+
+.ds-btn--ghost {
+    background: transparent;
+    color: var(--platinum);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.ds-btn--ghost:hover {
+    border-color: rgba(198, 167, 94, 0.5);
+    color: var(--gold);
+    background: rgba(198, 167, 94, 0.06);
+}
+
+/* ── Right gallery — 4 auto-scrolling columns ── */
+.ds-gallery {
+    flex: 1 1 0;
+    display: flex;
+    gap: 0.75rem;
+    overflow: hidden;
+    padding: 1.5rem 1.5rem 1.5rem 0;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.ds-col {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    will-change: transform;
+}
+
+.ds-col--up {
+    animation: ds-scroll-up var(--ds-dur, 22s) linear infinite;
+}
+
+.ds-col--down {
+    animation: ds-scroll-down var(--ds-dur, 26s) linear infinite;
+}
+
+/* Pause scroll on hover so users can inspect images */
+.ds-gallery:hover .ds-col {
+    animation-play-state: paused;
+}
+
+@keyframes ds-scroll-up {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+}
+
+@keyframes ds-scroll-down {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(0); }
+}
+
+.ds-img-wrap {
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid rgba(198, 167, 94, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.ds-img-wrap:hover {
+    border-color: rgba(198, 167, 94, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(198, 167, 94, 0.15);
+}
+
+.ds-img {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .ds-copy { padding: 2.5rem 2rem 2.5rem 2.5rem; flex: 0 0 46%; }
+    .ds-headline { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+}
+
+@media (max-width: 768px) {
+    .ds-scene { flex-direction: column; overflow-y: auto; }
+    .ds-copy { flex: none; padding: 2.5rem 1.5rem 1.5rem; }
+    .ds-gallery { height: 340px; flex: none; padding: 0 1rem 1rem; }
+    .ds-img { aspect-ratio: 9 / 16; }
 }
