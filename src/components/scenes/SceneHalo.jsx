@@ -83,32 +83,55 @@ const PAUSE_AFTER_BUBBLES_MS = 2500;
 export default function SceneHalo({ isActive }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [visibleCount, setVisibleCount] = useState(0);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const greetingPlayedRef = useRef(false);
 
   const slide = CAROUSEL_SLIDES[currentSlide];
   const messages = slide?.messages ?? [];
 
-  /* Speak greeting when user opens HALO tab */
+  /* Speak greeting when user opens HALO tab — show loader until done */
   useEffect(() => {
     if (!isActive) {
       greetingPlayedRef.current = false;
+      setIsSpeaking(false);
       return;
     }
     if (greetingPlayedRef.current) return;
     greetingPlayedRef.current = true;
+    setIsSpeaking(true);
+
     if (typeof window !== 'undefined' && window.speechSynthesis) {
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(HALO_GREETING);
       u.rate = 0.95;
-      u.pitch = 1;
+      u.pitch = 1.4;
       u.volume = 1;
-      window.speechSynthesis.speak(u);
+      u.onend = () => setIsSpeaking(false);
+      u.onerror = () => setIsSpeaking(false);
+      const setVoice = () => {
+        const voices = window.speechSynthesis.getVoices();
+        const femaleVoice =
+          voices.find(v => /zira|samantha|female|woman|girl/i.test(v.name)) ||
+          voices.find(v => v.name.toLowerCase().includes('female')) ||
+          voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('f')) ||
+          voices.find(v => v.lang.startsWith('en'));
+        if (femaleVoice) u.voice = femaleVoice;
+        window.speechSynthesis.speak(u);
+      };
+      const voices = window.speechSynthesis.getVoices();
+      if (voices.length) {
+        setVoice();
+      } else {
+        window.speechSynthesis.addEventListener('voiceschanged', setVoice, { once: true });
+      }
+    } else {
+      setIsSpeaking(false);
     }
   }, [isActive]);
 
   /* Bubbles pop in, then after all done + pause, advance to next slide */
   useEffect(() => {
-    if (!isActive) {
+    if (!isActive || isSpeaking) {
       setVisibleCount(0);
       return;
     }
@@ -129,7 +152,7 @@ export default function SceneHalo({ isActive }) {
       bubbleTimers.forEach(clearTimeout);
       clearTimeout(advanceTimer);
     };
-  }, [isActive, currentSlide]);
+  }, [isActive, isSpeaking, currentSlide]);
 
   return (
     <section
@@ -195,6 +218,11 @@ export default function SceneHalo({ isActive }) {
             />
           ))}
         </div>
+      </div>
+
+      {/* Greeting loader — visible while speech plays, fades out after */}
+      <div className={`halo-loader${isSpeaking ? ' visible' : ''}`} aria-hidden="true">
+        <img src="/loader.png" alt="" className="halo-loader-img" />
       </div>
 
       {/* Chat bubbles — split into two aligned columns */}

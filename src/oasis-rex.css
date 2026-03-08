@@ -5947,6 +5947,37 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     box-shadow: 0 0 8px rgba(198, 167, 94, 0.4);
 }
 
+/* Greeting loader — shown while speech is playing */
+.halo-loader {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 6, 4, 0.72);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.halo-loader.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.halo-loader-img {
+    width: clamp(160px, 22vw, 320px);
+    height: auto;
+    animation: halo-loader-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes halo-loader-pulse {
+    0%, 100% { transform: scale(1);   opacity: 1; }
+    50%       { transform: scale(1.04); opacity: 0.85; }
+}
+
 /* Chat bubbles container — float around hero */
 .halo-chat {
     position: absolute;
