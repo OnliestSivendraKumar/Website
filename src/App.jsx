@@ -3,6 +3,7 @@ import NavChrome    from './components/NavChrome';
 import PanelRex     from './components/PanelRex';
 import PanelFitting from './components/PanelFitting';
 import PanelAtelier from './components/PanelAtelier';
+import PanelHalo    from './components/PanelHalo';
 import EmptyPanel   from './components/EmptyPanel';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
@@ -87,13 +88,7 @@ export default function App() {
 
         <PanelAtelier isActive={activeTab === 'atelier'} />
 
-        <EmptyPanel
-          id="panel-halo"
-          tabId="halo"
-          isActive={activeTab === 'halo'}
-          title="Onliest HALO"
-          sub={<>Your AI saree companion.<br />Ask, discover, and compose through conversation.</>}
-        />
+        <PanelHalo isActive={activeTab === 'halo'} />
       </div>
     </>
   );
