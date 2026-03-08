@@ -5981,7 +5981,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 }
 
 .halo-bubble {
-    width: 100%;
+    width: fit-content;
     max-width: 280px;
     min-width: 0;
     padding: 0.65rem 1rem;
@@ -6020,6 +6020,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 
 /* Agent (left): premium gold */
 .halo-bubble--agent {
+    width: fit-content;
     display: inline-flex;
     align-items: flex-start;
     gap: 0.6rem;
@@ -6082,6 +6083,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 
 /* User (right): premium glass — same even padding as AI */
 .halo-bubble--user {
+    width: fit-content;
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
