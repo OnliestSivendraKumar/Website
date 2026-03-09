@@ -3,12 +3,26 @@ import { useState, useEffect, useRef } from 'react';
 
 const HALO_GREETING = 'Hi, How may I help you today?';
 
+/** Icons for HALO carousel tabs */
+function HaloTabIcon({ name }) {
+  const c = { width: 16, height: 16, fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' };
+  if (name === 'play') return <svg {...c} viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>;
+  if (name === 'chat') return <svg {...c} viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>;
+  if (name === 'globe') return <svg {...c} viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>;
+  if (name === 'package') return <svg {...c} viewBox="0 0 24 24"><path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>;
+  if (name === 'help') return <svg {...c} viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>;
+  if (name === 'palette') return <svg {...c} viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="9" r="1.5"/><circle cx="9" cy="15" r="1.5"/><circle cx="15" cy="15" r="1.5"/><path d="M12 7v2m0 6v2M7 12h2m6 0h2"/></svg>;
+  return null;
+}
+
 const CAROUSEL_SLIDES = [
   {
     id: 'welcome',
     label: 'Welcome',
+    tabLabel: 'Get Started',
+    icon: 'play',
     image: '/chat-0.png',
-    desc: 'Your AI saree companion — ask anything, get instant answers.',
+    desc: 'Your AI Design Companion — ask anything, get instant answers.',
     messages: [
       { id: 'a1', type: 'agent', text: 'Hi! How may I help you today?' },
       { id: 'u1', type: 'user', text: 'I want to explore saree styles.' },
@@ -22,6 +36,8 @@ const CAROUSEL_SLIDES = [
   {
     id: 'design-studio',
     label: 'Design Studio',
+    tabLabel: 'Chat with Us',
+    icon: 'chat',
     image: '/chat-1.png',
     desc: 'Customise neck, sleeves and back styles — design your blouse visually.',
     messages: [
@@ -35,23 +51,44 @@ const CAROUSEL_SLIDES = [
     chips: ['Customize neck', 'Sleeve styles', 'Preview design'],
   },
   {
-    id: 'fashion-guidance',
-    label: 'Fashion Guidance',
-    image: '/chat-2.png',
-    desc: 'Get expert blouse pairings, colour matches and style ideas for any saree.',
+    id: 'multilang',
+    label: 'Multi-Language',
+    tabLabel: 'Language Support',
+    icon: 'globe',
+    image: '/chat-4.png',
+    desc: 'Chat in Telugu, Hindi, English and more — your language, your comfort.',
     messages: [
-      { id: 'u1', type: 'user', text: 'What blouse would go with my ivory saree?' },
-      { id: 'a1', type: 'agent', text: 'A soft gold or champagne blouse pairs beautifully with ivory sarees.' },
-      { id: 'u2', type: 'user', text: 'That sounds nice. Any other option?' },
-      { id: 'a2', type: 'agent', text: 'You could also try a contrast maroon or deep emerald blouse for a bold look.' },
-      { id: 'u3', type: 'user', text: 'Can you show some design ideas?' },
-      { id: 'a3', type: 'agent', text: 'Sure! I can suggest boat neck, sweetheart neck, or embroidered blouse styles.' },
+      { id: 'u1', type: 'user', text: 'Can I change the language?' },
+      { id: 'a1', type: 'agent', text: 'Yes, you can switch the chat language anytime.' },
+      { id: 'u2', type: 'user', text: 'Do you support Telugu?' },
+      { id: 'a2', type: 'agent', text: 'Yes! We support Telugu, Hindi, and English.' },
+      { id: 'u3', type: 'user', text: 'Please switch to Telugu.' },
+      { id: 'a3', type: 'agent', text: 'Done! I\'ll continue helping you in Telugu.' },
     ],
-    chips: ['Blouse pairing', 'Style ideas', 'Color match'],
+    chips: ['Telugu', 'Hindi', 'English'],
+  },
+  {
+    id: 'order-status',
+    label: 'Order Status',
+    tabLabel: 'Track Order',
+    icon: 'package',
+    image: '/chat-5.png',
+    desc: 'Track your blouse order in real time — from stitching to delivery at your door.',
+    messages: [
+      { id: 'u1', type: 'user', text: 'Where is my order?' },
+      { id: 'a1', type: 'agent', text: 'Let me check that for you. Could you share your order ID?' },
+      { id: 'u2', type: 'user', text: 'My order ID is 45678.' },
+      { id: 'a2', type: 'agent', text: 'Thanks! Your blouse is currently in the stitching stage.' },
+      { id: 'u3', type: 'user', text: 'When will it be delivered?' },
+      { id: 'a3', type: 'agent', text: 'It is expected to be delivered within 3–4 days.' },
+    ],
+    chips: ['Track order', 'Delivery', 'Order ID'],
   },
   {
     id: 'conversational',
     label: 'Conversational Help',
+    tabLabel: 'Get Support',
+    icon: 'help',
     image: '/chat-3.png',
     desc: 'Describe your occasion and saree — get personalised recommendations instantly.',
     messages: [
@@ -65,34 +102,21 @@ const CAROUSEL_SLIDES = [
     chips: ['Occasion help', 'Color advice', 'Trending designs'],
   },
   {
-    id: 'multilang',
-    label: 'Multi-Language',
-    image: '/chat-4.png',
-    desc: 'Chat in Telugu, Hindi, English and more — your language, your comfort.',
+    id: 'fashion-guidance',
+    label: 'Fashion Guidance',
+    tabLabel: 'Style Help',
+    icon: 'palette',
+    image: '/chat-2.png',
+    desc: 'Get expert blouse pairings, colour matches and style ideas for any saree.',
     messages: [
-      { id: 'u1', type: 'user', text: 'Can I change the language?' },
-      { id: 'a1', type: 'agent', text: 'Yes, you can switch the chat language anytime.' },
-      { id: 'u2', type: 'user', text: 'Do you support Telugu?' },
-      { id: 'a2', type: 'agent', text: 'Yes! We support Telugu, Hindi, and English.' },
-      { id: 'u3', type: 'user', text: 'Please switch to Telugu.' },
-      { id: 'a3', type: 'agent', text: 'Done! I’ll continue helping you in Telugu.' },
+      { id: 'u1', type: 'user', text: 'What blouse would go with my ivory saree?' },
+      { id: 'a1', type: 'agent', text: 'A soft gold or champagne blouse pairs beautifully with ivory sarees.' },
+      { id: 'u2', type: 'user', text: 'That sounds nice. Any other option?' },
+      { id: 'a2', type: 'agent', text: 'You could also try a contrast maroon or deep emerald blouse for a bold look.' },
+      { id: 'u3', type: 'user', text: 'Can you show some design ideas?' },
+      { id: 'a3', type: 'agent', text: 'Sure! I can suggest boat neck, sweetheart neck, or embroidered blouse styles.' },
     ],
-    chips: ['Telugu', 'Hindi', 'English'],
-  },
-  {
-    id: 'order-status',
-    label: 'Order Status',
-    image: '/chat-5.png',
-    desc: 'Track your blouse order in real time — from stitching to delivery at your door.',
-    messages: [
-      { id: 'u1', type: 'user', text: 'Where is my order?' },
-      { id: 'a1', type: 'agent', text: 'Let me check that for you. Could you share your order ID?' },
-      { id: 'u2', type: 'user', text: 'My order ID is 45678.' },
-      { id: 'a2', type: 'agent', text: 'Thanks! Your blouse is currently in the stitching stage.' },
-      { id: 'u3', type: 'user', text: 'When will it be delivered?' },
-      { id: 'a3', type: 'agent', text: 'It is expected to be delivered within 3–4 days.' },
-    ],
-    chips: ['Track order', 'Delivery', 'Order ID'],
+    chips: ['Blouse pairing', 'Style ideas', 'Color match'],
   },
 ];
 
@@ -177,7 +201,7 @@ export default function SceneHalo({ isActive }) {
   return (
     <section
       className={`halo-scene${isActive ? ' active' : ''}`}
-      aria-label="Onliest HALO — Your AI saree companion"
+      aria-label="Onliest HALO — Your AI Design Companion"
     >
       {/* Concentric halo arcs */}
       <div className="halo-arcs" aria-hidden="true">
@@ -203,7 +227,7 @@ export default function SceneHalo({ isActive }) {
 
       {/* Center hero — image changes with slide */}
       <div className="halo-hero-wrap">
-        <h2 className="halo-hero-title">Your AI saree companion</h2>
+        <h2 className="halo-hero-title">Your AI Design Companion</h2>
         <div className="halo-hero-frame">
           <img
             src={slide?.image || '/halo-hero.png'}
@@ -216,37 +240,36 @@ export default function SceneHalo({ isActive }) {
           <p id="halo-desc" className="halo-questions-bottom-desc">
             {slide?.desc ?? 'Ask, discover, and compose through conversation.'}
           </p>
-          <p className="halo-questions-bottom-hint">Try asking:</p>
-          <div className="halo-quick-questions" role="list">
-            {(slide?.chips ?? ['Return policy', 'Style suggestions', 'Order tracking', 'Size guide']).map((q) => (
-              <span key={q} className="halo-quick-chip" role="listitem">{q}</span>
-            ))}
-          </div>
-
-          {/* CTA buttons */}
-          <div className="halo-cta-row">
-            <button type="button" className="rex-btn rex-btn-primary halo-cta-btn">
-              How it works
-            </button>
-            <button type="button" className="rex-btn rex-btn-primary halo-cta-btn">
-              Explore HALO
-            </button>
-          </div>
         </div>
 
-        {/* Carousel dots — bottom controls */}
-        <div className="halo-carousel-dots" role="tablist" aria-label="Category carousel">
+        {/* Carousel tabs — full-width row outside narrow container, all 6 fit inline, no scrollbar */}
+        <div className="halo-tabs-wrap" role="tablist" aria-label="Category tabs">
           {CAROUSEL_SLIDES.map((s, i) => (
             <button
               key={s.id}
               type="button"
               role="tab"
               aria-selected={currentSlide === i}
-              aria-label={`${s.label} category`}
-              className={`halo-carousel-dot${currentSlide === i ? ' active' : ''}`}
+              aria-label={`${s.tabLabel || s.label}`}
+              className={`halo-carousel-tab${currentSlide === i ? ' active' : ''}`}
               onClick={() => setCurrentSlide(i)}
-            />
+            >
+              <span className="halo-carousel-tab-icon" aria-hidden="true">
+                <HaloTabIcon name={s.icon} />
+              </span>
+              <span>{s.tabLabel || s.label}</span>
+            </button>
           ))}
+        </div>
+
+        {/* CTA buttons */}
+        <div className="halo-cta-row">
+          <button type="button" className="rex-btn rex-btn-primary halo-cta-btn">
+            How it works
+          </button>
+          <button type="button" className="rex-btn rex-btn-primary halo-cta-btn">
+            Explore HALO
+          </button>
         </div>
       </div>
 

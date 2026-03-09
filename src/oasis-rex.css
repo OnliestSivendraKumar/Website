@@ -5839,7 +5839,8 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.45rem;
+    width: 100%;
 }
 
 /* Match .atelier-intro-title — same heading style as other tabs */
@@ -5892,8 +5893,10 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 .halo-questions-bottom-desc {
     font-size: 0.95rem;
     line-height: 1.45;
+    white-space: nowrap;
+    text-wrap: nowrap;
     color: var(--plat-70);
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.35rem 0;
     font-weight: 400;
 }
 
@@ -5902,14 +5905,16 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--plat-20);
-    margin: 0 0 0.4rem 0;
+    margin: 0 0.5rem 0 0;
     font-weight: 600;
+    display: inline-block;
 }
 
 .halo-quick-questions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
     gap: 0.4rem;
     list-style: none;
     margin: 0;
@@ -5938,46 +5943,67 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    margin-top: 1rem;
+    gap: 0.5rem;
+    margin-top: 0.65rem;
     flex-wrap: wrap;
 }
 
 .halo-cta-btn {
-    padding: 0.5rem 1.4rem;
+    padding: 0.45rem 1.2rem;
 }
 
-/* Carousel dots — bottom controls */
-.halo-carousel-dots {
+/* Tabs wrap — full width, outside narrow container so all 6 fit inline */
+.halo-tabs-wrap {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1.25rem;
-    padding: 0.25rem 0;
+    gap: 0.35rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 0.55rem;
+    margin-bottom: 0;
+    padding: 0.2rem 0.75rem;
 }
 
-.halo-carousel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid rgba(198, 167, 94, 0.35);
-    background: rgba(198, 167, 94, 0.15);
+.halo-carousel-tab {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.45rem 0.75rem;
+    min-height: 0;
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
     cursor: pointer;
-    padding: 0;
-    transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.2s var(--ease);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: inherit;
+    transition: border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
     appearance: none;
+    white-space: nowrap;
 }
 
-.halo-carousel-dot:hover {
-    background: rgba(198, 167, 94, 0.35);
+.halo-carousel-tab:hover {
     border-color: var(--gold-border);
+    background: rgba(255,255,255,0.08);
 }
 
-.halo-carousel-dot.active {
-    background: var(--gold-dim);
-    border-color: var(--gold);
-    transform: scale(1.15);
-    box-shadow: 0 0 8px rgba(198, 167, 94, 0.4);
+.halo-carousel-tab.active {
+    border-color: var(--gold-border);
+    background: var(--gold-glow);
+    box-shadow: 0 0 0 1px rgba(198,167,94,0.3);
+}
+
+.halo-carousel-tab-icon {
+    display: flex;
+    color: var(--gold-dim);
+}
+
+.halo-carousel-tab.active .halo-carousel-tab-icon {
+    color: var(--gold);
 }
 
 /* Greeting loader — shown while speech is playing */
@@ -6195,8 +6221,8 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 }
 
 @media (max-width: 768px) {
-    .halo-carousel-dots { margin-top: 1rem; gap: 0.4rem; }
-    .halo-carousel-dot { width: 6px; height: 6px; }
+    .halo-tabs-wrap { margin-top: 0.65rem; gap: 0.3rem; max-width: 100%; padding: 0.2rem 0.5rem; }
+    .halo-carousel-tab { padding: 0.35rem 0.55rem; font-size: 0.7rem; }
     .halo-side { width: 72px; }
     .halo-side-tagline { font-size: 0.72rem; letter-spacing: 0.15em; }
     .halo-ambient { width: 120px; height: 180px; opacity: 0.25; }
@@ -6218,6 +6244,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 @media (max-width: 560px) {
     .halo-hero-frame { width: 280px; }
     .halo-questions-bottom { max-width: 280px; }
+    .halo-tabs-wrap { flex-wrap: wrap; }
 }
 
 /* ═══════════════════════════════════════════════════════
