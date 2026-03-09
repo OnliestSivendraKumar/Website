@@ -62,7 +62,7 @@ export default function SceneDesignStudio({ isActive, onWatchDemo }) {
 
         <h2 className="ds-headline">
           Design your perfect<br />
-          saree &amp; blouse —<br />
+          saree &amp; blouse<br />
           <em>visually</em>
         </h2>
 
