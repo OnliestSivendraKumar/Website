@@ -88,8 +88,8 @@ export default function SceneDesignStudio({ isActive, onWatchDemo }) {
         </div>
 
         <div className="ds-actions">
-          <button className="ds-btn ds-btn--primary">Open Design Studio</button>
-          <button className="ds-btn ds-btn--ghost" onClick={onWatchDemo}>Watch Demo</button>
+          <button className="rex-btn rex-btn-primary">Open Design Studio</button>
+          <button className="rex-btn rex-btn-ghost" onClick={onWatchDemo}>Watch Demo</button>
         </div>
       </div>
 

@@ -199,7 +199,7 @@ export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDem
           {onWatchDemo && (
             <button
               type="button"
-              className="atelier-intro-btn atelier-intro-btn-demo"
+              className="atelier-intro-btn rex-btn rex-btn-ghost fit-how-cta"
               onClick={onWatchDemo}
             >
               Watch Demo <span aria-hidden="true">→</span>
