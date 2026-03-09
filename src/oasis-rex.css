@@ -5678,8 +5678,11 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 .rex-panel-studio .studio-main {
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
+}
+.rex-panel-studio .ds-scene {
+    overflow: visible;
 }
 
 .halo-scene {
@@ -6372,79 +6375,156 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     white-space: nowrap;
 }
 
-
-/* ── Right gallery — 4 auto-scrolling columns ── */
-.ds-gallery {
-    flex: 1 1 0;
-    display: flex;
-    gap: 0.75rem;
-    overflow: hidden;
-    padding: 1.5rem 1.5rem 1.5rem 0;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+/* When placed under the right-side video */
+.ds-actions--below-video {
+    margin-top: 0.5rem;
+    padding: 15px 0rem 1.5rem;
+    justify-content: space-between;
 }
 
-.ds-col {
+.ds-actions-left,
+.ds-actions-right {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Pill-style selection (like Live Expert Guidance / Secure Co-Browsing) */
+.ds-pill {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.ds-pill:hover {
+    background: rgba(0,0,0,0.65);
+    border-color: rgba(255,255,255,0.35);
+}
+/* Active: match Live Expert Guidance / atelier-intro-card style */
+.ds-pill.active {
+    background: var(--gold-glow);
+    border-color: var(--gold-border);
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(198,167,94,0.3);
+}
+.ds-pill.active .ds-pill-icon { color: var(--gold); }
+
+/* White tooltip (matches atelier-intro-tooltip style) */
+.ds-pill[data-tooltip] {
+    position: relative;
+}
+.ds-pill[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 0.5rem);
+    padding: 0.5rem 0.85rem;
+    background: #fff;
+    color: #1a1a1a;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.35;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid var(--gold-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 9999;
+    pointer-events: none;
+}
+.ds-actions,
+.ds-actions-left,
+.ds-actions-right {
+    overflow: visible;
+}
+.ds-pill:not(.active) .ds-pill-icon { color: rgba(198,167,94,0.85); }
+.ds-pill-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.ds-pill-icon svg { display: block; }
+
+/* Saree / Blouse selection buttons (legacy) */
+.ds-mode-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.ds-mode-btn-check {
+    display: none;
+}
+
+.ds-mode-btn.active .ds-mode-btn-check {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    line-height: 1;
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.28);
+    border: 1px solid rgba(255,255,255,0.28);
+}
+
+/* ══════════════════════════════════════════════════════
+   Design Studio  – right-side simple video
+   ══════════════════════════════════════════════════════ */
+
+.ds-video-wrap {
     flex: 1 1 0;
+    min-width: 0;
+    min-height: 320px;
+    margin: 1rem 1.5rem 1rem 0;
+    border-radius: 18px;
+    overflow: visible;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.35);
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    will-change: transform;
 }
-
-.ds-col--up {
-    animation: ds-scroll-up var(--ds-dur, 22s) linear infinite;
-}
-
-.ds-col--down {
-    animation: ds-scroll-down var(--ds-dur, 26s) linear infinite;
-}
-
-/* Pause scroll on hover so users can inspect images */
-.ds-gallery:hover .ds-col {
-    animation-play-state: paused;
-}
-
-@keyframes ds-scroll-up {
-    from { transform: translateY(0); }
-    to   { transform: translateY(-50%); }
-}
-
-@keyframes ds-scroll-down {
-    from { transform: translateY(-50%); }
-    to   { transform: translateY(0); }
-}
-
-.ds-img-wrap {
-    border-radius: 14px;
+.ds-video-inner {
+    flex: 1 1 auto;
+    min-height: 0;
     overflow: hidden;
-    flex-shrink: 0;
-    border: 1px solid rgba(198, 167, 94, 0.12);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    border-radius: 18px;
 }
 
-.ds-img-wrap:hover {
-    border-color: rgba(198, 167, 94, 0.4);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(198, 167, 94, 0.15);
-}
-
-.ds-img {
+.ds-video {
     width: 100%;
-    aspect-ratio: 9 / 16;
-    object-fit: cover;
+    height: 100%;
+    min-height: 260px;
+    flex: 1 1 auto;
     display: block;
+    object-fit: contain;
+    object-position: center;
+    background: rgba(0,0,0,0.2);
 }
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
     .ds-copy { padding: 2.5rem 2rem 2.5rem 2.5rem; flex: 0 0 46%; }
     .ds-headline { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .ds-video-wrap { margin: 0.75rem 1rem 0.75rem 0; }
 }
 
 @media (max-width: 768px) {
     .ds-scene { flex-direction: column; overflow-y: auto; }
     .ds-copy { flex: none; padding: 2.5rem 1.5rem 1.5rem; }
-    .ds-gallery { height: 340px; flex: none; padding: 0 1rem 1rem; }
-    .ds-img { aspect-ratio: 9 / 16; }
+    .ds-video-wrap { flex: none; margin: 0 1rem 1.5rem; aspect-ratio: 16 / 9; }
+    .ds-video { height: 100%; }
 }
