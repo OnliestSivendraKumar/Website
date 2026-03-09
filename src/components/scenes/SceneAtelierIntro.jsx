@@ -185,26 +185,23 @@ export default function SceneAtelierIntro({ isActive, onShowHowVideo, onWatchDem
           ))}
         </div>
 
-        {/* How it works + Watch Demo — below Encrypted Sessions bar */}
+        {/* CTAs — How it works first, then Explore Atelier */}
         <div className="atelier-intro-cta-below">
-          {onShowHowVideo && (
+          {onWatchDemo && (
             <button
               type="button"
-              className="atelier-intro-btn atelier-intro-btn-how rex-btn rex-btn-primary fit-how-cta"
-              onClick={onShowHowVideo}
+              className="atelier-intro-btn rex-btn rex-btn-primary fit-how-cta"
+              onClick={onWatchDemo}
             >
               How it works
             </button>
           )}
-          {onWatchDemo && (
-            <button
-              type="button"
-              className="atelier-intro-btn rex-btn rex-btn-ghost fit-how-cta"
-              onClick={onWatchDemo}
-            >
-              Watch Demo <span aria-hidden="true">→</span>
-            </button>
-          )}
+          <button
+            type="button"
+            className="atelier-intro-btn rex-btn rex-btn-primary fit-how-cta"
+          >
+            Explore Atelier
+          </button>
         </div>
         </div>
       </div>

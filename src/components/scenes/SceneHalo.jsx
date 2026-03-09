@@ -222,6 +222,16 @@ export default function SceneHalo({ isActive }) {
               <span key={q} className="halo-quick-chip" role="listitem">{q}</span>
             ))}
           </div>
+
+          {/* CTA buttons */}
+          <div className="halo-cta-row">
+            <button type="button" className="rex-btn rex-btn-primary halo-cta-btn">
+              How it works
+            </button>
+            <button type="button" className="rex-btn rex-btn-primary halo-cta-btn">
+              Explore HALO
+            </button>
+          </div>
         </div>
 
         {/* Carousel dots — bottom controls */}
