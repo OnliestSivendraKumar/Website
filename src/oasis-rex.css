@@ -916,7 +916,7 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
-    animation: rex-hero-gallery-down 24s linear infinite;
+    animation: rex-hero-gallery-down 10s linear infinite;
 }
 .rex-hero-gallery-col--reverse {
     animation-name: rex-hero-gallery-up;
