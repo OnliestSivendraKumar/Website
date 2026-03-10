@@ -589,19 +589,30 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
     width: 100%; height: 100%;
 }
 
-/* ─── Chrome tabs: below header, scrolls with page ────── */
+/* ─── Tabs section: no solid band, merges with hero; bar matches header glass ────── */
+.rex-tabs-section {
+    background: transparent;
+}
+.rex-chrome-wrap {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 ;
+    background: transparent;
+}
+
+/* ─── Chrome tabs: blur glassy, light frost only — no burgundy bar ────── */
 .rex-chrome {
     position: relative;
     z-index: 200;
     height: var(--chrome-h);
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     gap: 0.5rem;
-    background: var(--chrome-glass);
-    backdrop-filter: saturate(180%) blur(24px);
-    -webkit-backdrop-filter: saturate(180%) blur(24px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: none;
+    backdrop-filter:none; 
+    border-top:1px solid rgba(240, 194, 140,0.8);
+    padding-top: 20px;
 }
 
 /* Tab strip — centered on desktop; flex-start on mobile so first tab isn't clipped */

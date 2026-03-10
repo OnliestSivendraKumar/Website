@@ -93,12 +93,14 @@ export default function App() {
       {/* First section — standalone (like footer is a separate section) */}
       <HeroSlide />
 
-      {/* Tabs section: bar + panels — one ref for hide detection */}
-      <div ref={tabsSectionRef}>
+      {/* Tabs section: glass bar matches header, merges with hero — one ref for hide detection */}
+      <div ref={tabsSectionRef} className="rex-tabs-section">
+        <div className="rex-chrome-wrap">
         <NavChrome
           activeTab={activeTab}
           onTabChange={setActiveTab}
         />
+        </div>
         <div className="rex-panels">
         <PanelRex
           isActive={activeTab === 'rex'}
