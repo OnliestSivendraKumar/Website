@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import Header       from './components/Header';
 import NavChrome    from './components/NavChrome';
 import PanelRex     from './components/PanelRex';
 import PanelStudio  from './components/PanelStudio';
@@ -54,6 +55,9 @@ export default function App() {
         className="rex-canvas"
         aria-hidden="true"
       />
+
+      {/* Sticky header: logo, nav, CTA */}
+      <Header />
 
       {/* Tab bar */}
       <NavChrome
