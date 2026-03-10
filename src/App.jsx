@@ -6,6 +6,7 @@ import PanelStudio  from './components/PanelStudio';
 import PanelFitting from './components/PanelFitting';
 import PanelAtelier from './components/PanelAtelier';
 import PanelHalo    from './components/PanelHalo';
+import Footer       from './components/Footer';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -84,6 +85,8 @@ export default function App() {
 
         <PanelHalo isActive={activeTab === 'halo'} />
       </div>
+
+      <Footer />
     </>
   );
 }

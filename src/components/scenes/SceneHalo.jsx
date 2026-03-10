@@ -227,7 +227,7 @@ export default function SceneHalo({ isActive }) {
 
       {/* Center hero — image changes with slide */}
       <div className="halo-hero-wrap">
-        <h2 className="halo-hero-title">Your AI Design Companion</h2>
+        <h2 className="halo-hero-title">Onliest Halo - Your AI Design Companion.</h2>
         <div className="halo-hero-frame">
           <img
             src={slide?.image || '/halo-hero.png'}
