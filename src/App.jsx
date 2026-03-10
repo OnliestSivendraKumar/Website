@@ -59,10 +59,6 @@ export default function App() {
       <NavChrome
         activeTab={activeTab}
         onTabChange={setActiveTab}
-        theme={theme}
-        onThemeToggle={toggleTheme}
-        activeLang={activeLang}
-        onLangChange={setActiveLang}
       />
 
       {/* All panels */}

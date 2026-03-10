@@ -8,31 +8,35 @@ const TABS = [
   { id: 'halo',    label: 'Onliest HALO'    },
 ];
 
-const LANGS = [
-  { code: 'en', label: 'EN' }, { code: 'hi', label: 'HI' },
-  { code: 'te', label: 'TE' }, { code: 'ta', label: 'TA' },
-  { code: 'kn', label: 'KN' }, { code: 'ml', label: 'ML' },
-  { code: 'mr', label: 'MR' }, { code: 'gu', label: 'GU' },
-  { code: 'de', label: 'DE' }, { code: 'fr', label: 'FR' },
-  { code: 'es', label: 'ES' },
-];
-
 export default function NavChrome({
   activeTab, onTabChange,
-  theme, onThemeToggle,
-  activeLang, onLangChange,
 }) {
   const tabRefs        = useRef({});
+  const tabsScrollRef  = useRef(null);
   const [indStyle, setIndStyle] = useState({ left: 0, width: 0 });
-  const [langOpen, setLangOpen] = useState(false);
 
-  /* Update sliding indicator whenever the active tab changes */
+  /* Update sliding indicator and scroll active tab into view */
   function updateIndicator() {
     const el = tabRefs.current[activeTab];
+    const scrollEl = tabsScrollRef.current;
     if (!el) return;
     const { offsetLeft, offsetWidth } = el;
     const inset = offsetWidth * 0.18;
     setIndStyle({ left: offsetLeft + inset, width: offsetWidth - inset * 2 });
+
+    /* Scroll so first/last tab is fully visible, not clipped */
+    if (scrollEl) {
+      const tabIndex = TABS.findIndex(t => t.id === activeTab);
+      const padding = 16;
+      if (tabIndex === 0) {
+        scrollEl.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (tabIndex === TABS.length - 1) {
+        scrollEl.scrollTo({ left: scrollEl.scrollWidth - scrollEl.clientWidth, behavior: 'smooth' });
+      } else {
+        const targetLeft = el.offsetLeft - padding;
+        scrollEl.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+      }
+    }
   }
 
   useEffect(updateIndicator, [activeTab]);
@@ -42,73 +46,58 @@ export default function NavChrome({
     return () => window.removeEventListener('resize', updateIndicator);
   }, [activeTab]);
 
-  /* Close language menu on outside click */
-  useEffect(() => {
-    if (!langOpen) return;
-    const close = () => setLangOpen(false);
-    document.addEventListener('click', close);
-    return () => document.removeEventListener('click', close);
-  }, [langOpen]);
+  /* Arrow scroll — left goes to start (first tab full), right scrolls forward */
+  const scrollTabs = (dir) => {
+    const el = tabsScrollRef.current;
+    if (!el) return;
+    if (dir < 0) {
+      el.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      const step = el.offsetWidth * 0.6;
+      el.scrollBy({ left: step, behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className="rex-chrome" role="tablist" aria-label="Onliest sections">
 
-      {/* Language selector (left) */}
-      <div className="rex-lang-wrap" id="rexLangWrap">
-        <button
-          className="rex-lang-btn"
-          id="rexLangBtn"
-          aria-haspopup="listbox"
-          aria-expanded={langOpen}
-          aria-label="Select language"
-          onClick={e => { e.stopPropagation(); setLangOpen(o => !o); }}
-        >
-          <span id="rexLangCurrent">{activeLang.toUpperCase()}</span>
-          <span className="rex-lang-caret" aria-hidden="true">&#8964;</span>
-        </button>
+      {/* Tab arrows — visible on mobile */}
+      <button
+        type="button"
+        className="rex-chrome-tab-arrow rex-chrome-tab-arrow--prev"
+        aria-label="Previous tabs"
+        onClick={() => scrollTabs(-1)}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
 
-        {langOpen && (
-          <ul
-            className="rex-lang-menu"
-            id="rexLangMenu"
-            role="listbox"
-            aria-label="Languages"
+      {/* Tab buttons — horizontal scroll with arrows on mobile */}
+      <div className="rex-chrome-tabs" ref={tabsScrollRef}>
+        {TABS.map(tab => (
+          <button
+            key={tab.id}
+            ref={el => { tabRefs.current[tab.id] = el; }}
+            className={`rex-tab${activeTab === tab.id ? ' active' : ''}`}
+            role="tab"
+            id={`tab-${tab.id}`}
+            aria-selected={activeTab === tab.id}
+            aria-controls={`panel-${tab.id}`}
+            data-tab={tab.id}
+            onClick={() => onTabChange(tab.id)}
           >
-            {LANGS.map(l => (
-              <li
-                key={l.code}
-                role="option"
-                data-lang={l.code}
-                aria-selected={activeLang === l.code}
-                onClick={e => {
-                  e.stopPropagation();
-                  onLangChange(l.code);
-                  setLangOpen(false);
-                }}
-              >
-                {l.label}
-              </li>
-            ))}
-          </ul>
-        )}
+            {tab.label}
+          </button>
+        ))}
       </div>
 
-      {/* Tab buttons */}
-      {TABS.map(tab => (
-        <button
-          key={tab.id}
-          ref={el => { tabRefs.current[tab.id] = el; }}
-          className={`rex-tab${activeTab === tab.id ? ' active' : ''}`}
-          role="tab"
-          id={`tab-${tab.id}`}
-          aria-selected={activeTab === tab.id}
-          aria-controls={`panel-${tab.id}`}
-          data-tab={tab.id}
-          onClick={() => onTabChange(tab.id)}
-        >
-          {tab.label}
-        </button>
-      ))}
+      <button
+        type="button"
+        className="rex-chrome-tab-arrow rex-chrome-tab-arrow--next"
+        aria-label="Next tabs"
+        onClick={() => scrollTabs(1)}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
 
       {/* Sliding gold underline indicator */}
       <span
@@ -117,18 +106,6 @@ export default function NavChrome({
         aria-hidden="true"
         style={{ left: indStyle.left, width: indStyle.width }}
       />
-
-      {/* Light / dark toggle */}
-      <button
-        className="rex-theme-toggle"
-        id="rexThemeToggle"
-        aria-label="Toggle light / dark mode"
-        aria-pressed={theme === 'light'}
-        onClick={onThemeToggle}
-      >
-        <span className="rex-tt-dark"  aria-hidden="true">&#9790;</span>
-        <span className="rex-tt-light" aria-hidden="true">&#9788;</span>
-      </button>
     </nav>
   );
 }
