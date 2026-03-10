@@ -13,18 +13,19 @@ const GALLERY_COL_3 = ['/ds-3.png', '/ds-6.png', '/ds-9.png', '/ds-12.png'];
 
 export default function HeroSlide() {
   return (
-    <section className="rex-hero-slide" aria-label="Hero — Design your perfect saree & blouse">
+    <section className="rex-hero-slide" aria-label="Hero — AI Meets Tradition">
       <div className="rex-hero-inner">
-        {/* Left: copy */}
+        {/* Left: copy — AI Meets Tradition */}
         <div className="rex-hero-copy">
-          <span className="rex-hero-badge">Design Studio</span>
+        <span className="rex-hero-badge">Welcome to Onliest</span>
           <h2 className="rex-hero-headline">
-            Design your perfect<br />saree &amp; blouse<br /><em>visually</em>
+            AI Meets<br /><em>Tradition</em>
           </h2>
+          <p className="rex-hero-subhead">The Future of Fashion</p>
           <p className="rex-hero-desc">
-            Compose your couture from scratch. Pick fabrics, customise blouse neck, sleeves and back patterns, then preview your complete look before you place the order.
+            Experience revolutionary AI-powered fashion design. Perfect fits, personalized styles, and traditional craftsmanship — all in one platform.
           </p>
-          <p className="rex-hero-all-label">All you can do in Design Studio</p>
+          <p className="rex-hero-all-label">Explore features</p>
           <div className="rex-hero-marquee-wrap" aria-hidden="true">
             <div className="rex-hero-marquee-track rex-hero-marquee--left">
               {[...FEATURE_ROW_1, ...FEATURE_ROW_1].map((f, i) => (

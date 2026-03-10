@@ -64,7 +64,10 @@ export default function Footer() {
           <a href="#">Locate Us</a>
           <a href="#">FAQ&apos;s</a>
           <a href="#">Career</a>
-          <span className="rex-footer-help">How can AI REX help you?</span>
+          <div className="rex-footer-help-wrap">
+            <img src="/bot.svg" alt="" className="rex-footer-bot-logo" aria-hidden="true" />
+            <span className="rex-footer-help">How can AI REX help you?</span>
+          </div>
         </div>
       </div>
 

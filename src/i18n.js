@@ -3,12 +3,12 @@ export const I18N = {
     headline:            'Design the Saree That Knows You',
     micro_line:          'Feel the drape. See the glow. Own the moment.',
     micro_over:          'AI Couture Intelligence by Onliest',
-    subheadline:         'Your identity, interpreted',
+    subheadline:         'AI Meets Tradition',
     /* AI Reads You — slide 1 left copy */
-    rex_headline:        'Onliest REX — Where Artificial Intelligence Meets Personal Couture',
-    rex_intro:           'Onliest REX is a powerful AI design companion that deeply understands your style identity. By combining your preferences with global design intelligence, REX guides you in creating sarees and blouses that reflect elegance, individuality, and precision.',
+    rex_headline:        'The Future of Fashion',
+    rex_intro:           'Experience revolutionary AI-powered fashion design. Perfect fits, personalized styles, and traditional craftsmanship — all in one platform. Create sarees and blouses that reflect your identity with intelligence and precision.',
     rex_tagline:         'From inspiration to creation, every detail is intelligently crafted around you.',
-    rex_closing:         'Because true luxury is something designed only for you.',
+    rex_closing:         'AI-powered saree & blouse design — designed only for you.',
     /* Slide 4 — AI preference intelligence */
     rex_prefs_ai_title:  'AI Preference Intelligence',
     rex_prefs_ai_1:      'Learns your style signature from every choice',

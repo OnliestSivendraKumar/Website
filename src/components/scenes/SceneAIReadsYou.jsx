@@ -95,6 +95,13 @@ const CHIP_GROUPS = [
   },
 ];
 
+/* Feature chips for bottom marquee (Design Studio first, then AI saree/blouse features) */
+const REX_FEATURE_CHIPS = [
+  'Design Studio', 'Blouse Design', 'Saree Design', 'AI Fitting', 'Personalized Styles',
+  'Neck & Sleeve Customisation', 'Border Designs', 'Fabric Picks', 'Color Match',
+  '3D Preview', 'Fitting Room', 'Onliest Atelier', 'Style Intelligence',
+];
+
 /* Build default active-chip map */
 const defaultChips = CHIP_GROUPS.reduce((acc, g) => {
   const def = g.chips.find(c => c.defaultActive);
@@ -221,6 +228,13 @@ export default function SceneAIReadsYou({
               </button>
             </div>
           </div>
+          <div className="rex-rex-features-marquee-wrap" aria-hidden="true">
+            <div className="rex-rex-features-marquee-track">
+              {[...REX_FEATURE_CHIPS, ...REX_FEATURE_CHIPS].map((label, i) => (
+                <span key={`f-${i}`} className="rex-rex-feature-chip">{label}</span>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* ── Right: 5-slide carousel (1 video, 2 couture video, 3 blouse, 4–5 TBD) ── */}
@@ -248,7 +262,7 @@ export default function SceneAIReadsYou({
                 aria-label="Onliest REX editorial"
               />
               <div className="rex-s2-video-card-overlay">
-                <p className="rex-blouse-card-label">Welcome to the Onliest REX</p>
+                <p className="rex-blouse-card-label">Design Studio</p>
                 <p className="rex-blouse-card-sub">Your journey begins</p>
               </div>
             </div>
