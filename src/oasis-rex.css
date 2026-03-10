@@ -86,10 +86,16 @@ html, body { min-height: 100%; }
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     backdrop-filter: saturate(180%) blur(24px);
     -webkit-backdrop-filter: saturate(180%) blur(24px);
-    transition: box-shadow 0.35s var(--ease);
+    transition: box-shadow 0.35s var(--ease), transform 0.35s var(--ease), opacity 0.35s var(--ease);
 }
 .rex-header--scrolled {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+/* When REX tabs are in view: partially hide — leave 50px strip visible */
+.rex-header--hidden {
+    transform: translateY(-100%);
+    pointer-events: none;
+    z-index: 200;
 }
 body[data-theme="light"] .rex-header--scrolled {
     background: rgba(70, 11, 47, 0.5);
@@ -623,8 +629,9 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
 .rex-tab {
     position: relative;
     flex-shrink: 0;
-    padding: 0 1.5rem;
+    padding: 0 1.25rem 0 1rem;
     height: 42px;
+    gap: 0.5rem;
     background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
@@ -644,6 +651,20 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.rex-tab-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    flex-shrink: 0;
+}
+.rex-tab-icon svg {
+    display: block;
+    color: inherit;
+}
+.rex-tab-label {
+    color: inherit;
 }
 /* Top edge highlight — glass button feel */
 .rex-tab::before {
@@ -701,7 +722,7 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
 .rex-panels {
     position: relative;
     z-index: 1;
-    min-height: calc(100vh - (var(--header-h, 56px) + var(--chrome-h)));
+    min-height: 100vh;
     background: var(--bg-burgundy);
 }
 
@@ -733,6 +754,185 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
     background:
         radial-gradient(ellipse 70% 55% at 50% 45%, rgba(90,11,52,0.18) 0%, transparent 65%),
         var(--black);
+}
+
+/* ─── Hero slide (first section: left copy + right gallery) ─── */
+.rex-hero-slide {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    background: var(--bg-burgundy);
+    padding: 0;
+}
+.rex-hero-inner {
+    width: 100%;
+    max-width: 1650px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2.5rem);
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 4vw, 3.5rem);
+}
+.rex-hero-copy {
+    flex: 0 0 48%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.25rem;
+}
+.rex-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(198, 167, 94, 0.35);
+    background: rgba(198, 167, 94, 0.08);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: fit-content;
+}
+.rex-hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.2vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--platinum);
+    margin: 0;
+}
+.rex-hero-headline em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--gold) 0%, #e8d48a 60%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.rex-hero-desc {
+    font-size: 0.97rem;
+    line-height: 1.65;
+    color: var(--silver);
+    max-width: 420px;
+    margin: 0;
+}
+.rex-hero-all-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(198, 167, 94, 0.7);
+    margin: 0;
+    margin-top: 0.25rem;
+}
+.rex-hero-marquee-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.6rem 0 0.85rem;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.rex-hero-marquee-track {
+    display: flex;
+    gap: 0.6rem;
+    width: max-content;
+    will-change: transform;
+}
+.rex-hero-marquee--left {
+    animation: rex-hero-marquee-left 22s linear infinite;
+}
+.rex-hero-marquee--right {
+    animation: rex-hero-marquee-right 26s linear infinite;
+}
+.rex-hero-marquee-wrap:hover .rex-hero-marquee-track {
+    animation-play-state: paused;
+}
+@keyframes rex-hero-marquee-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+@keyframes rex-hero-marquee-right {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+}
+.rex-hero-chip {
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--silver);
+    font-size: 0.82rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.rex-hero-gallery-wrap {
+    flex: 0 0 52%;
+    min-width: 0;
+    min-height: 520px;
+    height: clamp(520px, 80vh, 700px);
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.35);
+}
+.rex-hero-gallery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.75rem;
+}
+.rex-hero-gallery-col {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    animation: rex-hero-gallery-down 36s linear infinite;
+}
+.rex-hero-gallery-col--reverse {
+    animation-name: rex-hero-gallery-up;
+}
+.rex-hero-gallery-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
+}
+.rex-hero-gallery-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+@keyframes rex-hero-gallery-down {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-25%); }
+}
+@keyframes rex-hero-gallery-up {
+    from { transform: translateY(-25%); }
+    to   { transform: translateY(0); }
+}
+@media (max-width: 1024px) {
+    .rex-hero-slide { min-height: auto; padding: 2rem 0; }
+    .rex-hero-inner { flex-direction: column; }
+    .rex-hero-copy { flex: none; text-align: center; align-items: center; }
+    .rex-hero-desc { max-width: none; }
+    .rex-hero-gallery-wrap { flex: none; width: 100%; min-height: 320px; }
+    .rex-hero-gallery { min-height: 320px; }
+}
+@media (max-width: 768px) {
+    .rex-hero-copy { padding: 0 0.5rem; }
+    .rex-hero-gallery { min-height: 280px; gap: 0.4rem; padding: 0.5rem; }
+    .rex-hero-gallery-col { gap: 0.4rem; }
 }
 
 /* ─── Site footer (common) ───────────────────────────── */
@@ -6648,9 +6848,9 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 
 /* Wider frame — more space; gap kept between frame and bubbles */
 .halo-hero-frame {
-    width: min(560px, calc(100vw - 2rem));
+    width: min(500px, calc(100vw - 2rem));
     aspect-ratio: 3 / 4;
-    max-height: 660px;
+    max-height: 540px;
     border-radius: 28px;
     overflow: hidden;
     border: 1px solid var(--gold-border);
@@ -6677,7 +6877,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 /* Description below the image (questionsBottom / extra) */
 .halo-questions-bottom {
     width: 100%;
-    max-width: min(560px, calc(100vw - 2rem));
+    max-width: min(500px, calc(100vw - 2rem));
     text-align: center;
 }
 
@@ -7315,7 +7515,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 .ds-video-wrap {
     flex: 1 1 0;
     min-width: 0;
-    min-height: 320px;
+    height: 800px;
     margin: 1rem 1.5rem 1rem 0;
     border-radius: 18px;
     overflow: visible;
@@ -7334,7 +7534,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 .ds-video {
     width: 100%;
     height: 100%;
-    min-height: 260px;
+    min-height: 200px;
     flex: 1 1 auto;
     display: block;
     object-fit: contain;

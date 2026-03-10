@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Header       from './components/Header';
 import NavChrome    from './components/NavChrome';
+import HeroSlide    from './components/HeroSlide';
 import PanelRex     from './components/PanelRex';
 import PanelStudio  from './components/PanelStudio';
 import PanelFitting from './components/PanelFitting';
@@ -30,6 +31,35 @@ export default function App() {
   const canvasRef = useRef(null);
   useConstellationParticles(canvasRef, particleColorRef);
 
+  /* ── Hide header completely when in tabs section; keep hidden until clearly past section ── */
+  const tabsSectionRef = useRef(null);
+  const [hideHeaderOnPanels, setHideHeaderOnPanels] = useState(false);
+  const TRIGGER_PX = 100;       // hide when section top is within this of viewport top
+  const LEAVE_BUFFER_PX = -20;  // show header only when section bottom is above viewport by this much (avoids flicker)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = tabsSectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const entered = rect.top <= TRIGGER_PX;
+      const notPast = rect.bottom > LEAVE_BUFFER_PX;
+      setHideHeaderOnPanels(entered && notPast);
+    };
+    const raf = () => requestAnimationFrame(handleScroll);
+    raf();
+    window.addEventListener('scroll', raf, { passive: true });
+    document.addEventListener('scroll', raf, { passive: true });
+    window.addEventListener('resize', raf);
+    const t = setTimeout(handleScroll, 150);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener('scroll', raf);
+      document.removeEventListener('scroll', raf);
+      window.removeEventListener('resize', raf);
+    };
+  }, []);
+
   /* ── Apply theme to <body> + swap particle colour ── */
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -58,16 +88,18 @@ export default function App() {
       />
 
       {/* Sticky header: logo, nav, CTA */}
-      <Header />
+      <Header hideOnPanels={hideHeaderOnPanels} />
 
-      {/* Tab bar */}
-      <NavChrome
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
-      />
+      {/* First section — standalone (like footer is a separate section) */}
+      <HeroSlide />
 
-      {/* All panels */}
-      <div className="rex-panels">
+      {/* Tabs section: bar + panels — one ref for hide detection */}
+      <div ref={tabsSectionRef}>
+        <NavChrome
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+        />
+        <div className="rex-panels">
         <PanelRex
           isActive={activeTab === 'rex'}
           activeLang={activeLang}
@@ -84,6 +116,7 @@ export default function App() {
         <PanelAtelier isActive={activeTab === 'atelier'} />
 
         <PanelHalo isActive={activeTab === 'halo'} />
+        </div>
       </div>
 
       <Footer />

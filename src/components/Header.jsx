@@ -169,7 +169,7 @@ function TrendIcon() {
 const RECENT_SEARCHES = ['Red Saree', 'Wedding Collection', 'Silk Kurta'];
 const POPULAR_SEARCHES = ['Bridal Sarees', 'Designer Lehengas', 'Festive Wear', 'Indo-Western', 'Party Wear'];
 
-export default function Header() {
+export default function Header({ hideOnPanels = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [openId, setOpenId] = useState(null);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -285,7 +285,7 @@ export default function Header() {
 
   return (
     <header
-      className={`rex-header${scrolled ? ' rex-header--scrolled' : ''}`}
+      className={`rex-header${scrolled ? ' rex-header--scrolled' : ''}${hideOnPanels ? ' rex-header--hidden' : ''}`}
       role="banner"
     >
       <div className="rex-header-inner">
