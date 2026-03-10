@@ -388,28 +388,32 @@ body[data-theme="light"] .rex-header-icon-btn:hover {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5625rem 1.375rem;
-    background: var(--platinum);
-    color: var(--black);
+    background: linear-gradient(135deg, #F5E7C8 0%, #E9CF8A 35%, #C6A75E 100%);
+    color: #1A0F10;
     font-family: 'Inter', sans-serif;
     font-size: 0.9375rem;
     font-weight: 700;
     letter-spacing: 0.02em;
     text-decoration: none;
     border-radius: 999px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease);
+    box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease);
 }
 .rex-header-cta:hover {
-    background: #fff;
-    box-shadow: 0 4px 20px var(--gold-glow);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #F9F0D8 0%, #F0D9A0 30%, #D6B86A 100%);
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    transform: translateY(-1px) scale(1.01);
 }
 .rex-header-cta:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 2px;
 }
 .rex-header-cta svg {
-    color: var(--gold);
+    color: #7B571C;
 }
 
 /* Search overlay (click search icon) */
