@@ -95,13 +95,6 @@ const CHIP_GROUPS = [
   },
 ];
 
-/* Feature chips for bottom marquee (Design Studio first, then AI saree/blouse features) */
-const REX_FEATURE_CHIPS = [
-  'Design Studio', 'Blouse Design', 'Saree Design', 'AI Fitting', 'Personalized Styles',
-  'Neck & Sleeve Customisation', 'Border Designs', 'Fabric Picks', 'Color Match',
-  '3D Preview', 'Fitting Room', 'Onliest Atelier', 'Style Intelligence',
-];
-
 /* Build default active-chip map */
 const defaultChips = CHIP_GROUPS.reduce((acc, g) => {
   const def = g.chips.find(c => c.defaultActive);
@@ -226,13 +219,6 @@ export default function SceneAIReadsYou({
               >
                 {copy.cta_how_it_works}
               </button>
-            </div>
-          </div>
-          <div className="rex-rex-features-marquee-wrap" aria-hidden="true">
-            <div className="rex-rex-features-marquee-track">
-              {[...REX_FEATURE_CHIPS, ...REX_FEATURE_CHIPS].map((label, i) => (
-                <span key={`f-${i}`} className="rex-rex-feature-chip">{label}</span>
-              ))}
             </div>
           </div>
         </div>

@@ -6,8 +6,11 @@ import PanelRex     from './components/PanelRex';
 import PanelStudio  from './components/PanelStudio';
 import PanelFitting from './components/PanelFitting';
 import PanelAtelier from './components/PanelAtelier';
-import PanelHalo    from './components/PanelHalo';
-import Footer       from './components/Footer';
+import PanelHalo     from './components/PanelHalo';
+import SectionMarketplace from './components/SectionMarketplace';
+import SectionCallout from './components/SectionCallout';
+import SectionReviews from './components/SectionReviews';
+import Footer        from './components/Footer';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -120,6 +123,40 @@ export default function App() {
         <PanelHalo isActive={activeTab === 'halo'} />
         </div>
       </div>
+
+      {/* Market Place: Curated Collections + Featured Designers */}
+      <SectionMarketplace />
+
+      {/* Post-tabs marketing section — reusable layout, just pass content */}
+      <SectionCallout
+        id="book-trainer"
+        eyebrow="Customer Experience"
+        title="Book a Trainer"
+        subtitle="Learn, discover, and connect with our comprehensive customer experience."
+        bullets={[
+          { label: 'Live Video Sessions', body: 'Interactive demos via video call.' },
+          { label: 'Expert Trainers', body: 'Certified fashion professionals.' },
+          { label: 'Flexible Scheduling', body: 'Choose your convenient time.' },
+        ]}
+        cta={{ label: 'Book Your Free Demo', href: '#book-trainer' }}
+        stats={[
+          { value: '500+', label: 'Sessions Done' },
+          { value: '4.9★', label: 'Average Rating' },
+          { value: '30min', label: 'Free Session' },
+        ]}
+        image={{
+          src: '/ds-1.png',
+          alt: 'Fashion trainer working with fabrics in a studio.',
+          overlay: {
+            eyebrow: 'Schedule Now',
+            title: 'Available Mon – Sat',
+            body: '9 AM – 6 PM IST',
+          },
+        }}
+      />
+
+      {/* Social proof / reviews section */}
+      <SectionReviews />
 
       <Footer />
     </>
