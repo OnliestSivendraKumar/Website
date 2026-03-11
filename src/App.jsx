@@ -124,9 +124,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* Market Place: Curated Collections + Featured Designers */}
-      <SectionMarketplace />
-
       {/* Post-tabs marketing section — reusable layout, just pass content */}
       <SectionCallout
         id="book-trainer"
@@ -154,6 +151,9 @@ export default function App() {
           },
         }}
       />
+
+      {/* Market Place: Curated Collections + Featured Designers */}
+      <SectionMarketplace />
 
       {/* Social proof / reviews section */}
       <SectionReviews />
