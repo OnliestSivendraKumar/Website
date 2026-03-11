@@ -1411,16 +1411,26 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
                 linear-gradient(180deg, rgba(90, 11, 52, 0.4) 0%, rgba(90, 11, 52, 0.9) 100%);
     box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.35),
-        0 0 0 1px rgba(255, 255, 255, 0.18);
+        0 0 0 1px rgba(255, 255, 255, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(198, 167, 94, 0.95);
 }
 .rex-section-callout-item-icon::after {
     content: '';
     position: absolute;
-    inset: 9px;
+    inset: 1px;
     border-radius: inherit;
-    background: radial-gradient(circle, rgba(255,255,255,0.95) 0, rgba(255,255,255,0.0) 70%);
-    opacity: 0.8;
+    background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.22) 0, rgba(255,255,255,0.0) 55%);
+    opacity: 1;
+    pointer-events: none;
+}
+.rex-section-callout-item-icon svg {
+    position: relative;
+    z-index: 1;
 }
 .rex-section-callout-item-text {
     display: flex;
