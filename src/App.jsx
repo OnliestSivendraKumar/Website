@@ -8,6 +8,7 @@ import PanelFitting from './components/PanelFitting';
 import PanelAtelier from './components/PanelAtelier';
 import PanelHalo     from './components/PanelHalo';
 import SectionMarketplace from './components/SectionMarketplace';
+import SectionMagazineTabs from './components/SectionMagazineTabs';
 import SectionCallout from './components/SectionCallout';
 import SectionReviews from './components/SectionReviews';
 import Footer        from './components/Footer';
@@ -123,6 +124,9 @@ export default function App() {
         <PanelHalo isActive={activeTab === 'halo'} />
         </div>
       </div>
+
+      {/* Journey / magazine layout section (before Book a Trainer) */}
+      <SectionMagazineTabs />
 
       {/* Post-tabs marketing section — reusable layout, just pass content */}
       <SectionCallout

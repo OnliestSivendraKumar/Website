@@ -957,6 +957,291 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
     .rex-hero-gallery-col { gap: 0.4rem; }
 }
 
+/* ─── Journey / magazine tabs section (before Book a Trainer) ─── */
+.rex-magazine {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem 1.5rem 2.75rem;
+    background: var(--bg-burgundy-deep);
+}
+.rex-magazine--pinned {
+    /* Body scroll drives steps while UI stays pinned */
+    min-height: calc(85vh * var(--steps, 8));
+}
+.rex-magazine-pin {
+    position: sticky;
+    top: 90px;
+}
+.rex-magazine-inner {
+    max-width: 1650px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2.5rem);
+    display: grid;
+    grid-template-columns: minmax(230px, 320px) minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: stretch;
+}
+.rex-magazine-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 0.95rem;
+}
+.rex-magazine-tabs {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+}
+
+.rex-magazine-main {
+    align-self: stretch;
+}
+.rex-magazine-tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+}
+.rex-magazine-tab {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    text-align: left;
+    padding: 0.75rem 0.85rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(11, 7, 14, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    transition: transform 0.22s var(--ease), border-color 0.22s var(--ease), background 0.22s var(--ease);
+}
+.rex-magazine-tab:hover {
+    transform: translateY(-2px);
+    border-color: rgba(198, 167, 94, 0.38);
+    background: rgba(11, 7, 14, 0.78);
+}
+.rex-magazine-tab.is-active,
+.rex-magazine-tab[aria-selected="true"] {
+    border-color: rgba(198, 167, 94, 0.58);
+    box-shadow:
+      0 16px 44px rgba(0, 0, 0, 0.62),
+      0 0 0 1px rgba(198, 167, 94, 0.18);
+}
+.rex-magazine-tab-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(198, 167, 94, 0.25);
+    background: rgba(0,0,0,0.25);
+}
+.rex-magazine-tab-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.rex-magazine-tab-title {
+    display: block;
+    font-weight: 650;
+    font-size: 0.92rem;
+    color: var(--platinum);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0;
+}
+.rex-magazine-eyebrow {
+    font-size: 0.88rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin: 0 0 0.35rem;
+}
+.rex-magazine-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.05rem, 3vw, 2.7rem);
+    line-height: 1.12;
+    margin: 0 0 0.35rem;
+    color: var(--platinum);
+}
+.rex-magazine-subtitle {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--plat-70);
+    max-width: 62ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Right side main magazine layout (inspired by your 3rd screenshot) */
+.rex-magazine-layout {
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(11, 7, 14, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow:
+      0 22px 70px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(198, 167, 94, 0.10);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 520px;
+    height: 100%;
+}
+.rex-magazine-hero {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1.25rem;
+    align-items: stretch;
+    align-content: start;
+    grid-auto-rows: max-content;
+    background: radial-gradient(900px 520px at 30% 0%, rgba(198, 167, 94, 0.08) 0%, transparent 58%);
+    height: 100%;
+}
+.rex-magazine-hero-image {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 50px rgba(0,0,0,0.55);
+    height: 320px;
+    background: rgba(0,0,0,0.05);
+}
+.rex-magazine-hero-image img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    object-position: 50% 20%;
+    display: block;
+}
+.rex-magazine-hero-copy {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 0.25rem 0.25rem 0.1rem;
+}
+.rex-magazine-hero-kicker {
+    margin: 0 0 0.4rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(198, 167, 94, 0.72);
+}
+.rex-magazine-hero-headline {
+    margin: 0 0 0.7rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+    line-height: 1.05;
+    color: var(--platinum);
+}
+.rex-magazine-hero-body {
+    margin: 0 0 1.1rem;
+    color: var(--plat-70);
+    line-height: 1.75;
+    font-size: 1.05rem;
+}
+.rex-magazine-hero-list {
+    margin: 0 0 1.1rem;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 1.25rem;
+    color: var(--plat-70);
+    font-size: 1.02rem;
+    line-height: 1.55;
+    align-content: flex-start;
+}
+.rex-magazine-hero-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    white-space: nowrap;
+}
+.rex-magazine-hero-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(198, 167, 94, 0.85);
+    box-shadow: 0 0 0 3px rgba(198, 167, 94, 0.12);
+    transform: translateY(-50%);
+}
+.rex-magazine-hero-detail {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: var(--plat-70);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    max-width: 100%;
+}
+.rex-magazine-hero-cta-row {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+}
+.rex-magazine-hero-cta {
+    align-self: flex-end;
+}
+@media (max-width: 1024px) {
+    .rex-magazine-inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .rex-magazine-tabs {
+        position: relative;
+        top: auto;
+    }
+    .rex-magazine-tabs-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+    .rex-magazine-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+@media (max-width: 640px) {
+    .rex-magazine {
+        padding: 2.25rem 1rem 2.5rem;
+    }
+    .rex-magazine-tabs-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .rex-magazine-hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .rex-magazine-hero-image img {
+        max-height: none;
+    }
+    .rex-magazine-hero-image {
+        height: 240px;
+    }
+    .rex-magazine-hero-cta-row {
+        justify-content: flex-start;
+    }
+    .rex-magazine--pinned {
+        min-height: auto;
+    }
+    .rex-magazine-pin {
+        position: relative;
+        top: auto;
+    }
+}
+
 /* ─── Market Place: Curated Collections + Featured Designers ─── */
 .rex-marketplace {
     position: relative;
