@@ -50,12 +50,12 @@ export default function Footer() {
 
         <div className="rex-footer-col">
           <h3>Our Policies</h3>
-          <a href="#">Return Policy</a>
-          <a href="#">Shipping Policy</a>
-          <a href="#">Legal Disclosures</a>
-          <a href="#">Terms and Conditions</a>
-          <a href="#">Security and Privacy</a>
-          <a href="#">Insurance</a>
+          <a href="/policies/return">Return Policy</a>
+          <a href="/policies/shipping">Shipping Policy</a>
+          <a href="/policies/legal">Legal Disclosures</a>
+          <a href="/policies/terms">Terms and Conditions</a>
+          <a href="/policies/security-privacy">Security and Privacy</a>
+          <a href="/policies/insurance">Insurance</a>
         </div>
 
         <div className="rex-footer-col">

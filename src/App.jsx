@@ -4,6 +4,12 @@ import HomePage from './pages/HomePage';
 import PageWelcome from './pages/PageWelcome';
 import PageContact from './pages/PageContact';
 import PageBlog from './pages/PageBlog';
+import PagePolicyReturn from './pages/PagePolicyReturn';
+import PagePolicyShipping from './pages/PagePolicyShipping';
+import PagePolicyLegal from './pages/PagePolicyLegal';
+import PagePolicyTerms from './pages/PagePolicyTerms';
+import PagePolicySecurityPrivacy from './pages/PagePolicySecurityPrivacy';
+import PagePolicyInsurance from './pages/PagePolicyInsurance';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -46,6 +52,12 @@ export default function App() {
         <Route path="/about" element={<PageWelcome />} />
         <Route path="/contact" element={<PageContact />} />
         <Route path="/blog" element={<PageBlog />} />
+        <Route path="/policies/return" element={<PagePolicyReturn />} />
+        <Route path="/policies/shipping" element={<PagePolicyShipping />} />
+        <Route path="/policies/legal" element={<PagePolicyLegal />} />
+        <Route path="/policies/terms" element={<PagePolicyTerms />} />
+        <Route path="/policies/security-privacy" element={<PagePolicySecurityPrivacy />} />
+        <Route path="/policies/insurance" element={<PagePolicyInsurance />} />
       </Routes>
     </>
   );
