@@ -118,6 +118,7 @@ export default function SceneAIReadsYou({
   const [s2Idx, setS2Idx]         = useState(0);
   const s2IdxRef                  = useRef(0);
   const s2TimerRef                = useRef(null);
+  const s2PausedRef               = useRef(false);
 
   /* Card particles canvas */
   const cardParticlesRef          = useRef(null);
@@ -165,6 +166,8 @@ export default function SceneAIReadsYou({
   }, []);
 
   function startS2Auto() {
+    if (!isActive) return;
+    if (s2PausedRef.current) return;
     clearInterval(s2TimerRef.current);
     s2TimerRef.current = setInterval(() => s2GoTo(s2IdxRef.current + 1), 4000);
   }
@@ -172,9 +175,30 @@ export default function SceneAIReadsYou({
   function stopS2Auto() { clearInterval(s2TimerRef.current); }
 
   useEffect(() => {
-    startS2Auto();
+    // Only run auto when this scene is active
+    if (isActive) startS2Auto();
+    else stopS2Auto();
     return stopS2Auto;
-  }, []);
+  }, [isActive]);
+
+  function onS2PointerEnter() {
+    s2PausedRef.current = true;
+    stopS2Auto();
+  }
+  function onS2PointerLeave() {
+    s2PausedRef.current = false;
+    startS2Auto();
+  }
+  function onS2FocusIn() {
+    s2PausedRef.current = true;
+    stopS2Auto();
+  }
+  function onS2FocusOut(e) {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      s2PausedRef.current = false;
+      startS2Auto();
+    }
+  }
 
   /* Chip click handler */
   function handleChip(groupId, value) {
@@ -227,8 +251,10 @@ export default function SceneAIReadsYou({
         <div
           className="rex-s2-carousel rex-delay-1"
           id="rexS2Carousel"
-          onMouseEnter={stopS2Auto}
-          onMouseLeave={startS2Auto}
+          onPointerEnter={onS2PointerEnter}
+          onPointerLeave={onS2PointerLeave}
+          onFocus={onS2FocusIn}
+          onBlur={onS2FocusOut}
         >
           <div
             className="rex-s2-track"

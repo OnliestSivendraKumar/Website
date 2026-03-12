@@ -887,28 +887,66 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 
 /* ─── Tabs section: no solid band, merges with hero; bar matches header glass ────── */
 .rex-tabs-section {
-    background: transparent;
+    position: relative;
+    /* Give the tabs section its own "panel" so it doesn't visually merge with hero */
+    background: var(--bg-burgundy-deep);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 -14px 36px rgba(0, 0, 0, 0.28);
+}
+.rex-tabs-section::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: min(980px, calc(100% - 3rem));
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198,167,94,0.55), transparent);
+    opacity: 0.9;
+    pointer-events: none;
+}
+.rex-tabs-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -28px;
+    height: 28px;
+    /* Soft separator fade between Hero and Tabs */
+    background: linear-gradient(180deg, rgba(11, 11, 15, 0) 0%, rgba(11, 11, 15, 0.65) 100%);
+    pointer-events: none;
 }
 .rex-chrome-wrap {
-    max-width: 100%;
+    max-width: 1650px;
     margin: 0 auto;
-    padding: 0 ;
-    background: transparent;
+    padding: 0 clamp(1rem, 4vw, 2.5rem);
+}
+.rex-chrome {
+    /* Put tabs on their own glass "plate" */
+    width: 100%;
+    border-radius: 999px;
+    padding: 10px 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.05) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(18px) saturate(1.15);
+    -webkit-backdrop-filter: blur(18px) saturate(1.15);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
 /* ─── Chrome tabs: blur glassy, light frost only — no burgundy bar ────── */
 .rex-chrome {
     position: relative;
     z-index: 200;
-    height: var(--chrome-h);
+    height: auto;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: none;
-    backdrop-filter:none; 
-    /* border-top:1px solid rgba(240, 194, 140,0.8); */
-    padding-top: 20px;
 }
 
 /* Tab strip — centered on desktop; flex-start on mobile so first tab isn't clipped */
@@ -1071,7 +1109,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     display: flex;
     align-items: center;
     background: var(--bg-burgundy);
-    padding: 0;
+    padding: 0 0 2.25rem;
 }
 .rex-hero-inner {
     width: 100%;
@@ -1281,7 +1319,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     padding: 0 clamp(1rem, 4vw, 2.5rem);
     display: grid;
     grid-template-columns: minmax(230px, 320px) minmax(0, 1fr);
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    gap: clamp(0.5rem, 1vw, 2.5rem);
     align-items: stretch;
 }
 .rex-magazine-header {
@@ -1314,7 +1352,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     gap: 0.75rem;
     align-items: center;
     text-align: left;
-    padding: 0.75rem 0.85rem;
+    padding: 0.45rem 0.85rem;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.10);
     background: rgba(11, 7, 14, 0.72);
@@ -1359,6 +1397,12 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     text-transform: uppercase;
     line-height: 1.2;
     margin: 0;
+}
+.rex-magazine-tab-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
 }
 .rex-magazine-eyebrow {
     font-size: 0.88rem;
@@ -7523,7 +7567,7 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
 /* ─── 1024px — tablet landscape: stack columns ─── */
 @media (max-width: 1024px) {
     /* Chrome — large left spacing so first tab is never hidden */
-    .rex-chrome { gap: 1.75rem; padding: 0 0.75rem 0 2rem; }
+    .rex-chrome { gap: 0rem; padding: 0; }
     .rex-chrome-tab-arrow--prev { margin-right: 0.5rem; }
     .rex-chrome-tabs { justify-content: flex-start; flex: 1 1 auto; padding-left: 2rem; margin-left: 0.25rem; }
     .rex-chrome-tab-arrow {
@@ -7648,7 +7692,7 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
 /* ─── 768px — mobile portrait ─── */
 @media (max-width: 768px) {
     /* Chrome — large left spacing so first tab is never hidden */
-    .rex-chrome { gap: 0rem; padding: 0px 4px;padding-bottom: 10px; }
+    .rex-chrome { gap: 0rem; padding: 0px 4px;padding-bottom: 0px; }
     .rex-chrome-tab-arrow--prev { margin-right: 0rem; }
     .rex-chrome-tabs { justify-content: flex-start; padding-left: 2rem; margin-left: 0.2rem; }
     .rex-chrome-tab-arrow { width: 1.75rem; height: 1.75rem; }
@@ -8887,6 +8931,9 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 }
 
 @media (max-width: 768px) {
+    .rex-resolution-top{
+        padding-left: 0px!important;
+    }
     .fit-scene { padding: 1.4rem 1.2rem; }
     .fit-mannequin-layout { grid-template-columns: 1fr; grid-template-rows: auto auto auto auto; }
     .fit-right-col { grid-column: 1; grid-row: 4; }
@@ -9818,10 +9865,20 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 @media (max-width: 768px) {
     .ds-scene { flex-direction: column; overflow-y: auto; }
     .ds-copy { flex: none; padding: 2.5rem 1.5rem 1.5rem; }
-    .ds-video-wrap { flex: none; margin: 0 1rem 1.5rem; aspect-ratio: 16 / 9; }
+    .ds-video-wrap {
+        flex: none;
+        margin: 0 1rem 1.5rem;
+        height: min(52vh, 520px);
+        min-height: 260px;
+        aspect-ratio: 16 / 9;
+    }
     .ds-video { height: 100%; }
 }
 @media (max-width: 360px) {
     .ds-copy { padding: 1.5rem 1rem 1rem; }
-    .ds-video-wrap { margin: 0 0.75rem 1rem; }
+    .ds-video-wrap {
+        margin: 0 0.75rem 1rem;
+        height: min(54vh, 480px);
+        min-height: 240px;
+    }
 }

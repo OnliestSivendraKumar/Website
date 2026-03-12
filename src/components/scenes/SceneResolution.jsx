@@ -40,6 +40,7 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab, onSho
   const statIdxRef    = useRef(0);
   const autoTimerRef  = useRef(null);
   const touchXRef     = useRef(null);
+  const pausedRef     = useRef(false);
 
   const resLines = copy.headline_resolution.split('\n');
 
@@ -49,15 +50,37 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab, onSho
     setStatIdx(next);
   }
   function startStatAuto() {
+    if (!isActive) return;
+    if (pausedRef.current) return;
     clearInterval(autoTimerRef.current);
     autoTimerRef.current = setInterval(() => statGoTo(statIdxRef.current + 1), 3200);
   }
   function stopStatAuto() { clearInterval(autoTimerRef.current); }
 
   useEffect(() => {
-    startStatAuto();
+    if (isActive) startStatAuto();
+    else stopStatAuto();
     return stopStatAuto;
-  }, []);
+  }, [isActive]);
+
+  function onPointerEnter() {
+    pausedRef.current = true;
+    stopStatAuto();
+  }
+  function onPointerLeave() {
+    pausedRef.current = false;
+    startStatAuto();
+  }
+  function onFocusIn() {
+    pausedRef.current = true;
+    stopStatAuto();
+  }
+  function onFocusOut(e) {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      pausedRef.current = false;
+      startStatAuto();
+    }
+  }
 
   return (
     <section
@@ -95,8 +118,10 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab, onSho
         <div
           className="rex-carousel-outer rex-delay-3"
           aria-label="Platform capabilities"
-          onMouseEnter={stopStatAuto}
-          onMouseLeave={startStatAuto}
+          onPointerEnter={onPointerEnter}
+          onPointerLeave={onPointerLeave}
+          onFocus={onFocusIn}
+          onBlur={onFocusOut}
         >
           <button
             className="rex-carousel-btn rex-carousel-prev"

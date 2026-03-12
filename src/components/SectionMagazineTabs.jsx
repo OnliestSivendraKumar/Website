@@ -26,6 +26,30 @@ const DEFAULT_TABS = [
       'Build a strong foundation before you buy. Understand textiles, silhouette logic, and design language so you can read quality at a glance. Learn how 3D technology supports better fit decisions, what “production quality” really means (finishing, stitching, consistency), and how to store sarees for long-term longevity without losing sheen or drape. You’ll also learn quick checks for fabric authenticity, how to spot imbalance in motifs/borders, and how to build a wardrobe that covers daily wear, festive wear, and statement occasions with fewer, smarter pieces. Finally, we break down common buying traps (overpaying for surface shine, ignoring edge finishing) and give you a simple checklist you can reuse before every purchase.',
   },
   {
+    id: 'trending',
+    title: 'TRENDING',
+    eyebrow: 'Customer Journey',
+    subtitle: 'What’s hot right now — silhouettes, colors, and styling cues.',
+    tabImage: '/ds-9.png',
+    items: [
+      'Trending saree palettes',
+      'Popular blouse necklines',
+      'Border & pallu preferences',
+      'Surface work intensity',
+      'Occasion-first styling',
+      'Designer-led picks',
+    ],
+    hero: {
+      kicker: 'TRENDING',
+      headline: 'Now',
+      cta: { label: 'Explore Trends', href: '#marketplace' },
+      image: '/ds-9.png',
+      imageAlt: 'Trending preview',
+    },
+    detail:
+      'Trends help you buy confidently without guessing. This module breaks down what’s currently trending in saree colors, border widths, pallu styles, and blouse necklines—plus how to adapt those trends to your body type and occasion. You’ll learn “safe trend” formulas (a trending color + classic silhouette), how to avoid short-lived gimmicks, and how to style one trending saree multiple ways with blouse and jewelry changes. We also include quick checks for trend-versus-timeless so your wardrobe stays premium and wearable.',
+  },
+  {
     id: 'fabric',
     title: 'FABRIC',
     eyebrow: 'Customer Journey',
@@ -269,9 +293,9 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
         <header className="rex-magazine-header">
           <p className="rex-magazine-eyebrow">Education Hub</p>
           <h2 className="rex-magazine-title">Saree & Blouse Intelligence</h2>
-          <p className="rex-magazine-subtitle">
+          {/* <p className="rex-magazine-subtitle">
             Learn fabric, saree structure, blouse design, draping, and styling — scroll the modules and the navigation will follow.
-          </p>
+          </p> */}
         </header>
 
         <aside className="rex-magazine-tabs" aria-label="Journey tabs">
