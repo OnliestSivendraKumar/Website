@@ -1332,6 +1332,29 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     top: 6rem;
     align-self: start;
 }
+.rex-magazine-tab-arrow {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    border: 1px solid rgba(198, 167, 94, 0.35);
+    background: rgba(11, 7, 14, 0.75);
+    color: rgba(255,255,255,0.92);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+.rex-magazine-tab-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+    box-shadow: none;
+}
+.rex-magazine-tab-arrow:hover:not(:disabled) {
+    border-color: rgba(198, 167, 94, 0.55);
+    background: rgba(11, 7, 14, 0.9);
+}
 
 .rex-magazine-main {
     align-self: stretch;
@@ -1562,7 +1585,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.9rem;
-        margin-bottom: 1.25rem;
+        margin-bottom: 0;
         max-height: none;
         overflow: visible;
     }
@@ -1585,14 +1608,28 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 0.6rem;
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.25rem;
         grid-template-columns: unset;
+        align-items: center;
     }
+    .rex-magazine-tabs {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr) 36px;
+        gap: 0.4rem;
+        align-items: center;
+    }
+    .rex-magazine-tab-arrow { display: inline-flex; }
+    .rex-magazine-tab-arrow {
+        width: 36px;
+        height: 36px;
+    }
+    .rex-magazine-tab-arrow svg { width: 14px; height: 14px; }
     .rex-magazine-tabs-list::-webkit-scrollbar { display: none; }
     .rex-magazine-tab {
         flex: 0 0 auto;
         min-width: 120px;
         scroll-snap-align: start;
+        width: auto;
     }
     .rex-magazine-layout {
         min-height: 0;
@@ -3747,11 +3784,18 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     .atelier-intro-features { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
+    /* Make Atelier intro closer to full-bleed on phones */
+    .rex-panel-atelier .atelier-slider .atelier-intro,
+    .rex-panel-atelier .atelier-slider .atelier-scene {
+        padding-left: 0;
+        padding-right: 0;
+    }
     .atelier-intro-lower { margin-left: 0; margin-right: 0; width: 100%; }
     .atelier-intro-tabs-row { min-width: 100%; }
     .atelier-intro-card--inline { width: max-content; }
     .atelier-intro-features { grid-template-columns: repeat(2, 1fr); }
-    .atelier-intro-inner { padding: 0 1rem; }
+    /* Reduce side gaps on mobile */
+    .atelier-intro-inner { padding: 0; }
     .atelier-intro-security { gap: 1rem; }
     .atelier-intro-card {
         align-items: flex-start;
@@ -7691,7 +7735,13 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
 
 /* ─── 768px — mobile portrait ─── */
 @media (max-width: 768px) {
-    /* Chrome — large left spacing so first tab is never hidden */
+    /* Chrome — large left spacing so first tab is never hidden */  
+    .rex-carousel-next,.rex-carousel-prev{top:0%!important;}
+    .atelier-intro-lower{padding:1.1rem 0rem 0.9rem 0}
+    .atelier-intro-cta-below{padding-left:0px;padding-right:0px}
+    .fit-figure-wrap .fit-silhouette-img{max-height:150px!important;}
+     .fit-figure-wrap{min-height:150px!important;}
+    .fit-video-actions,  .fit-privacy-link { margin-top: 0px!important; }
     .rex-chrome { gap: 0rem; padding: 0px 4px;padding-bottom: 0px; }
     .rex-chrome-tab-arrow--prev { margin-right: 0rem; }
     .rex-chrome-tabs { justify-content: flex-start; padding-left: 2rem; margin-left: 0.2rem; }
@@ -8934,7 +8984,12 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     .rex-resolution-top{
         padding-left: 0px!important;
     }
-    .fit-scene { padding: 1.4rem 1.2rem; }
+    /* On mobile/tablet, start content from top (avoid big empty top gap) */
+    .fit-scene {
+        padding: 1.4rem 1.2rem;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
     .fit-mannequin-layout { grid-template-columns: 1fr; grid-template-rows: auto auto auto auto; }
     .fit-right-col { grid-column: 1; grid-row: 4; }
     .fit-card-body { grid-template-columns: 1fr; }
@@ -8948,7 +9003,13 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 }
 
 @media (max-width: 480px) {
-    .fit-video-frame { width: 130px; }
+    /* Body Scanner video should remain full-width on phones */
+    .fit-video-frame {
+        width: 100%;
+        min-height: 320px;
+        max-height: min(520px, 56vh);
+        margin-top: 0.65rem;
+    }
     .fit-preview-card { height: 240px; }
     .fit-scene { padding: 1.2rem 1rem; }
     .fit-wrap-card-inner { min-height: 240px; }

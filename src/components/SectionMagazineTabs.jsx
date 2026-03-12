@@ -221,6 +221,9 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
   const safeTabs = useMemo(() => (Array.isArray(tabs) && tabs.length ? tabs : DEFAULT_TABS), [tabs]);
   const [active, setActive] = useState(safeTabs[0]?.id || DEFAULT_TABS[0].id);
   const sectionRef = useRef(null);
+  const tabsListRef = useRef(null);
+  const [canScrollTabsLeft, setCanScrollTabsLeft] = useState(false);
+  const [canScrollTabsRight, setCanScrollTabsRight] = useState(false);
   /** Ignore scroll-driven active updates until this time (avoids flicker on nav click or content click). */
   const ignoreScrollActiveUntilRef = useRef(0);
 
@@ -281,6 +284,38 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
     };
   }, [safeTabs]);
 
+  useEffect(() => {
+    const el = tabsListRef.current;
+    if (!el) return;
+
+    let raf = 0;
+    const update = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = 0;
+        const max = el.scrollWidth - el.clientWidth;
+        setCanScrollTabsLeft(el.scrollLeft > 2);
+        setCanScrollTabsRight(max - el.scrollLeft > 2);
+      });
+    };
+
+    update();
+    el.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      el.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+  }, [safeTabs.length]);
+
+  function scrollTabsBy(dir) {
+    const el = tabsListRef.current;
+    if (!el) return;
+    const amount = Math.max(220, Math.floor(el.clientWidth * 0.8));
+    el.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  }
+
   return (
     <section
       id={id}
@@ -299,7 +334,18 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
         </header>
 
         <aside className="rex-magazine-tabs" aria-label="Journey tabs">
-          <div className="rex-magazine-tabs-list" role="tablist">
+          <button
+            type="button"
+            className="rex-magazine-tab-arrow rex-magazine-tab-arrow--prev"
+            aria-label="Scroll tabs left"
+            onClick={() => scrollTabsBy(-1)}
+            disabled={!canScrollTabsLeft}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <div className="rex-magazine-tabs-list" role="tablist" ref={tabsListRef}>
             {safeTabs.map((t) => (
               <button
                 key={t.id}
@@ -318,6 +364,17 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
               </button>
             ))}
           </div>
+          <button
+            type="button"
+            className="rex-magazine-tab-arrow rex-magazine-tab-arrow--next"
+            aria-label="Scroll tabs right"
+            onClick={() => scrollTabsBy(1)}
+            disabled={!canScrollTabsRight}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
         </aside>
 
         <div className="rex-magazine-main" aria-label="Journey content" onPointerDown={onSummaryPointerDown}>
