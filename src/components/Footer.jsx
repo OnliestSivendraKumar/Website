@@ -34,7 +34,7 @@ export default function Footer() {
           <a href="#">Testimonials</a>
           <a href="#">Our Designers</a>
           <a href="#">Reviews and Ratings</a>
-          <a href="#">Who we are</a>
+          <a href="/about">Who we are</a>
         </div>
 
         <div className="rex-footer-col">

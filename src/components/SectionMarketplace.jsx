@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 
 const PRODUCTS = [
   { id: 1, title: 'Mysore Silk Saree', designer: 'Ananya Reddy', rating: 4.9, reviews: 234, price: '18,500', tag: 'Trending', tagColor: 'red', image: '/ds-1.png' },
@@ -26,20 +26,65 @@ function HeartIcon() {
   );
 }
 
+const MQ_MOBILE = '(max-width: 640px)';
+
 export default function SectionMarketplace() {
+  // Use matchMedia for reliable detection (works with DevTools emulation too)
+  const [isMobile, setIsMobile] = useState(false);
   const [productPage, setProductPage] = useState(0);
   const [designerIndex, setDesignerIndex] = useState(0);
   const cardsTrackRef = useRef(null);
 
-  const goPrev = () => setProductPage((p) => Math.max(0, p - 1));
-  const goNext = () => setProductPage((p) => Math.min(PRODUCT_PAGES - 1, p + 1));
+  const pageSize = isMobile ? 1 : 3;
+  const totalPages = Math.ceil(PRODUCTS.length / pageSize);
 
-  useEffect(() => {
+  // Sync isMobile on mount and on media query change
+  useLayoutEffect(() => {
+    const mq = window.matchMedia(MQ_MOBILE);
+    const update = (e) => {
+      setIsMobile(e.matches);
+      setProductPage(0);
+    };
+    setIsMobile(mq.matches); // immediate sync on mount
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  // Apply track width + card widths + slide transform
+  useLayoutEffect(() => {
     const el = cardsTrackRef.current;
     if (!el) return;
-    const percentPerPage = 100 / PRODUCT_PAGES;
-    el.style.transform = `translateX(-${productPage * percentPerPage}%)`;
-  }, [productPage]);
+
+    if (isMobile) {
+      // Mobile: one card exactly = cards container width (centered with max-width in CSS)
+      const viewportW = document.documentElement.clientWidth || window.innerWidth || 375;
+      const containerRect = el.parentElement?.getBoundingClientRect();
+      let cardWidth = containerRect?.width || viewportW;
+      cardWidth = Math.min(Math.max(cardWidth, 260), 420);
+      if (!Number.isFinite(cardWidth) || cardWidth <= 0) cardWidth = 280;
+      el.style.width = `${PRODUCTS.length * cardWidth}px`;
+      el.style.gap = '0px';
+      el.style.transform = `translateX(-${productPage * cardWidth}px)`;
+      Array.from(el.children).forEach((card) => {
+        card.style.flex = `0 0 ${cardWidth}px`;
+        card.style.maxWidth = `${cardWidth}px`;
+        card.style.minWidth = `${cardWidth}px`;
+      });
+    } else {
+      // Desktop: percentage-based (works correctly at single nesting level)
+      const gapRem = 1.25 * (pageSize - 1) / pageSize;
+      el.style.width = `${totalPages * 100}%`;
+      el.style.gap = '1.25rem';
+      el.style.transform = `translateX(-${productPage * (100 / totalPages)}%)`;
+      Array.from(el.children).forEach((card) => {
+        card.style.flex = `0 0 calc(${100 / totalPages / pageSize}% - ${gapRem}rem)`;
+        card.style.maxWidth = '';
+      });
+    }
+  }, [productPage, isMobile, totalPages, pageSize]);
+
+  const goPrev = () => setProductPage((p) => Math.max(0, p - 1));
+  const goNext = () => setProductPage((p) => Math.min(totalPages - 1, p + 1));
 
   const currentDesigner = FEATURED_DESIGNERS[designerIndex];
 
@@ -56,17 +101,6 @@ export default function SectionMarketplace() {
 
         <div className="rex-marketplace-body">
           <div className="rex-marketplace-collections">
-            <button
-              type="button"
-              className="rex-marketplace-nav rex-marketplace-nav--prev"
-              aria-label="Previous products"
-              onClick={goPrev}
-              disabled={productPage === 0}
-            >
-              <svg width="11" height="19" viewBox="0 0 11 19" fill="none" aria-hidden="true">
-                <path d="M9.5 1.5L1.5 9.5L9.5 17.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
             <div className="rex-marketplace-cards">
               <div className="rex-marketplace-cards-track" ref={cardsTrackRef}>
                 {PRODUCTS.map((p) => (
@@ -93,29 +127,42 @@ export default function SectionMarketplace() {
                 ))}
               </div>
             </div>
-            <button
-              type="button"
-              className="rex-marketplace-nav rex-marketplace-nav--next"
-              aria-label="Next products"
-              onClick={goNext}
-              disabled={productPage === PRODUCT_PAGES - 1}
-            >
-              <svg width="11" height="19" viewBox="0 0 11 19" fill="none" aria-hidden="true">
-                <path d="M1.5 1.5L9.5 9.5L1.5 17.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <div className="rex-marketplace-dots" role="tablist">
-              {Array.from({ length: PRODUCT_PAGES }, (_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === productPage}
-                  aria-label={`Page ${i + 1}`}
-                  className={`rex-marketplace-dot${i === productPage ? ' is-active' : ''}`}
-                  onClick={() => setProductPage(i)}
-                />
-              ))}
+            <div className="rex-marketplace-nav-row">
+              <button
+                type="button"
+                className="rex-marketplace-nav rex-marketplace-nav--prev"
+                aria-label="Previous products"
+                onClick={goPrev}
+                disabled={productPage === 0}
+              >
+                <svg width="11" height="19" viewBox="0 0 11 19" fill="none" aria-hidden="true">
+                  <path d="M9.5 1.5L1.5 9.5L9.5 17.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <div className="rex-marketplace-dots" role="tablist">
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    role="tab"
+                    aria-selected={i === productPage}
+                    aria-label={`Page ${i + 1}`}
+                    className={`rex-marketplace-dot${i === productPage ? ' is-active' : ''}`}
+                    onClick={() => setProductPage(i)}
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                className="rex-marketplace-nav rex-marketplace-nav--next"
+                aria-label="Next products"
+                onClick={goNext}
+                disabled={productPage === totalPages - 1}
+              >
+                <svg width="11" height="19" viewBox="0 0 11 19" fill="none" aria-hidden="true">
+                  <path d="M1.5 1.5L9.5 9.5L1.5 17.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
             </div>
           </div>
 

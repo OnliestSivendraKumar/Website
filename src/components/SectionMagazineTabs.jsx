@@ -197,6 +197,8 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
   const safeTabs = useMemo(() => (Array.isArray(tabs) && tabs.length ? tabs : DEFAULT_TABS), [tabs]);
   const [active, setActive] = useState(safeTabs[0]?.id || DEFAULT_TABS[0].id);
   const sectionRef = useRef(null);
+  /** Ignore scroll-driven active updates until this time (avoids flicker on nav click or content click). */
+  const ignoreScrollActiveUntilRef = useRef(0);
 
   const activeIdx = Math.max(0, safeTabs.findIndex((t) => t.id === active));
   const current = safeTabs[activeIdx] || safeTabs[0];
@@ -207,6 +209,7 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
     if (!el) return;
 
     setActive(tabId);
+    ignoreScrollActiveUntilRef.current = Date.now() + 900;
 
     const rect = el.getBoundingClientRect();
     const sectionTop = window.scrollY + rect.top;
@@ -215,12 +218,18 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
     window.scrollTo({ top: sectionTop + Math.max(0, total) * t, behavior: 'smooth' });
   }
 
+  function onSummaryPointerDown() {
+    ignoreScrollActiveUntilRef.current = Date.now() + 400;
+  }
+
   useEffect(() => {
     let raf = 0;
     const onScroll = () => {
       if (raf) return;
       raf = window.requestAnimationFrame(() => {
         raf = 0;
+        if (Date.now() < ignoreScrollActiveUntilRef.current) return;
+
         const el = sectionRef.current;
         if (!el) return;
 
@@ -236,7 +245,7 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
         const t = (y - sectionTop) / total; // 0..1
         const idx = Math.max(0, Math.min(safeTabs.length - 1, Math.floor(t * safeTabs.length)));
         const tabId = safeTabs[idx]?.id;
-        if (tabId && tabId !== active) setActive(tabId);
+        if (tabId) setActive((prev) => (prev === tabId ? prev : tabId));
       });
     };
 
@@ -246,7 +255,7 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
       window.removeEventListener('scroll', onScroll);
       if (raf) window.cancelAnimationFrame(raf);
     };
-  }, [safeTabs, active]);
+  }, [safeTabs]);
 
   return (
     <section
@@ -287,7 +296,7 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
           </div>
         </aside>
 
-        <div className="rex-magazine-main" aria-label="Journey content">
+        <div className="rex-magazine-main" aria-label="Journey content" onPointerDown={onSummaryPointerDown}>
           <div className="rex-magazine-layout">
             <div className="rex-magazine-hero">
               <div className="rex-magazine-hero-image">

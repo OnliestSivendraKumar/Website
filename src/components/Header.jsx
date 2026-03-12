@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 /* ─── Simple dropdown: list of links ────────────────── */
 const SIMPLE_DROPDOWNS = {
   about: [
-    { label: 'Our Story', href: '#about-story' },
-    { label: 'Technology', href: '#about-technology' },
-    { label: 'Team', href: '#about-team' },
-    { label: 'Careers', href: '#about-careers' },
+    { label: 'Our Story', href: '/about' },
+    { label: 'Technology', href: '/about#features' },
+    { label: 'Team', href: '/about#founders-heading' },
+    { label: 'Careers', href: '/about' },
   ],
   merchandise: [
     { label: 'T-Shirts', href: '#merchandise-tshirts' },
@@ -169,6 +170,40 @@ function TrendIcon() {
 const RECENT_SEARCHES = ['Red Saree', 'Wedding Collection', 'Silk Kurta'];
 const POPULAR_SEARCHES = ['Bridal Sarees', 'Designer Lehengas', 'Festive Wear', 'Indo-Western', 'Party Wear'];
 
+function HamburgerIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 6L6 18M6 6l12 12" />
+    </svg>
+  );
+}
+
+function PlusIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M12 5v14M5 12h14" />
+    </svg>
+  );
+}
+
+function MinusIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M5 12h14" />
+    </svg>
+  );
+}
+
 export default function Header({ hideOnPanels = false }) {
   const [scrolled, setScrolled] = useState(false);
   const [openId, setOpenId] = useState(null);
@@ -176,6 +211,8 @@ export default function Header({ hideOnPanels = false }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchPos, setSearchPos] = useState({ top: 0, left: 0 });
   const [menuLeft, setMenuLeft] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileExpandedId, setMobileExpandedId] = useState(null);
   const navRef = useRef(null);
   const searchInputRef = useRef(null);
   const searchBtnRef = useRef(null);
@@ -198,6 +235,7 @@ export default function Header({ hideOnPanels = false }) {
       if (e.key === 'Escape') {
         setOpenId(null);
         setSearchOpen(false);
+        setMobileMenuOpen(false);
       }
     };
     document.addEventListener('click', handleClickOutside);
@@ -210,17 +248,29 @@ export default function Header({ hideOnPanels = false }) {
   }, []);
 
   useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = ''; };
+    }
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
     if (searchOpen && searchInputRef.current) searchInputRef.current.focus();
   }, [searchOpen]);
 
   useEffect(() => {
     if (!searchOpen) return;
     const btn = searchBtnRef.current;
-    if (!btn) return;
+    const panelW = Math.min(520, window.innerWidth - 32);
+    const fallbackTop = 80;
+    const fallbackLeft = Math.max(16, (window.innerWidth - panelW) / 2);
+    if (!btn || btn.getBoundingClientRect().width === 0) {
+      setSearchPos({ top: fallbackTop, left: fallbackLeft });
+      return;
+    }
     const rect = btn.getBoundingClientRect();
-    const width = 520;
-    const desiredLeft = rect.right - width;
-    const clampedLeft = Math.max(16, Math.min(desiredLeft, window.innerWidth - width - 16));
+    const desiredLeft = rect.right - panelW;
+    const clampedLeft = Math.max(16, Math.min(desiredLeft, window.innerWidth - panelW - 16));
     setSearchPos({ top: rect.bottom + 12, left: clampedLeft });
   }, [searchOpen]);
 
@@ -388,7 +438,16 @@ export default function Header({ hideOnPanels = false }) {
         <div className="rex-header-actions">
           <button
             type="button"
-            className="rex-header-icon-btn"
+            className="rex-header-hamburger rex-header-icon-btn"
+            aria-label="Open menu"
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <HamburgerIcon />
+          </button>
+          <button
+            type="button"
+            className="rex-header-icon-btn rex-header-search-btn"
             aria-label="Search"
             onClick={() => setSearchOpen(true)}
             ref={searchBtnRef}
@@ -405,8 +464,124 @@ export default function Header({ hideOnPanels = false }) {
         </div>
       </div>
 
-      {/* Search overlay */}
-      {searchOpen && (
+      {/* Mobile menu overlay — portaled to body so it always appears above hero/tabs */}
+      {mobileMenuOpen && createPortal(
+        <div className="rex-mobile-menu" role="dialog" aria-modal="true" aria-label="Main menu">
+          <div
+            className="rex-mobile-menu-backdrop"
+            onClick={() => { setMobileMenuOpen(false); setMobileExpandedId(null); }}
+            aria-hidden="true"
+          />
+          <div className="rex-mobile-menu-panel">
+            <div className="rex-mobile-menu-head">
+              <button
+                type="button"
+                className="rex-mobile-menu-close"
+                aria-label="Close menu"
+                onClick={() => { setMobileMenuOpen(false); setMobileExpandedId(null); }}
+              >
+                <CloseIcon />
+              </button>
+            </div>
+
+            <nav className="rex-mobile-menu-nav" aria-label="Mobile navigation" role="navigation">
+              {NAV_ITEMS.map((item) => {
+                const hasChildren = item.type === 'simple' && SIMPLE_DROPDOWNS[item.id];
+                const hasMega = item.type === 'mega' && MEGA_MENUS[item.id];
+                const isExpandable = hasChildren || hasMega;
+                const isExpanded = mobileExpandedId === item.id;
+
+                if (item.type === null) {
+                  return (
+                    <a key={item.id} href="#contact" className="rex-mobile-menu-item" onClick={() => setMobileMenuOpen(false)}>
+                      {item.label}
+                    </a>
+                  );
+                }
+
+                if (!isExpandable) {
+                  return (
+                    <a key={item.id} href="#" className="rex-mobile-menu-item" onClick={() => setMobileMenuOpen(false)}>
+                      {item.label}
+                    </a>
+                  );
+                }
+
+                return (
+                  <div key={item.id} className="rex-mobile-menu-accordion">
+                    <button
+                      type="button"
+                      className={`rex-mobile-menu-item rex-mobile-menu-trigger${isExpanded ? ' is-expanded' : ''}`}
+                      onClick={() => setMobileExpandedId((id) => (id === item.id ? null : item.id))}
+                      aria-expanded={isExpanded}
+                    >
+                      <span>{item.label}</span>
+                      <span className="rex-mobile-menu-accordion-icon" aria-hidden="true">
+                        {isExpanded ? <MinusIcon /> : <PlusIcon />}
+                      </span>
+                    </button>
+                    <div className={`rex-mobile-menu-sub${isExpanded ? ' is-open' : ''}`}>
+                      {hasChildren &&
+                        SIMPLE_DROPDOWNS[item.id].map((link) => (
+                          <a
+                            key={link.label}
+                            href={link.href}
+                            className="rex-mobile-menu-sub-link"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      {hasMega &&
+                        MEGA_MENUS[item.id].columns.map((col) =>
+                          col.links.map((link) => (
+                            <a
+                              key={`${col.title}-${link.label}`}
+                              href={link.href}
+                              className="rex-mobile-menu-sub-link"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {link.label}
+                            </a>
+                          ))
+                        )}
+                    </div>
+                  </div>
+                );
+              })}
+            </nav>
+
+            <div className="rex-mobile-menu-help">
+              <h3 className="rex-mobile-menu-help-title">Need Help?</h3>
+              <p className="rex-mobile-menu-help-address">123 Fashion World, Los Angeles, USA</p>
+              <a href="https://maps.google.com/?q=123+Fashion+World+Los+Angeles" className="rex-mobile-menu-help-map" target="_blank" rel="noopener noreferrer">
+                Open in Maps
+              </a>
+              <p className="rex-mobile-menu-help-contact">
+                <a href="mailto:info@onliestworld.com">info@onliestworld.com</a>
+              </p>
+              <p className="rex-mobile-menu-help-contact">
+                <a href="tel:+15551234567">+1 (555) 123-4567</a>
+              </p>
+            </div>
+
+            <div className="rex-mobile-menu-footer">
+              <div className="rex-mobile-menu-select-wrap">
+                <span className="rex-mobile-menu-select-label">USD $</span>
+                <span className="rex-mobile-menu-select-arrow" aria-hidden="true">▼</span>
+              </div>
+              <div className="rex-mobile-menu-select-wrap">
+                <span className="rex-mobile-menu-select-label">English</span>
+                <span className="rex-mobile-menu-select-arrow" aria-hidden="true">▼</span>
+              </div>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* Search overlay — portaled so it’s visible on mobile and above everything */}
+      {searchOpen && createPortal(
         <div
           className="rex-search-overlay"
           role="dialog"
@@ -463,7 +638,8 @@ export default function Header({ hideOnPanels = false }) {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );

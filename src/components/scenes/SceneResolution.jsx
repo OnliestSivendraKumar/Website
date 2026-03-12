@@ -84,7 +84,6 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab, onSho
 
       {/* Right content column */}
       <div className="rex-resolution rex-reveal">
-
         <div className="rex-resolution-top rex-delay-0">
           <h2 className="rex-resolution-h rex-delay-2">
             {resLines[0]}<br />
