@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import PageWelcome from './pages/PageWelcome';
 import PageContact from './pages/PageContact';
+import PageBlog from './pages/PageBlog';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
         <Route path="/" element={<HomePage activeLang={activeLang} />} />
         <Route path="/about" element={<PageWelcome />} />
         <Route path="/contact" element={<PageContact />} />
+        <Route path="/blog" element={<PageBlog />} />
       </Routes>
     </>
   );

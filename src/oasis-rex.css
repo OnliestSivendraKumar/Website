@@ -2852,8 +2852,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-page-hero--story {
     position: relative;
     /* Slightly tighter vertical spacing so hero feels less tall on desktop */
-    padding: clamp(calc(var(--header-h) + 0.25rem), 7vw, 3.75rem) 0 clamp(3rem, 7vw, 3.5rem);
+    padding: clamp(calc(54px + 0.25rem), 7vw, 3.75rem) 0 clamp(3rem, 7vw, 3.5rem);
     overflow: hidden;
+    padding-bottom: 0px!important;
 }
 
 .rex-page-hero-title--center {
@@ -3382,6 +3383,195 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 
 .rex-page-testimonial-dot--active {
     background: var(--gold);
+}
+
+/* ─── Blog listing ─── */
+.rex-page-section--blog {
+    padding-top: clamp(2.5rem, 6vw, 3.5rem);
+}
+
+.rex-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.6rem, 2.4vw, 2rem);
+    align-items: stretch;
+}
+
+.rex-blog-card {
+    border-radius: 24px;
+    background: radial-gradient(circle at top left, rgba(198,167,94,0.16) 0%, rgba(11,7,14,0.96) 45%, #050308 100%);
+    color: var(--platinum);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.rex-blog-media {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+
+.rex-blog-media img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.rex-blog-tags {
+    position: absolute;
+    left: 1.25rem;
+    top: 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.rex-blog-tag {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(7, 4, 10, 0.9);
+    color: var(--platinum);
+    border: 1px solid rgba(198,167,94,0.45);
+}
+
+.rex-blog-time {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.1rem;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.82);
+    color: #fff;
+}
+
+.rex-blog-body {
+    padding: 1.15rem 1.4rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.rex-blog-title {
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+    color: var(--platinum);
+}
+
+.rex-blog-meta {
+    font-size: 0.78rem;
+    color: var(--plat-45);
+    margin: 0 0 0.6rem;
+}
+
+.rex-blog-excerpt {
+    font-size: 0.9rem;
+    color: var(--plat-70);
+    margin: 0 0 0.9rem;
+    /* Fixed height so all cards align; ~3 lines */
+    height: 4.2em;
+    overflow: hidden;
+}
+
+.rex-blog-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+.rex-blog-readmore {
+    font-size: 0.82rem;
+    padding-inline: 1.2rem;
+}
+
+.rex-blog-share {
+    all: unset;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(0,0,0,0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.rex-blog-share:hover {
+    background: rgba(198,167,94,0.3);
+}
+
+@media (max-width: 1024px) {
+    .rex-blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .rex-blog-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Pagination — last element below blog list */
+.rex-blog-pagination {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.rex-blog-page-btn {
+    all: unset;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.5);
+    color: var(--platinum);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.rex-blog-page-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.rex-blog-page-dots {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.rex-blog-page-dot {
+    all: unset;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--plat-85);
+    text-align: center;
+    font-size: 0.78rem;
+    cursor: pointer;
+}
+
+.rex-blog-page-dot.is-active {
+    background: var(--gold-glow);
+    color: #fff;
 }
 
 /* Founders / Our Professionals — horizontal row */
