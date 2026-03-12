@@ -7792,7 +7792,7 @@ body[data-theme="light"] .rex-video-live { color: rgba(26,10,18,0.50); }
     /* Resolution: keep Explore + Next side by side, align right */
     .rex-cta-resolution .rex-cta-row { flex-direction: row; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
     .rex-cta-resolution .rex-btn { width: auto; max-width: none; }
-    .rex-btn { text-align: center; width: 100%; max-width: 280px; margin: 0 auto; }
+    .rex-btn { text-align: center; width: 100%; max-width: 187px; margin: 0 auto; }
     .rex-carousel-outer { padding: 0 0.4rem; gap: 0.25rem; }
     .rex-statcards-wrap { height: min(400px, 50vh); min-height: min(360px, 44vh); }
     .rex-statcard { min-width: 140px; padding: 0rem 0.8rem; }
@@ -9868,7 +9868,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     .ds-video-wrap {
         flex: none;
         margin: 0 1rem 1.5rem;
-        height: min(52vh, 520px);
+        height: min(43vh, 520px);
         min-height: 260px;
         aspect-ratio: 16 / 9;
     }
