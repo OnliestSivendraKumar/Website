@@ -352,7 +352,7 @@ export default function Header({ hideOnPanels = false }) {
               onMouseLeave={item.type != null ? handleNavItemLeave : undefined}
             >
               {item.type === null ? (
-                <a href="#contact" className="rex-header-link">
+                <a href="/contact" className="rex-header-link">
                   {item.label}
                 </a>
               ) : (
@@ -493,7 +493,7 @@ export default function Header({ hideOnPanels = false }) {
 
                 if (item.type === null) {
                   return (
-                    <a key={item.id} href="#contact" className="rex-mobile-menu-item" onClick={() => setMobileMenuOpen(false)}>
+                    <a key={item.id} href="/contact" className="rex-mobile-menu-item" onClick={() => setMobileMenuOpen(false)}>
                       {item.label}
                     </a>
                   );

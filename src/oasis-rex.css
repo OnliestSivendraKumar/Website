@@ -2852,7 +2852,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-page-hero--story {
     position: relative;
     /* Slightly tighter vertical spacing so hero feels less tall on desktop */
-    padding: clamp(calc(var(--header-h) + 1.25rem), 7vw, 3.75rem) 0 clamp(3rem, 7vw, 3.5rem);
+    padding: clamp(calc(var(--header-h) + 0.25rem), 7vw, 3.75rem) 0 clamp(3rem, 7vw, 3.5rem);
     overflow: hidden;
 }
 
@@ -2863,7 +2863,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     font-weight: 700;
     color: var(--platinum);
     letter-spacing: -0.025em;
-    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: clamp(2.5rem, 5vw, 1.5rem);
     line-height: 1.15;
 }
 
@@ -2881,7 +2881,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
     /* Limit overall hero height so the card doesn’t feel overly tall */
-    max-height: 520px;
+    max-height: 320px;
 }
 
 .rex-page-hero-media img {
@@ -3107,6 +3107,144 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 
 .rex-page-service-card--light .rex-page-service-card-list li::before {
     background: var(--gold);
+}
+
+/* ─── Contact page ─── */
+.rex-page-section--contact {
+    padding-top: clamp(1.75rem, 5vw, 0.5rem);
+}
+
+.rex-page-contact-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.1fr);
+    gap: clamp(1.75rem, 3vw, 2.5rem);
+    align-items: flex-start;
+}
+
+.rex-page-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.rex-page-contact-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.rex-page-contact-row h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold-dim);
+    margin: 0 0 0.35rem;
+}
+
+.rex-page-contact-row p,
+.rex-page-contact-row a {
+    font-size: 0.98rem;
+    color: var(--plat-70);
+}
+
+.rex-page-contact-row a {
+    text-decoration: none;
+}
+
+.rex-page-contact-row a:hover {
+    color: var(--gold);
+}
+
+.rex-page-contact-social {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.rex-page-contact-social a {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.rex-page-contact-social a:hover {
+    background: var(--gold-glow);
+    border-color: var(--gold-border);
+    color: #fff;
+}
+
+.rex-page-contact-form-card {
+    border-radius: var(--radius-lg);
+    background: rgba(11,11,15,0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: clamp(1.75rem, 3vw, 2.25rem);
+    box-shadow: 0 18px 46px rgba(0,0,0,0.55);
+}
+
+.rex-page-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rex-page-contact-row-inline {
+    display: flex;
+    gap: 1rem;
+}
+
+.rex-page-contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--plat-45);
+}
+
+.rex-page-contact-form input,
+.rex-page-contact-form textarea {
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(15,12,18,0.95);
+    padding: 0.6rem 0.9rem;
+    font: inherit;
+    color: var(--platinum);
+    outline: none;
+}
+
+.rex-page-contact-form textarea {
+    border-radius: 16px;
+    resize: vertical;
+    min-height: 130px;
+}
+
+.rex-page-contact-form input:focus,
+.rex-page-contact-form textarea:focus {
+    border-color: var(--gold-border);
+    box-shadow: 0 0 0 1px rgba(198,167,94,0.25);
+}
+
+.rex-page-contact-submit {
+    margin-top: 0.25rem;
+}
+
+.rex-page-contact-status {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--plat-60);
+}
+
+@media (max-width: 768px) {
+    .rex-page-contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .rex-page-contact-row-inline {
+        flex-direction: column;
+    }
 }
 
 /* Testimonial — 2-column layout: image left, card right */
