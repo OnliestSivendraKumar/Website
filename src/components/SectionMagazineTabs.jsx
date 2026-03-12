@@ -4,7 +4,7 @@ const DEFAULT_TABS = [
   {
     id: 'onliest-world',
     title: 'ONLIEST WORLD',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'Explore the knowledge layers that power better choices.',
     tabImage: '/ds-5.png',
     items: [
@@ -16,7 +16,7 @@ const DEFAULT_TABS = [
       'Storage and longevity values',
     ],
     hero: {
-      kicker: 'ONLIEST WORLD',
+      kicker: 'Onliest World Intelligence',
       headline: 'Architecture',
       cta: { label: 'Explore Modules', href: '#journey' },
       image: '/ds-10.png',
@@ -28,7 +28,7 @@ const DEFAULT_TABS = [
   {
     id: 'trending',
     title: 'TRENDING',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'What’s hot right now — silhouettes, colors, and styling cues.',
     tabImage: '/ds-9.png',
     items: [
@@ -40,7 +40,7 @@ const DEFAULT_TABS = [
       'Designer-led picks',
     ],
     hero: {
-      kicker: 'TRENDING',
+      kicker: 'Trend Intelligence',
       headline: 'Now',
       cta: { label: 'Explore Trends', href: '#marketplace' },
       image: '/ds-9.png',
@@ -52,7 +52,7 @@ const DEFAULT_TABS = [
   {
     id: 'fabric',
     title: 'FABRIC',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'Materials, structure, and performance — simplified.',
     tabImage: '/ds-2.png',
     items: [
@@ -63,7 +63,7 @@ const DEFAULT_TABS = [
       'Drape behavior',
     ],
     hero: {
-      kicker: 'FABRIC',
+      kicker: 'Fabric Intelligence',
       headline: 'Textile Intelligence',
       cta: { label: 'Learn Fabric', href: '#journey' },
       image: '/ds-8.png',
@@ -75,7 +75,7 @@ const DEFAULT_TABS = [
   {
     id: 'saree',
     title: 'SAREE',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'Understand saree components and category differences.',
     tabImage: '/ds-3.png',
     items: [
@@ -84,7 +84,7 @@ const DEFAULT_TABS = [
       'Cotton sarees',
     ],
     hero: {
-      kicker: 'SAREE',
+      kicker: 'Saree Intelligence',
       headline: 'Components',
       cta: { label: 'Explore Sarees', href: '#marketplace' },
       image: '/ds-12.png',
@@ -96,7 +96,7 @@ const DEFAULT_TABS = [
   {
     id: 'blouse',
     title: 'BLOUSE',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'Structure, fit, and design placement essentials.',
     tabImage: '/ds-4.png',
     items: [
@@ -110,7 +110,7 @@ const DEFAULT_TABS = [
       'Blouses for different occasions',
     ],
     hero: {
-      kicker: 'BLOUSE',
+      kicker: 'Blouse Intelligence',
       headline: 'Fit & Design',
       cta: { label: 'Explore Blouses', href: '#marketplace' },
       image: '/ds-7.png',
@@ -122,7 +122,7 @@ const DEFAULT_TABS = [
   {
     id: 'surface-ornamentation',
     title: 'SURFACE ORNAMENTATION',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'Craft techniques that define character and value.',
     tabImage: '/ds-6.png',
     items: [
@@ -136,7 +136,7 @@ const DEFAULT_TABS = [
       'Motif Placement',
     ],
     hero: {
-      kicker: 'SURFACE',
+      kicker: 'Surface Ornamentation',
       headline: 'Ornamentation',
       cta: { label: 'Explore Craft', href: '#journey' },
       image: '/ds-6.png',
@@ -148,7 +148,7 @@ const DEFAULT_TABS = [
   {
     id: 'color',
     title: 'COLOR',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'Choosing color with confidence — theory to trends.',
     tabImage: '/ds-9.png',
     items: [
@@ -160,7 +160,7 @@ const DEFAULT_TABS = [
       'Saree blouse pairing',
     ],
     hero: {
-      kicker: 'COLOR',
+      kicker: 'Color Intelligence',
       headline: 'Pairing & Theory',
       cta: { label: 'Explore Colors', href: '#journey' },
       image: '/ds-9.png',
@@ -172,7 +172,7 @@ const DEFAULT_TABS = [
   {
     id: 'body-compatability',
     title: 'BODY COMPATABILITY',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'Necklines and silhouettes that complement your shape.',
     tabImage: '/ds-11.png',
     items: [
@@ -186,7 +186,7 @@ const DEFAULT_TABS = [
       'Neckline Compatibility Guide',
     ],
     hero: {
-      kicker: 'BODY',
+      kicker: 'Body Compatibility',
       headline: 'Compatibility',
       cta: { label: 'Find Your Fit', href: '#journey' },
       image: '/ds-11.png',
@@ -198,7 +198,7 @@ const DEFAULT_TABS = [
   {
     id: 'draping',
     title: 'DRAPING',
-    eyebrow: 'Customer Journey',
+    eyebrow: 'Saree & Blouse Intelligence',
     subtitle: 'Learn drape types and step-by-step draping.',
     tabImage: '/ds-12.png',
     items: [
@@ -206,7 +206,7 @@ const DEFAULT_TABS = [
       'How to drape',
     ],
     hero: {
-      kicker: 'DRAPING',
+      kicker: 'Draping Intelligence',
       headline: 'How to Drape',
       cta: { label: 'Start Draping', href: '#journey' },
       image: '/ds-12.png',
@@ -384,8 +384,8 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
                 <img src={current.hero?.image} alt={current.hero?.imageAlt || ''} />
               </div>
               <div className="rex-magazine-hero-copy">
-                <p className="rex-magazine-hero-kicker">{current.hero?.kicker || current.eyebrow}</p>
-                <h3 className="rex-magazine-hero-headline">{current.title}</h3>
+                <p className="rex-magazine-hero-kicker">Onliest Article</p>
+                <h3 className="rex-magazine-hero-headline">{current.hero?.headline || current.title}</h3>
                 {current.subtitle && <p className="rex-magazine-hero-body">{current.subtitle}</p>}
                 <ul className="rex-magazine-hero-list">
                   {(current.items || []).map((it) => (
