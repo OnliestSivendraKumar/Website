@@ -3784,6 +3784,12 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     .atelier-intro-features { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
+    /* On mobile, show the full Atelier hero image instead of zoomed/cropped */
+    .atelier-intro-bg-panel img,
+    .atelier-intro-bg-panel video {
+        object-fit: contain;
+        object-position: center top;
+    }
     /* Make Atelier intro closer to full-bleed on phones */
     .rex-panel-atelier .atelier-slider .atelier-intro,
     .rex-panel-atelier .atelier-slider .atelier-scene {
@@ -9035,7 +9041,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 1.5rem 1.75rem;
 }
 
 .rex-panel-studio .studio-main {
@@ -9204,7 +9210,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.75rem;
     width: 100%;
 }
 
@@ -9586,13 +9592,14 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 }
 
 @media (max-width: 768px) {
+    /* Nudge bubbles slightly higher + tighten vertical gap on mobile so they sit neatly above CTAs */
     .halo-tabs-wrap { margin-top: 0.65rem; gap: 0.3rem; max-width: 100%; padding: 0.2rem 0.5rem; }
     .halo-carousel-tab { padding: 0.35rem 0.55rem; font-size: 0.7rem; }
     .halo-side { width: 48px; }
     .halo-side-tagline { font-size: 0.65rem; letter-spacing: 0.12em; }
     .halo-ambient { width: 80px; height: 120px; opacity: 0.2; }
     .halo-hero-title { font-size: clamp(1.25rem, 2.8vw, 1.75rem); }
-    .halo-hero-frame { width: min(380px, calc(100vw - 3rem)); }
+    .halo-hero-frame { width: min(359px, calc(100vw - 2rem))}
     .halo-questions-bottom { max-width: min(380px, calc(100vw - 3rem)); }
     .halo-questions-bottom-desc { font-size: 0.88rem; }
     .halo-quick-chip { font-size: 0.78rem; padding: 0.35rem 0.6rem; }
@@ -9604,7 +9611,7 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 @media (max-width: 560px) {
     .halo-side { display: none; }
     .halo-ambient { display: none; }
-    .halo-hero-frame { width: min(280px, calc(100vw - 2rem)); }
+    .halo-hero-frame { width: min(359px, calc(100vw - 2rem)); }
     .halo-questions-bottom { max-width: min(280px, calc(100vw - 2rem)); }
     .halo-tabs-wrap { flex-wrap: wrap; justify-content: center; }
     .halo-bubble { max-width: min(180px, calc(50vw - 1.5rem)); font-size: 0.78rem; }
@@ -9924,6 +9931,8 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
 }
 
 @media (max-width: 768px) {
+    
+    .halo-col { top: 46%; transform: translateY(-50%); gap: 0.85rem; }
     .ds-scene { flex-direction: column; overflow-y: auto; }
     .ds-copy { flex: none; padding: 2.5rem 1.5rem 1.5rem; }
     .ds-video-wrap {
