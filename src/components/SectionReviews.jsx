@@ -1,20 +1,14 @@
 import { useState, useRef, useLayoutEffect } from 'react';
-
-const REVIEWS = [
-  { quote: '"The 3D mannequin feature is revolutionary. I finally found a saree that fits perfectly without any alterations."', name: 'Priya Sharma', location: 'Mumbai, India', tag: 'Wedding Collection', image: '/ds-1.png' },
-  { quote: '"As someone living abroad, finding authentic Indian sarees was always difficult. The virtual fitting room made it effortless."', name: 'Sarah Johnson', location: 'New York, USA', tag: 'Festive Fusion', image: '/ds-2.png' },
-  { quote: '"The AI draping video feature blew my mind. I could see exactly how the saree would look before ordering."', name: 'Aisha Patel', location: 'London, UK', tag: 'Executive Collection', image: '/ds-3.png' },
-  { quote: '"Incredible quality and the try-before-you-buy feature saved me so much time. Will definitely order again."', name: 'Meera Iyer', location: 'Chennai, India', tag: 'Silk Collection', image: '/ds-4.png' },
-  { quote: '"Finally a platform that understands traditional wear. The styling tips and designer stories are a nice touch."', name: 'James Wilson', location: 'Sydney, Australia', tag: 'Festive Fusion', image: '/ds-5.png' },
-  { quote: '"From browsing to delivery, everything was smooth. The AI recommendations were spot-on for my occasion."', name: 'Kavitha Nair', location: 'Dubai, UAE', tag: 'Wedding Collection', image: '/ds-6.png' },
-];
+import { useNavigate } from 'react-router-dom';
+import { REVIEWS } from '../data/reviews';
 
 const MQ_MOBILE = '(max-width: 640px)';
 
-export default function SectionReviews() {
+export default function SectionReviews({ showReadAll = true }) {
   const [isMobile, setIsMobile] = useState(false);
   const [reviewPage, setReviewPage] = useState(0);
   const trackRef = useRef(null);
+  const navigate = useNavigate();
 
   const pageSize = isMobile ? 1 : 2;
   const totalPages = Math.ceil(REVIEWS.length / pageSize);
@@ -129,12 +123,22 @@ export default function SectionReviews() {
         </div>
 
         <div className="rex-reviews-cta-row">
-          <button type="button" className="rex-btn rex-btn-primary">
+          <button
+            type="button"
+            className="rex-btn rex-btn-primary"
+            onClick={() => navigate('/contact')}
+          >
             Share Your Story
           </button>
-          <button type="button" className="rex-btn rex-btn-ghost">
-            Read All Reviews
-          </button>
+          {showReadAll && (
+            <button
+              type="button"
+              className="rex-btn rex-btn-ghost"
+              onClick={() => navigate('/reviews')}
+            >
+              Read All Reviews
+            </button>
+          )}
         </div>
       </div>
     </section>

@@ -37,6 +37,7 @@ export default function SectionCallout({
   subtitle,
   bullets = [],
   cta,
+  secondaryCta,
   stats = [],
   image,
 }) {
@@ -66,13 +67,25 @@ export default function SectionCallout({
             </ul>
           )}
 
-          {cta && (
-            <a
-              href={cta.href || '#'}
-              className="rex-btn rex-btn-primary rex-section-callout-cta"
-            >
-              {cta.label}
-            </a>
+          {(cta || secondaryCta) && (
+            <div className="rex-section-callout-cta-row">
+              {cta && (
+                <a
+                  href={cta.href || '#'}
+                  className="rex-btn rex-btn-primary rex-section-callout-cta"
+                >
+                  {cta.label}
+                </a>
+              )}
+              {secondaryCta && (
+                <a
+                  href={secondaryCta.href || '#'}
+                  className="rex-btn rex-btn-ghost rex-section-callout-cta-secondary"
+                >
+                  {secondaryCta.label}
+                </a>
+              )}
+            </div>
           )}
 
           {stats.length > 0 && (

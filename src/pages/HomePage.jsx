@@ -66,14 +66,15 @@ export default function HomePage({ activeLang, onTabChange }) {
       <SectionCallout
         id="book-trainer"
         eyebrow="Customer Experience"
-        title="Book a Trainer"
-        subtitle="Learn, discover, and connect with our comprehensive customer experience."
+        title="Book a Trainer or Designer"
+        subtitle="Learn, discover, and connect with our comprehensive customer experience — choose a live product demo or a 1:1 styling session with a fashion designer."
         bullets={[
           { label: 'Live Video Sessions', body: 'Interactive demos via video call.' },
-          { label: 'Expert Trainers', body: 'Certified fashion professionals.' },
+          { label: 'Expert Trainers & Designers', body: 'Certified fashion professionals and couture specialists.' },
           { label: 'Flexible Scheduling', body: 'Choose your convenient time.' },
         ]}
-        cta={{ label: 'Book Your Free Demo', href: '#book-trainer' }}
+        cta={{ label: 'Book Your Free Demo', href: '/contact' }}
+        secondaryCta={{ label: 'Book a Fashion Designer', href: '/about#designers' }}
         stats={[
           { value: '500+', label: 'Sessions Done' },
           { value: '4.9★', label: 'Average Rating' },
