@@ -7,7 +7,7 @@ const SIMPLE_DROPDOWNS = {
     { label: 'Our Story', href: '/about' },
     { label: 'Technology', href: '/about#features' },
     { label: 'Team', href: '/about#founders-heading' },
-    { label: 'Careers', href: '/about' },
+    { label: 'Careers', href: '/careers' },
   ],
   merchandise: [
     { label: 'T-Shirts', href: '#merchandise-tshirts' },

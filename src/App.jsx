@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import PageWelcome from './pages/PageWelcome';
 import PageContact from './pages/PageContact';
+import PageCareers from './pages/PageCareers';
 import PageBlog from './pages/PageBlog';
 import PageBlogDetail from './pages/PageBlogDetail';
 import PageReviews from './pages/PageReviews';
@@ -61,6 +62,7 @@ export default function App() {
         <Route path="/about" element={<PageWelcome />} />
         <Route path="/marketplace" element={<PageMarketplace />} />
         <Route path="/contact" element={<PageContact />} />
+        <Route path="/careers" element={<PageCareers />} />
         <Route path="/blog" element={<PageBlog />} />
         <Route path="/blog/:id" element={<PageBlogDetail />} />
         <Route path="/reviews" element={<PageReviews />} />
