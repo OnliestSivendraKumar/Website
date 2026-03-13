@@ -83,10 +83,15 @@ export default function PageContact() {
                   <div className="rex-page-contact-row">
                     <h3>Social</h3>
                     <div className="rex-page-contact-social">
-                      <a href="#" aria-label="Visit Onliest on Facebook">Fb</a>
-                      <a href="#" aria-label="Visit Onliest on Instagram">Ig</a>
-                      <a href="#" aria-label="Visit Onliest on LinkedIn">In</a>
-                      <a href="#" aria-label="Visit Onliest on YouTube">Yt</a>
+                      <a href="#" aria-label="Visit Onliest on Facebook">
+                        <img src="/fb.svg" alt="" className="rex-page-contact-social-icon" />
+                      </a>
+                      <a href="#" aria-label="Visit Onliest on Instagram">
+                        <img src="/insta.svg" alt="" className="rex-page-contact-social-icon" />
+                      </a>
+                      <a href="#" aria-label="Visit Onliest on LinkedIn">
+                        <img src="/in.svg" alt="" className="rex-page-contact-social-icon" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -98,16 +103,31 @@ export default function PageContact() {
                   <div className="rex-page-contact-row-inline">
                     <label>
                       <span>Name*</span>
-                      <input type="text" name="name" required />
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        placeholder="Enter your full name"
+                      />
                     </label>
                     <label>
                       <span>E‑mail*</span>
-                      <input type="email" name="email" required />
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="Enter your email address"
+                      />
                     </label>
                   </div>
                   <label>
                     <span>Message*</span>
-                    <textarea name="message" rows="4" required />
+                    <textarea
+                      name="message"
+                      rows="4"
+                      required
+                      placeholder="Tell us what you’d like to discuss"
+                    />
                   </label>
                   <button type="submit" className="rex-btn rex-btn-primary rex-page-contact-submit">
                     Submit request
