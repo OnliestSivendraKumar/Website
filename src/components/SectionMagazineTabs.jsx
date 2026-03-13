@@ -410,6 +410,9 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
                   <a href={current.hero?.cta?.href || '#'} className="rex-btn rex-btn-primary rex-magazine-hero-cta">
                     {current.hero?.cta?.label}
                   </a>
+                  <a href="#book-trainer" className="rex-btn rex-btn-ghost rex-magazine-skip-next">
+                    Skip to next section
+                  </a>
                 </div>
               )}
             </div>

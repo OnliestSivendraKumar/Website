@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import PageWelcome from './pages/PageWelcome';
 import PageContact from './pages/PageContact';
 import PageBlog from './pages/PageBlog';
+import PageBlogDetail from './pages/PageBlogDetail';
 import PagePolicyReturn from './pages/PagePolicyReturn';
 import PagePolicyShipping from './pages/PagePolicyShipping';
 import PagePolicyLegal from './pages/PagePolicyLegal';
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="/about" element={<PageWelcome />} />
         <Route path="/contact" element={<PageContact />} />
         <Route path="/blog" element={<PageBlog />} />
+        <Route path="/blog/:id" element={<PageBlogDetail />} />
         <Route path="/policies/return" element={<PagePolicyReturn />} />
         <Route path="/policies/shipping" element={<PagePolicyShipping />} />
         <Route path="/policies/legal" element={<PagePolicyLegal />} />
