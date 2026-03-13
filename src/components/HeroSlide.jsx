@@ -116,38 +116,47 @@ export default function HeroSlide() {
     return () => clearInterval(timer);
   }, [totalSlides]);
 
-  const current = STORY_SLIDES[activeIdx] || STORY_SLIDES[0];
-
   return (
     <section className="rex-hero-slide" aria-label="Hero — Cinematic Storytelling">
       <div className="rex-hero-inner">
-        {/* Left: cinematic story carousel */}
+        {/* Left: cinematic story carousel with crossfade */}
         <div className="rex-hero-copy">
-          {(current.sectionLabel || current.badge) && (
-            <span className="rex-hero-badge">{current.sectionLabel || current.badge}</span>
-          )}
-          <h2 className="rex-hero-headline">{current.headline}</h2>
-          {current.subhead && <p className="rex-hero-subhead">{current.subhead}</p>}
-          {current.body?.map((paragraph) => (
-            <p key={paragraph} className="rex-hero-desc">
-              {paragraph}
-            </p>
-          ))}
-
-          {(current.primaryCta || current.secondaryCta) && (
-            <div className="rex-cta-row rex-hero-cta-row">
-              {current.primaryCta && (
-                <a href={current.primaryCta.href} className="rex-btn rex-btn-primary">
-                  {current.primaryCta.label}
-                </a>
-              )}
-              {current.secondaryCta && (
-                <a href={current.secondaryCta.href} className="rex-btn rex-btn-ghost">
-                  {current.secondaryCta.label}
-                </a>
-              )}
-            </div>
-          )}
+          <div className="rex-hero-copy-panels">
+            {STORY_SLIDES.map((slide, index) => (
+              <div
+                key={slide.id}
+                className={`rex-hero-copy-panel${index === activeIdx ? ' is-active' : ''}`}
+                aria-hidden={index !== activeIdx}
+                role="tabpanel"
+                id={`hero-panel-${slide.id}`}
+              >
+                {(slide.sectionLabel || slide.badge) && (
+                  <span className="rex-hero-badge">{slide.sectionLabel || slide.badge}</span>
+                )}
+                <h2 className="rex-hero-headline">{slide.headline}</h2>
+                {slide.subhead && <p className="rex-hero-subhead">{slide.subhead}</p>}
+                {slide.body?.map((paragraph) => (
+                  <p key={paragraph} className="rex-hero-desc">
+                    {paragraph}
+                  </p>
+                ))}
+                {(slide.primaryCta || slide.secondaryCta) && (
+                  <div className="rex-cta-row rex-hero-cta-row">
+                    {slide.primaryCta && (
+                      <a href={slide.primaryCta.href} className="rex-btn rex-btn-primary">
+                        {slide.primaryCta.label}
+                      </a>
+                    )}
+                    {slide.secondaryCta && (
+                      <a href={slide.secondaryCta.href} className="rex-btn rex-btn-ghost">
+                        {slide.secondaryCta.label}
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
 
           <div className="rex-hero-carousel-nav" aria-label="Hero story navigation">
             <button
