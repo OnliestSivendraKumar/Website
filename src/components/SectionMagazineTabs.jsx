@@ -218,6 +218,8 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
   const [canScrollTabsRight, setCanScrollTabsRight] = useState(false);
   /** Ignore scroll-driven active updates until this time (avoids flicker on nav click or content click). */
   const ignoreScrollActiveUntilRef = useRef(0);
+  const lastScrollYRef = useRef(typeof window !== 'undefined' ? window.scrollY : 0);
+  const scrollDirectionRef = useRef('down');
 
   const activeIdx = Math.max(0, safeTabs.findIndex((t) => t.id === active));
   const current = safeTabs[activeIdx] || safeTabs[0];
@@ -241,6 +243,31 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
     ignoreScrollActiveUntilRef.current = Date.now() + 400;
   }
 
+  function onSkipNextSection() {
+    const journey = sectionRef.current;
+    const trainer = document.querySelector('#book-trainer');
+    if (!journey || !trainer) return;
+
+    const offset = 80;
+    const journeyRect = journey.getBoundingClientRect();
+    const trainerRect = trainer.getBoundingClientRect();
+    const journeyTop = window.scrollY + journeyRect.top - offset;
+    const trainerTop = window.scrollY + trainerRect.top - offset;
+
+    const dir = scrollDirectionRef.current;
+    // Debug logs to understand skip behaviour
+    // eslint-disable-next-line no-console
+    console.log('[SkipNext] dir=', dir, 'scrollY=', window.scrollY, {
+      journeyTop,
+      trainerTop,
+    });
+
+    const target = dir === 'up' ? journeyTop : trainerTop;
+    // eslint-disable-next-line no-console
+    console.log('[SkipNext] scrolling to', target);
+    window.scrollTo({ top: target });
+  }
+
   useEffect(() => {
     let raf = 0;
     const onScroll = () => {
@@ -252,12 +279,21 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
         const el = sectionRef.current;
         if (!el) return;
 
+        const y = window.scrollY;
+        const prevY = lastScrollYRef.current;
+        if (y > prevY) scrollDirectionRef.current = 'down';
+        else if (y < prevY) scrollDirectionRef.current = 'up';
+        lastScrollYRef.current = y;
+
+        // Debug current scroll direction while inside Saree & Blouse section
+        // eslint-disable-next-line no-console
+        console.log('[Scroll] y=', y, 'prevY=', prevY, 'dir=', scrollDirectionRef.current);
+
         const rect = el.getBoundingClientRect();
         const sectionTop = window.scrollY + rect.top;
         const total = el.offsetHeight - window.innerHeight;
         if (total <= 0) return;
 
-        const y = window.scrollY;
         const within = y >= sectionTop && y <= sectionTop + total;
         if (!within) return;
 
@@ -410,9 +446,13 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
                   <a href={current.hero?.cta?.href || '#'} className="rex-btn rex-btn-primary rex-magazine-hero-cta">
                     {current.hero?.cta?.label}
                   </a>
-                  <a href="#book-trainer" className="rex-btn rex-btn-ghost rex-magazine-skip-next">
+                  <button
+                    type="button"
+                    className="rex-btn rex-btn-ghost rex-magazine-skip-next"
+                    onClick={onSkipNextSection}
+                  >
                     Skip to next section
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
