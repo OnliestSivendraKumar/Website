@@ -59,7 +59,7 @@ export default function SceneFittingRoom({ isActive, onGotoTab }) {
 
             <video
               className="fit-preview-video"
-              src="hero-model.mp4"
+              src="/hero-model.mp4"
               autoPlay muted loop playsInline
               aria-label="Mannequin live preview"
             />

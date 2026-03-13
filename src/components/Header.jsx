@@ -21,11 +21,11 @@ const SIMPLE_DROPDOWNS = {
     { label: 'Press', href: '#social-press' },
   ],
   products: [
-    { label: 'Onliest REX', href: '#rex' },
-    { label: 'Design Studio', href: '#studio' },
-    { label: 'Fitting Room', href: '#fitting' },
-    { label: 'Onliest Atelier', href: '#atelier' },
-    { label: 'Onliest HALO', href: '#halo' },
+    { label: 'Onliest REX', href: '/products/rex' },
+    { label: 'Design Studio', href: '/products/design-studio' },
+    { label: 'Fitting Room', href: '/products/fitting-room' },
+    { label: 'Onliest Atelier', href: '/products/atelier' },
+    { label: 'Onliest HALO', href: '/products/halo' },
   ],
 };
 

@@ -230,7 +230,7 @@ export default function PanelRex({ isActive, activeLang, onTabChange }) {
             <video
               ref={howVideoRef}
               className="rex-how-modal-video"
-              src="slide1-live-movements.mp4"
+              src="/slide1-live-movements.mp4"
               controls
               playsInline
               aria-label="How Onliest REX works"

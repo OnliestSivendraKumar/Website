@@ -24,7 +24,7 @@ export default function SceneARTryon({ isActive }) {
 
             <video
               className="rex-video"
-              src="ar-tryon.mp4"
+              src="/ar-tryon.mp4"
               autoPlay muted loop playsInline
               aria-label="AR Try-On — cloth simulation"
             />

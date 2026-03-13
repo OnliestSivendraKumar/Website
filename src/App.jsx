@@ -10,6 +10,11 @@ import PagePolicyLegal from './pages/PagePolicyLegal';
 import PagePolicyTerms from './pages/PagePolicyTerms';
 import PagePolicySecurityPrivacy from './pages/PagePolicySecurityPrivacy';
 import PagePolicyInsurance from './pages/PagePolicyInsurance';
+import PageProductRex from './pages/PageProductRex';
+import PageProductStudio from './pages/PageProductStudio';
+import PageProductFitting from './pages/PageProductFitting';
+import PageProductAtelier from './pages/PageProductAtelier';
+import PageProductHalo from './pages/PageProductHalo';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -58,6 +63,11 @@ export default function App() {
         <Route path="/policies/terms" element={<PagePolicyTerms />} />
         <Route path="/policies/security-privacy" element={<PagePolicySecurityPrivacy />} />
         <Route path="/policies/insurance" element={<PagePolicyInsurance />} />
+        <Route path="/products/rex" element={<PageProductRex activeLang={activeLang} />} />
+        <Route path="/products/design-studio" element={<PageProductStudio activeLang={activeLang} />} />
+        <Route path="/products/fitting-room" element={<PageProductFitting activeLang={activeLang} />} />
+        <Route path="/products/atelier" element={<PageProductAtelier activeLang={activeLang} />} />
+        <Route path="/products/halo" element={<PageProductHalo activeLang={activeLang} />} />
       </Routes>
     </>
   );

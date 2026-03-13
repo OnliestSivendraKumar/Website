@@ -262,11 +262,11 @@ export default function SceneAIReadsYou({
             style={{ transform: `translateX(${-s2Idx * 100}%)` }}
           >
 
-            {/* Slide 1 — Video (place your file in public/ as slide1-live-movements.mp4) */}
+              {/* Slide 1 — Video (place your file in public/ as slide1-live-movements.mp4) */}
             <div className="rex-glass rex-s2-video-card rex-s2-card">
               <video
                 className="rex-s2-card-video"
-                src="slide1-live-movements.mp4"
+                src="/slide1-live-movements.mp4"
                 autoPlay
                 muted
                 loop
@@ -283,7 +283,7 @@ export default function SceneAIReadsYou({
             <div className="rex-glass rex-s2-video-card rex-s2-card">
               <video
                 className="rex-s2-card-video rex-s2-card-video-couture"
-                src="couture-bg.mp4"
+                src="/couture-bg.mp4"
                 autoPlay
                 muted
                 loop
@@ -302,7 +302,7 @@ export default function SceneAIReadsYou({
               id="rexS2BlouseCard"
             >
               <img
-                src="blouse-bg.gif"
+                src="/blouse-bg.gif"
                 alt="Holographic blouse — precision mapping"
                 className="rex-blouse-card-img"
               />
@@ -454,7 +454,7 @@ export default function SceneAIReadsYou({
                 {/* Right 50%: stunning full-height image */}
                 <figure className="rex-s2-score-figure" aria-hidden="true">
                   <img
-                    src="fit.png"
+                    src="/fit.png"
                     alt={`Your look at ${fittingScore}% fit — editorial`}
                     className="rex-s2-score-figure-img"
                   />
