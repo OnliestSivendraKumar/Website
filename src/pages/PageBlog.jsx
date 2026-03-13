@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -7,6 +7,19 @@ import { POSTS } from '../data/blogPosts';
 const PAGE_TITLE = 'Blog — Onliest LLC Insights';
 const PAGE_DESCRIPTION =
   'Explore insights from Onliest LLC on couture technology, AI fitting, design intelligence, and customer experience.';
+
+const PAGE_SIZE = 9; // 3 per row × 3 rows
+
+const BLOG_FILTERS = [
+  { id: 'all', label: 'All' },
+  { id: 'trending', label: 'Trending' },
+  { id: 'saree-types', label: 'Saree Types' },
+  { id: 'drape-styles', label: 'Drape Styles' },
+  { id: 'blouse-designs', label: 'Blouse Designs' },
+  { id: 'marriages', label: 'Marriages' },
+];
+
+const TRENDING_IDS = ['ai-fitting-room', 'saree-wardrobe', 'fit-scores'];
 
 function ArrowRightIcon() {
   return (
@@ -31,8 +44,7 @@ function ArrowRightIcon() {
 
 export default function PageBlog() {
   const [page, setPage] = useState(1);
-  const PAGE_SIZE = 9; // 3 per row × 3 rows
-  const totalPages = Math.max(1, Math.ceil(POSTS.length / PAGE_SIZE));
+  const [activeFilter, setActiveFilter] = useState('all');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,8 +60,62 @@ export default function PageBlog() {
     };
   }, []);
 
+  useEffect(() => {
+    setPage(1);
+  }, [activeFilter]);
+
+  useEffect(() => {
+    const grid = document.querySelector('.rex-blog-grid');
+    if (!grid) return;
+    grid.classList.add('is-animating');
+    const timer = setTimeout(() => {
+      grid.classList.remove('is-animating');
+    }, 220);
+    return () => clearTimeout(timer);
+  }, [activeFilter, page]);
+
+  const filteredPosts = useMemo(() => {
+    let items = POSTS;
+
+    if (activeFilter === 'trending') {
+      items = POSTS.filter((post) => TRENDING_IDS.includes(post.id));
+    } else if (activeFilter === 'saree-types') {
+      items = POSTS.filter(
+        (post) =>
+          /saree/i.test(post.title) ||
+          /saree/i.test(post.excerpt) ||
+          post.category.some((tag) => /saree|fabric|wardrobe/i.test(tag)),
+      );
+    } else if (activeFilter === 'drape-styles') {
+      items = POSTS.filter(
+        (post) =>
+          /drape/i.test(post.title) ||
+          /drape/i.test(post.excerpt) ||
+          post.category.some((tag) => /design studio|fit score|fitting room/i.test(tag)),
+      );
+    } else if (activeFilter === 'blouse-designs') {
+      items = POSTS.filter(
+        (post) =>
+          /blouse/i.test(post.title) ||
+          /blouse/i.test(post.excerpt) ||
+          post.category.some((tag) => /atelier|design studio/i.test(tag)),
+      );
+    } else if (activeFilter === 'marriages') {
+      items = POSTS.filter(
+        (post) =>
+          /wedding|marriage|occasion/i.test(post.title) ||
+          /wedding|marriage|occasion/i.test(post.excerpt),
+      );
+    }
+
+    // If a filter currently has no specific matches, fall back to all posts
+    if (!items.length) return POSTS;
+    return items;
+  }, [activeFilter]);
+
+  const totalPages = Math.max(1, Math.ceil(filteredPosts.length / PAGE_SIZE));
   const start = (page - 1) * PAGE_SIZE;
-  const visiblePosts = POSTS.slice(start, start + PAGE_SIZE);
+  const visiblePosts = filteredPosts.slice(start, start + PAGE_SIZE);
 
   return (
     <>
@@ -65,6 +131,25 @@ export default function PageBlog() {
 
         <section className="rex-page-section rex-page-section--blog" aria-label="Latest articles">
           <div className="rex-page-container rex-page-container--wide">
+            <div className="rex-blog-filter-bar">
+              <div className="rex-blog-filter-tabs" role="tablist" aria-label="Filter blog articles">
+                {BLOG_FILTERS.map((filter) => {
+                  const isActive = activeFilter === filter.id;
+                  return (
+                    <button
+                      key={filter.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      className={`rex-blog-filter-tab${isActive ? ' is-active' : ''}`}
+                      onClick={() => setActiveFilter(filter.id)}
+                    >
+                      {filter.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
             <div className="rex-blog-grid">
               {visiblePosts.map((post) => (
                 <article

@@ -39,12 +39,15 @@ export default function PageContact() {
             </h1>
             <div className="rex-page-hero-media">
               <figure>
-                <img
-                  src="/resolution-editorial.jpg"
-                  alt="Onliest studio workspace and team."
+                <iframe
+                  title="Onliest studio location on Google Maps"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.813060649456!2d-73.9942936845933!3d40.71596097933143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27b4f1c2df%3A0x9d8f8b6ac3e3b0f5!2s27%20Division%20St%2C%20New%20York%2C%20NY%2010002%2C%20USA!5e0!3m2!1sen!2sus!4v1700000000000"
                   width="960"
                   height="420"
-                  loading="eager"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
               </figure>
             </div>

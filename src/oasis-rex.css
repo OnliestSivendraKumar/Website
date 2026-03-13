@@ -335,17 +335,47 @@ body[data-theme="light"] .rex-header-trigger--open {
     border-radius: calc(var(--rex-megamenu-r) - 4px);
 }
 .rex-header-megamenu-promo-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
     min-height: 180px;
     padding: 24px 24px 20px;
-    background: linear-gradient(135deg, var(--gold-muted) 0%, var(--burgundy) 100%);
     border-radius: inherit;
     color: #fff;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
     box-sizing: border-box;
+    overflow: hidden;
+    background: radial-gradient(520px 360px at 10% 0%, rgba(245, 238, 233, 0.18) 0%, transparent 55%),
+                linear-gradient(135deg, var(--gold-muted) 0%, var(--burgundy) 100%);
+}
+.rex-header-megamenu-promo-media {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.rex-header-megamenu-promo-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    filter: saturate(1.08) contrast(1.06);
+    transform: scale(1.01);
+}
+.rex-header-megamenu-promo-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Very light overlay: keep most of the image clear, darken only behind text */
+    background:
+        linear-gradient(180deg, rgba(6,3,10,0.0) 0%, rgba(6,3,10,0.18) 55%, rgba(6,3,10,0.58) 100%);
+}
+.rex-header-megamenu-promo-copy {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 8px 22px rgba(0,0,0,0.75);
 }
 .rex-header-megamenu-promo-title {
     font-family: 'Inter', sans-serif;
@@ -2095,6 +2125,10 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-mp-page-featured-grid.is-animating .rex-mp-card,
 .rex-mp-page-grid.is-animating .rex-mp-card {
+    animation: rex-mp-card-swap 220ms var(--ease);
+}
+/* Reuse same motion for blog cards so interactions feel consistent */
+.rex-blog-grid.is-animating .rex-blog-card {
     animation: rex-mp-card-swap 220ms var(--ease);
 }
 @keyframes rex-mp-card-swap {
@@ -4840,6 +4874,50 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     gap: clamp(1.6rem, 2.4vw, 2rem);
     align-items: stretch;
     min-width: 0;
+}
+
+.rex-blog-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.rex-blog-filter-tabs {
+    display: flex;
+    align-items: center;
+    gap: 1.85rem;
+    font-size: 0.92rem;
+}
+.rex-blog-filter-tab {
+    position: relative;
+    border: none;
+    padding: 0 0 0.35rem;
+    background: none;
+    color: var(--plat-65);
+    font: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.rex-blog-filter-tab::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: rgba(198,167,94,0.9);
+    border-radius: 999px;
+    transition: width 0.2s var(--ease), background 0.2s var(--ease);
+}
+.rex-blog-filter-tab.is-active {
+    color: var(--platinum);
+}
+.rex-blog-filter-tab.is-active::after {
+    width: 100%;
+    background: rgba(198,167,94,0.9);
 }
 
 .rex-blog-card {

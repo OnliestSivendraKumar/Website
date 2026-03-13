@@ -38,37 +38,42 @@ const MEGA_MENUS = {
         title: 'BROWSE',
         links: [
           { label: 'All Designs', href: '/marketplace' },
-          { label: 'Trending Now', href: '#browse-trending' },
-          { label: 'Top Rated', href: '#browse-toprated' },
-          { label: 'New Arrivals', href: '#browse-new' },
+          { label: 'Trending Now', href: '/marketplace' },
+          { label: 'Top Rated', href: '/marketplace' },
+          { label: 'New Arrivals', href: '/marketplace' },
         ],
       },
       {
         title: 'COLLECTIONS',
         links: [
-          { label: 'Premium Collection', href: '#collections-premium' },
-          { label: 'Limited Edition', href: '#collections-limited' },
-          { label: 'Sustainable Fashion', href: '#collections-sustainable' },
+          { label: 'Premium Collection', href: '/marketplace' },
+          { label: 'Limited Edition', href: '/marketplace' },
+          { label: 'Sustainable Fashion', href: '/marketplace' },
         ],
       },
       {
         title: 'DESIGNERS',
         links: [
-          { label: 'Featured Designers', href: '#designers-featured' },
-          { label: 'Rising Stars', href: '#designers-rising' },
-          { label: 'Become a Designer', href: '#designers-become' },
+          { label: 'Featured Designers', href: '/marketplace' },
+          { label: 'Rising Stars', href: '/marketplace' },
+          { label: 'Become a Designer', href: '/marketplace' },
         ],
       },
       {
         title: 'OFFERS',
         links: [
-          { label: 'Best Sellers', href: '#offers-bestsellers' },
-          { label: 'Flash Sales', href: '#offers-flash' },
-          { label: 'Gift Guide', href: '#offers-gift' },
+          { label: 'Best Sellers', href: '/marketplace' },
+          { label: 'Flash Sales', href: '/marketplace' },
+          { label: 'Gift Guide', href: '/marketplace' },
         ],
       },
     ],
-    promo: { title: 'Exclusive AI Collections', subtitle: 'Designer Spotlight' },
+    promo: {
+      title: 'Exclusive AI Collections',
+      subtitle: 'Designer Spotlight',
+      image: '/ds-1.png',
+      alt: 'Model wearing a premium Onliest saree',
+    },
   },
 };
 
@@ -387,10 +392,17 @@ export default function Header({ hideOnPanels = false }) {
                       ))}
                       {data.promo && (
                         <div className="rex-header-megamenu-promo">
-                          <div className="rex-header-megamenu-promo-card">
-                            <span className="rex-header-megamenu-promo-title">{data.promo.title}</span>
-                            <span className="rex-header-megamenu-promo-subtitle">{data.promo.subtitle}</span>
-                          </div>
+                          <a href="/marketplace" className="rex-header-megamenu-promo-card">
+                            {data.promo.image && (
+                              <div className="rex-header-megamenu-promo-media" aria-hidden="true">
+                                <img src={data.promo.image} alt={data.promo.alt || ''} />
+                              </div>
+                            )}
+                            <div className="rex-header-megamenu-promo-copy">
+                              <span className="rex-header-megamenu-promo-title">{data.promo.title}</span>
+                              <span className="rex-header-megamenu-promo-subtitle">{data.promo.subtitle}</span>
+                            </div>
+                          </a>
                         </div>
                       )}
                     </div>
