@@ -18,6 +18,7 @@ const SIMPLE_DROPDOWNS = {
     { label: 'Community', href: '#social-community' },
     { label: 'Events', href: '#social-events' },
     { label: 'Blog', href: '/blog' },
+    { label: 'FAQ', href: '/faq' },
     { label: 'Press', href: '#social-press' },
   ],
   products: [
@@ -36,7 +37,7 @@ const MEGA_MENUS = {
       {
         title: 'BROWSE',
         links: [
-          { label: 'All Designs', href: '#browse-all' },
+          { label: 'All Designs', href: '/marketplace' },
           { label: 'Trending Now', href: '#browse-trending' },
           { label: 'Top Rated', href: '#browse-toprated' },
           { label: 'New Arrivals', href: '#browse-new' },

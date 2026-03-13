@@ -39,12 +39,12 @@ export default function Footer() {
 
         <div className="rex-footer-col">
           <h3>Product</h3>
+          <a href="/marketplace">Marketplace</a>
           <a href="#">Design a style</a>
           <a href="#">Customise existing design</a>
           <a href="#">Quality check procedures</a>
           <a href="#">Look and feel yourself</a>
           <a href="#">Trending Style</a>
-          <a href="#">Shop Saree Variants</a>
           <a href="#">Gift Card</a>
         </div>
 
@@ -62,7 +62,7 @@ export default function Footer() {
           <h3>Contact Us</h3>
           <a href="#">Reach out to us</a>
           <a href="#">Locate Us</a>
-          <a href="#">FAQ&apos;s</a>
+          <a href="/faq">FAQ&apos;s</a>
           <a href="#">Careers</a>
           <div className="rex-footer-help-wrap">
             <img src="/bot.svg" alt="" className="rex-footer-bot-logo" aria-hidden="true" />

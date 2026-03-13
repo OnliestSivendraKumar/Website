@@ -6,6 +6,8 @@ import PageContact from './pages/PageContact';
 import PageBlog from './pages/PageBlog';
 import PageBlogDetail from './pages/PageBlogDetail';
 import PageReviews from './pages/PageReviews';
+import PageFaq from './pages/PageFaq';
+import PageMarketplace from './pages/PageMarketplace';
 import PagePolicyReturn from './pages/PagePolicyReturn';
 import PagePolicyShipping from './pages/PagePolicyShipping';
 import PagePolicyLegal from './pages/PagePolicyLegal';
@@ -57,10 +59,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage activeLang={activeLang} />} />
         <Route path="/about" element={<PageWelcome />} />
+        <Route path="/marketplace" element={<PageMarketplace />} />
         <Route path="/contact" element={<PageContact />} />
         <Route path="/blog" element={<PageBlog />} />
         <Route path="/blog/:id" element={<PageBlogDetail />} />
         <Route path="/reviews" element={<PageReviews />} />
+        <Route path="/faq" element={<PageFaq />} />
         <Route path="/policies/return" element={<PagePolicyReturn />} />
         <Route path="/policies/shipping" element={<PagePolicyShipping />} />
         <Route path="/policies/legal" element={<PagePolicyLegal />} />
