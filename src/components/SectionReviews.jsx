@@ -16,7 +16,7 @@ export default function SectionReviews() {
   const [reviewPage, setReviewPage] = useState(0);
   const trackRef = useRef(null);
 
-  const pageSize = isMobile ? 1 : 3;
+  const pageSize = isMobile ? 1 : 2;
   const totalPages = Math.ceil(REVIEWS.length / pageSize);
 
   // Reliable matchMedia-based mobile detection (syncs with CSS breakpoints)
@@ -42,7 +42,8 @@ export default function SectionReviews() {
         card.style.maxWidth = `${containerW}px`;
       });
     } else {
-      const gapRem = 1.75 * (pageSize - 1) / pageSize;
+      const safetyRem = pageSize === 2 ? 0.4 : 0;
+      const gapRem = 1.75 * (pageSize - 1) / pageSize + safetyRem;
       el.style.width = `${totalPages * 100}%`;
       el.style.gap = '1.75rem';
       el.style.transform = `translateX(-${reviewPage * (100 / totalPages)}%)`;

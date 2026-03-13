@@ -551,6 +551,15 @@ export default function Header({ hideOnPanels = false }) {
               })}
             </nav>
 
+            <a
+              href="#rex"
+              className="rex-mobile-menu-cta"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <MagicIcon />
+              <span>AI Rex</span>
+            </a>
+
             <div className="rex-mobile-menu-help">
               <h3 className="rex-mobile-menu-help-title">Need Help?</h3>
               <p className="rex-mobile-menu-help-address">123 Fashion World, Los Angeles, USA</p>

@@ -5,7 +5,6 @@ const DEFAULT_TABS = [
     id: 'onliest-world',
     title: 'ONLIEST WORLD',
     eyebrow: 'Saree & Blouse Intelligence',
-    subtitle: 'Explore the knowledge layers that power better choices.',
     tabImage: '/ds-5.png',
     items: [
       'Textile intelligence',
@@ -53,7 +52,6 @@ const DEFAULT_TABS = [
     id: 'fabric',
     title: 'FABRIC',
     eyebrow: 'Saree & Blouse Intelligence',
-    subtitle: 'Materials, structure, and performance — simplified.',
     tabImage: '/ds-2.png',
     items: [
       'Fibre types',
@@ -76,7 +74,6 @@ const DEFAULT_TABS = [
     id: 'saree',
     title: 'SAREE',
     eyebrow: 'Saree & Blouse Intelligence',
-    subtitle: 'Understand saree components and category differences.',
     tabImage: '/ds-3.png',
     items: [
       'Saree components',
@@ -97,7 +94,6 @@ const DEFAULT_TABS = [
     id: 'blouse',
     title: 'BLOUSE',
     eyebrow: 'Saree & Blouse Intelligence',
-    subtitle: 'Structure, fit, and design placement essentials.',
     tabImage: '/ds-4.png',
     items: [
       'Blouse structure',
@@ -123,7 +119,6 @@ const DEFAULT_TABS = [
     id: 'surface-ornamentation',
     title: 'SURFACE ORNAMENTATION',
     eyebrow: 'Saree & Blouse Intelligence',
-    subtitle: 'Craft techniques that define character and value.',
     tabImage: '/ds-6.png',
     items: [
       'Embroidery',
@@ -149,7 +144,6 @@ const DEFAULT_TABS = [
     id: 'color',
     title: 'COLOR',
     eyebrow: 'Saree & Blouse Intelligence',
-    subtitle: 'Choosing color with confidence — theory to trends.',
     tabImage: '/ds-9.png',
     items: [
       'Color theory',
@@ -173,7 +167,6 @@ const DEFAULT_TABS = [
     id: 'body-compatability',
     title: 'BODY COMPATABILITY',
     eyebrow: 'Saree & Blouse Intelligence',
-    subtitle: 'Necklines and silhouettes that complement your shape.',
     tabImage: '/ds-11.png',
     items: [
       'Body Types',
@@ -199,7 +192,6 @@ const DEFAULT_TABS = [
     id: 'draping',
     title: 'DRAPING',
     eyebrow: 'Saree & Blouse Intelligence',
-    subtitle: 'Learn drape types and step-by-step draping.',
     tabImage: '/ds-12.png',
     items: [
       'Draping types',
@@ -386,12 +378,31 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
               <div className="rex-magazine-hero-copy">
                 <p className="rex-magazine-hero-kicker">Onliest Article</p>
                 <h3 className="rex-magazine-hero-headline">{current.hero?.headline || current.title}</h3>
-                {current.subtitle && <p className="rex-magazine-hero-body">{current.subtitle}</p>}
-                <ul className="rex-magazine-hero-list">
-                  {(current.items || []).map((it) => (
-                    <li key={it}>{it}</li>
-                  ))}
-                </ul>
+                <div className="rex-magazine-hero-tags" role="list">
+                  {(current.items || []).map((it) => {
+                    const label = typeof it === 'string' ? it : it.label;
+                    const href = typeof it === 'object' && it.href ? it.href : `#${label.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+                    return (
+                      <a
+                        key={label}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rex-magazine-hero-tag"
+                        role="listitem"
+                      >
+                        <span className="rex-magazine-hero-tag-text">{label}</span>
+                        <span className="rex-magazine-hero-tag-icon" aria-hidden="true">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
+                        </span>
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
               {current.detail && <p className="rex-magazine-hero-detail">{current.detail}</p>}
               {current.hero?.cta?.label && (

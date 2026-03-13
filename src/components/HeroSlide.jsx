@@ -150,6 +150,16 @@ export default function HeroSlide() {
           )}
 
           <div className="rex-hero-carousel-nav" aria-label="Hero story navigation">
+            <button
+              type="button"
+              className="rex-hero-carousel-arrow rex-hero-carousel-prev"
+              aria-label="Previous slide"
+              onClick={() => setActiveIdx((i) => (i === 0 ? totalSlides - 1 : i - 1))}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
             <p className="rex-hero-carousel-count">
               {String(activeIdx + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
             </p>
@@ -165,6 +175,16 @@ export default function HeroSlide() {
                 />
               ))}
             </div>
+            <button
+              type="button"
+              className="rex-hero-carousel-arrow rex-hero-carousel-next"
+              aria-label="Next slide"
+              onClick={() => setActiveIdx((i) => (i + 1) % totalSlides)}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
           </div>
         </div>
 

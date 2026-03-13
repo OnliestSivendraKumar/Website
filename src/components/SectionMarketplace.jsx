@@ -27,27 +27,39 @@ function HeartIcon() {
 }
 
 const MQ_MOBILE = '(max-width: 640px)';
+const MQ_NARROW = '(min-width: 641px) and (max-width: 1102px)';
+const MQ_TABLET = '(min-width: 1103px) and (max-width: 1304px)';
 
 export default function SectionMarketplace() {
-  // Use matchMedia for reliable detection (works with DevTools emulation too)
   const [isMobile, setIsMobile] = useState(false);
+  const [isNarrow, setIsNarrow] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const [productPage, setProductPage] = useState(0);
   const [designerIndex, setDesignerIndex] = useState(0);
   const cardsTrackRef = useRef(null);
 
-  const pageSize = isMobile ? 1 : 3;
+  const pageSize = isMobile ? 1 : isNarrow ? 1 : isTablet ? 2 : 3;
   const totalPages = Math.ceil(PRODUCTS.length / pageSize);
 
-  // Sync isMobile on mount and on media query change
   useLayoutEffect(() => {
-    const mq = window.matchMedia(MQ_MOBILE);
-    const update = (e) => {
-      setIsMobile(e.matches);
+    const mqMobile = window.matchMedia(MQ_MOBILE);
+    const mqNarrow = window.matchMedia(MQ_NARROW);
+    const mqTablet = window.matchMedia(MQ_TABLET);
+    const update = () => {
+      setIsMobile(mqMobile.matches);
+      setIsNarrow(mqNarrow.matches);
+      setIsTablet(mqTablet.matches);
       setProductPage(0);
     };
-    setIsMobile(mq.matches); // immediate sync on mount
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
+    update();
+    mqMobile.addEventListener('change', update);
+    mqNarrow.addEventListener('change', update);
+    mqTablet.addEventListener('change', update);
+    return () => {
+      mqMobile.removeEventListener('change', update);
+      mqNarrow.removeEventListener('change', update);
+      mqTablet.removeEventListener('change', update);
+    };
   }, []);
 
   // Apply track width + card widths + slide transform
@@ -55,8 +67,9 @@ export default function SectionMarketplace() {
     const el = cardsTrackRef.current;
     if (!el) return;
 
-    if (isMobile) {
-      // Mobile: one card exactly = cards container width (centered with max-width in CSS)
+    const oneCard = isMobile || isNarrow;
+    if (oneCard) {
+      // One card = container width (no clipping)
       const viewportW = document.documentElement.clientWidth || window.innerWidth || 375;
       const containerRect = el.parentElement?.getBoundingClientRect();
       let cardWidth = containerRect?.width || viewportW;
@@ -71,17 +84,19 @@ export default function SectionMarketplace() {
         card.style.minWidth = `${cardWidth}px`;
       });
     } else {
-      // Desktop: percentage-based (works correctly at single nesting level)
-      const gapRem = 1.25 * (pageSize - 1) / pageSize;
+      // Tablet (2) / Desktop (3): percentage-based; extra safety for 2-card so right card is fully visible
+      const safetyRem = pageSize === 2 ? 0.5 : 0.15;
+      const gapRem = 1.25 * (pageSize - 1) / pageSize + safetyRem;
+      const cardPct = 100 / totalPages / pageSize;
       el.style.width = `${totalPages * 100}%`;
       el.style.gap = '1.25rem';
       el.style.transform = `translateX(-${productPage * (100 / totalPages)}%)`;
       Array.from(el.children).forEach((card) => {
-        card.style.flex = `0 0 calc(${100 / totalPages / pageSize}% - ${gapRem}rem)`;
+        card.style.flex = `0 0 calc(${cardPct}% - ${gapRem}rem)`;
         card.style.maxWidth = '';
       });
     }
-  }, [productPage, isMobile, totalPages, pageSize]);
+  }, [productPage, isMobile, isNarrow, totalPages, pageSize]);
 
   const goPrev = () => setProductPage((p) => Math.max(0, p - 1));
   const goNext = () => setProductPage((p) => Math.min(totalPages - 1, p + 1));

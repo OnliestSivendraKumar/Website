@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -72,9 +72,62 @@ function IconSupport() {
 const CARD_ICONS = [IconDesign, IconQuality, IconSupport];
 const SupportIcon = CARD_ICONS[2];
 
+const MQ_MOBILE = '(max-width: 640px)';
+const MQ_TABLET = '(min-width: 641px) and (max-width: 1024px)';
+
 export default function PageWelcome() {
   const [avatarErrors, setAvatarErrors] = useState({});
   const [testimonialAvatarError, setTestimonialAvatarError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+  const [founderPage, setFounderPage] = useState(0);
+  const foundersTrackRef = useRef(null);
+
+  const founderPageSize = isMobile ? 1 : isTablet ? 2 : 3;
+  const founderTotalPages = Math.ceil(FOUNDERS.length / founderPageSize);
+
+  useLayoutEffect(() => {
+    const mqMobile = window.matchMedia(MQ_MOBILE);
+    const mqTablet = window.matchMedia(MQ_TABLET);
+    const update = () => {
+      setIsMobile(mqMobile.matches);
+      setIsTablet(mqTablet.matches);
+      setFounderPage(0);
+    };
+    update();
+    mqMobile.addEventListener('change', update);
+    mqTablet.addEventListener('change', update);
+    return () => {
+      mqMobile.removeEventListener('change', update);
+      mqTablet.removeEventListener('change', update);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    const el = foundersTrackRef.current;
+    if (!el) return;
+    if (isMobile) {
+      const containerW = el.parentElement?.offsetWidth || 280;
+      el.style.width = `${FOUNDERS.length * containerW}px`;
+      el.style.gap = '0px';
+      el.style.transform = `translateX(-${founderPage * containerW}px)`;
+      Array.from(el.children).forEach((card) => {
+        card.style.flex = `0 0 ${containerW}px`;
+        card.style.maxWidth = `${containerW}px`;
+      });
+    } else {
+      const safetyRem = founderPageSize === 2 ? 0.4 : 0.2;
+      const gapRem = 1.25 * (founderPageSize - 1) / founderPageSize + safetyRem;
+      const cardPct = 100 / founderTotalPages / founderPageSize;
+      el.style.width = `${founderTotalPages * 100}%`;
+      el.style.gap = '1.25rem';
+      el.style.transform = `translateX(-${founderPage * (100 / founderTotalPages)}%)`;
+      Array.from(el.children).forEach((card) => {
+        card.style.flex = `0 0 calc(${cardPct}% - ${gapRem}rem)`;
+        card.style.maxWidth = '';
+      });
+    }
+  }, [founderPage, isMobile, founderTotalPages, founderPageSize]);
 
   useEffect(() => {
     const prevTitle = document.title;
@@ -223,36 +276,76 @@ export default function PageWelcome() {
 
         {/* Our Professionals / Founders */}
         <section className="rex-page-section rex-page-section--founders" aria-labelledby="founders-heading">
-          <div className="rex-page-container">
+          <div className="rex-page-founders-bg" aria-hidden="true" />
+          <div className="rex-page-container rex-page-container--founders">
             <h2 id="founders-heading" className="rex-page-section-title rex-page-section-title--center">
               Our Professionals
             </h2>
-            <p className="rex-page-section-sub rex-page-section-sub--center">
+            <p className="rex-page-section-sub rex-page-section-sub--center rex-page-founders-sub">
               The people behind Onliest — designers, technologists, and operations — dedicated to your custom saree experience.
             </p>
-            <ul className="rex-page-founders rex-page-founders--row" role="list">
-              {FOUNDERS.map((person, index) => (
-                <li key={person.name} className="rex-page-founder-card">
-                  <div className="rex-page-founder-avatar" aria-hidden="true">
-                    {person.image && !avatarErrors[index] ? (
-                      <img
-                        src={person.image}
-                        alt=""
-                        onError={() => setAvatarErrors((prev) => ({ ...prev, [index]: true }))}
-                      />
-                    ) : (
-                      <span className="rex-page-founder-initials">
-                        {person.name.split(/\s+/).map((n) => n[0]).join('').slice(0, 2)}
-                      </span>
-                    )}
-                  </div>
-                  <div className="rex-page-founder-info">
-                    <span className="rex-page-founder-name">{person.name}</span>
-                    <span className="rex-page-founder-role">{person.role}</span>
-                  </div>
-                </li>
+            <div className="rex-page-founders-carousel">
+              <button
+                type="button"
+                className="rex-page-founders-nav rex-page-founders-nav--prev"
+                aria-label="Previous professionals"
+                onClick={() => setFounderPage((p) => Math.max(0, p - 1))}
+                disabled={founderPage === 0}
+              >
+                <svg width="11" height="19" viewBox="0 0 11 19" fill="none" aria-hidden="true">
+                  <path d="M9.5 1.5L1.5 9.5L9.5 17.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <div className="rex-page-founders-cards">
+                <ul className="rex-page-founders rex-page-founders--row rex-page-founders-track" role="list" ref={foundersTrackRef}>
+                  {FOUNDERS.map((person, index) => (
+                    <li key={person.name} className="rex-page-founder-card">
+                      <div className="rex-page-founder-avatar" aria-hidden="true">
+                        {person.image && !avatarErrors[index] ? (
+                          <img
+                            src={person.image}
+                            alt=""
+                            onError={() => setAvatarErrors((prev) => ({ ...prev, [index]: true }))}
+                          />
+                        ) : (
+                          <span className="rex-page-founder-initials">
+                            {person.name.split(/\s+/).map((n) => n[0]).join('').slice(0, 2)}
+                          </span>
+                        )}
+                      </div>
+                      <div className="rex-page-founder-info">
+                        <span className="rex-page-founder-name">{person.name}</span>
+                        <span className="rex-page-founder-role">{person.role}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <button
+                type="button"
+                className="rex-page-founders-nav rex-page-founders-nav--next"
+                aria-label="Next professionals"
+                onClick={() => setFounderPage((p) => Math.min(founderTotalPages - 1, p + 1))}
+                disabled={founderPage === founderTotalPages - 1}
+              >
+                <svg width="11" height="19" viewBox="0 0 11 19" fill="none" aria-hidden="true">
+                  <path d="M1.5 1.5L9.5 9.5L1.5 17.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div className="rex-page-founders-dots" role="tablist" aria-label="Carousel pages">
+              {Array.from({ length: founderTotalPages }, (_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  role="tab"
+                  aria-selected={founderPage === i}
+                  aria-label={`Page ${i + 1}`}
+                  className={`rex-page-founders-dot${founderPage === i ? ' is-active' : ''}`}
+                  onClick={() => setFounderPage(i)}
+                />
               ))}
-            </ul>
+            </div>
           </div>
         </section>
 
