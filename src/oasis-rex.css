@@ -1210,7 +1210,6 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     display: flex;
     align-items: center;
     background: var(--bg-burgundy);
-    padding: 0 0 2.25rem;
 }
 .rex-hero-inner {
     width: 100%;
@@ -1316,7 +1315,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-hero-subhead {
     font-family: var(--font-display);
-    font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+    font-size: clamp(1.15rem, 2.2vw, 1rem);
     font-weight: 400;
     font-style: italic;
     color: var(--plat-70);

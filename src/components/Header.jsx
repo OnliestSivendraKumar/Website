@@ -20,6 +20,13 @@ const SIMPLE_DROPDOWNS = {
     { label: 'Blog', href: '/blog' },
     { label: 'Press', href: '#social-press' },
   ],
+  products: [
+    { label: 'Onliest REX', href: '#rex' },
+    { label: 'Design Studio', href: '#studio' },
+    { label: 'Fitting Room', href: '#fitting' },
+    { label: 'Onliest Atelier', href: '#atelier' },
+    { label: 'Onliest HALO', href: '#halo' },
+  ],
 };
 
 /* ─── Mega menu: columns with section title + links ─── */
@@ -62,53 +69,12 @@ const MEGA_MENUS = {
     ],
     promo: { title: 'Exclusive AI Collections', subtitle: 'Designer Spotlight' },
   },
-  products: {
-    columns: [
-      {
-        title: 'TRADITIONAL WEAR',
-        links: [
-          { label: 'Sarees', href: '#traditional-sarees' },
-          { label: 'Lehengas', href: '#traditional-lehengas' },
-          { label: 'Kurta Sets', href: '#traditional-kurta' },
-          { label: 'Anarkalis', href: '#traditional-anarkalis' },
-        ],
-      },
-      {
-        title: 'INDO-WESTERN',
-        links: [
-          { label: 'Fusion Wear', href: '#indo-fusion' },
-          { label: 'Crop Tops', href: '#indo-crop' },
-          { label: 'Jackets', href: '#indo-jackets' },
-          { label: 'Palazzo Sets', href: '#indo-palazzo' },
-        ],
-      },
-      {
-        title: 'OCCASION WEAR',
-        links: [
-          { label: 'Wedding Collection', href: '#occasion-wedding' },
-          { label: 'Festive Wear', href: '#occasion-festive' },
-          { label: 'Party Wear', href: '#occasion-party' },
-          { label: 'Casual Wear', href: '#occasion-casual' },
-        ],
-      },
-      {
-        title: 'WESTERN WEAR',
-        links: [
-          { label: 'Dresses', href: '#western-dresses' },
-          { label: 'Tops & Shirts', href: '#western-tops' },
-          { label: 'Bottoms', href: '#western-bottoms' },
-          { label: 'Outerwear', href: '#western-outerwear' },
-        ],
-      },
-    ],
-    promo: { title: 'Handcrafted Elegance', subtitle: 'New Collection' },
-  },
 };
 
 const NAV_ITEMS = [
   { id: 'about', label: 'About', type: 'simple' },
   { id: 'marketplace', label: 'Market Place', type: 'mega' },
-  { id: 'products', label: 'Products', type: 'mega' },
+  { id: 'products', label: 'Products', type: 'simple' },
   { id: 'merchandise', label: 'Merchandise', type: 'simple' },
   { id: 'social', label: 'Social Reach', type: 'simple' },
   { id: 'contact', label: 'Contact Us', type: null },
