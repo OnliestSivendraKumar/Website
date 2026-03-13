@@ -9,6 +9,7 @@ import PageBlogDetail from './pages/PageBlogDetail';
 import PageReviews from './pages/PageReviews';
 import PageFaq from './pages/PageFaq';
 import PageMarketplace from './pages/PageMarketplace';
+import PageMerchandise from './pages/PageMerchandise';
 import PagePolicyReturn from './pages/PagePolicyReturn';
 import PagePolicyShipping from './pages/PagePolicyShipping';
 import PagePolicyLegal from './pages/PagePolicyLegal';
@@ -20,6 +21,7 @@ import PageProductStudio from './pages/PageProductStudio';
 import PageProductFitting from './pages/PageProductFitting';
 import PageProductAtelier from './pages/PageProductAtelier';
 import PageProductHalo from './pages/PageProductHalo';
+import PageMerchandiseDetail from './pages/PageMerchandiseDetail';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -61,6 +63,8 @@ export default function App() {
         <Route path="/" element={<HomePage activeLang={activeLang} />} />
         <Route path="/about" element={<PageWelcome />} />
         <Route path="/marketplace" element={<PageMarketplace />} />
+        <Route path="/merchandise" element={<PageMerchandise />} />
+        <Route path="/merchandise/:id" element={<PageMerchandiseDetail />} />
         <Route path="/contact" element={<PageContact />} />
         <Route path="/careers" element={<PageCareers />} />
         <Route path="/blog" element={<PageBlog />} />

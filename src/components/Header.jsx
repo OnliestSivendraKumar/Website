@@ -10,9 +10,12 @@ const SIMPLE_DROPDOWNS = {
     { label: 'Careers', href: '/careers' },
   ],
   merchandise: [
-    { label: 'T-Shirts', href: '#merchandise-tshirts' },
-    { label: 'Accessories', href: '#merchandise-accessories' },
-    { label: 'Gift Cards', href: '#merchandise-giftcards' },
+    { label: 'Gift Cards', href: '/merchandise' },
+    { label: 'Saree Clips', href: '/merchandise' },
+    { label: 'Hair Bands', href: '/merchandise' },
+    { label: 'Coffee Mugs', href: '/merchandise' },
+    { label: "Women's Caps", href: '/merchandise' },
+    { label: "Women's Belts", href: '/merchandise' },
   ],
   social: [
     { label: 'Community', href: '#social-community' },

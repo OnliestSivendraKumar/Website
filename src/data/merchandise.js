@@ -1,0 +1,190 @@
+export const MERCH_PRODUCTS = [
+  {
+    id: 'gc1',
+    category: 'gift-cards',
+    name: 'Gift Card',
+    subtitle: 'Champagne',
+    image: '/ds-1.png',
+    price: '$50',
+    description:
+      'Elegant Onliest gift card in a champagne finish. Perfect when you want them to choose their own saree or accessory.',
+    details: ['Digital and physical options', 'Usable on all Onliest experiences', 'No expiry within 12 months'],
+  },
+  {
+    id: 'gc2',
+    category: 'gift-cards',
+    name: 'E-Gift Card',
+    subtitle: 'Sky Blue',
+    image: '/ds-2.png',
+    price: '$75',
+    description:
+      'Instant e‑gift card delivered by email in a serene sky‑blue envelope. Ideal for last‑minute celebrations.',
+    details: ['Email delivery within minutes', 'Personalised message support', 'Redeemable online only'],
+  },
+  {
+    id: 'gc3',
+    category: 'gift-cards',
+    name: 'Gift Card',
+    subtitle: 'Image: Red',
+    image: '/ds-3.png',
+    price: '$100',
+    description:
+      'Bold red Onliest gift card for statement occasions — weddings, milestones, and once‑in‑a‑lifetime drapes.',
+    details: ['Premium printed finish', 'Includes keepsake sleeve', 'Supports split redemptions'],
+  },
+  {
+    id: 'gc4',
+    category: 'gift-cards',
+    name: 'E-Gift Card',
+    subtitle: 'Fuchsia',
+    image: '/ds-4.png',
+    price: '$150',
+    description:
+      'Vibrant fuchsia e‑gift card for your most fashion‑forward friends and family.',
+    details: ['Instant email delivery', 'Custom denomination on request', 'Works across all Onliest services'],
+  },
+  {
+    id: 'gc5',
+    category: 'gift-cards',
+    name: 'Gift Card',
+    subtitle: 'Orange',
+    image: '/ds-5.png',
+    price: '$200',
+    description:
+      'Sunlit orange card that feels as celebratory as the sarees it unlocks.',
+    details: ['Rigid card stock', 'Gold foil Onliest branding', 'Optional handwritten note'],
+  },
+  {
+    id: 'gc6',
+    category: 'gift-cards',
+    name: 'Gift Card',
+    subtitle: 'Lime Green',
+    image: '/ds-6.png',
+    price: '$250',
+    description:
+      'Fresh lime‑green gift card designed for big gestures and even bigger wardrobes.',
+    details: ['Premium envelope included', 'Supports partial use and re‑use', 'Works in all supported regions'],
+  },
+  {
+    id: 'sc1',
+    category: 'saree-clips',
+    name: 'Saree Pin Onliest',
+    subtitle: 'Decorative pin',
+    image: '/ds-4.png',
+    price: '$35',
+    description:
+      'A signature Onliest saree pin that secures pleats while adding a subtle jewel‑like accent.',
+    details: ['Anti‑snag clasp', 'Warm gold finish', 'Ships with velvet pouch'],
+  },
+  {
+    id: 'hb1',
+    category: 'hair-bands',
+    name: 'Hair Band Onliest',
+    subtitle: 'Textile band: by Onliest',
+    image: '/ds-5.png',
+    price: '$22',
+    description:
+      'Soft woven hair band that pairs with both everyday sarees and relaxed western looks.',
+    details: ['Gentle on hair', 'One size with stretch', 'Machine‑washable'],
+  },
+  {
+    id: 'hb2',
+    category: 'hair-bands',
+    name: 'Hair Band Onliest',
+    subtitle: 'Pink silk scrunchies: by Onliest',
+    image: '/ds-6.png',
+    price: '$28',
+    description:
+      'Set of pink silk scrunchies designed to reduce frizz and protect styled hair.',
+    details: ['100% satin‑touch finish', 'Pack of three', 'Ideal for night‑time wear'],
+  },
+  {
+    id: 'cm1',
+    category: 'coffee-mugs',
+    name: 'Cup Onliest',
+    subtitle: 'Ceramic cup, blue pattern',
+    image: '/ds-1.png',
+    price: '$18',
+    description:
+      'Blue patterned ceramic mug that brings a quiet studio mood to your morning coffee.',
+    details: ['Dishwasher safe', 'Matte exterior glaze', '320 ml capacity'],
+  },
+  {
+    id: 'cm2',
+    category: 'coffee-mugs',
+    name: 'Cup Onliest',
+    subtitle: 'Ceramic cup, brown wavy pattern',
+    image: '/ds-2.png',
+    price: '$18',
+    description:
+      'Earth‑toned mug with a wavy stripe motif inspired by flowing drapes.',
+    details: ['Microwave safe', 'Hand‑finished rim', '320 ml capacity'],
+  },
+  {
+    id: 'cm3',
+    category: 'coffee-mugs',
+    name: 'Cup Onliest',
+    subtitle: 'Ceramic cup, white',
+    image: '/ds-3.png',
+    price: '$16',
+    description:
+      'Minimal white mug with subtle Onliest branding for a calm, neutral desk setup.',
+    details: ['Gloss interior glaze', 'Stackable shape', '300 ml capacity'],
+  },
+  {
+    id: 'cap1',
+    category: 'caps',
+    name: 'Cap Onliest',
+    subtitle: 'Pink cotton beanie',
+    image: '/ds-4.png',
+    price: '$32',
+    description:
+      'Cozy pink beanie with a soft rib and discrete Onliest tag at the hem.',
+    details: ['Breathable cotton blend', 'One size', 'Machine‑wash cold'],
+  },
+  {
+    id: 'cap2',
+    category: 'caps',
+    name: 'Cap Onliest',
+    subtitle: 'Grey wool beanie',
+    image: '/ds-5.png',
+    price: '$36',
+    description:
+      'Warm grey beanie that complements winter layers and travel looks.',
+    details: ['Wool‑rich yarn', 'Soft touch lining', 'One size'],
+  },
+  {
+    id: 'b1',
+    category: 'belts',
+    name: 'Belt Onliest',
+    subtitle: 'Black fabric belt with silver buckle',
+    image: '/ds-6.png',
+    price: '$40',
+    description:
+      'Textured fabric belt with a polished silver buckle — ideal for cinching saree drapes or dresses.',
+    details: ['Adjustable length', 'Nickel‑safe hardware', 'Designed for waist or hip wear'],
+  },
+  {
+    id: 'b2',
+    category: 'belts',
+    name: 'Belt Onliest',
+    subtitle: 'Black elastic belt with silver clasp',
+    image: '/ds-1.png',
+    price: '$38',
+    description:
+      'Elastic belt with a clean clasp that disappears under pallu layers while keeping everything secure.',
+    details: ['Low‑profile clasp', 'Stretch panel', 'Travel‑friendly'],
+  },
+  {
+    id: 'b3',
+    category: 'belts',
+    name: 'Belt Onliest',
+    subtitle: 'Black leather belt with gold buckle',
+    image: '/ds-2.png',
+    price: '$52',
+    description:
+      'Classic leather belt with a soft gold buckle that works with sarees, denims and dresses alike.',
+    details: ['Genuine leather', 'Edge‑painted finish', 'Three standard sizes'],
+  },
+];
+
