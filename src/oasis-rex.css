@@ -2589,7 +2589,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-marketplace-body {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 360px);
+    grid-template-columns: minmax(0, 1.3fr) minmax(320px, 420px);
     gap: 2rem;
     align-items: start;
     min-width: 0;
@@ -2848,15 +2848,15 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border-radius: var(--radius-lg);
-    padding: 1.75rem;
+    padding: 2.1rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 16px 50px rgba(0, 0, 0, 0.55);
     text-align: center;
 }
 .rex-mp-designer-avatar-wrap {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 96px;
+    height: 96px;
     margin: 0 auto 1rem;
 }
 .rex-mp-designer-avatar {
