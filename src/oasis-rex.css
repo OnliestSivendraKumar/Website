@@ -487,7 +487,8 @@ body[data-theme="light"] .rex-header-icon-btn:hover {
     border-radius: var(--radius-lg);
     box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
     pointer-events: auto;
-    overflow: hidden;
+    max-height: min(80vh, 640px);
+    overflow-y: auto;
 }
 @media (max-width: 1024px) {
     .rex-search-overlay .rex-search-panel {
@@ -598,6 +599,40 @@ body[data-theme="light"] .rex-search-overlay .rex-search-panel {
 }
 .rex-search-recent-item:hover {
     color: var(--burgundy);
+}
+.rex-search-recent-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+.rex-search-result-label {
+    flex: 1;
+    min-width: 0;
+}
+.rex-search-result-type {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #888;
+    flex-shrink: 0;
+}
+.rex-search-no-results {
+    margin: 0;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+.rex-search-recent-empty {
+    list-style: none;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #888;
+}
+.rex-search-fallback {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0,0,0,0.06);
 }
 .rex-search-popular {
     display: flex;

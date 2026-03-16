@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
+import { filterSearchIndex, getRecentSearches, addRecentSearch } from '../data/searchIndex';
 
 /* ─── Simple dropdown: list of links ────────────────── */
 const SIMPLE_DROPDOWNS = {
@@ -145,7 +146,6 @@ function TrendIcon() {
   );
 }
 
-const RECENT_SEARCHES = ['Red Saree', 'Wedding Collection', 'Silk Kurta'];
 const POPULAR_SEARCHES = ['Bridal Sarees', 'Designer Lehengas', 'Festive Wear', 'Indo-Western', 'Party Wear'];
 
 function HamburgerIcon() {
@@ -189,6 +189,7 @@ export default function Header({ hideOnPanels = false }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchPos, setSearchPos] = useState({ top: 0, left: 0 });
+  const [recentSearches, setRecentSearches] = useState([]);
   const [menuLeft, setMenuLeft] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileExpandedId, setMobileExpandedId] = useState(null);
@@ -236,6 +237,13 @@ export default function Header({ hideOnPanels = false }) {
   useEffect(() => {
     if (searchOpen && searchInputRef.current) searchInputRef.current.focus();
   }, [searchOpen]);
+
+  useEffect(() => {
+    if (searchOpen) setRecentSearches(getRecentSearches());
+  }, [searchOpen]);
+
+  const searchResults = useMemo(() => filterSearchIndex(searchQuery, 20), [searchQuery]);
+  const hasQuery = searchQuery.trim().length > 0;
 
   useEffect(() => {
     if (!searchOpen) return;
@@ -291,12 +299,29 @@ export default function Header({ hideOnPanels = false }) {
 
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
 
-  const handleSearchSubmit = (term) => {
-    const q = (term ?? searchQuery).trim();
-    setSearchOpen(false);
-    if (q) {
-      navigate(`/marketplace?q=${encodeURIComponent(q)}`);
+  const handleSearchSubmit = (termOrResult) => {
+    const isResult = termOrResult && typeof termOrResult === 'object' && termOrResult.href != null;
+    const term = isResult ? termOrResult.label : (termOrResult ?? searchQuery).trim();
+    const q = (term || '').trim();
+    if (!q && !isResult) {
+      setSearchOpen(false);
+      return;
     }
+
+    let target;
+    if (isResult) {
+      target = termOrResult.href;
+    } else if (hasQuery && searchResults.length > 0) {
+      target = searchResults[0].href;
+    } else {
+      target = `/marketplace?q=${encodeURIComponent(q)}`;
+    }
+
+    addRecentSearch(term || (searchResults[0] && searchResults[0].label));
+    setRecentSearches(getRecentSearches());
+    setSearchOpen(false);
+    setSearchQuery('');
+    navigate(target);
   };
 
   const clearHoverTimers = () => {
@@ -621,34 +646,86 @@ export default function Header({ hideOnPanels = false }) {
                 />
               </div>
             </form>
-            <div className="rex-search-section">
-              <div className="rex-search-section-title">
-                <ClockIcon />
-                <span>Recent Searches</span>
-              </div>
-              <ul className="rex-search-recent">
-                {RECENT_SEARCHES.map((term) => (
-                  <li key={term}>
-                    <button type="button" className="rex-search-recent-item" onClick={() => handleSearchSubmit(term)}>
-                      {term}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rex-search-section">
-              <div className="rex-search-section-title">
-                <TrendIcon />
-                <span>Popular Searches</span>
-              </div>
-              <div className="rex-search-popular">
-                {POPULAR_SEARCHES.map((term) => (
-                  <button key={term} type="button" className="rex-search-chip" onClick={() => handleSearchSubmit(term)}>
-                    {term}
+            {hasQuery ? (
+              <div className="rex-search-section">
+                <div className="rex-search-section-title">
+                  <SearchIcon />
+                  <span>Results</span>
+                </div>
+                {searchResults.length > 0 ? (
+                  <ul className="rex-search-recent" role="listbox">
+                    {searchResults.map((item) => (
+                      <li key={`${item.type}-${item.label}-${item.href}`}>
+                        <button
+                          type="button"
+                          className="rex-search-recent-item"
+                          onClick={() => handleSearchSubmit(item)}
+                          role="option"
+                        >
+                          <span className="rex-search-result-label">{item.label}</span>
+                          <span className="rex-search-result-type">{item.type}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="rex-search-no-results">No matches. Try a different term or search the marketplace.</p>
+                )}
+                <div className="rex-search-section rex-search-fallback">
+                  <button
+                    type="button"
+                    className="rex-search-chip"
+                    onClick={() => {
+                      const q = searchQuery.trim();
+                      if (q) {
+                        addRecentSearch(q);
+                        setRecentSearches(getRecentSearches());
+                        setSearchOpen(false);
+                        setSearchQuery('');
+                        navigate(`/marketplace?q=${encodeURIComponent(q)}`);
+                      }
+                    }}
+                  >
+                    Search marketplace for “{searchQuery.trim()}”
                   </button>
-                ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <>
+                <div className="rex-search-section">
+                  <div className="rex-search-section-title">
+                    <ClockIcon />
+                    <span>Recent Searches</span>
+                  </div>
+                  <ul className="rex-search-recent">
+                    {recentSearches.length > 0 ? (
+                      recentSearches.map((term) => (
+                        <li key={term}>
+                          <button type="button" className="rex-search-recent-item" onClick={() => handleSearchSubmit(term)}>
+                            {term}
+                          </button>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="rex-search-recent-empty">No recent searches</li>
+                    )}
+                  </ul>
+                </div>
+                <div className="rex-search-section">
+                  <div className="rex-search-section-title">
+                    <TrendIcon />
+                    <span>Popular Searches</span>
+                  </div>
+                  <div className="rex-search-popular">
+                    {POPULAR_SEARCHES.map((term) => (
+                      <button key={term} type="button" className="rex-search-chip" onClick={() => handleSearchSubmit(term)}>
+                        {term}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>,
         document.body
