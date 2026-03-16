@@ -22,6 +22,8 @@ import PageProductFitting from './pages/PageProductFitting';
 import PageProductAtelier from './pages/PageProductAtelier';
 import PageProductHalo from './pages/PageProductHalo';
 import PageMerchandiseDetail from './pages/PageMerchandiseDetail';
+import PageDesigners from './pages/PageDesigners';
+import PageDesignerDetail from './pages/PageDesignerDetail';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -63,6 +65,8 @@ export default function App() {
         <Route path="/" element={<HomePage activeLang={activeLang} />} />
         <Route path="/about" element={<PageWelcome />} />
         <Route path="/marketplace" element={<PageMarketplace />} />
+        <Route path="/designers" element={<PageDesigners />} />
+        <Route path="/designers/:id" element={<PageDesignerDetail />} />
         <Route path="/merchandise" element={<PageMerchandise />} />
         <Route path="/merchandise/:id" element={<PageMerchandiseDetail />} />
         <Route path="/contact" element={<PageContact />} />

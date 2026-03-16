@@ -204,7 +204,7 @@ export default function SectionMarketplace() {
                 </span>
                 <button type="button" aria-label="Next designer" onClick={() => setDesignerIndex((i) => (i + 1) % FEATURED_DESIGNERS.length)}>›</button>
               </div>
-              <a href="#all-designers" className="rex-btn rex-btn-ghost rex-mp-view-all">View All Designers</a>
+              <a href="/designers" className="rex-btn rex-btn-ghost rex-mp-view-all">View All Designers</a>
             </div>
           </aside>
         </div>

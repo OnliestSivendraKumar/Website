@@ -58,6 +58,7 @@ const MEGA_MENUS = {
       {
         title: 'DESIGNERS',
         links: [
+          { label: 'All Designers', href: '/designers' },
           { label: 'Featured Designers', href: '/marketplace' },
           { label: 'Rising Stars', href: '/marketplace' },
           { label: 'Become a Designer', href: '/marketplace' },

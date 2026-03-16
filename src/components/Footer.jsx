@@ -32,7 +32,7 @@ export default function Footer() {
           <a href="/products/design-studio">How to customise</a>
           <a href="/about">Our Philosophy</a>
           <a href="/reviews">Testimonials</a>
-          <a href="/marketplace">Our Designers</a>
+          <a href="/designers">Our Designers</a>
           <a href="/reviews">Reviews and Ratings</a>
           <a href="/about">Who we are</a>
         </div>
