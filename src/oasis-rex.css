@@ -949,6 +949,81 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     width: 100%; height: 100%;
 }
 
+/* ─── Fibre Foundations (Education inner article) ───── */
+.rex-fibre-page {
+    padding-bottom: clamp(3rem, 6vw, 4rem);
+}
+.rex-fibre-hero {
+    padding: clamp(3rem, 7vw, 4rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+}
+.rex-fibre-shell {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 clamp(1.4rem, 4vw, 2rem);
+}
+.rex-fibre-header {
+    margin-bottom: 1.75rem;
+}
+.rex-fibre-intro {
+    margin: 0.75rem 0 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--plat-70);
+    max-width: 60ch;
+}
+.rex-fibre-hero-media {
+    margin: 0 0 1.8rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.35);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+}
+.rex-fibre-hero-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.rex-fibre-body {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--plat-70);
+}
+.rex-fibre-body h2 {
+    margin: 1.75rem 0 0.4rem;
+    font-size: 1.08rem;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    color: var(--platinum);
+}
+.rex-fibre-body h2:first-of-type {
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--gold-dim);
+}
+.rex-fibre-body p {
+    margin: 0.6rem 0;
+}
+.rex-fibre-footer-cta {
+    margin-top: 2.5rem;
+}
+.rex-fibre-footer-cta .rex-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+@media (max-width: 640px) {
+    .rex-fibre-shell {
+        padding: 0 1.1rem;
+    }
+    .rex-fibre-body h2 {
+        font-size: 0.98rem;
+    }
+    .rex-fibre-body {
+        font-size: 0.95rem;
+    }
+}
+
+
 /* ─── Tabs section: no solid band, merges with hero; bar matches header glass ────── */
 .rex-tabs-section {
     position: relative;
@@ -1751,7 +1826,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     height: 100%;
     max-height: none;
     object-fit: cover;
-    object-position: 50% 20%;
+    object-position: 50% 50%;
     display: block;
 }
 .rex-magazine-hero-copy {
