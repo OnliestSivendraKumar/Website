@@ -65,7 +65,7 @@ export default function HomePage({ activeLang, onTabChange }) {
       <SectionMagazineTabs />
       <SectionCallout
         id="book-trainer"
-        eyebrow="Customer Experience"
+        eyebrow="Live Experience"
         title="Book a Trainer or Designer"
         subtitle="Learn, discover, and connect with our comprehensive customer experience — choose a live product demo or a 1:1 styling session with a fashion designer."
         bullets={[

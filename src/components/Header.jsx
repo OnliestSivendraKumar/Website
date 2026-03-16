@@ -21,6 +21,7 @@ const SIMPLE_DROPDOWNS = {
     { label: 'Community', href: '#social-community' },
     { label: 'Events', href: '#social-events' },
     { label: 'Blog', href: '/blog' },
+    { label: 'Reviews', href: '/reviews' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Press', href: '#social-press' },
   ],

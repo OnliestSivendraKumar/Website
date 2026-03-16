@@ -28,24 +28,22 @@ export default function Footer() {
 
         <div className="rex-footer-col">
           <h3>About Us</h3>
-          <a href="#">How we work</a>
-          <a href="#">How to customise</a>
-          <a href="#">Our Philosophy</a>
-          <a href="#">Testimonials</a>
-          <a href="#">Our Designers</a>
-          <a href="#">Reviews and Ratings</a>
+          <a href="/about">How we work</a>
+          <a href="/products/design-studio">How to customise</a>
+          <a href="/about">Our Philosophy</a>
+          <a href="/reviews">Testimonials</a>
+          <a href="/marketplace">Our Designers</a>
+          <a href="/reviews">Reviews and Ratings</a>
           <a href="/about">Who we are</a>
         </div>
 
         <div className="rex-footer-col">
-          <h3>Product</h3>
-          <a href="/marketplace">Marketplace</a>
-          <a href="#">Design a style</a>
-          <a href="#">Customise existing design</a>
-          <a href="#">Quality check procedures</a>
-          <a href="#">Look and feel yourself</a>
-          <a href="#">Trending Style</a>
-          <a href="#">Gift Card</a>
+          <h3>Products</h3>
+          <a href="/products/rex">Onliest REX</a>
+          <a href="/products/design-studio">Design Studio</a>
+          <a href="/products/fitting-room">Fitting Room</a>
+          <a href="/products/atelier">Onliest Atelier</a>
+          <a href="/products/halo">Onliest HALO</a>
         </div>
 
         <div className="rex-footer-col">
@@ -60,8 +58,8 @@ export default function Footer() {
 
         <div className="rex-footer-col">
           <h3>Contact Us</h3>
-          <a href="#">Reach out to us</a>
-          <a href="#">Locate Us</a>
+          <a href="/contact">Reach out to us</a>
+          <a href="/contact">Locate Us</a>
           <a href="/faq">FAQ&apos;s</a>
           <a href="/careers">Careers</a>
           <div className="rex-footer-help-wrap">
