@@ -204,7 +204,7 @@ const DEFAULT_TABS = [
     id: 'draping',
     title: 'SAREE DRAPING',
     eyebrow: 'Saree & Blouse Intelligence',
-    tabImage: '/ds-12.png',
+    tabImage: '/edu-drape.png',
     items: [
       'Draping styles',
       'How to drape',
@@ -213,7 +213,7 @@ const DEFAULT_TABS = [
       kicker: 'Draping Intelligence',
       headline: 'Saree Draping',
       cta: { label: 'Start Draping', href: '#journey' },
-      image: '/ds-12.png',
+      image: '/edu-drape.png',
       imageAlt: 'Draping preview',
     },
     detail:
