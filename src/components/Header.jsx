@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 
 /* ─── Simple dropdown: list of links ────────────────── */
 const SIMPLE_DROPDOWNS = {
@@ -182,6 +183,7 @@ function MinusIcon() {
 }
 
 export default function Header({ hideOnPanels = false }) {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [openId, setOpenId] = useState(null);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -288,6 +290,14 @@ export default function Header({ hideOnPanels = false }) {
   }, [openId]);
 
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id));
+
+  const handleSearchSubmit = (term) => {
+    const q = (term ?? searchQuery).trim();
+    setSearchOpen(false);
+    if (q) {
+      navigate(`/marketplace?q=${encodeURIComponent(q)}`);
+    }
+  };
 
   const clearHoverTimers = () => {
     if (openTimeoutRef.current) {
@@ -590,18 +600,27 @@ export default function Header({ hideOnPanels = false }) {
             >
               <span aria-hidden="true">×</span>
             </button>
-            <div className="rex-search-input-wrap">
-              <SearchIcon />
-              <input
-                ref={searchInputRef}
-                type="search"
-                className="rex-search-input"
-                placeholder="Search designs, collections..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                aria-label="Search"
-              />
-            </div>
+            <form
+              role="search"
+              className="rex-search-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSearchSubmit();
+              }}
+            >
+              <div className="rex-search-input-wrap">
+                <SearchIcon />
+                <input
+                  ref={searchInputRef}
+                  type="search"
+                  className="rex-search-input"
+                  placeholder="Search designs, collections..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  aria-label="Search"
+                />
+              </div>
+            </form>
             <div className="rex-search-section">
               <div className="rex-search-section-title">
                 <ClockIcon />
@@ -610,7 +629,7 @@ export default function Header({ hideOnPanels = false }) {
               <ul className="rex-search-recent">
                 {RECENT_SEARCHES.map((term) => (
                   <li key={term}>
-                    <button type="button" className="rex-search-recent-item" onClick={() => { setSearchQuery(term); setSearchOpen(false); }}>
+                    <button type="button" className="rex-search-recent-item" onClick={() => handleSearchSubmit(term)}>
                       {term}
                     </button>
                   </li>
@@ -624,7 +643,7 @@ export default function Header({ hideOnPanels = false }) {
               </div>
               <div className="rex-search-popular">
                 {POPULAR_SEARCHES.map((term) => (
-                  <button key={term} type="button" className="rex-search-chip" onClick={() => { setSearchQuery(term); setSearchOpen(false); }}>
+                  <button key={term} type="button" className="rex-search-chip" onClick={() => handleSearchSubmit(term)}>
                     {term}
                   </button>
                 ))}

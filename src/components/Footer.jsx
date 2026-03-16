@@ -59,7 +59,7 @@ export default function Footer() {
         <div className="rex-footer-col">
           <h3>Contact Us</h3>
           <a href="/contact">Reach out to us</a>
-          <a href="/contact">Locate Us</a>
+          {/* <a href="/contact">Locate Us</a> */}
           <a href="/faq">FAQ&apos;s</a>
           <a href="/careers">Careers</a>
           <div className="rex-footer-help-wrap">

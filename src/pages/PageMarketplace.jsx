@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -116,11 +117,17 @@ function MarketplaceCard({ item }) {
 }
 
 export default function PageMarketplace() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const qFromUrl = searchParams.get('q') ?? '';
   const [activeFilter, setActiveFilter] = useState('all');
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(qFromUrl);
   const [sort, setSort] = useState('featured');
   const [page, setPage] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    setSearch(qFromUrl);
+  }, [qFromUrl]);
 
   useEffect(() => {
     document.title = 'Marketplace | Onliest';
@@ -213,7 +220,15 @@ export default function PageMarketplace() {
                   className="rex-mp-page-search-input"
                   placeholder="Search designs, designers, occasions…"
                   value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => {
+                  const v = e.target.value;
+                  setSearch(v);
+                  setSearchParams((prev) => {
+                    const next = new URLSearchParams(prev);
+                    if (v.trim()) next.set('q', v); else next.delete('q');
+                    return next;
+                  });
+                }}
                   aria-label="Search marketplace designs"
                 />
               </div>
