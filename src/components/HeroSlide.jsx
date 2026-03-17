@@ -34,7 +34,9 @@ const STORY_SLIDES = [
     ),
     subhead: 'Powered by AI. Inspired by Heritage. Crafted for You.',
     body: [
-      'Create perfectly fitted sarees and blouses designed around your body, your style, and your imagination — using intelligent design technology built for the future of couture fashion.',
+      'Create sarees and blouses shaped around your body, your style, and your imagination.',
+      'Intelligent design technology built for the future of couture fashion.',
+      'Every piece feels like it was made only... More',
     ],
     primaryCta: { label: 'Start Designing', href: '#design' },
     secondaryCta: { label: 'Explore the Experience', href: '#experience' },
@@ -46,9 +48,9 @@ const STORY_SLIDES = [
     headline: 'Fashion Was Never Meant to Be Standardized',
     subhead: null,
     body: [
-      'For centuries, fashion followed standard sizes and fixed designs.',
-      'But people are not standard.',
-      'And true elegance was never meant to be mass-produced.',
+      'For centuries, fashion has relied on standard sizes and fixed designs.',
+      'Bodies and tastes are not standard — they are singular.',
+      'True elegance was never meant to be mass-produced; it belongs in the hands of the one who wears it... More',
     ],
   },
   {
@@ -58,9 +60,9 @@ const STORY_SLIDES = [
     headline: 'You Were Always Meant to Create',
     subhead: null,
     body: [
-      'What if fashion didn’t limit your choices?',
+      'What if fashion didn’t limit your choices but expanded them?',
       'What if you could design something no one else in the world owns?',
-      'Onliest unlocks something deeper: your creativity, your confidence, your individuality.',
+      'Onliest unlocks something deeper: your creativity, your confidence, and a garment that carries your name... More',
     ],
   },
   {
@@ -71,7 +73,8 @@ const STORY_SLIDES = [
     subhead: null,
     body: [
       'Onliest reimagines couture through artificial intelligence and precision design.',
-      'Every saree and blouse becomes a creation designed exclusively for you — not chosen from a rack, but created by you.',
+      'Every saree and blouse is mapped to your body, your preferences, and your story.',
+      'Nothing is pulled from a rack — each piece begins as a blank canvas created by you... More',
     ],
   },
   {
@@ -83,19 +86,19 @@ const STORY_SLIDES = [
     body: [
       'The moment you create something uniquely yours, you discover something more than design.',
       'You discover your taste, your confidence, and your creative identity.',
-      'And when you wear it, it doesn’t just look beautiful — it becomes the design others admire, the design others wish they had created.',
+      'And when you wear it, it doesn’t just look beautiful — it becomes the design others admire, the design others wish they had created... More',
     ],
   },
   {
     id: 'section-7-emotion',
     badge: 'ONLIEST JOURNEY · SECTION 7',
     sectionLabel: 'The Emotion',
-    headline: 'Because the Most Beautiful Saree in the World…',
+    headline: 'The Most Beautiful Saree in the World',
     subhead: null,
     body: [
-      '…should be the one designed by you.',
+      '…should be the one designed by you, for you.',
       'Not mass fashion. Not template designs. Not ordinary clothing.',
-      'Onliest represents the beginning of a new era where technology meets timeless craftsmanship, allowing every woman to experience true personalized couture.',
+      'Onliest is the start of a new era where technology meets craftsmanship, so every woman can wear something that is truly and only hers... More',
     ],
     primaryCta: { label: 'Design Now', href: '#design' },
     secondaryCta: { label: 'Request a Demo', href: '#demo' },
@@ -105,7 +108,6 @@ const STORY_SLIDES = [
 export default function HeroSlide() {
   const [activeIdx, setActiveIdx] = useState(0);
   const totalSlides = STORY_SLIDES.length;
-
   useEffect(() => {
     if (!totalSlides) return;
 
@@ -135,65 +137,79 @@ export default function HeroSlide() {
                 )}
                 <h2 className="rex-hero-headline">{slide.headline}</h2>
                 {slide.subhead && <p className="rex-hero-subhead">{slide.subhead}</p>}
-                {slide.body?.map((paragraph) => (
-                  <p key={paragraph} className="rex-hero-desc">
-                    {paragraph}
-                  </p>
-                ))}
-                {(slide.primaryCta || slide.secondaryCta) && (
-                  <div className="rex-cta-row rex-hero-cta-row">
-                    {slide.primaryCta && (
-                      <a href={slide.primaryCta.href} className="rex-btn rex-btn-primary">
-                        {slide.primaryCta.label}
-                      </a>
-                    )}
-                    {slide.secondaryCta && (
-                      <a href={slide.secondaryCta.href} className="rex-btn rex-btn-ghost">
-                        {slide.secondaryCta.label}
-                      </a>
-                    )}
-                  </div>
-                )}
+                {slide.body?.map((paragraph, idx) => {
+                  const isLast = idx === slide.body.length - 1;
+                  const endsWithMore = isLast && paragraph.endsWith('... More');
+                  const text = endsWithMore ? paragraph.slice(0, -7).trim() : paragraph; // remove "... More"
+                  return (
+                    <p key={`${slide.id}-${idx}`} className="rex-hero-desc">
+                      {text}
+                      {endsWithMore && (
+                        <>
+                          ...{' '}
+                          <a
+                            href={slide.moreHref || '#journey'}
+                            className="rex-hero-more-link"
+                            aria-label={`Read more about ${slide.sectionLabel || slide.headline}`}
+                          >
+                            More
+                          </a>
+                        </>
+                      )}
+                    </p>
+                  );
+                })}
               </div>
             ))}
           </div>
 
           <div className="rex-hero-carousel-nav" aria-label="Hero story navigation">
-            <button
-              type="button"
-              className="rex-hero-carousel-arrow rex-hero-carousel-prev"
-              aria-label="Previous slide"
-              onClick={() => setActiveIdx((i) => (i === 0 ? totalSlides - 1 : i - 1))}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
-            <p className="rex-hero-carousel-count">
-              {String(activeIdx + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
-            </p>
-            <div className="rex-hero-carousel-dots" role="tablist">
-              {STORY_SLIDES.map((slide, index) => (
-                <button
-                  key={slide.id}
-                  type="button"
-                  className={`rex-hero-carousel-dot${index === activeIdx ? ' is-active' : ''}`}
-                  onClick={() => setActiveIdx(index)}
-                  aria-label={slide.sectionLabel || `Go to story ${index + 1}`}
-                  aria-pressed={index === activeIdx}
-                />
-              ))}
+            <div className="rex-hero-cta-inline">
+              <a href="#design" className="rex-btn rex-btn-primary">
+                Design Now
+              </a>
+              <a href="#demo" className="rex-btn rex-btn-ghost">
+                Request a Demo
+              </a>
             </div>
-            <button
-              type="button"
-              className="rex-hero-carousel-arrow rex-hero-carousel-next"
-              aria-label="Next slide"
-              onClick={() => setActiveIdx((i) => (i + 1) % totalSlides)}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-            </button>
+
+            <div className="rex-hero-carousel-controls">
+              <button
+                type="button"
+                className="rex-hero-carousel-arrow rex-hero-carousel-prev"
+                aria-label="Previous slide"
+                onClick={() => setActiveIdx((i) => (i === 0 ? totalSlides - 1 : i - 1))}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <p className="rex-hero-carousel-count">
+                {String(activeIdx + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+              </p>
+              <div className="rex-hero-carousel-dots" role="tablist">
+                {STORY_SLIDES.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    className={`rex-hero-carousel-dot${index === activeIdx ? ' is-active' : ''}`}
+                    onClick={() => setActiveIdx(index)}
+                    aria-label={slide.sectionLabel || `Go to story ${index + 1}`}
+                    aria-pressed={index === activeIdx}
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                className="rex-hero-carousel-arrow rex-hero-carousel-next"
+                aria-label="Next slide"
+                onClick={() => setActiveIdx((i) => (i + 1) % totalSlides)}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 

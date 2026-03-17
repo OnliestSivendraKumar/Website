@@ -4,7 +4,7 @@ const DEFAULT_TABS = [
   {
     id: 'onliest-world',
     title: 'ONLIEST WORLD',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     tabImage: '/edu-world.png',
     items: [
       'Textile intelligence',
@@ -17,7 +17,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Onliest World Intelligence',
       headline: 'ONLIEST WORLD',
-      cta: { label: 'Explore Modules', href: '#journey' },
+      cta: { label: 'Learn Onliest World', href: '#journey' },
       image: '/edu-world.png',
       imageAlt: 'Onliest world preview',
     },
@@ -27,7 +27,7 @@ const DEFAULT_TABS = [
   {
     id: 'trending',
     title: 'TRENDING',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     subtitle: 'What’s hot right now — silhouettes, colors, and styling cues.',
     tabImage: '/ds-9.png',
     items: [
@@ -41,7 +41,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Trend Intelligence',
       headline: 'Now',
-      cta: { label: 'Explore Trends', href: '#marketplace' },
+      cta: { label: 'Learn Trends', href: '#marketplace' },
       image: '/ds-9.png',
       imageAlt: 'Trending preview',
     },
@@ -51,7 +51,7 @@ const DEFAULT_TABS = [
   {
     id: 'body-compatability',
     title: 'BODY COMPATABILITY',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     tabImage: '/edu-body.png',
     items: [
       'Body shapes',
@@ -69,7 +69,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Body Compatibility',
       headline: 'BodyCompatibility',
-      cta: { label: 'Find Your Fit', href: '#journey' },
+      cta: { label: 'Learn Body Compatibility', href: '#journey' },
       image: '/edu-body.png',
       imageAlt: 'Body compatibility illustration',
     },
@@ -79,7 +79,7 @@ const DEFAULT_TABS = [
   {
     id: 'color',
     title: 'COLOR',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     tabImage: '/edu-color.png',
     items: [
       'Color theory',
@@ -94,7 +94,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Color Intelligence',
       headline: 'Color',
-      cta: { label: 'Explore Colors', href: '#journey' },
+      cta: { label: 'Learn Color', href: '#journey' },
       image: '/edu-color.png',
       imageAlt: 'Abstract color illustration',
     },
@@ -104,7 +104,7 @@ const DEFAULT_TABS = [
   {
     id: 'fabric',
     title: 'FIBRE & FABRIC',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     tabImage: '/edu-fibre.jpg',
     items: [
       'Fibre foundation',
@@ -129,7 +129,7 @@ const DEFAULT_TABS = [
   {
     id: 'saree',
     title: 'SAREE',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     tabImage: '/edu-saree.png',
     items: [
       'Saree weaving',
@@ -140,7 +140,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Saree Intelligence',
       headline: 'Saree',
-      cta: { label: 'Explore Sarees', href: '#marketplace' },
+      cta: { label: 'Learn Saree', href: '#marketplace' },
       image: '/edu-saree.png',
       imageAlt: 'Saree weaving and drape illustration',
     },
@@ -150,7 +150,7 @@ const DEFAULT_TABS = [
   {
     id: 'surface-ornamentation',
     title: 'SURFACE ORNAMENTATION',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     tabImage: '/edu-orienmentation.png',
     items: [
       'Embroidery techniques',
@@ -166,7 +166,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Surface Ornamentation',
       headline: 'Surface Ornamentation',
-      cta: { label: 'Explore Craft', href: '#journey' },
+      cta: { label: 'Learn Surface Ornamentation', href: '#journey' },
       image: '/edu-orienmentation.png',
       imageAlt: 'Surface ornamentation illustration',
     },
@@ -193,7 +193,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Blouse Intelligence',
       headline: 'Blouse',
-      cta: { label: 'Explore Blouses', href: '#marketplace' },
+      cta: { label: 'Learn Blouse', href: '#marketplace' },
       image: '/edu-blouse.png',
       imageAlt: 'Blouse design illustration',
     },
@@ -212,7 +212,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Draping Intelligence',
       headline: 'Saree Draping',
-      cta: { label: 'Start Draping', href: '#journey' },
+      cta: { label: 'Learn Saree Draping', href: '#journey' },
       image: '/edu-drape.png',
       imageAlt: 'Draping preview',
     },
@@ -367,7 +367,7 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
         <div className="rex-magazine-inner">
         <header className="rex-magazine-header">
           <p className="rex-magazine-eyebrow">Education Hub</p>
-          <h2 className="rex-magazine-title">Saree & Blouse Intelligence</h2>
+          <h2 className="rex-magazine-title">Saree Intelligence</h2>
           {/* <p className="rex-magazine-subtitle">
             Learn fabric, saree structure, blouse design, draping, and styling — scroll the modules and the navigation will follow.
           </p> */}

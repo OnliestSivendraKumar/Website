@@ -41,6 +41,7 @@ const EDUCATION = [
   { label: 'Body Compatibility', href: '/', keywords: 'body compatibility fit shape' },
   { label: 'Color', href: '/', keywords: 'color colour skin undertone' },
   { label: 'Fibre & Fabric', href: '/education/fibre-foundations', keywords: 'fibre fabric weave silk cotton' },
+  { label: 'Fabric Construction', href: '/education/fabric-construction', keywords: 'fabric construction woven knit textile yarn' },
   { label: 'Saree', href: '/', keywords: 'saree sari weaving' },
   { label: 'Surface Ornamentation', href: '/', keywords: 'surface ornamentation embroidery zari' },
   { label: 'Blouse', href: '/', keywords: 'blouse neckline sleeve' },

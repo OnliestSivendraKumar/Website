@@ -25,6 +25,7 @@ import PageMerchandiseDetail from './pages/PageMerchandiseDetail';
 import PageDesigners from './pages/PageDesigners';
 import PageDesignerDetail from './pages/PageDesignerDetail';
 import PageFibreFoundations from './pages/PageFibreFoundations';
+import PageFabricConstruction from './pages/PageFabricConstruction';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -67,6 +68,7 @@ export default function App() {
         <Route path="/about" element={<PageWelcome />} />
         <Route path="/marketplace" element={<PageMarketplace />} />
         <Route path="/education/fibre-foundations" element={<PageFibreFoundations />} />
+        <Route path="/education/fabric-construction" element={<PageFabricConstruction />} />
         <Route path="/designers" element={<PageDesigners />} />
         <Route path="/designers/:id" element={<PageDesignerDetail />} />
         <Route path="/merchandise" element={<PageMerchandise />} />

@@ -985,76 +985,445 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 
 /* ─── Fibre Foundations (Education inner article) ───── */
-.rex-fibre-page {
-    padding-bottom: clamp(3rem, 6vw, 4rem);
+/* ─── Fibre Foundations inner page ─────────────────────────────── */
+.rex-page-inner.rex-fibre-page {
+    min-height: 0; /* no empty stretch; content + padding define height */
 }
-.rex-fibre-hero {
-    padding: clamp(3rem, 7vw, 4rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+.rex-fibre-page {
+    padding-bottom: clamp(6rem, 14vw, 10rem);
 }
 .rex-fibre-shell {
-    max-width: 880px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 clamp(1.4rem, 4vw, 2rem);
+    padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2rem) 0;
 }
+
+/* ── Page header ── */
 .rex-fibre-header {
-    margin-bottom: 1.75rem;
+    margin-bottom: 2.5rem;
+}
+.rex-fibre-title {
+    margin: 0.2rem 0 0.6rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-family: var(--font-serif, serif);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--platinum);
+    line-height: 1.1;
 }
 .rex-fibre-intro {
-    margin: 0.75rem 0 0;
+    margin: 0;
     font-size: 1rem;
     line-height: 1.7;
     color: var(--plat-70);
-    max-width: 60ch;
+    max-width: 64ch;
 }
-.rex-fibre-hero-media {
-    margin: 0 0 1.8rem;
+
+/* ── Shared section wrapper ── */
+.rex-fibre-section {
+    margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+/* ── Section heading ── */
+.rex-fibre-section-title {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    font-family: var(--font-serif, serif);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--platinum);
+    line-height: 1.2;
+}
+
+/* ── Body text shared ── */
+.rex-fibre-section p,
+.rex-fibre-full-p {
+    margin: 0 0 0.85rem;
+    font-size: 1rem;
+    line-height: 1.82;
+    color: var(--plat-70);
+    text-align: justify;
+    hyphens: auto;
+}
+.rex-fibre-full-p:last-of-type { margin-bottom: 0; }
+
+/* ── Divider ── */
+.rex-fibre-divider {
+    border: none;
+    border-top: 1px solid rgba(198,167,94,0.18);
+    margin: clamp(1.5rem, 3.5vw, 2.25rem) 0;
+}
+
+/* ── Section 1: float layout (image left, 2 paras right, then 2 full-width) ── */
+.rex-fibre-float {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: clamp(1.25rem, 3vw, 2rem);
+    align-items: start;
+    margin-bottom: 1.1rem;
+}
+.rex-fibre-float-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.rex-fibre-float-text p {
+    margin: 0 0 0.85rem;
+    font-size: 1rem;
+    line-height: 1.82;
+    color: var(--plat-70);
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* ── Section 2 & 3: split (text + image or image + text) ── */
+.rex-fibre-split {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.25rem);
+    align-items: start;
+}
+.rex-fibre-split--text-left {
+    grid-template-columns: 1fr 300px;
+}
+.rex-fibre-split--image-left {
+    grid-template-columns: 300px 1fr;
+}
+.rex-fibre-split-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Images ── */
+.rex-fibre-figure {
+    margin: 0;
+    height: 100%;
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid rgba(198,167,94,0.35);
-    box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
 }
-.rex-fibre-hero-media img {
+.rex-fibre-figure img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
 }
-.rex-fibre-body {
-    font-size: 1.02rem;
-    line-height: 1.8;
-    color: var(--plat-70);
+.rex-fibre-figure--sm img {
+    height: 320px;
 }
-.rex-fibre-body h2 {
-    margin: 1.75rem 0 0.4rem;
-    font-size: 1.08rem;
-    letter-spacing: 0.03em;
-    text-transform: none;
-    color: var(--platinum);
+.rex-fibre-figure--tall img {
+    height: 420px;
 }
-.rex-fibre-body h2:first-of-type {
-    text-transform: uppercase;
-    letter-spacing: 0.09em;
-    color: var(--gold-dim);
-}
-.rex-fibre-body p {
-    margin: 0.6rem 0;
-}
+
+/* ── Footer CTA ── */
 .rex-fibre-footer-cta {
-    margin-top: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid rgba(198,167,94,0.18);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
 }
 .rex-fibre-footer-cta .rex-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
 }
+
+/* ── Module navigation chips (bottom of edu pages) ── */
+.rex-fibre-modules {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(198,167,94,0.18);
+}
+.rex-fibre-modules-label {
+    margin: 0 0 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--plat-45);
+}
+.rex-fibre-modules-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.6rem;
+}
+.rex-fibre-module-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.42rem 1rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    background: var(--chip-color, rgba(198,167,94,0.3));
+    border: 1px solid transparent;
+    transition: filter 0.18s ease, transform 0.18s ease;
+}
+.rex-fibre-module-chip:hover {
+    filter: brightness(1.18);
+    transform: translateY(-1px);
+}
+
+/* ── Sub-heading within a section (e.g. Plain Weave, Drape Behavior) ── */
+.rex-fibre-sub-h {
+    margin: 1rem 0 0.3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--platinum);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.3;
+}
+.rex-fibre-sub-h:first-child { margin-top: 0; }
+
+/* ── Full-width text section (no image) ── */
+.rex-fibre-full-section { margin-bottom: clamp(1.5rem, 3.5vw, 2rem); }
+
+/* ── Bullet list ── */
+.rex-fibre-list {
+    margin: 0.5rem 0 0.85rem;
+    padding-left: 1.4rem;
+    color: var(--plat-70);
+    font-size: 1rem;
+    line-height: 1.82;
+}
+.rex-fibre-list li + li { margin-top: 0.3rem; }
+
+/* ── 3-col image grid (Weave types) ── */
+.rex-fibre-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0 0;
+}
+/* ── 4-col image grid (Fabric Texture) ── */
+.rex-fibre-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin: 1.25rem 0 1.5rem;
+}
+.rex-fibre-grid-img {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.2);
+}
+.rex-fibre-grid-img img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ── Silk item: text left, small square image right ── */
+.rex-fibre-silk-item {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    align-items: start;
+    padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
+}
+.rex-fibre-silk-item + .rex-fibre-silk-item {
+    padding-top: clamp(1rem, 2.5vw, 1.5rem);
+    border-top: 1px solid rgba(198,167,94,0.1);
+}
+.img-height .rex-fibre-figure--sq img { height: 450px; }
+
+/* ── Cotton item: small image left, text right ── */
+.rex-fibre-cotton-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    align-items: start;
+    padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
+}
+.rex-fibre-cotton-item + .rex-fibre-cotton-item {
+    padding-top: clamp(1rem, 2.5vw, 1.5rem);
+    border-top: 1px solid rgba(198,167,94,0.1);
+}
+.rex-fibre-cotton-title {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--platinum);
+    margin: 0 0 0.5rem;
+}
+
+/* ── Fabric Properties: 2×2 mosaic (hero+portrait top / text+thumbs bottom) ── */
+/* ── Fabric Properties: 2-column offset layout ──
+   LEFT col : hero (380px) stacked above text
+   RIGHT col: padding-top ~190px so portrait starts at hero midpoint,
+              extends past hero into the text area → thumbs below
+── */
+.rex-fibre-props-mosaic {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: 0 0.85rem;
+    align-items: start;
+}
+
+/* Left column wrapper */
+.rex-fibre-props-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.rex-fibre-props-hero-img {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.35);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    flex-shrink: 0;
+}
+.rex-fibre-props-hero-img img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center 20%;
+}
+.rex-fibre-props-text {
+    padding-top: 1rem;
+}
+
+/* Right column wrapper — offset down so portrait starts at hero midpoint */
+.rex-fibre-props-right {
+    padding-top: 0px;           /* ≈ half of 420px hero height */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.rex-fibre-props-portrait {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.35);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+}
+.rex-fibre-props-portrait img {
+    display: block;
+    width: 100%;
+    height: 480px;               /* very tall — extends deep into text area */
+    object-fit: cover;
+    object-position: top center;
+}
+.rex-fibre-props-thumb-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+}
+.rex-fibre-props-thumb {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.2);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+.rex-fibre-props-thumb img {
+    display: block;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+@media (max-width: 860px) {
+    .rex-fibre-props-mosaic        { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+    .rex-fibre-props-right         { padding-top: 160px; }
+    .rex-fibre-props-hero-img img  { height: 340px; }
+    .rex-fibre-props-portrait img  { height: 380px; }
+    .rex-fibre-props-thumb img     { height: 120px; }
+}
+@media (max-width: 640px) {
+    .rex-fibre-props-mosaic        { grid-template-columns: 1fr; }
+    .rex-fibre-props-right         { padding-top: 0; }
+    .rex-fibre-props-hero-img img  { height: 260px; }
+    .rex-fibre-props-portrait img  { height: 260px; }
+    .rex-fibre-props-thumb img     { height: 130px; }
+}
+
+/* ── Tablet tweaks ── */
+@media (max-width: 860px) {
+    .rex-fibre-silk-item   { grid-template-columns: 1fr 140px; }
+    .rex-fibre-cotton-item { grid-template-columns: 140px 1fr; }
+    .rex-fibre-props-layout { grid-template-columns: 1fr 220px; }
+}
+/* ── Mobile tweaks ── */
+@media (max-width: 640px) {
+    .rex-fibre-grid-3 { grid-template-columns: 1fr 1fr; }
+    .rex-fibre-grid-4 { grid-template-columns: 1fr 1fr; }
+    .rex-fibre-grid-img img { height: 110px; }
+    .rex-fibre-silk-item   { grid-template-columns: 1fr; }
+    .rex-fibre-cotton-item { grid-template-columns: 1fr; }
+    .rex-fibre-cotton-item .rex-fibre-figure { order: -1; }
+    .rex-fibre-props-layout { grid-template-columns: 1fr; }
+}
+
+/* Fabric Construction page: hero image */
+.rex-fabric-hero {
+    margin: 0 0 2.25rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.35);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+}
+.rex-fabric-hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ── Tablet ── */
+@media (max-width: 860px) {
+    .rex-fibre-float {
+        grid-template-columns: 210px 1fr;
+    }
+    .rex-fibre-split--text-left {
+        grid-template-columns: 1fr 240px;
+    }
+    .rex-fibre-split--image-left {
+        grid-template-columns: 240px 1fr;
+    }
+}
+
+/* ── Mobile ── */
 @media (max-width: 640px) {
     .rex-fibre-shell {
-        padding: 0 1.1rem;
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
     }
-    .rex-fibre-body h2 {
-        font-size: 0.98rem;
+    .rex-fibre-float,
+    .rex-fibre-split--text-left,
+    .rex-fibre-split--image-left {
+        grid-template-columns: 1fr;
     }
-    .rex-fibre-body {
-        font-size: 0.95rem;
+    .rex-fibre-figure--sm img {
+        height: 220px;
+    }
+    .rex-fibre-figure--tall img {
+        height: 260px;
+    }
+    /* On mobile: natural fibres — image goes below text */
+    .rex-fibre-split--text-left .rex-fibre-figure {
+        order: 1;
+    }
+    .rex-fibre-section p,
+    .rex-fibre-full-p,
+    .rex-fibre-float-text p {
+        text-align: left;
+        hyphens: none;
+    }
+    .rex-fibre-section-title {
+        font-size: 1.15rem;
     }
 }
 
@@ -1474,6 +1843,13 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     max-width: 420px;
     margin: 0;
 }
+.rex-hero-more-link {
+    color: var(--silver); 
+    text-underline-offset: 0.2em;
+}
+.rex-hero-more-link:hover {
+    color: var(--gold);
+}
 .rex-hero-all-label {
     font-size: 0.78rem;
     font-weight: 600;
@@ -1582,8 +1958,18 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-hero-carousel-nav {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1.25rem;
     margin-top: 0.9rem;
+}
+.rex-hero-cta-inline {
+    display: inline-flex;
+    gap: 0.6rem;
+}
+.rex-hero-carousel-controls {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 .rex-hero-carousel-arrow {
     display: inline-flex;

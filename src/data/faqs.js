@@ -20,7 +20,7 @@ export const FAQ_CATEGORIES = [
         id: 'gs-where-to-begin',
         question: 'I am new to sarees. Where should I begin?',
         answer:
-          'If you are new, start with the Saree & Blouse Intelligence section on the home page. It walks through fabrics, silhouettes, draping and body compatibility so that every later decision feels easier and more confident.',
+          'If you are new, start with the Saree Intelligence section on the home page. It walks through fabrics, silhouettes, draping and body compatibility so that every later decision feels easier and more confident.',
       },
       {
         id: 'gs-which-experience-first',
