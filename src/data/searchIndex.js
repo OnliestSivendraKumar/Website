@@ -39,7 +39,7 @@ const EDUCATION = [
   { label: 'Onliest World', href: '/', keywords: 'onliest world intelligence textile' },
   { label: 'Trending', href: '/marketplace', keywords: 'trending trends' },
   { label: 'Body Compatibility', href: '/', keywords: 'body compatibility fit shape' },
-  { label: 'Color', href: '/', keywords: 'color colour skin undertone' },
+  { label: 'Color', href: '/education/color-theory', keywords: 'color colour skin undertone theory pairing warm cool' },
   { label: 'Fibre & Fabric', href: '/education/fibre-foundations', keywords: 'fibre fabric weave silk cotton' },
   { label: 'Fabric Construction', href: '/education/fabric-construction', keywords: 'fabric construction woven knit textile yarn' },
   { label: 'Saree', href: '/', keywords: 'saree sari weaving' },

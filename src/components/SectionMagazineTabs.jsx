@@ -94,7 +94,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Color Intelligence',
       headline: 'Color',
-      cta: { label: 'Learn Color', href: '#journey' },
+      cta: { label: 'Learn Color', href: '/education/color-theory' },
       image: '/edu-color.png',
       imageAlt: 'Abstract color illustration',
     },

@@ -49,7 +49,7 @@ const STORY_SLIDES = [
     subhead: null,
     body: [
       'For centuries, fashion has relied on standard sizes and fixed designs.',
-      'Bodies and tastes are not standard — they are singular.',
+      'Bodies and tastes are not standard - they are singular.',
       'True elegance was never meant to be mass-produced; it belongs in the hands of the one who wears it... More',
     ],
   },
@@ -74,7 +74,7 @@ const STORY_SLIDES = [
     body: [
       'Onliest reimagines couture through artificial intelligence and precision design.',
       'Every saree and blouse is mapped to your body, your preferences, and your story.',
-      'Nothing is pulled from a rack — each piece begins as a blank canvas created by you... More',
+      'Nothing is pulled from a rack - each piece begins as a blank canvas created by you... More',
     ],
   },
   {
@@ -86,7 +86,7 @@ const STORY_SLIDES = [
     body: [
       'The moment you create something uniquely yours, you discover something more than design.',
       'You discover your taste, your confidence, and your creative identity.',
-      'And when you wear it, it doesn’t just look beautiful — it becomes the design others admire, the design others wish they had created... More',
+      'And when you wear it, it doesn’t just look beautiful - it becomes the design others admire, the design others wish they had created... More',
     ],
   },
   {
