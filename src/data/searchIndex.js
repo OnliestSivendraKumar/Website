@@ -43,7 +43,7 @@ const EDUCATION = [
   { label: 'Fibre & Fabric', href: '/education/fibre-foundations', keywords: 'fibre fabric weave silk cotton' },
   { label: 'Fabric Construction', href: '/education/fabric-construction', keywords: 'fabric construction woven knit textile yarn' },
   { label: 'Saree', href: '/', keywords: 'saree sari weaving' },
-  { label: 'Surface Ornamentation', href: '/', keywords: 'surface ornamentation embroidery zari' },
+  { label: 'Surface Ornamentation', href: '/education/surface-ornamentation', keywords: 'surface ornamentation embroidery zari beads sequins appliqué lace trims printing' },
   { label: 'Blouse', href: '/', keywords: 'blouse neckline sleeve' },
   { label: 'Saree Draping', href: '/', keywords: 'saree draping drape pallu' },
 ];

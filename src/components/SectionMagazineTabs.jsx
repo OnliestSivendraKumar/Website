@@ -166,7 +166,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Surface Ornamentation',
       headline: 'Surface Ornamentation',
-      cta: { label: 'Learn Surface Ornamentation', href: '#journey' },
+      cta: { label: 'Learn Surface Ornamentation', href: '/education/surface-ornamentation' },
       image: '/edu-orienmentation.png',
       imageAlt: 'Surface ornamentation illustration',
     },

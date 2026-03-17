@@ -26,30 +26,30 @@ export default function PageBodyCompatibility() {
             <p className="rex-page-eyebrow">Education Hub · Saree Intelligence</p>
           </header>
 
-          {/* Hero: top 2 images, then heading, then text + 1 image */}
-          <section className="rex-body-compat-hero" aria-label="Body and compatibility intro">
-            <div className="rex-body-compat-hero-top">
-              <figure className="rex-body-compat-hero-fig rex-body-compat-hero-fig--left">
-                <img src="/ds-1.png" alt="Fashion and body structure" loading="eager" />
-              </figure>
-              <figure className="rex-body-compat-hero-fig rex-body-compat-hero-fig--right">
-                <img src="/ds-2.png" alt="Silhouette and proportion" loading="lazy" />
-              </figure>
-            </div>
-            <h1 className="rex-body-compat-hero-title">
-              <span className="rex-body-compat-hero-title-line">Body</span>
-              <span className="rex-body-compat-hero-title-line rex-body-compat-hero-title-line--2">and compatibility</span>
-            </h1>
-            <div className="rex-body-compat-hero-bottom">
-              <div className="rex-body-compat-hero-text">
-                <p className="rex-fibre-full-p">
+          {/* Hero: same layout as Surface Ornamentation — left: title + text, right: single portrait; then two landscape images below */}
+          <section className="rex-body-compat-hero rex-body-compat-hero--light" aria-label="Body and compatibility intro">
+            <div className="rex-body-compat-hero-inner">
+              <div className="rex-body-compat-hero-text-col">
+                <h1 className="rex-body-compat-hero-title">
+                  <span className="rex-body-compat-hero-title-line">Body</span>
+                  <span className="rex-body-compat-hero-title-line rex-body-compat-hero-title-line--2">and compatibility</span>
+                </h1>
+                <p className="rex-body-compat-hero-p">
                   Understanding the body begins with observing its overall structure and silhouette. Every person&rsquo;s body carries a natural arrangement of shoulders, waist, and hips that together form a recognizable shape. Identifying this structure helps explain why certain garments feel balanced and comfortable while others may appear disproportionate.
                 </p>
-                <p className="rex-fibre-full-p">
+                <p className="rex-body-compat-hero-p">
                   Clothing rarely exists in isolation. Every garment interacts with the structure of the body wearing it: shoulders shape silhouettes, torso proportions influence garment length, and even small details like neckline width can shift the visual balance of the entire outfit.
                 </p>
               </div>
               <figure className="rex-body-compat-hero-fig rex-body-compat-hero-fig--single">
+                <img src="/ds-1.png" alt="Fashion and body structure" loading="eager" />
+              </figure>
+            </div>
+            <div className="rex-body-compat-hero-two-images">
+              <figure className="rex-body-compat-hero-fig rex-body-compat-hero-fig--landscape">
+                <img src="/ds-2.png" alt="Silhouette and proportion" loading="lazy" />
+              </figure>
+              <figure className="rex-body-compat-hero-fig rex-body-compat-hero-fig--landscape">
                 <img src="/ds-3.png" alt="Garment and body balance" loading="lazy" />
               </figure>
             </div>
