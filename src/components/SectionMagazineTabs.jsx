@@ -140,7 +140,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Saree Intelligence',
       headline: 'Saree',
-      cta: { label: 'Learn Saree', href: '#marketplace' },
+      cta: { label: 'Learn Saree', href: '/education/saree' },
       image: '/edu-saree.png',
       imageAlt: 'Saree weaving and drape illustration',
     },
@@ -176,7 +176,7 @@ const DEFAULT_TABS = [
   {
     id: 'blouse',
     title: 'BLOUSE',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     tabImage: '/edu-blouse.png',
     items: [
       'Blouse silhouette',
@@ -203,7 +203,7 @@ const DEFAULT_TABS = [
   {
     id: 'draping',
     title: 'SAREE DRAPING',
-    eyebrow: 'Saree & Blouse Intelligence',
+    eyebrow: 'Saree Intelligence',
     tabImage: '/edu-drape.png',
     items: [
       'Draping styles',
@@ -297,7 +297,7 @@ export default function SectionMagazineTabs({ id = 'journey', tabs = DEFAULT_TAB
         else if (y < prevY) scrollDirectionRef.current = 'up';
         lastScrollYRef.current = y;
 
-        // Debug current scroll direction while inside Saree & Blouse section
+        // Debug current scroll direction while inside Saree Intelligence section
         // eslint-disable-next-line no-console
         console.log('[Scroll] y=', y, 'prevY=', prevY, 'dir=', scrollDirectionRef.current);
 

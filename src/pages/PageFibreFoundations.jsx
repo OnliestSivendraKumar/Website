@@ -27,7 +27,7 @@ export default function PageFibreFoundations() {
 
           {/* ── Page header ── */}
           <header className="rex-fibre-header">
-            <p className="rex-page-eyebrow">Education Hub · Saree &amp; Blouse Intelligence</p>
+            <p className="rex-page-eyebrow">Education Hub · Saree Intelligence</p>
             <h1 className="rex-fibre-title">Fibre &amp; Fabric</h1>
             {/* <p className="rex-fibre-intro">
               Fibre and fabric form the fundamental base of any textile or garment. This module covers everything

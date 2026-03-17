@@ -1047,7 +1047,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-page-inner.rex-fibre-page .rex-fibre-header {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 .rex-page-inner.rex-fibre-page .rex-fibre-header .rex-fibre-title {
     align-self: center;
@@ -1779,6 +1779,264 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     max-height: 420px;
     object-fit: cover;
     object-position: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Saree inner page (hero + weaving + loom types + pattern + resist-dye + gallery)
+   ═══════════════════════════════════════════════════════════════════════════ */
+.rex-saree-page .rex-saree-shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 3vw, 2rem);
+}
+
+/* Saree page: tagline above hero */
+.rex-saree-page .rex-saree-eyebrow {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+/* Screenshot 1: Hero — image top, then white section with centered title + subtitle + paras */
+.rex-saree-hero {
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.rex-saree-hero-img {
+    margin: 0 0 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.25);
+    aspect-ratio: 16 / 10;
+    max-height: 100%;
+}
+.rex-saree-hero-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.rex-saree-hero-text {
+    padding: clamp(2rem, 5vw, 3.5rem) 0 0;
+    text-align: center;
+}
+.rex-saree-hero-title {
+    margin: 0 0 0.35em;
+    font-family: var(--font-serif, serif);
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-weight: 700;
+    color: var(--platinum);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+.rex-saree-hero-subtitle {
+    margin: 0 0 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--plat-70);
+}
+.rex-saree-hero-p {
+    margin: 0 auto 1rem;
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--plat-70);
+}
+.rex-saree-hero-p:last-child { margin-bottom: 0; }
+
+/* Screenshot 2: Weaving — wide image, then left-aligned body (constrained width, centered) */
+.rex-saree-section {
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.rex-saree-section-img--wide {
+    width: 100%;
+    max-width: 66%;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.25);
+}
+.rex-saree-section-img--wide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: cover;
+    object-position: center;
+}
+.rex-saree-section-body {
+    max-width: 100%;
+    margin: 0 auto;
+}
+.rex-saree-p {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--plat-70);
+    text-align: left;
+}
+.rex-saree-p:last-child { margin-bottom: 0; }
+
+/* Screenshot 3: Loom Types — vertical title right, content left */
+.rex-saree-loom-types {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem 3rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    padding-right: 2rem;
+}
+.rex-saree-loom-content {
+    flex: 1;
+    min-width: 0;
+}
+.rex-saree-loom-block {
+    margin-bottom: 2.5rem;
+}
+.rex-saree-loom-block:last-child { margin-bottom: 0; }
+.rex-saree-h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--platinum);
+}
+.rex-saree-loom-fig {
+    margin: 0 0 1rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.25);
+    max-width: 480px;
+}
+.rex-saree-loom-fig img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: cover;
+}
+.rex-saree-vertical-title {
+    flex-shrink: 0;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin: 0;
+    font-family: var(--font-serif, serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    line-height: 1.2;
+    align-self: start;
+    position: sticky;
+    top: clamp(5rem, 12vw, 7rem);
+}
+
+/* Pattern + Resist-Dye: intro para, wide image, columns */
+.rex-saree-intro-p {
+    margin: 0 0 1.5rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--plat-70);
+    max-width: 72ch;
+}
+.rex-saree-h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--platinum);
+}
+.rex-saree-three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 2rem;
+    margin-top: 1.5rem;
+}
+.rex-saree-two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 2rem;
+    margin-top: 1.5rem;
+}
+.rex-saree-col .rex-saree-p { margin-bottom: 0; }
+
+/* Screenshot 6: 12 Silk Saree Types gallery */
+.rex-saree-silk-gallery {
+    padding: clamp(2rem, 4vw, 2.75rem) 0;
+    margin-top: 0.5rem;
+}
+.rex-saree-silk-gallery .rex-saree-h2 {
+    margin-bottom: 1.75rem;
+    font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+    letter-spacing: 0.14em;
+    text-align: center;
+    color: var(--platinum);
+}
+.rex-saree-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.rex-saree-gallery-item {
+    margin: 0;
+    transition: transform 0.22s var(--ease);
+}
+.rex-saree-gallery-item:hover {
+    transform: translateY(-4px);
+}
+.rex-saree-gallery-fig {
+    margin: 0 0 0.65rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(198,167,94,0.3);
+    aspect-ratio: 3 / 4;
+    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.rex-saree-gallery-item:hover .rex-saree-gallery-fig {
+    border-color: rgba(198,167,94,0.55);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.rex-saree-gallery-fig img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+.rex-saree-gallery-caption {
+    margin: 0;
+    font-size: clamp(0.88rem, 1.2vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--platinum);
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .rex-saree-three-col { grid-template-columns: 1fr; }
+    .rex-saree-two-col { grid-template-columns: 1fr; }
+    .rex-saree-gallery { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+    .rex-saree-loom-types {
+        flex-direction: column;
+        padding-right: 0;
+    }
+    .rex-saree-vertical-title {
+        writing-mode: horizontal-tb;
+        transform: none;
+        margin-bottom: 1rem;
+    }
+    .rex-saree-section-img--wide { max-width: 100%; }
+    .rex-saree-gallery { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── Tablet ── */
@@ -2628,6 +2886,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     grid-template-columns: minmax(240px, 1fr) minmax(0, 1fr);
     gap: 1.25rem;
     padding: 1.25rem;
+    padding-bottom: 0.5rem!important;
     align-items: stretch;
     align-content: start;
     grid-auto-rows: max-content;
@@ -2681,6 +2940,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     flex-wrap: wrap;
     gap: 0.5rem 0.75rem;
     margin: 0 0 1.1rem;
+    margin-bottom: 0rem!important;
     padding: 0;
     list-style: none;
 }
