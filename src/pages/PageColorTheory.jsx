@@ -89,31 +89,42 @@ export default function PageColorTheory() {
 
           {/* ── Screenshot 2: Color Unites + Warm & Cool ── */}
 
+          {/* Section 1: Left = grid (2 stacked + 1 full-height right) | Right = text */}
           <section className="rex-fibre-section rex-color-split" id="color-unites">
             <div className="rex-color-split-images">
-              <figure className="rex-color-split-fig"><img src="/ds-8.png" alt="Composition" loading="lazy" /></figure>
-              <figure className="rex-color-split-fig rex-color-split-fig--sm"><img src="/edu-fibre.jpg" alt="Detail" loading="lazy" /></figure>
-              <figure className="rex-color-split-fig rex-color-split-fig--tall"><img src="/ds-4.png" alt="Style" loading="lazy" /></figure>
+              <figure className="rex-color-split-fig rex-color-split-fig--top"><img src="/ds-8.png" alt="Composition" loading="lazy" /></figure>
+              <figure className="rex-color-split-fig rex-color-split-fig--bottom"><img src="/edu-fibre.jpg" alt="Detail" loading="lazy" /></figure>
+              <figure className="rex-color-split-fig rex-color-split-fig--full"><img src="/ds-4.png" alt="Style" loading="lazy" /></figure>
             </div>
             <div className="rex-color-split-text">
               <h2 className="rex-fibre-section-title">Color Unites the Design</h2>
               <p>
-                In clothing design, this understanding helps guide choices—whether mirroring shades, introducing a new color, or staying tonal. Thoughtfully composed ensembles result. A well-balanced color relationship ensures that no single element overwhelms; blouse and saree work together so that color and textile pattern feel cohesive.
+                In clothing design, this understanding helps guide choices such as whether a blouse should mirror the saree&rsquo;s shade, introduce a new color, or remain within the same tonal family. Designers often use these principles to create ensembles that appear thoughtfully composed rather than accidental.
+              </p>
+              <p>
+                A well-balanced color relationship ensures that no single element overwhelms the garment. Instead, the blouse and saree complement each other, allowing the entire ensemble to feel cohesive.
               </p>
             </div>
           </section>
 
+          {/* Section 2: Left = text (Warm & Cool) | Right = image, then full-width para below */}
           <section className="rex-fibre-section rex-color-split rex-color-split--reverse" id="warm-cool">
             <div className="rex-color-split-text">
               <h2 className="rex-fibre-section-title">Warm and Cool Tones</h2>
               <p>
-                Warm tones are influenced by shades of red, orange, and yellow. They feel vibrant, radiant, and energetic. Cool tones draw from blue, green, and violet, often feeling calmer and more composed. Recognizing these families helps in pairing blouses with sarees and with the wearer&rsquo;s complexion.
+                Warm tones are influenced by shades of red, orange, and yellow. These colors often feel vibrant, radiant, and energetic.
+              </p>
+              <p>
+                Cool tones draw from blue, green, and violet, creating a calmer and more composed visual effect.
               </p>
             </div>
             <figure className="rex-color-split-single">
               <img src="/ds-7.png" alt="Tones in context" loading="lazy" />
             </figure>
           </section>
+          <p className="rex-color-full-para">
+            In clothing design, this understanding helps guide choices such as whether a blouse should mirror the saree&rsquo;s shade, introduce a new color, or remain within the same tonal family. Designers often use these principles to create ensembles that appear thoughtfully composed rather than accidental. A well-balanced color relationship ensures that no single element overwhelms the garment. Instead, the blouse and saree complement each other, allowing the entire ensemble to feel cohesive.
+          </p>
 
           <hr className="rex-fibre-divider" />
 
