@@ -1173,6 +1173,159 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     background: rgba(255, 255, 255, 0.08) !important;
 }
 
+/* ─── Body and Compatibility inner page (1st screenshot layout) ───────────────────────── */
+.rex-body-compat-header {
+    margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.rex-body-compat-hero {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: clamp(2rem, 4vw, 2.75rem);
+    padding: 0;
+}
+
+/* Top row: left image wider (65%), right image portrait (35%), fixed height */
+.rex-body-compat-hero-top {
+    display: grid;
+    grid-template-columns: 65fr 35fr;
+    gap: 0.5rem;
+    width: 100%;
+    height: 320px;
+    margin-bottom: clamp(1rem, 2vw, 1.35rem);
+}
+.rex-body-compat-hero-fig--left,
+.rex-body-compat-hero-fig--right {
+    margin: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    height: 100%;
+    min-width: 0;
+}
+.rex-body-compat-hero-fig--left img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.rex-body-compat-hero-fig--right img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* Two-line heading: "Body" then "and compatibility", lowercase, staggered */
+.rex-body-compat-hero-title {
+    margin: 0 0 clamp(1rem, 2vw, 1.35rem);
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--platinum);
+    text-transform: lowercase;
+    letter-spacing: -0.02em;
+}
+.rex-body-compat-hero-title-line {
+    display: block;
+}
+.rex-body-compat-hero-title-line--2 {
+    margin-left: 0.15em;
+}
+.rex-body-compat-hero-title-line--2::first-letter {
+    text-transform: lowercase;
+}
+
+/* Bottom row: text left (~60%), single image right (~40%) */
+.rex-body-compat-hero-bottom {
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    align-items: start;
+    width: 100%;
+}
+.rex-body-compat-hero-text {
+    min-width: 0;
+}
+.rex-body-compat-hero-text .rex-fibre-full-p {
+    margin-bottom: 0.6rem;
+}
+.rex-body-compat-hero-text .rex-fibre-full-p:last-child {
+    margin-bottom: 0;
+}
+.rex-body-compat-hero-fig--single {
+    margin: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    width: 100%;
+    height: 380px;
+    min-width: 0;
+}
+.rex-body-compat-hero-fig--single img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.rex-body-compat-banner {
+    margin: clamp(2rem, 4vw, 2.75rem) 0;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius);
+    overflow: hidden;
+    height: 140px;
+}
+.rex-body-compat-banner-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #87CEEB 0%, #B8E0B8 45%, #7CB87C 70%, #5a9a5a 100%);
+    background-size: 100% 100%;
+}
+.rex-body-compat-subsection {
+    margin-bottom: 1.25rem;
+}
+.rex-body-compat-subsection .rex-fibre-sub-h {
+    margin-bottom: 0.35rem;
+}
+.rex-body-compat-subsection .rex-fibre-full-p {
+    margin-bottom: 0.5rem;
+}
+.rex-body-compat-subsection .rex-fibre-full-p:last-child {
+    margin-bottom: 0;
+}
+@media (max-width: 900px) {
+    .rex-body-compat-hero-top {
+        height: 280px;
+    }
+    .rex-body-compat-hero-fig--single {
+        height: 320px;
+    }
+}
+@media (max-width: 700px) {
+    .rex-body-compat-hero-top {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 240px;
+    }
+    .rex-body-compat-hero-top .rex-body-compat-hero-fig--left,
+    .rex-body-compat-hero-top .rex-body-compat-hero-fig--right {
+        height: 260px;
+    }
+    .rex-body-compat-hero-bottom {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .rex-body-compat-hero-fig--single {
+        height: 300px;
+    }
+}
+
 /* ── Module navigation chips (bottom of edu pages) ── */
 .rex-fibre-modules {
     margin-top: 3rem;

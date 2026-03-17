@@ -69,7 +69,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Body Compatibility',
       headline: 'BodyCompatibility',
-      cta: { label: 'Learn Body Compatibility', href: '#journey' },
+      cta: { label: 'Learn Body Compatibility', href: '/education/body-compatibility' },
       image: '/edu-body.png',
       imageAlt: 'Body compatibility illustration',
     },

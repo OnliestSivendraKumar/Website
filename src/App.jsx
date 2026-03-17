@@ -28,6 +28,7 @@ import PageFibreFoundations from './pages/PageFibreFoundations';
 import PageFabricConstruction from './pages/PageFabricConstruction';
 import PageColorTheory from './pages/PageColorTheory';
 import PageSaree from './pages/PageSaree';
+import PageBodyCompatibility from './pages/PageBodyCompatibility';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -73,6 +74,7 @@ export default function App() {
         <Route path="/education/fabric-construction" element={<PageFabricConstruction />} />
         <Route path="/education/color-theory" element={<PageColorTheory />} />
         <Route path="/education/saree" element={<PageSaree />} />
+        <Route path="/education/body-compatibility" element={<PageBodyCompatibility />} />
         <Route path="/designers" element={<PageDesigners />} />
         <Route path="/designers/:id" element={<PageDesignerDetail />} />
         <Route path="/merchandise" element={<PageMerchandise />} />
