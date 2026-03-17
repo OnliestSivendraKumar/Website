@@ -5,17 +5,6 @@ const PAGE_TITLE = 'Color Theory — Education Hub | Onliest';
 const PAGE_DESCRIPTION =
   'Learn color theory, warm and cool tones, skin undertones, color pairing, occasion and color, cultural meanings, regional traditions, and how color shapes body proportion.';
 
-const OTHER_MODULES = [
-  { label: 'Fibre & Fabric', href: '/education/fibre-foundations', color: '#c6a75e' },
-  { label: 'Onliest World', href: '/#journey', color: '#7c5cfc' },
-  { label: 'Trending', href: '/#journey', color: '#e05c5c' },
-  { label: 'Body Compatibility', href: '/#journey', color: '#e0a85c' },
-  { label: 'Saree', href: '/#journey', color: '#5ce0a8' },
-  { label: 'Surface Ornamentation', href: '/#journey', color: '#e05ca8' },
-  { label: 'Blouse', href: '/#journey', color: '#c0a060' },
-  { label: 'Saree Draping', href: '/#journey', color: '#7cb8e0' },
-];
-
 export default function PageColorTheory() {
   if (typeof document !== 'undefined') {
     const prevTitle = document.title;
@@ -128,58 +117,81 @@ export default function PageColorTheory() {
 
           <hr className="rex-fibre-divider" />
 
-          {/* ── Screenshot 3: Skin undertones ── */}
+          {/* ── Skin undertones: 1st screenshot — left heading + 2 paras, right image; then full-width rest below ── */}
           <section className="rex-fibre-section" id="skin-undertones">
-            <div className="rex-color-float">
-              <div className="rex-color-float-text">
+            <div className="rex-color-skin-top">
+              <div className="rex-color-split-text">
                 <h2 className="rex-fibre-section-title">Skin Undertones</h2>
                 <p>
-                  The way a fabric color appears can change with skin undertones—the subtle hues beneath the skin. Understanding undertones helps in selecting blouse colors that harmonize with the wearer&rsquo;s complexion for a balanced, enhanced look.
+                  Color does not exist in isolation from the wearer. The same shade of fabric can appear vibrant on one person and subdued on another. This difference often comes from skin undertones—the subtle hues that lie beneath the surface of the skin.
                 </p>
-                <h3 className="rex-fibre-sub-h">Identifying Undertones</h3>
                 <p>
-                  Skin undertones fall into three categories: warm, cool, and neutral. These refer to the subtle colors beneath the skin, not whether skin is light or deep. Warm undertones show hints of golden, peach, or yellow; cool undertones reflect pink, red, or bluish hues; neutral undertones balance warm and cool. Recognizing them aids color selection so blouse colors complement the wearer&rsquo;s natural tone.
-                </p>
-                <h3 className="rex-fibre-sub-h">Warm Skin Palettes</h3>
-                <p>
-                  Colors that harmonize with warm undertones include warm reds, coral tones, earthy browns, deep maroons, mustard yellows, and olive greens—enhancing the skin&rsquo;s natural warmth and creating a natural connection between garment and wearer.
-                </p>
-                <h3 className="rex-fibre-sub-h">Cool Skin Palettes</h3>
-                <p>
-                  Cool undertones pair well with colors that share similar cool characteristics: jewel tones like sapphire blue, emerald green, deep purple, and berry shades, as well as soft cool pastels like lavender, powder blue, and rose pink, for a refined and balanced effect. These colors can highlight the clarity and brightness of cool undertones.
-                </p>
-                <h3 className="rex-fibre-sub-h">Neutral Skin Palettes</h3>
-                <p>
-                  Neutral undertones offer flexibility—a balance of warm and cool allows a wider range of harmonious shades. Both warm and cool palettes can complement neutral undertones, giving versatility for pairing blouses with various saree shades and fabrics.
+                  Understanding undertones allows blouse colors to work in harmony with the wearer rather than competing with their natural complexion. When the right colors are chosen, the entire ensemble appears more balanced, and the garment naturally enhances the wearer&rsquo;s presence.
                 </p>
               </div>
-              <figure className="rex-color-float-fig">
-                <img src="/edu-fibre.jpg" alt="Color and tone" loading="lazy" />
+              <figure className="rex-color-skin-fig">
+                <img src="/ds-3.png" alt="Skin and tone in styling" loading="lazy" />
+              </figure>
+            </div>
+            <div className="rex-color-skin-rest">
+              <h3 className="rex-fibre-sub-h">Identifying Undertones</h3>
+              <p className="rex-fibre-full-p">
+                Skin undertones fall into three categories: <strong>warm, cool, and neutral</strong>. These refer to the subtle colors beneath the skin, not whether skin is light or deep. Warm undertones show hints of golden, peach, or yellow; cool undertones reflect pink, red, or bluish hues; neutral undertones balance warm and cool. Recognizing them aids color selection so blouse colors complement the wearer&rsquo;s natural tone.
+              </p>
+              <h3 className="rex-fibre-sub-h">Warm Skin Palettes</h3>
+              <p className="rex-fibre-full-p">
+                Colors that harmonize with warm undertones include warm reds, coral tones, earthy browns, deep maroons, mustard yellows, and olive greens—enhancing the skin&rsquo;s natural warmth and creating a natural connection between garment and wearer.
+              </p>
+              <figure className="rex-color-skin-inline-img">
+                <img src="/edu-fibre.jpg" alt="Warm palette texture" loading="lazy" />
+              </figure>
+              <h3 className="rex-fibre-sub-h">Cool Skin Palettes</h3>
+              <p className="rex-fibre-full-p">
+                Cool undertones pair well with colors that share similar cool characteristics: jewel tones like sapphire blue, emerald green, deep purple, and berry shades, as well as soft cool pastels like lavender, powder blue, and rose pink, for a refined and balanced effect. These colors can highlight the clarity and brightness of cool undertones.
+              </p>
+              <figure className="rex-color-skin-inline-img">
+                <img src="/ds-4.png" alt="Cool palette styling" loading="lazy" />
+              </figure>
+              <h3 className="rex-fibre-sub-h">Neutral Skin Palettes</h3>
+              <p className="rex-fibre-full-p">
+                Neutral undertones offer flexibility—a balance of warm and cool allows a wider range of harmonious shades. Both warm and cool palettes can complement neutral undertones, giving versatility for pairing blouses with various saree shades and fabrics.
+              </p>
+              <figure className="rex-color-skin-inline-img">
+                <img src="/ds-7.png" alt="Neutral palette" loading="lazy" />
               </figure>
             </div>
           </section>
 
           <hr className="rex-fibre-divider" />
 
-          {/* ── Screenshot 4: Color pairing, monochrome, complementary ── */}
-          <section className="rex-fibre-section" id="color-pairing">
+          {/* ── Color pairing: 1st screenshot — single column, image after intro, image between Monochrome para 2 and 3 ── */}
+          <section className="rex-fibre-section rex-color-pairing-block" id="color-pairing">
             <h2 className="rex-fibre-section-title">Color Pairing</h2>
             <p className="rex-fibre-full-p">
-              Color pairing in blouse and saree design achieves visual unity, variation, or contrast. Designers use established approaches to create ensembles that feel intentional and harmonious.
+              Color pairing determines the visual outcome of blouse and saree combinations—whether the ensemble feels unified, varied, or deliberately contrasted. Designers draw on established approaches to create balance and intention.
             </p>
-            <figure className="rex-color-inline-fig">
-              <img src="/ds-4.png" alt="Pairing in practice" loading="lazy" />
+            <figure className="rex-color-pairing-img">
+              <img src="/ds-4.png" alt="Color pairing in practice" loading="lazy" />
             </figure>
             <h3 className="rex-fibre-sub-h">Monochrome Pairing</h3>
             <p className="rex-fibre-full-p">
-              Monochrome styling uses different shades and intensities of the same color, keeping blouse and saree within the same color family. A deep-shade saree paired with a lighter or richer blouse variation of the same color creates depth and harmony—elegant, cohesive, and understated.
+              Monochrome styling uses different shades and intensities of the same color, keeping blouse and saree within the same color family.
             </p>
+            <p className="rex-fibre-full-p">
+              A deep-shade saree paired with a lighter or richer blouse variation of the same color creates depth and harmony, resulting in an elegant, cohesive, and understated ensemble.
+            </p>
+            <figure className="rex-color-pairing-img">
+              <img src="/edu-fibre.jpg" alt="Monochrome texture" loading="lazy" />
+            </figure>
             <p className="rex-fibre-full-p">
               Monochrome combinations are often favored in traditional styling, emphasizing fabric texture, weave, or ornamentation over dramatic color contrast.
             </p>
             <h3 className="rex-fibre-sub-h">Complementary Pairing</h3>
             <p className="rex-fibre-full-p">
-              Complementary colors sit opposite on the color wheel and create strong, visually striking contrast when paired. In blouse styling, this approach can make the blouse stand out while maintaining balance with the saree—for example, a dominant saree color paired with a complementary blouse shade to create energy and focus.
+              Complementary colors sit opposite on the color wheel and create strong, visually striking contrast when paired.
+            </p>
+            <p className="rex-fibre-full-p">
+              In blouse styling, this approach can make the blouse stand out while maintaining balance with the saree—for example, a dominant saree color paired with a complementary blouse shade to create energy and focus.
             </p>
           </section>
 
@@ -294,17 +306,14 @@ export default function PageColorTheory() {
             </p>
           </section>
 
-          {/* ── Module nav ── */}
-          <div className="rex-fibre-modules">
-            <p className="rex-fibre-modules-label">Other modules</p>
-            <div className="rex-fibre-modules-chips">
-              {OTHER_MODULES.map((m) => (
-                <a key={m.label} href={m.href} className="rex-fibre-module-chip" style={{ '--chip-color': m.color }}>
-                  {m.label}
-                </a>
-              ))}
-            </div>
-          </div>
+          <nav className="rex-fibre-footer-cta rex-fibre-footer-nav" aria-label="Education module navigation">
+            <a href="/#journey" className="rex-btn rex-btn-edu-nav">
+              ← Previous: Education Hub
+            </a>
+            <a href="/education/fibre-foundations" className="rex-btn rex-btn-edu-nav">
+              Next: Fibre &amp; Fabric →
+            </a>
+          </nav>
 
         </div>
       </main>

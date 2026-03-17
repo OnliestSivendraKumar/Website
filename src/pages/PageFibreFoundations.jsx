@@ -5,17 +5,6 @@ const PAGE_TITLE = 'Fibre & Fabric — Education Hub | Onliest';
 const PAGE_DESCRIPTION =
   'Explore fibre foundations, fabric construction, weave types, thread count, silk and cotton types, fabric behaviour, and texture — the complete Onliest fabric intelligence guide.';
 
-const OTHER_MODULES = [
-  { label: 'Onliest World',         href: '/#journey', color: '#7c5cfc' },
-  { label: 'Trending',              href: '/#journey', color: '#e05c5c' },
-  { label: 'Body Compatibility',    href: '/#journey', color: '#e0a85c' },
-  { label: 'Color',                 href: '/#journey', color: '#5ca8e0' },
-  { label: 'Saree',                 href: '/#journey', color: '#5ce0a8' },
-  { label: 'Surface Ornamentation', href: '/#journey', color: '#e05ca8' },
-  { label: 'Blouse',                href: '/#journey', color: '#c0a060' },
-  { label: 'Saree Draping',         href: '/#journey', color: '#7cb8e0' },
-];
-
 export default function PageFibreFoundations() {
   if (typeof document !== 'undefined') {
     const prevTitle = document.title;
@@ -891,28 +880,15 @@ export default function PageFibreFoundations() {
             </p>
           </section>
 
-          {/* Footer CTA + module navigation */}
-          <div className="rex-fibre-footer-cta">
-            <a href="/education/fabric-construction" className="rex-btn rex-btn-ghost">
+          {/* Previous / Next nav — outline-style buttons left and right */}
+          <nav className="rex-fibre-footer-cta rex-fibre-footer-nav" aria-label="Education module navigation">
+            <a href="/#journey" className="rex-btn rex-btn-edu-nav">
+              ← Previous: Education Hub
+            </a>
+            <a href="/education/fabric-construction" className="rex-btn rex-btn-edu-nav">
               Next: Fabric Construction →
             </a>
-          </div>
-
-          <div className="rex-fibre-modules">
-            <p className="rex-fibre-modules-label">Other modules</p>
-            <div className="rex-fibre-modules-chips">
-              {OTHER_MODULES.map((m) => (
-                <a
-                  key={m.label}
-                  href={m.href}
-                  className="rex-fibre-module-chip"
-                  style={{ '--chip-color': m.color }}
-                >
-                  {m.label}
-                </a>
-              ))}
-            </div>
-          </div>
+          </nav>
 
         </div>
       </main>

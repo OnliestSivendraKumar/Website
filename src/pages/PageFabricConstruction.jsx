@@ -107,14 +107,14 @@ export default function PageFabricConstruction() {
             </div>
           </section>
 
-          <div className="rex-fibre-footer-cta">
-            <a href="/education/fibre-foundations" className="rex-btn rex-btn-ghost">
-              ← Fibre Foundations
+          <nav className="rex-fibre-footer-cta rex-fibre-footer-nav" aria-label="Education module navigation">
+            <a href="/education/fibre-foundations" className="rex-btn rex-btn-edu-nav">
+              ← Previous: Fibre &amp; Fabric
             </a>
-            <a href="/#journey" className="rex-btn rex-btn-ghost">
-              Back to Education Hub
+            <a href="/#journey" className="rex-btn rex-btn-edu-nav">
+              Next: Education Hub →
             </a>
-          </div>
+          </nav>
 
         </div>
       </main>
