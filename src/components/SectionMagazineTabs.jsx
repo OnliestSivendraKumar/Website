@@ -212,7 +212,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Draping Intelligence',
       headline: 'Saree Draping',
-      cta: { label: 'Learn Saree Draping', href: '#journey' },
+      cta: { label: 'Learn Saree Draping', href: '/education/saree' },
       image: '/edu-drape.png',
       imageAlt: 'Draping preview',
     },

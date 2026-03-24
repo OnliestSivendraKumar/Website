@@ -3063,6 +3063,192 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     object-position: center;
 }
 
+/* ─── Saree Draping inner page ─────────────────────────── */
+.rex-sd-page {
+    padding-bottom: clamp(4.5rem, 9vw, 6.5rem);
+}
+.rex-sd-shell {
+    max-width: var(--layout-max);
+}
+.rex-sd-header {
+    margin-bottom: clamp(1.6rem, 3vw, 2.2rem);
+}
+.rex-sd-intro,
+.rex-sd-regional,
+.rex-sd-modern,
+.rex-sd-howto {
+    margin-bottom: clamp(1.8rem, 3.1vw, 2.4rem);
+}
+.rex-sd-hero-fig {
+    margin: 0 0 clamp(1.1rem, 2.2vw, 1.6rem);
+    overflow: hidden;
+}
+.rex-sd-hero-fig img {
+    display: block;
+    width: 100%;
+    max-height: 860px;
+    object-fit: cover;
+    object-position: center;
+}
+.rex-sd-h2 {
+    margin: 0 0 0.9rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    text-transform: uppercase;
+    color: var(--platinum);
+    line-height: 1.2;
+}
+.rex-sd-h3 {
+    margin: 0 0 0.62rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.12rem, 1.55vw, 1.42rem);
+    color: var(--platinum);
+    line-height: 1.24;
+}
+.rex-sd-p,
+.rex-sd-list,
+.rex-sd-steps {
+    margin: 0 0 0.78rem;
+    font-size: clamp(1rem, 1.04vw, 1.14rem);
+    line-height: 1.55;
+    color: var(--plat-70);
+    text-align: left;
+    max-width: 100%;
+}
+.rex-sd-region {
+    margin: 0 0 0.4rem;
+    color: var(--platinum);
+    font-family: var(--font-display);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+}
+.rex-sd-how {
+    margin-bottom: 0.35rem;
+    color: var(--platinum);
+}
+.rex-sd-list,
+.rex-sd-steps {
+    padding-left: 1.35rem;
+}
+.rex-sd-style {
+    margin-bottom: clamp(1.35rem, 2.1vw, 1.8rem);
+    padding-top: clamp(0.75rem, 1.15vw, 0.95rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(360px, 0.95fr);
+    gap: clamp(0.8rem, 1.4vw, 1.1rem);
+    align-items: start;
+}
+.rex-sd-style:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+}
+.rex-sd-style .rex-sd-h3,
+.rex-sd-style .rex-sd-region,
+.rex-sd-style .rex-sd-p,
+.rex-sd-style .rex-sd-list {
+    grid-column: 1;
+}
+.rex-sd-style-fig {
+    margin: 0.15rem 0 0;
+    overflow: hidden;
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    align-self: start;
+}
+.rex-sd-style-fig img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    height: clamp(300px, 38vw, 560px);
+    object-fit: cover;
+    object-position: center;
+}
+.rex-sd-modern-item {
+    margin-bottom: clamp(1.55rem, 2.8vw, 2.2rem);
+    padding-bottom: clamp(0.55rem, 1.1vw, 0.9rem);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.rex-sd-modern-item .rex-sd-h3 {
+    margin-bottom: 0.85rem;
+}
+.rex-sd-modern .rex-sd-p {
+    margin-bottom: 1rem;
+}
+.rex-sd-modern .rex-sd-style-fig {
+    margin-top: 0.2rem;
+}
+.rex-sd-modern-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+.rex-sd-howto-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.95fr);
+    gap: clamp(1rem, 1.8vw, 1.5rem);
+    align-items: start;
+}
+.rex-sd-steps li {
+    margin-bottom: 0.5rem;
+}
+.rex-sd-video-block {
+    margin-top: 0.5rem;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: clamp(300px, 34vw, 460px);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.rex-sd-video-frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.rex-sd-video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, rgba(147, 92, 116, 0.9) 0%, rgba(126, 68, 95, 0.95) 100%);
+    color: #e52932;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    letter-spacing: 0.08em;
+}
+@media (max-width: 900px) {
+    .rex-sd-style {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    .rex-sd-style .rex-sd-h3,
+    .rex-sd-style .rex-sd-region,
+    .rex-sd-style .rex-sd-p,
+    .rex-sd-style .rex-sd-list,
+    .rex-sd-style-fig {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    .rex-sd-style-fig {
+        margin-top: 0.45rem;
+    }
+    .rex-sd-style-fig img {
+        height: clamp(280px, 88vw, 560px);
+    }
+    .rex-sd-howto-layout {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    .rex-sd-video-block {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin-top: 0.2rem;
+    }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    Saree inner page (hero + weaving + loom types + pattern + resist-dye + gallery)
    ═══════════════════════════════════════════════════════════════════════════ */
