@@ -54,6 +54,8 @@
 
     /* Auto-advance interval (must match JS) */
     --autobar-dur:     7s;
+    --layout-max:      1650px;
+    --layout-pad-x:    clamp(1rem, 4vw, 2.5rem);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -107,10 +109,10 @@ body[data-theme="light"] .rex-header--scrolled {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1650px;
+    max-width: var(--layout-max);
     margin: 0 auto;
     gap: clamp(1.25rem, 3vw, 2.5rem);
-    padding: 0 clamp(1rem, 4vw, 2.5rem);
+    padding: 0 var(--layout-pad-x);
 }
 .rex-header-logo {
     flex-shrink: 0;
@@ -993,9 +995,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     padding-bottom: clamp(6rem, 14vw, 10rem);
 }
 .rex-fibre-shell {
-    max-width: 1400px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2rem) 0;
+    padding: clamp(2.5rem, 6vw, 4rem) var(--layout-pad-x) 0;
 }
 
 /* ── Page header ── */
@@ -1574,7 +1576,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 /* ═══════════════════════════════════════════════════════════════════════════
    Color Theory education page (different layout: edition title, sidebar, drop cap)
    ═══════════════════════════════════════════════════════════════════════════ */
-.rex-color-page .rex-fibre-shell { max-width: 1400px; }
+.rex-color-page .rex-fibre-shell { max-width: var(--layout-max); }
 .rex-color-edition-header {
     text-align: center;
     margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
@@ -2145,9 +2147,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
    Saree inner page (hero + weaving + loom types + pattern + resist-dye + gallery)
    ═══════════════════════════════════════════════════════════════════════════ */
 .rex-saree-page .rex-saree-shell {
-    max-width: 1200px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 3vw, 2rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem) var(--layout-pad-x);
 }
 
 /* Saree page: tagline above hero */
@@ -2702,6 +2704,8 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     min-height: 100vh;
     background: var(--bg-burgundy);
 }
+
+ 
 
 /* ─── Individual panels ──────────────────────────────── */
 .rex-panel {
@@ -3472,9 +3476,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     padding: 0 0 clamp(2rem, 3.5vw, 2.6rem);
 }
 .rex-mp-page-hero-inner {
-    max-width: 1200px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 3vw, 1.75rem);
+    padding: 0 var(--layout-pad-x);
     display: flex;
     flex-direction: column;
     gap: clamp(1.5rem, 3vw, 2rem);
@@ -3605,9 +3609,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     padding: 0 0 clamp(2.4rem, 4.5vw, 3.2rem);
 }
 .rex-mp-page-section-inner {
-    max-width: 1200px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 3vw, 1.75rem);
+    padding: 0 var(--layout-pad-x);
 }
 .rex-mp-page-section-header {
     margin-bottom: clamp(1.1rem, 2vw, 1.5rem);
@@ -3632,12 +3636,12 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-mp-page-featured-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.25rem;
 }
 .rex-mp-page-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1.25rem;
 }
 .rex-mp-page-featured-grid.is-animating .rex-mp-card,
@@ -3689,6 +3693,11 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     background: radial-gradient(circle at top left, rgba(198,167,94,0.35) 0%, rgba(5,3,8,0.9) 60%);
 }
 
+@media (max-width: 1300px) {
+    .rex-mp-page-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
 @media (max-width: 900px) {
     .rex-mp-page-featured-grid,
     .rex-mp-page-grid {
@@ -3872,9 +3881,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     padding-bottom: clamp(3rem, 6vw, 4rem);
 }
 .rex-designer-detail-shell {
-    max-width: 1100px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 3vw, 2rem);
+    padding: 0 var(--layout-pad-x);
 }
 .rex-designer-detail-not-found {
     padding: clamp(3rem, 8vw, 5rem) 0;
@@ -4705,9 +4714,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     overflow-x: hidden;
 }
 .rex-reviews-inner {
-    max-width: 1650px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 clamp(1rem, 4vw, 2.5rem);
+    padding: 0 var(--layout-pad-x);
     text-align: center;
     overflow-x: hidden;
     box-sizing: border-box;
@@ -4717,9 +4726,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     padding: clamp(2.5rem, 3vw, 1.25rem) 0;
 }
 .rex-reviews-page-container {
-    max-width: 1200px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 3vw, 1.75rem);
+    padding: 0 var(--layout-pad-x);
 }
 .rex-reviews-summary-grid {
     display: grid;
@@ -4986,9 +4995,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 4rem);
 }
 .rex-faq-container {
-    max-width: 1200px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 3vw, 1.75rem);
+    padding: 0 var(--layout-pad-x);
 }
 .rex-faq-header {
     margin-bottom: clamp(2rem, 3.5vw, 2.8rem);
@@ -5665,13 +5674,13 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 
 .rex-page-inner--story .rex-page-container {
-    max-width: 1280px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+    padding: 0 var(--layout-pad-x);
 }
 
 .rex-page-container--narrow { max-width: 640px; }
-.rex-page-container--wide { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+.rex-page-container--wide { max-width: var(--layout-max); margin: 0 auto; padding: 0 var(--layout-pad-x); }
 
 /* Hero: centered title + row (image | metric blocks) + intro two cols + Read More */
 .rex-page-hero--story {
@@ -7010,9 +7019,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     padding-bottom: clamp(3.5rem, 7vw, 4.5rem);
 }
 .rex-blog-detail-shell {
-    max-width: 1140px;
+    max-width: var(--layout-max);
     margin: 0 auto;
-    padding: 0 clamp(1.4rem, 3vw, 2rem);
+    padding: 0 var(--layout-pad-x);
 }
 .rex-blog-detail-header {
     margin-bottom: 1.8rem;

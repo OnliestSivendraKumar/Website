@@ -181,7 +181,6 @@ export default function PageMarketplace() {
   const clampedPage = Math.min(page, totalPages);
   const start = (clampedPage - 1) * PAGE_SIZE;
   const visible = filtered.slice(start, start + PAGE_SIZE);
-  const featuredVisible = filtered.slice(0, Math.min(3, filtered.length));
 
   return (
     <>
@@ -251,36 +250,22 @@ export default function PageMarketplace() {
           </div>
         </section>
 
-        <section className="rex-mp-page-section" aria-label="Featured designs">
+        <section className="rex-mp-page-section" aria-label="Marketplace designs">
           <div className="rex-mp-page-section-inner">
             <header className="rex-mp-page-section-header rex-mp-page-section-header--row">
               <div>
-                <h2 className="rex-mp-page-section-title">Featured Designs</h2>
+                <h2 className="rex-mp-page-section-title">
+                  {activeFilter === 'all' ? 'Featured Designs' : `${FILTERS.find((f) => f.id === activeFilter)?.label || 'Designs'}`}
+                </h2>
                 <p className="rex-mp-page-section-subtitle">
-                  Handpicked looks the community is loving right now.
+                  {activeFilter === 'all'
+                    ? 'Handpicked looks from the marketplace.'
+                    : `Showing ${FILTERS.find((f) => f.id === activeFilter)?.label?.toLowerCase() || 'designs'} in the marketplace.`}
                 </p>
               </div>
               <span className="rex-mp-page-count">
                 Showing {visible.length} of {filtered.length} designs
               </span>
-            </header>
-            <div className={`rex-mp-page-featured-grid${isAnimating ? ' is-animating' : ''}`}>
-              {featuredVisible.map((item) => (
-                <MarketplaceCard key={item.id} item={item} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="rex-mp-page-section" aria-label="All designs">
-          <div className="rex-mp-page-section-inner">
-            <header className="rex-mp-page-section-header rex-mp-page-section-header--row">
-              <div>
-                <h2 className="rex-mp-page-section-title">All Designs</h2>
-                <p className="rex-mp-page-section-subtitle">
-                  Browse every saree and blouse available in the marketplace.
-                </p>
-              </div>
             </header>
             <div className={`rex-mp-page-grid${isAnimating ? ' is-animating' : ''}`}>
               {visible.map((item) => (
