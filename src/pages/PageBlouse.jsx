@@ -217,6 +217,476 @@ export default function PageBlouse() {
             </div>
           </section>
 
+          <section className="rex-blouse-compat" aria-label="Blouse structure compatibility">
+            <div className="rex-blouse-editorial-artboard">
+              <h2 className="rex-ed-head rex-ed-bust-head">BUST STRUCTURE COMPATABILITY</h2>
+              <p className="rex-ed-body rex-ed-bust-body">
+                The bust area defines how a blouse sits, supports, and shapes the upper frame. Through calibrated seam
+                angles, dart intake, and panel transitions, the garment contours smoothly without tension. Curved seams,
+                molded support options, and controlled ease maintain structure while preserving comfort through movement.
+                A well-balanced bust build allows secure placement and a refined silhouette that never feels rigid.
+              </p>
+
+              <figure className="rex-ed-fig rex-ed-lighthouse-top">
+                <img src="/ds-2.png" alt="Lighthouse detail" loading="lazy" />
+              </figure>
+
+              <h2 className="rex-ed-head rex-ed-shoulder-head">SHOULDER TYPES</h2>
+              <p className="rex-ed-body rex-ed-shoulder-body">
+                Shoulders act as the natural frame of blouse engineering. Their slope, width, and posture determine how
+                cleanly necklines and sleeves settle across the body. Softer shoulders often require gentler seam pitch,
+                while broad or structured shoulders benefit from firmer alignment and corrected sleeve balance. Accurate
+                shoulder mapping prevents drag lines, slipping, and neckline distortion, helping the garment rest in a
+                stable and natural position.
+              </p>
+
+              <figure className="rex-ed-fig rex-ed-mirror">
+                <img src="/ds-6fh.png" alt="Mirror feet detail" loading="lazy" />
+              </figure>
+              <figure className="rex-ed-fig rex-ed-lighthouse-small">
+                <img src="/ds-2.png" alt="Small lighthouse detail" loading="lazy" />
+              </figure>
+              <figure className="rex-ed-fig rex-ed-phone">
+                <img src="/ds-4.png" alt="Portrait phone detail" loading="lazy" />
+              </figure>
+
+              <h2 className="rex-ed-head rex-ed-armhole-head">ARMHOLE VARIATIONS</h2>
+              <p className="rex-ed-body rex-ed-armhole-body">
+                Armhole depth and shape control mobility, visual sharpness, and everyday comfort. Higher armholes deliver
+                tailored precision and move closely with the torso. Deeper armholes add ease and flexibility for relaxed
+                wear. The construction goal is to preserve range of motion without losing structural integrity across side
+                seams, sleeve head, and bust-to-arm transition.
+              </p>
+
+              <figure className="rex-ed-fig rex-ed-chair">
+                <img src="/ds-6fh.png" alt="Chair and wall detail" loading="lazy" />
+              </figure>
+              <figure className="rex-ed-fig rex-ed-diagonal">
+                <img src="/ds-2.png" alt="Diagonal architectural detail" loading="lazy" />
+              </figure>
+              <figure className="rex-ed-fig rex-ed-building">
+                <img src="/ds-4.png" alt="Building facade detail" loading="lazy" />
+              </figure>
+              <figure className="rex-ed-fig rex-ed-bottle">
+                <img src="/ds-6fh.png" alt="Bottle detail" loading="lazy" />
+              </figure>
+              <figure className="rex-ed-fig rex-ed-stair-1">
+                <img src="/ds-2.png" alt="Stair detail one" loading="lazy" />
+              </figure>
+              <figure className="rex-ed-fig rex-ed-stair-2">
+                <img src="/ds-2.png" alt="Stair detail two" loading="lazy" />
+              </figure>
+
+              <h2 className="rex-ed-head rex-ed-ease-head">EASE AND GARMENT BALANCE</h2>
+              <p className="rex-ed-body rex-ed-ease-body">
+                Ease is the measured allowance that lets the blouse move with the wearer, not against the wearer. Even
+                sculpted fits require calibrated breathing room for sitting, reaching, and daily motion without strain.
+                Balance ensures equal behavior across front and back lengths, shoulder pitch, and side seam fall. When
+                both are tuned together, drape remains clean, lines stay stable, and the blouse keeps its composed shape
+                through long wear.
+              </p>
+            </div>
+          </section>
+
+          <section className="rex-blouse-elements" aria-label="Structural design elements">
+            <h2 className="rex-blouse-elements-title">Structural Design Elements</h2>
+            <p className="rex-blouse-elements-intro">
+              The most defining elements include blouse length, neckline depth, sleeve proportion, and back-line balance.
+            </p>
+
+            <div className="rex-blouse-elements-grid">
+              <article className="rex-blouse-elements-card">
+                <h3 className="rex-blouse-elements-h">Blouse Length</h3>
+                <p className="rex-blouse-elements-p">
+                  Length calibration controls how the blouse anchors against the saree drape. A shorter length creates a
+                  sharper and contemporary line, while a longer body offers traditional coverage and structural calm.
+                  Precision at hem level prevents riding, distortion, and imbalance through movement.
+                </p>
+                <figure className="rex-blouse-elements-fig">
+                  <img src="/ds-2.png" alt="Blouse length editorial visual" loading="lazy" />
+                </figure>
+              </article>
+
+              <article className="rex-blouse-elements-card">
+                <h3 className="rex-blouse-elements-h">Neck Line Depth</h3>
+                <p className="rex-blouse-elements-p">
+                  Neck depth changes the visual focus of the upper body and affects comfort at front and back edges.
+                  Controlled depth planning with clean facings and reinforcement keeps the neckline stable while framing
+                  the collarbone elegantly across fitted and relaxed silhouettes.
+                </p>
+                <figure className="rex-blouse-elements-fig">
+                  <img src="/ds-6fh.png" alt="Neckline depth editorial visual" loading="lazy" />
+                </figure>
+              </article>
+
+              <article className="rex-blouse-elements-card">
+                <h3 className="rex-blouse-elements-h">Sleeve Length</h3>
+                <p className="rex-blouse-elements-p">
+                  Sleeve length influences proportion, mobility, and the final tone of the blouse. From cap to elbow to
+                  full sleeve, each variation shifts line flow and arm balance. Correct sleeve pitch and opening control
+                  preserve comfort while maintaining a crisp garment profile.
+                </p>
+                <figure className="rex-blouse-elements-fig">
+                  <img src="/ds-4.png" alt="Sleeve length editorial visual" loading="lazy" />
+                </figure>
+              </article>
+            </div>
+
+            <div className="rex-blouse-necklines">
+              <h3 className="rex-blouse-elements-h rex-blouse-necklines-h">Necklines</h3>
+              <p className="rex-blouse-elements-p rex-blouse-necklines-p">
+                The neckline is one of the most visually prominent elements of a blouse. It frames the neck, collarbone,
+                and upper chest area, influencing the balance of the upper body. Each neckline changes the visual focus of
+                the blouse and can complement different body proportions, jewelry choices, and saree styles.
+              </p>
+              <figure className="rex-blouse-necklines-fig">
+                <img src="/edu-blouse.png" alt="Neckline perspective editorial visual" loading="lazy" />
+              </figure>
+            </div>
+
+            <div className="rex-blouse-sleeve-back">
+              <h3 className="rex-blouse-elements-h rex-blouse-sleeve-back-h">Sleeve Designs</h3>
+              <p className="rex-blouse-elements-p rex-blouse-sleeve-back-p">
+                Sleeves affect both the structure and the visual rhythm of the blouse. They influence arm mobility while
+                also contributing to the overall design aesthetic. Each sleeve style affects the visual proportion between
+                the shoulders, arms, and torso.
+              </p>
+              <figure className="rex-blouse-sleeve-back-fig">
+                <img src="/edu-blouse.png" alt="Sleeve design editorial visual" loading="lazy" />
+              </figure>
+
+              <h3 className="rex-blouse-elements-h rex-blouse-sleeve-back-h">Back Designs</h3>
+              <p className="rex-blouse-elements-p rex-blouse-sleeve-back-p">
+                The back design of a blouse often becomes a focal point of the garment, particularly in saree styling
+                where the back remains visible during movement and draping. The back opening may also incorporate hooks,
+                buttons, zippers, or decorative ties depending on the design and construction. Back design not only
+                affects aesthetics but also determines how the blouse is worn and secured.
+              </p>
+              <figure className="rex-blouse-sleeve-back-fig">
+                <img src="/edu-blouse.png" alt="Back design editorial visual" loading="lazy" />
+              </figure>
+            </div>
+          </section>
+
+          <section className="rex-blouse-pattern" aria-label="Pattern architecture and construction">
+            <h2 className="rex-blouse-elements-title">Pattern Architecture</h2>
+            <p className="rex-blouse-elements-p rex-blouse-pattern-intro">
+              Behind every well-fitted blouse lies a carefully developed pattern. Pattern architecture refers to the way a
+              blouse is divided into pattern pieces and how those pieces are shaped and assembled to create a
+              three-dimensional garment from flat fabric. Understanding pattern architecture helps reveal how a blouse is
+              engineered to follow the natural contours of the upper body.
+            </p>
+
+            <div className="rex-blouse-pattern-grid">
+              <div className="rex-blouse-pattern-copy">
+                <h3 className="rex-blouse-elements-h">Panel Construction</h3>
+                <p className="rex-blouse-elements-p">
+                  A blouse is rarely made from a single piece of fabric. Instead, it is constructed from multiple panels
+                  that are cut, shaped, and stitched together.
+                </p>
+                <p className="rex-blouse-elements-p">
+                  Common panels include:
+                  <br />- Front bodice panels
+                  <br />- Back bodice panels
+                  <br />- Side panels
+                  <br />- Sleeve panels
+                </p>
+                <p className="rex-blouse-elements-p">
+                  Each panel is shaped according to the body measurements it must accommodate. When joined together, these
+                  pieces allow the blouse to transform from flat fabric into a garment that wraps smoothly around the
+                  torso.
+                </p>
+
+                <h3 className="rex-blouse-elements-h">Dart Placement and Shaping</h3>
+                <p className="rex-blouse-elements-p">
+                  Darts are one of the most important shaping tools in blouse construction. They allow flat fabric to
+                  contour around curved areas of the body, particularly the bust. A dart works by removing excess fabric
+                  and redirecting it toward a specific point of shaping.
+                </p>
+
+                <h3 className="rex-blouse-elements-h">Armhole and Sleeve Relationship</h3>
+                <p className="rex-blouse-elements-p">
+                  The armhole and sleeve must work together as a coordinated system. The shape and depth of the armhole
+                  determine how the sleeve attaches and how freely the arm can move.
+                </p>
+                <p className="rex-blouse-elements-p">
+                  In pattern construction, the sleeve head is carefully shaped to match the armhole curve so that both
+                  pieces join smoothly and maintain the garment&apos;s balance.
+                </p>
+
+                <h3 className="rex-blouse-elements-h">Structural Reinforcement</h3>
+                <p className="rex-blouse-elements-p">
+                  Certain areas of a blouse experience more stress during wear. These areas often require additional
+                  reinforcement to maintain durability and shape.
+                </p>
+                <p className="rex-blouse-elements-p">
+                  Common reinforcement areas include:
+                  <br />- Necklines
+                  <br />- Armholes
+                  <br />- Fastener areas
+                  <br />- Heavily embroidered panels
+                </p>
+              </div>
+
+              <div className="rex-blouse-pattern-media">
+                <figure className="rex-blouse-pattern-fig rex-blouse-pattern-fig--top">
+                  <img src="/ds-2.png" alt="Pattern architecture visual one" loading="lazy" />
+                </figure>
+                <figure className="rex-blouse-pattern-fig rex-blouse-pattern-fig--bottom">
+                  <img src="/ds-2.png" alt="Pattern architecture visual two" loading="lazy" />
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <section className="rex-blouse-compatibility" aria-label="Blouse and saree compatibility">
+            <h2 className="rex-blouse-elements-title">Blouse and Saree Compatibility</h2>
+            <p className="rex-blouse-elements-p rex-blouse-compatibility-p">
+              A blouse does not exist in isolation, it is designed to complement the saree it accompanies. The fabric of
+              the saree, its weight, texture, and drape all influence how the blouse should be constructed.
+            </p>
+            <p className="rex-blouse-elements-p rex-blouse-compatibility-p">
+              Understanding fabric compatibility ensures that the blouse and saree work together as a balanced ensemble
+              rather than competing elements. When the blouse structure aligns with the saree fabric, the entire garment
+              combination appears more cohesive and comfortable to wear.
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-compatibility-h">Blouse for Different Saree Fabrics</h3>
+            <p className="rex-blouse-elements-p rex-blouse-compatibility-p">
+              Different saree fabrics behave differently when draped. Some are heavy and structured, while others are soft
+              and fluid. The blouse must be designed to support these characteristics.
+            </p>
+
+            <p className="rex-blouse-elements-p rex-blouse-compatibility-p">
+              <strong>Silk Sarees</strong>
+              <br />
+              Silk sarees often have a rich texture and moderate weight. Blouses paired with silk typically use structured
+              fabrics such as silk, brocade, or raw silk to maintain balance with the saree&apos;s richness.
+            </p>
+            <p className="rex-blouse-elements-p rex-blouse-compatibility-p">
+              <strong>Cotton Sarees</strong>
+              <br />
+              Cotton sarees are breathable and lightweight, making them suitable for everyday wear. Blouses paired with
+              cotton sarees usually use cotton fabrics or cotton blends that maintain comfort and allow airflow.
+            </p>
+            <p className="rex-blouse-elements-p rex-blouse-compatibility-p">
+              <strong>Chiffon and Georgette Sarees</strong>
+              <br />
+              These fabrics are lightweight and flow easily. Blouses designed for them are often lighter and more fitted
+              so that the blouse does not overpower the delicate drape of the saree.
+            </p>
+            <p className="rex-blouse-elements-p rex-blouse-compatibility-p">
+              <strong>Organza and Tissue Sarees</strong>
+              <br />
+              These sarees have a crisp texture and light stiffness. Blouses for these fabrics are often structured to
+              maintain visual balance.
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-compatibility-h">Fabric Weight Compatibility</h3>
+            <p className="rex-blouse-elements-p rex-blouse-compatibility-p">
+              The weight of the blouse fabric should complement the weight of the saree.
+              <br />- Heavy sarees pair well with structured blouse fabrics that provide stability.
+              <br />- Lightweight sarees pair best with lighter blouse fabrics that maintain proportion.
+              <br />
+              Balancing fabric weight ensures that the blouse and saree move harmoniously.
+            </p>
+
+            <div className="rex-blouse-compatibility-gallery">
+              <figure className="rex-blouse-compatibility-fig">
+                <img src="/ds-2.png" alt="Saree fabric compatibility visual one" loading="lazy" />
+              </figure>
+              <figure className="rex-blouse-compatibility-fig">
+                <img src="/ds-2.png" alt="Saree fabric compatibility visual two" loading="lazy" />
+              </figure>
+              <figure className="rex-blouse-compatibility-fig">
+                <img src="/ds-2.png" alt="Saree fabric compatibility visual three" loading="lazy" />
+              </figure>
+            </div>
+          </section>
+
+          <section className="rex-blouse-ornamentation" aria-label="Texture and ornamentation details">
+            <div className="rex-blouse-texture-grid">
+              <div className="rex-blouse-texture-copy">
+                <h3 className="rex-blouse-elements-h">Texture and Visual Balance</h3>
+                <p className="rex-blouse-elements-p">
+                  Texture also plays a role in blouse and saree pairing. Blouses may either:
+                  <br />- Match the saree texture, creating a unified appearance
+                  <br />- Contrast the texture, creating visual interest
+                  <br />
+                  For example:
+                  <br />- A silk saree may pair with a silk blouse for consistency.
+                  <br />- A plain cotton saree may be paired with a textured or embroidered blouse for contrast.
+                </p>
+                <p className="rex-blouse-elements-p">
+                  The goal is to maintain visual balance so that both garments complement each other without overwhelming
+                  the overall look.
+                </p>
+              </div>
+              <figure className="rex-blouse-texture-fig">
+                <img src="/ds-2.png" alt="Texture balance visual" loading="lazy" />
+              </figure>
+            </div>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-ornamentation-h">Design Placement and Ornamentation</h3>
+            <p className="rex-blouse-elements-p rex-blouse-ornamentation-p">
+              Once the blouse structure, fit, and fabric compatibility are established, design elements can be introduced
+              to enhance the garment&apos;s visual appeal. Design placement refers to the strategic positioning of decorative
+              elements so that they complement the blouse structure and maintain visual balance.
+            </p>
+            <p className="rex-blouse-elements-p rex-blouse-ornamentation-p">
+              Ornamentation can include embroidery, prints, borders, embellishments, and surface textures. When placed
+              thoughtfully, these elements highlight key areas of the blouse while maintaining harmony with the saree.
+            </p>
+
+            <div className="rex-blouse-ornamentation-row">
+              <figure className="rex-blouse-ornamentation-fig">
+                <img src="/ds-2.png" alt="Embroidery placement visual" loading="lazy" />
+              </figure>
+              <div className="rex-blouse-ornamentation-copy">
+                <h3 className="rex-blouse-elements-h">Embroidery Placement</h3>
+                <p className="rex-blouse-elements-p">
+                  Embroidery is one of the most commonly used decorative techniques in blouse design. Its placement can
+                  emphasize certain areas of the garment and influence the overall visual focus.
+                </p>
+                <p className="rex-blouse-elements-p">
+                  Common embroidery zones include:
+                  <br />- Neckline area to frame the face and collarbone
+                  <br />- Sleeve hems to highlight the arms
+                  <br />- Back panel often used as a focal design feature
+                  <br />- Bust panel used carefully to enhance structure without adding excessive bulk
+                </p>
+              </div>
+            </div>
+
+            <div className="rex-blouse-ornamentation-row">
+              <figure className="rex-blouse-ornamentation-fig">
+                <img src="/ds-2.png" alt="Borders and edge detailing visual" loading="lazy" />
+              </figure>
+              <div className="rex-blouse-ornamentation-copy">
+                <h3 className="rex-blouse-elements-h">Borders and Edge Detailing</h3>
+                <p className="rex-blouse-elements-p">
+                  Borders are decorative trims applied along the edges of the blouse. They help define the garment&apos;s
+                  shape and create a connection between the blouse and the saree.
+                </p>
+                <p className="rex-blouse-elements-p">
+                  Common border placements include:
+                  <br />- Sleeve hems
+                  <br />- Neckline edges
+                  <br />- Back openings
+                  <br />- Waist hem of the blouse
+                  <br />
+                  Borders are often designed to match or complement the border of the saree, creating visual continuity
+                  between the two garments.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="rex-blouse-back-surface" aria-label="Back design ornamentation and surface techniques">
+            <h3 className="rex-blouse-elements-h rex-blouse-back-surface-h">Back Design Ornamentation</h3>
+            <p className="rex-blouse-elements-p rex-blouse-back-surface-p">
+              The back of the blouse often serves as a key design area, especially in saree styling where the back remains
+              visible.
+            </p>
+            <p className="rex-blouse-elements-p rex-blouse-back-surface-p">
+              Decorative elements may include:
+              <br />- Embroidered motifs
+              <br />- Tassels or decorative ties (dori)
+              <br />- Button arrangements
+              <br />- Cutwork or patterned openings
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-back-surface-h">Borders and Edge Detailing</h3>
+            <p className="rex-blouse-elements-p rex-blouse-back-surface-p">
+              Borders are decorative trims applied along the edges of the blouse. They help define the garment&apos;s shape
+              and create a connection between the blouse and the saree.
+            </p>
+            <p className="rex-blouse-elements-p rex-blouse-back-surface-p">
+              Common border placements include:
+              <br />- Sleeve hems
+              <br />- Neckline edges
+              <br />- Back openings
+              <br />- Waist hem of the blouse
+              <br />
+              Borders are often designed to match or complement the border of the saree, creating visual continuity
+              between the two garments.
+            </p>
+
+            <figure className="rex-blouse-back-surface-hero-fig">
+              <img src="/ds-2.png" alt="Back design ornamentation panorama visual" loading="lazy" />
+            </figure>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-back-surface-h">Surface Techniques</h3>
+            <p className="rex-blouse-elements-p rex-blouse-back-surface-p">
+              Surface ornamentation techniques may vary depending on the fabric and the overall design concept.
+            </p>
+            <p className="rex-blouse-elements-p rex-blouse-back-surface-p">
+              Common techniques include:
+              <br />- Thread embroidery
+              <br />- Zari work
+              <br />- Sequins and bead embellishments
+              <br />- Printed motifs
+              <br />- Fabric applique
+              <br />
+              The choice of technique should consider fabric compatibility, durability, and the intended aesthetic.
+            </p>
+          </section>
+
+          <section className="rex-blouse-occasion-pairing" aria-label="Blouse and saree pairing for different occasions">
+            <h2 className="rex-blouse-elements-title">Blouse and Saree Pairing for Different Occasion</h2>
+            <p className="rex-blouse-elements-p rex-blouse-occasion-p">
+              A blouse is never chosen in isolation. It comes alive beside the saree it accompanies, shaping the mood of
+              the ensemble and reflecting the moment it is meant for. From everyday elegance to the grandeur of
+              celebrations, the blouse adapts quietly supporting the saree while adding its own character.
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-occasion-h">Everyday Blouses</h3>
+            <p className="rex-blouse-elements-p rex-blouse-occasion-p">
+              Blouses intended for daily or regular wear are usually designed with comfort and practicality in mind.
+              These blouses often feature breathable fabrics such as cotton or cotton blends and are constructed with
+              minimal structural reinforcement. Necklines tend to be moderate, sleeves are practical, and ornamentation
+              is usually limited or subtle. The focus is on ease of movement, durability, and simplicity while still
+              maintaining a neat and refined appearance.
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-occasion-h">Festive Blouses</h3>
+            <p className="rex-blouse-elements-p rex-blouse-occasion-p">
+              Festive occasions allow for more decorative design elements. Blouses for festivals often incorporate richer
+              fabrics such as silk, brocade, or textured weaves. Embroidery, borders, decorative sleeves, or detailed
+              back designs may be included to complement the celebratory nature of the saree. While structure and fit
+              remain important, these blouses often emphasize visual richness and surface detailing.
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-occasion-h">Wedding and Formal Occasion Blouses</h3>
+            <p className="rex-blouse-elements-p rex-blouse-occasion-p">
+              Blouses worn for weddings and formal ceremonies often feature the most elaborate construction. These designs
+              may include heavier fabrics, detailed embroidery, structured bust areas, reinforced panels, and decorative
+              fastenings. Back designs and sleeve treatments are frequently used as focal design elements. The blouse
+              works together with the saree to create a more formal and visually impactful ensemble.
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-occasion-h">Matching Blouse Pairing</h3>
+            <p className="rex-blouse-elements-p rex-blouse-occasion-p">
+              In many traditional ensembles, the blouse fabric matches the saree fabric or color. This creates a unified
+              appearance where the blouse blends seamlessly with the saree. Matching blouses are commonly used with silk
+              sarees, traditional sarees, and formal garments where continuity is preferred.
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-occasion-h">Contrast Blouse Pairing</h3>
+            <p className="rex-blouse-elements-p rex-blouse-occasion-p">
+              A contrasting blouse introduces a different color or fabric to create visual interest. The contrast may come
+              from color, texture, or surface ornamentation. This approach allows the blouse to stand out slightly while
+              still complementing the saree. Contrast pairing is widely used in contemporary saree styling.
+            </p>
+
+            <h3 className="rex-blouse-elements-h rex-blouse-occasion-h">Statement Blouse Pairing</h3>
+            <p className="rex-blouse-elements-p rex-blouse-occasion-p">
+              In some ensembles, the blouse itself becomes a design highlight. This may occur when the blouse includes
+              heavy embroidery, intricate back designs, unique sleeve structures, or distinctive fabrics. In these cases,
+              the blouse adds character to the saree while maintaining overall balance.
+            </p>
+          </section>
+
           <nav className="rex-fibre-footer-cta rex-fibre-footer-nav" aria-label="Education module navigation">
             <a href="/#journey" className="rex-btn rex-btn-edu-nav">← Previous: Education Hub</a>
             <a href="/education/surface-ornamentation" className="rex-btn rex-btn-edu-nav">Next: Surface Ornamentation →</a>

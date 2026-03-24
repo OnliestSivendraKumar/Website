@@ -1322,6 +1322,38 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-blouse-page {
     padding-bottom: clamp(4rem, 8vw, 6rem);
 }
+
+/* Readability rhythm across all Blouse education sections */
+.rex-blouse-page .rex-blouse-elements-title {
+    margin: 0 0 0.85rem;
+    line-height: 1.2;
+}
+.rex-blouse-page .rex-blouse-elements-h,
+.rex-blouse-page .rex-blouse-details-h,
+.rex-blouse-page .rex-blouse-structure-h {
+    margin: 0 0 0.72rem;
+    line-height: 1.24;
+}
+.rex-blouse-page .rex-blouse-elements-p,
+.rex-blouse-page .rex-blouse-details-p,
+.rex-blouse-page .rex-blouse-structure-p,
+.rex-blouse-page .rex-blouse-hero-p {
+    margin: 0 0 1rem;
+    line-height: 1.62;
+    text-align: left;
+    max-width: 92ch;
+}
+.rex-blouse-page .rex-blouse-elements-h + .rex-blouse-elements-p,
+.rex-blouse-page .rex-blouse-details-h + .rex-blouse-details-p,
+.rex-blouse-page .rex-blouse-structure-h + .rex-blouse-structure-p {
+    margin-top: 0.1rem;
+}
+.rex-blouse-page .rex-blouse-elements-p + .rex-blouse-elements-h,
+.rex-blouse-page .rex-blouse-details-p + .rex-blouse-details-h,
+.rex-blouse-page .rex-blouse-structure-p + .rex-blouse-structure-h {
+    margin-top: 1.15rem;
+}
+
 .rex-blouse-hero {
     margin-bottom: clamp(2rem, 4vw, 2.75rem);
 }
@@ -1330,14 +1362,14 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     gap: clamp(1.25rem, 2.8vw, 2rem);
     align-items: stretch;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
     padding: clamp(1rem, 2.2vw, 1.5rem);
 }
 .rex-blouse-hero-fig {
     margin: 0;
-    border-radius: var(--radius);
+    border-radius: 0;
     overflow: hidden;
 }
 .rex-blouse-hero-fig img {
@@ -1378,9 +1410,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     margin-bottom: clamp(2rem, 4vw, 2.8rem);
 }
 .rex-blouse-structure-card {
-    background: linear-gradient(180deg, rgba(90, 11, 52, 0.2) 0%, rgba(11, 11, 15, 0.88) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
     padding: clamp(1.15rem, 2.2vw, 1.7rem);
 }
 .rex-blouse-structure-top {
@@ -1409,7 +1441,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-blouse-structure-fig {
     margin: 0;
-    border-radius: 18px;
+    border-radius: 0;
     overflow: hidden;
 }
 .rex-blouse-structure-fig img {
@@ -1424,9 +1456,9 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     margin-bottom: clamp(2rem, 4vw, 2.8rem);
 }
 .rex-blouse-details-card {
-    background: linear-gradient(180deg, rgba(90, 11, 52, 0.16) 0%, rgba(11, 11, 15, 0.9) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
     padding: clamp(1.15rem, 2.2vw, 1.7rem);
 }
 .rex-blouse-details-h {
@@ -1467,10 +1499,10 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-blouse-fit-tile {
     margin: 0;
-    border-radius: 12px;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.04);
+    border: 0;
+    background: transparent;
 }
 .rex-blouse-fit-tile img {
     display: block;
@@ -1480,10 +1512,545 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     object-position: center;
 }
 .rex-blouse-fit-copy {
-    background: linear-gradient(180deg, rgba(90, 11, 52, 0.12) 0%, rgba(11, 11, 15, 0.82) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
     padding: clamp(1.05rem, 2.1vw, 1.6rem);
+}
+
+.rex-blouse-compat {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.rex-blouse-editorial-artboard {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 810 / 1120;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.rex-ed-head,
+.rex-ed-body,
+.rex-ed-fig {
+    position: absolute;
+    margin: 0;
+}
+.rex-ed-head {
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--platinum);
+    letter-spacing: 0;
+}
+.rex-ed-body {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.06vw, 1.14rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--plat-70);
+    letter-spacing: 0;
+    text-align: left;
+}
+.rex-ed-fig {
+    overflow: hidden;
+}
+.rex-ed-fig img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rex-ed-bust-head {
+    left: 7.407%;
+    top: 10.089%;
+    width: 17.037%;
+    height: 5.179%;
+}
+.rex-ed-bust-body {
+    left: 7.407%;
+    top: 16.25%;
+    width: 43.21%;
+    height: 14.554%;
+}
+.rex-ed-lighthouse-top {
+    left: 29.259%;
+    top: 2.232%;
+    width: 21.481%;
+    height: 10.536%;
+}
+.rex-ed-shoulder-head {
+    left: 52.222%;
+    top: 2.411%;
+    width: 18.642%;
+    height: 1.964%;
+}
+.rex-ed-shoulder-body {
+    left: 52.222%;
+    top: 5.2%;
+    width: 35.432%;
+    height: 18.393%;
+}
+.rex-ed-mirror {
+    left: 22.346%;
+    top: 28.482%;
+    width: 28.395%;
+    height: 15.536%;
+}
+.rex-ed-lighthouse-small {
+    left: 52.222%;
+    top: 23.036%;
+    width: 21.481%;
+    height: 9.911%;
+}
+.rex-ed-phone {
+    left: 52.222%;
+    top: 33.929%;
+    width: 33.457%;
+    height: 15.536%;
+}
+.rex-ed-armhole-head {
+    left: 2.469%;
+    top: 43.125%;
+    width: 19.63%;
+    height: 1.964%;
+}
+.rex-ed-armhole-body {
+    left: 2.469%;
+    top: 46.3%;
+    width: 44.444%;
+    height: 12.143%;
+}
+.rex-ed-chair {
+    left: 17.901%;
+    top: 57.768%;
+    width: 32.84%;
+    height: 15.536%;
+}
+.rex-ed-diagonal {
+    left: 52.222%;
+    top: 50.446%;
+    width: 14.198%;
+    height: 25.714%;
+}
+.rex-ed-building {
+    left: 67.901%;
+    top: 50.446%;
+    width: 27.16%;
+    height: 14.911%;
+}
+.rex-ed-bottle {
+    left: 27.531%;
+    top: 74.464%;
+    width: 23.21%;
+    height: 20.804%;
+}
+.rex-ed-stair-1 {
+    left: 52.222%;
+    top: 77.054%;
+    width: 14.198%;
+    height: 11.071%;
+}
+.rex-ed-stair-2 {
+    left: 52.222%;
+    top: 88.982%;
+    width: 14.198%;
+    height: 10.982%;
+}
+.rex-ed-ease-head {
+    left: 67.778%;
+    top: 66.429%;
+    width: 26.914%;
+    height: 2.5%;
+}
+.rex-ed-ease-body {
+    left: 67.778%;
+    top: 70.35%;
+    width: 27.284%;
+    height: 26.429%;
+}
+
+.rex-blouse-elements {
+    margin-bottom: clamp(2.2rem, 4vw, 3rem);
+}
+.rex-blouse-elements-title {
+    margin: 0 0 0.55rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.1vw, 1.95rem);
+    font-weight: 700;
+    color: var(--platinum);
+    text-transform: uppercase;
+}
+.rex-blouse-elements-intro {
+    margin: 0 0 clamp(1.05rem, 2vw, 1.35rem);
+    font-size: clamp(1rem, 1.02vw, 1.12rem);
+    line-height: 1.5;
+    color: var(--plat-70);
+}
+.rex-blouse-elements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 1.8vw, 1.5rem);
+    margin-bottom: clamp(1.35rem, 2.5vw, 1.85rem);
+}
+.rex-blouse-elements-card {
+    min-width: 0;
+}
+.rex-blouse-elements-h {
+    margin: 0 0 0.55rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.08rem, 1.4vw, 1.35rem);
+    font-weight: 700;
+    color: var(--platinum);
+    text-transform: uppercase;
+}
+.rex-blouse-elements-p {
+    margin: 0 0 0.9rem;
+    font-size: clamp(1rem, 1.01vw, 1.1rem);
+    line-height: 1.5;
+    color: var(--plat-70);
+    text-align: left;
+}
+.rex-blouse-elements-fig {
+    margin: 0;
+    overflow: hidden;
+}
+.rex-blouse-elements-fig img {
+    display: block;
+    width: 100%;
+    height: clamp(200px, 23vw, 300px);
+    object-fit: cover;
+    object-position: center;
+}
+.rex-blouse-necklines-h {
+    margin-top: 0;
+}
+.rex-blouse-necklines-p {
+    max-width: 100%;
+}
+.rex-blouse-necklines-fig {
+    margin: 0;
+    overflow: hidden;
+}
+.rex-blouse-necklines-fig img {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 36vw, 520px);
+    object-fit: cover;
+    object-position: center;
+}
+.rex-blouse-sleeve-back {
+    margin-top: clamp(1.4rem, 2.6vw, 2rem);
+}
+.rex-blouse-sleeve-back-h {
+    margin-bottom: 0.55rem;
+}
+.rex-blouse-sleeve-back-p {
+    margin-bottom: clamp(0.9rem, 1.6vw, 1.2rem);
+    max-width: 100%;
+}
+.rex-blouse-sleeve-back-fig {
+    margin: 0 0 clamp(1.35rem, 2.4vw, 1.75rem);
+    overflow: hidden;
+}
+.rex-blouse-sleeve-back-fig img {
+    display: block;
+    width: 100%;
+    height: clamp(320px, 40vw, 560px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.rex-blouse-pattern {
+    margin-bottom: clamp(2.3rem, 4.2vw, 3.1rem);
+}
+.rex-blouse-pattern-intro {
+    max-width: min(100%, 76ch);
+    margin-bottom: clamp(1rem, 2vw, 1.4rem);
+}
+.rex-blouse-pattern-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.62fr);
+    gap: clamp(1.1rem, 2vw, 1.7rem);
+    align-items: start;
+}
+.rex-blouse-pattern-copy .rex-blouse-elements-p {
+    margin-bottom: 0.75rem;
+}
+.rex-blouse-pattern-copy .rex-blouse-elements-h {
+    margin-top: clamp(0.7rem, 1.4vw, 1rem);
+}
+.rex-blouse-pattern-media {
+    display: grid;
+    gap: clamp(0.8rem, 1.4vw, 1.1rem);
+}
+.rex-blouse-pattern-fig {
+    margin: 0;
+    overflow: hidden;
+}
+.rex-blouse-pattern-fig img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.rex-blouse-pattern-fig--top {
+    height: clamp(290px, 34vw, 430px);
+}
+.rex-blouse-pattern-fig--bottom {
+    height: clamp(250px, 30vw, 390px);
+}
+
+.rex-blouse-compatibility {
+    margin-bottom: clamp(2.3rem, 4.2vw, 3.1rem);
+}
+.rex-blouse-compatibility-h {
+    margin-top: clamp(1rem, 1.8vw, 1.3rem);
+}
+.rex-blouse-compatibility-p {
+    margin-bottom: 0.7rem;
+    max-width: min(100%, 98ch);
+}
+.rex-blouse-compatibility-p strong {
+    color: var(--platinum);
+    font-weight: 700;
+}
+.rex-blouse-compatibility-gallery {
+    margin-top: clamp(0.8rem, 1.5vw, 1.2rem);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.35rem, 0.8vw, 0.6rem);
+}
+.rex-blouse-compatibility-fig {
+    margin: 0;
+    overflow: hidden;
+}
+.rex-blouse-compatibility-fig img {
+    display: block;
+    width: 100%;
+    height: clamp(260px, 34vw, 420px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.rex-blouse-ornamentation {
+    margin-bottom: clamp(2.3rem, 4.2vw, 3.1rem);
+}
+.rex-blouse-texture-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.62fr);
+    gap: clamp(1rem, 1.9vw, 1.5rem);
+    align-items: start;
+    margin-bottom: clamp(1.4rem, 2.5vw, 2rem);
+}
+.rex-blouse-texture-copy .rex-blouse-elements-p {
+    margin-bottom: 0.7rem;
+}
+.rex-blouse-texture-fig {
+    margin: 0;
+    overflow: hidden;
+}
+.rex-blouse-texture-fig img {
+    display: block;
+    width: 100%;
+    height: clamp(250px, 31vw, 390px);
+    object-fit: cover;
+    object-position: center;
+}
+.rex-blouse-ornamentation-h {
+    margin-top: 0;
+}
+.rex-blouse-ornamentation-p {
+    margin-bottom: 0.55rem;
+    max-width: min(100%, 100ch);
+}
+.rex-blouse-ornamentation-row {
+    margin-top: clamp(0.9rem, 1.8vw, 1.35rem);
+    display: grid;
+    grid-template-columns: minmax(220px, 0.86fr) minmax(0, 1fr);
+    gap: clamp(1rem, 1.8vw, 1.45rem);
+    align-items: start;
+}
+.rex-blouse-ornamentation-fig {
+    margin: 0;
+    overflow: hidden;
+}
+.rex-blouse-ornamentation-fig img {
+    display: block;
+    width: 100%;
+    height: clamp(250px, 30vw, 380px);
+    object-fit: cover;
+    object-position: center;
+}
+.rex-blouse-ornamentation-copy .rex-blouse-elements-p {
+    margin-bottom: 0.62rem;
+}
+
+.rex-blouse-back-surface {
+    margin-bottom: clamp(2.3rem, 4.2vw, 3.1rem);
+}
+.rex-blouse-back-surface-h {
+    margin-top: clamp(0.95rem, 1.7vw, 1.2rem);
+}
+.rex-blouse-back-surface-p {
+    margin-bottom: 0.65rem;
+    max-width: min(100%, 102ch);
+}
+.rex-blouse-back-surface-hero-fig {
+    margin: clamp(0.8rem, 1.6vw, 1.15rem) 0 clamp(1rem, 1.9vw, 1.4rem);
+    overflow: hidden;
+}
+.rex-blouse-back-surface-hero-fig img {
+    display: block;
+    width: 100%;
+    height: clamp(260px, 34vw, 430px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.rex-blouse-occasion-pairing {
+    margin-bottom: clamp(2.3rem, 4.2vw, 3.1rem);
+}
+.rex-blouse-occasion-h {
+    margin-top: clamp(1rem, 1.7vw, 1.25rem);
+}
+.rex-blouse-occasion-p {
+    margin-bottom: 0.72rem;
+    max-width: min(100%, 104ch);
+}
+@media (max-width: 980px) {
+    .rex-blouse-editorial-artboard {
+        aspect-ratio: auto;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(0.9rem, 2.4vw, 1.2rem);
+        padding: clamp(0.75rem, 2vw, 1rem);
+    }
+    .rex-blouse-editorial-artboard .rex-ed-head,
+    .rex-blouse-editorial-artboard .rex-ed-body,
+    .rex-blouse-editorial-artboard .rex-ed-fig {
+        position: static;
+        left: auto;
+        top: auto;
+        width: 100%;
+        height: auto;
+    }
+    .rex-blouse-editorial-artboard .rex-ed-body {
+        margin-top: 0.25rem;
+    }
+    .rex-blouse-editorial-artboard .rex-ed-fig img {
+        min-height: 170px;
+        max-height: 240px;
+    }
+    .rex-ed-bust-head,
+    .rex-ed-bust-body,
+    .rex-ed-mirror,
+    .rex-ed-armhole-head,
+    .rex-ed-armhole-body,
+    .rex-ed-chair,
+    .rex-ed-bottle {
+        grid-column: 1;
+    }
+    .rex-ed-lighthouse-top,
+    .rex-ed-shoulder-head,
+    .rex-ed-shoulder-body,
+    .rex-ed-lighthouse-small,
+    .rex-ed-phone,
+    .rex-ed-diagonal,
+    .rex-ed-building,
+    .rex-ed-stair-1,
+    .rex-ed-stair-2,
+    .rex-ed-ease-head,
+    .rex-ed-ease-body {
+        grid-column: 2;
+    }
+}
+@media (max-width: 700px) {
+    .rex-blouse-editorial-artboard {
+        grid-template-columns: 1fr;
+    }
+    .rex-ed-bust-head,
+    .rex-ed-bust-body,
+    .rex-ed-lighthouse-top,
+    .rex-ed-shoulder-head,
+    .rex-ed-shoulder-body,
+    .rex-ed-mirror,
+    .rex-ed-lighthouse-small,
+    .rex-ed-phone,
+    .rex-ed-armhole-head,
+    .rex-ed-armhole-body,
+    .rex-ed-chair,
+    .rex-ed-diagonal,
+    .rex-ed-building,
+    .rex-ed-bottle,
+    .rex-ed-stair-1,
+    .rex-ed-stair-2,
+    .rex-ed-ease-head,
+    .rex-ed-ease-body {
+        grid-column: 1;
+    }
+    .rex-blouse-editorial-artboard .rex-ed-fig img {
+        min-height: 180px;
+        max-height: 280px;
+    }
+}
+@media (max-width: 1000px) {
+    .rex-blouse-elements-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .rex-blouse-pattern-grid {
+        grid-template-columns: 1fr;
+    }
+    .rex-blouse-pattern-media {
+        grid-template-columns: 1fr 1fr;
+    }
+    .rex-blouse-compatibility-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+    .rex-blouse-texture-grid,
+    .rex-blouse-ornamentation-row {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 700px) {
+    .rex-blouse-elements-grid {
+        grid-template-columns: 1fr;
+    }
+    .rex-blouse-elements-fig img {
+        height: clamp(220px, 60vw, 320px);
+    }
+    .rex-blouse-necklines-fig img {
+        height: clamp(240px, 66vw, 340px);
+    }
+    .rex-blouse-sleeve-back-fig img {
+        height: clamp(240px, 66vw, 360px);
+    }
+    .rex-blouse-pattern-media {
+        grid-template-columns: 1fr;
+    }
+    .rex-blouse-pattern-fig--top,
+    .rex-blouse-pattern-fig--bottom {
+        height: clamp(220px, 64vw, 330px);
+    }
+    .rex-blouse-compatibility-gallery {
+        grid-template-columns: 1fr;
+    }
+    .rex-blouse-compatibility-fig img {
+        height: clamp(220px, 66vw, 320px);
+    }
+    .rex-blouse-texture-fig img,
+    .rex-blouse-ornamentation-fig img {
+        height: clamp(220px, 66vw, 330px);
+    }
+    .rex-blouse-back-surface-hero-fig img {
+        height: clamp(220px, 66vw, 320px);
+    }
 }
 @media (max-width: 900px) {
     .rex-blouse-hero-card {
