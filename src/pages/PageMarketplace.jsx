@@ -213,38 +213,40 @@ export default function PageMarketplace() {
                   );
                 })}
               </div>
-              <div className="rex-mp-page-search">
-                <input
-                  type="search"
-                  className="rex-mp-page-search-input"
-                  placeholder="Search designs, designers, occasions…"
-                  value={search}
-                  onChange={(e) => {
-                  const v = e.target.value;
-                  setSearch(v);
-                  setSearchParams((prev) => {
-                    const next = new URLSearchParams(prev);
-                    if (v.trim()) next.set('q', v); else next.delete('q');
-                    return next;
-                  });
-                }}
-                  aria-label="Search marketplace designs"
-                />
-              </div>
-              <div className="rex-mp-page-meta-row">
-                <label className="rex-mp-page-sort">
-                  <span className="rex-mp-page-sort-label">Sort by</span>
-                  <select
-                    className="rex-mp-page-sort-select"
-                    value={sort}
-                    onChange={(e) => setSort(e.target.value)}
-                  >
-                    <option value="featured">Featured</option>
-                    <option value="rating">Rating</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                  </select>
-                </label>
+              <div className="rex-mp-page-controls">
+                <div className="rex-mp-page-search">
+                  <input
+                    type="search"
+                    className="rex-mp-page-search-input"
+                    placeholder="Search designs, designers, occasions…"
+                    value={search}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      setSearch(v);
+                      setSearchParams((prev) => {
+                        const next = new URLSearchParams(prev);
+                        if (v.trim()) next.set('q', v); else next.delete('q');
+                        return next;
+                      });
+                    }}
+                    aria-label="Search marketplace designs"
+                  />
+                </div>
+                <div className="rex-mp-page-meta-row">
+                  <label className="rex-mp-page-sort">
+                    <span className="rex-mp-page-sort-label">Sort by</span>
+                    <select
+                      className="rex-mp-page-sort-select"
+                      value={sort}
+                      onChange={(e) => setSort(e.target.value)}
+                    >
+                      <option value="featured">Featured</option>
+                      <option value="rating">Rating</option>
+                      <option value="price-low">Price: Low to High</option>
+                      <option value="price-high">Price: High to Low</option>
+                    </select>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
