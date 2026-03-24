@@ -152,9 +152,9 @@ design element.
               </p>
             </div>
             <div className="rex-surface-threads-grid">
-              <figure className="rex-surface-threads-grid-a"><img src="/ds-7.png" alt="" loading="lazy" /></figure>
-              <figure className="rex-surface-threads-grid-a"><img src="/ds-8.png" alt="" loading="lazy" /></figure>
-              <figure className="rex-surface-threads-grid-b"><img src={IMG_DIVIDER} alt="" loading="lazy" /></figure>
+              <figure className="rex-surface-threads-grid-sm"><img src="/ds-7.png" alt="" loading="lazy" /></figure>
+              <figure className="rex-surface-threads-grid-lg"><img src={IMG_DIVIDER} alt="" loading="lazy" /></figure>
+              <figure className="rex-surface-threads-grid-sm"><img src="/ds-8.png" alt="" loading="lazy" /></figure>
             </div>
             <div className="rex-surface-three-col">
               <div className="rex-body-compat-subsection">

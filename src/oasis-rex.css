@@ -1516,17 +1516,17 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    font-size: clamp(2.1rem, 5.4vw, 4.3rem);
+    font-size: clamp(1.8rem, 4.6vw, 3.6rem);
     font-weight: 600;
     letter-spacing: 0.015em;
     color: var(--platinum);
 }
 .rex-surface-threads-word--and {
     position: absolute;
-    top: clamp(2.2rem, 5.4vw, 4.2rem);
+    top: clamp(1.9rem, 4.7vw, 3.6rem);
     left: 50%;
     transform: translateX(-40%);
-    font-size: clamp(1.6rem, 4.2vw, 3.1rem);
+    font-size: clamp(1.3rem, 3.4vw, 2.4rem);
     font-weight: 600;
     line-height: 0.85;
     text-transform: lowercase;
@@ -1535,10 +1535,10 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-surface-threads-word--zari {
     position: absolute;
-    top: clamp(3.7rem, 8.8vw, 6.8rem);
+    top: clamp(3.1rem, 7.2vw, 5.5rem);
     left: 50%;
     transform: translateX(-50%);
-    font-size: clamp(2.5rem, 6.5vw, 5.2rem);
+    font-size: clamp(2.1rem, 5.5vw, 4.3rem);
     font-weight: 700;
     letter-spacing: 0.01em;
     color: var(--platinum);
@@ -1564,35 +1564,38 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-surface-threads-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 2fr);
+    grid-template-rows: 1fr 1fr;
     gap: clamp(0.75rem, 1.5vw, 1rem);
     margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    align-items: stretch;
+    height: clamp(190px, 22vw, 280px);
 }
-.rex-surface-threads-grid-a {
+.rex-surface-threads-grid-sm {
     margin: 0;
-    border-radius: var(--radius-lg);
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid rgba(198,167,94,0.35);
+    border: none;
 }
-.rex-surface-threads-grid-a img {
+.rex-surface-threads-grid-sm img {
     display: block;
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }
-.rex-surface-threads-grid-b {
-    grid-column: 1 / -1;
+.rex-surface-threads-grid-lg {
+    grid-column: 2;
+    grid-row: 1 / span 2;
     margin: 0;
-    border-radius: var(--radius-lg);
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid rgba(198,167,94,0.35);
+    border: none;
 }
-.rex-surface-threads-grid-b img {
+.rex-surface-threads-grid-lg img {
     display: block;
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
     object-position: center;
 }
@@ -1634,19 +1637,19 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
         min-height: clamp(110px, 25vw, 160px);
     }
     .rex-surface-threads-word--threads {
-        font-size: clamp(1.8rem, 8vw, 3.2rem);
+        font-size: clamp(1.6rem, 7vw, 2.8rem);
     }
     .rex-surface-threads-word--and {
-        top: clamp(1.9rem, 7.5vw, 3.2rem);
+        top: clamp(1.7rem, 6.6vw, 2.8rem);
         left: 50%;
         transform: translateX(-40%);
-        font-size: clamp(1.3rem, 5.3vw, 2.2rem);
+        font-size: clamp(1.15rem, 4.5vw, 1.9rem);
     }
     .rex-surface-threads-word--zari {
-        top: clamp(3.1rem, 11.2vw, 4.8rem);
+        top: clamp(2.7rem, 9.8vw, 4.2rem);
         left: 50%;
         transform: translateX(-50%);
-        font-size: clamp(2rem, 7.4vw, 3.5rem);
+        font-size: clamp(1.75rem, 6.4vw, 3rem);
     }
     .rex-surface-hero-block .rex-surface-hero-split { grid-template-columns: 1fr; }
     .rex-surface-hero-figure img { min-height: 360px; }
@@ -1660,8 +1663,20 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     .rex-surface-threads-hero { grid-template-columns: 1fr; }
     .rex-surface-two-col-p { grid-template-columns: 1fr; }
     .rex-surface-three-col { grid-template-columns: 1fr; }
-    .rex-surface-threads-grid { grid-template-columns: 1fr; }
-    .rex-surface-threads-grid-b { grid-column: 1; }
+    .rex-surface-threads-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+    }
+    .rex-surface-threads-grid-lg {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .rex-surface-threads-grid-sm img,
+    .rex-surface-threads-grid-lg img {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
 }
 @media (max-width: 700px) {
     .rex-surface-hero-block {
