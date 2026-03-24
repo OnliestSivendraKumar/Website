@@ -26,34 +26,58 @@ export default function PageSurfaceOrnamentation() {
 
           <header className="rex-fibre-header rex-surface-hero-header">
             <p className="rex-page-eyebrow">Education Hub · Saree Intelligence</p>
+            <h1 className="rex-fibre-title">Surface Ornamentation</h1>
           </header>
 
-          {/* Hero: main title + two-col (content | image) + two images below */}
+          {/* Hero: editorial two-column split (content | tall image) */}
           <section className="rex-surface-hero-block" id="surface-ornamentation">
-            <div className="rex-surface-hero-title-wrap">
-              <h1 className="rex-surface-hero-title rex-inner-page-title">
-                <span className="rex-surface-hero-line">Surface</span>
-                <span className="rex-surface-hero-line">Ornamentation</span>
-              </h1>
-            </div>
+           
             <div className="rex-surface-hero-content">
               <div className="rex-fibre-split rex-fibre-split--text-left rex-surface-hero-split">
                 <div className="rex-fibre-split-text">
                   <p className="rex-surface-hero-p rex-fibre-full-p">
-                    Surface ornamentation refers to the decorative techniques applied to the surface of a fabric or garment to enhance its visual character. These techniques add texture, pattern, colour, and dimension through craftsmanship, cultural identity, and embellishments.
+                  Surface Ornamentation refers to the
+                  decorative techniques applied to the surface
+of a fabric or garment to enhance its visual
+character. While fabric itself provides the
+base structure of a garment, ornamentation
+introduces detail, richness, and artistic
+expression. Across many clothing traditions,
+decoration has been used not only to
+beautify garments but also to communicate
+craftsmanship, cultural identity, and
+occasion. From subtle embroidery to
+elaborate embellishments, surface
+ornamentation allows textiles to carry visual
+stories beyond their basic construction.
                   </p>
                   <h2 className="rex-fibre-section-title">The Role of Decoration in Garments</h2>
                   <p className="rex-surface-hero-p rex-fibre-full-p">
-                    Decoration in clothing serves several purposes. It can highlight important areas of a garment, create visual balance, and frame different parts such as necklines, sleeves, borders, and the back panel.
+                  Decoration in clothing serves several
+purposes. It can highlight important areas of
+a garment, draw attention to particular
+design features, or create visual balance
+within the overall silhouette.
+In garments such as sarees and blouses,
+ornamentation is often carefully placed to
+complement the garment’s structure.
+Decorative elements may frame the
+neckline, accent sleeves, emphasize borders,
+or transform the back panel into a focal
+design element.
                   </p>
                 </div>
                 <figure className="rex-surface-hero-figure">
                   <img src="/ds-1.png" alt="Surface ornamentation in fashion" loading="lazy" />
                 </figure>
               </div>
-              <div className="rex-surface-two-images">
-                <figure className="rex-surface-fig"><img src={IMG_LANDSCAPE} alt="" loading="lazy" /></figure>
-                <figure className="rex-surface-fig"><img src={IMG_LANDSCAPE} alt="" loading="lazy" /></figure>
+              <div className="rex-surface-duo-gallery" aria-label="Surface ornamentation visuals">
+                <figure className="rex-surface-duo-fig rex-surface-duo-fig--wide">
+                  <img src="/ds-4.png" alt="Editorial garment composition" loading="lazy" />
+                </figure>
+                <figure className="rex-surface-duo-fig rex-surface-duo-fig--tall">
+                  <img src="/ds-6fh.png" alt="Monochrome movement portrait" loading="lazy" />
+                </figure>
               </div>
             </div>
           </section>
@@ -110,7 +134,11 @@ export default function PageSurfaceOrnamentation() {
           {/* Screenshot 3: THREADS and ZARI — title left + image right; two col paragraphs; image grid + 3 col */}
           <section className="rex-fibre-section rex-surface-threads" id="threads-zari">
             <div className="rex-surface-threads-hero">
-              <h2 className="rex-surface-threads-title">Threads<br />and<br />Zari</h2>
+              <h2 className="rex-surface-threads-title" aria-label="Threads and Zari">
+                <span className="rex-surface-threads-word rex-surface-threads-word--threads">Threads</span>
+                <span className="rex-surface-threads-word rex-surface-threads-word--and">and</span>
+                <span className="rex-surface-threads-word rex-surface-threads-word--zari">Zari</span>
+              </h2>
               <figure className="rex-surface-threads-fig">
                 <img src="/ds-6fh.png" alt="Threads and zari in textiles" loading="lazy" />
               </figure>
