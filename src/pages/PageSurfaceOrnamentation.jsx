@@ -25,7 +25,7 @@ export default function PageSurfaceOrnamentation() {
         <div className="rex-fibre-shell">
 
           <header className="rex-fibre-header rex-surface-hero-header">
-            <p className="rex-page-eyebrow">Education Hub · Saree Intelligence</p>
+            <p className="rex-page-eyebrow">Education Hub</p>
             <h1 className="rex-fibre-title">Surface Ornamentation</h1>
           </header>
 

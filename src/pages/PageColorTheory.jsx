@@ -26,7 +26,7 @@ export default function PageColorTheory() {
         <div className="rex-fibre-shell rex-color-shell">
 
           {/* ── Screenshot 1: Edition title + two images + sidebar + drop cap ── */}
-          <p className="rex-page-eyebrow">Education Hub · Saree Intelligence</p>
+          <p className="rex-page-eyebrow">Education Hub</p>
           <header className="rex-color-edition-header">
             <p className="rex-color-edition-top">THE</p>
             <h1 className="rex-color-edition-title">Color Theory</h1>

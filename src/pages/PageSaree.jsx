@@ -41,7 +41,7 @@ export default function PageSaree() {
       <main className="rex-page-inner rex-saree-page" id="main-content" role="main">
         <div className="rex-saree-shell">
 
-          <p className="rex-page-eyebrow rex-saree-eyebrow">Education Hub · Saree Intelligence</p>
+          <p className="rex-page-eyebrow rex-saree-eyebrow">Education Hub</p>
 
           {/* ═══ Screenshot 1: Hero — image top, then centered title + subtitle + 2 paras (white section) ═══ */}
           <section className="rex-saree-hero" id="saree-intro">

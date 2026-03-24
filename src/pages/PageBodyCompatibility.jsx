@@ -23,7 +23,7 @@ export default function PageBodyCompatibility() {
         <div className="rex-fibre-shell">
 
           <header className="rex-fibre-header rex-body-compat-header">
-          <p className="rex-page-eyebrow">Education Hub · Body and compatibility</p>
+          <p className="rex-page-eyebrow">Education Hub</p>
             <h1 className="rex-fibre-title">Body and compatibility</h1>
           </header>
 

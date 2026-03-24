@@ -31,7 +31,7 @@ export default function PageFabricConstruction() {
         <div className="rex-fibre-shell">
 
           <header className="rex-fibre-header">
-            <p className="rex-page-eyebrow">Education Hub · Saree Intelligence</p>
+            <p className="rex-page-eyebrow">Education Hub</p>
             <h1 className="rex-fibre-title">Fabric Construction</h1>
           </header>
 

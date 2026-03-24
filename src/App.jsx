@@ -30,6 +30,7 @@ import PageColorTheory from './pages/PageColorTheory';
 import PageSaree from './pages/PageSaree';
 import PageBodyCompatibility from './pages/PageBodyCompatibility';
 import PageSurfaceOrnamentation from './pages/PageSurfaceOrnamentation';
+import PageBlouse from './pages/PageBlouse';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -77,6 +78,7 @@ export default function App() {
         <Route path="/education/saree" element={<PageSaree />} />
         <Route path="/education/body-compatibility" element={<PageBodyCompatibility />} />
         <Route path="/education/surface-ornamentation" element={<PageSurfaceOrnamentation />} />
+        <Route path="/education/blouse" element={<PageBlouse />} />
         <Route path="/designers" element={<PageDesigners />} />
         <Route path="/designers/:id" element={<PageDesignerDetail />} />
         <Route path="/merchandise" element={<PageMerchandise />} />

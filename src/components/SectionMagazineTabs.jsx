@@ -193,7 +193,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Blouse Intelligence',
       headline: 'Blouse',
-      cta: { label: 'Learn Blouse', href: '#marketplace' },
+      cta: { label: 'Learn Blouse', href: '/education/blouse' },
       image: '/edu-blouse.png',
       imageAlt: 'Blouse design illustration',
     },
