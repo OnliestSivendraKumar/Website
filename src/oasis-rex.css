@@ -6493,7 +6493,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-merch-card-media {
     position: relative;
-    aspect-ratio: 1;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
     background: rgba(5,3,8,0.8);
 }
@@ -6501,8 +6501,8 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
+    object-position: center top;
 }
 .rex-merch-card-body {
     padding: 1.1rem 1.25rem 1.35rem;
@@ -6527,11 +6527,24 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     font-size: 1rem;
     font-weight: 600;
     color: var(--platinum);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rex-merch-card-meta {
+    display: flex;
+    align-items: center;
+    min-height: 1.2rem;
 }
 .rex-merch-card-subtitle {
     margin: 0;
     font-size: 0.82rem;
     color: var(--plat-65);
+}
+.rex-merch-card-subtitle--truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .rex-merch-card-price {
     margin: 0;
@@ -6539,9 +6552,17 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     font-weight: 500;
     color: var(--gold);
 }
+.rex-merch-card-footer {
+    margin-top: 0.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
 .rex-merch-card-cta {
-    margin-top: 0.35rem;
-    align-self: flex-start;
+    margin-top: 0;
+    align-self: auto;
+    margin-left: auto;
 }
 .rex-merch-empty {
     text-align: center;

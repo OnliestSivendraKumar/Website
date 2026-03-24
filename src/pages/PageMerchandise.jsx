@@ -95,26 +95,28 @@ export default function PageMerchandise() {
                   </div>
                     <div className="rex-merch-card-body">
                       <h3 className="rex-merch-card-title">{product.name}</h3>
-                      <div className="rex-merch-card-row">
+                      <div className="rex-merch-card-meta">
                         {product.subtitle && (
                           <span className="rex-merch-card-subtitle rex-merch-card-subtitle--truncate">
-                            {product.subtitle}
+                            by {product.subtitle}
                           </span>
                         )}
+                      </div>
+                      <div className="rex-merch-card-footer">
                         {product.price && (
                           <span className="rex-merch-card-price">{product.price}</span>
                         )}
+                        <button
+                          type="button"
+                          className="rex-btn rex-btn-primary rex-merch-card-cta"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/merchandise/${product.id}`);
+                          }}
+                        >
+                          View details
+                        </button>
                       </div>
-                    <button
-                      type="button"
-                      className="rex-btn rex-btn-primary rex-merch-card-cta"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        navigate(`/merchandise/${product.id}`);
-                      }}
-                    >
-                      View details
-                    </button>
                   </div>
                 </article>
               ))}
