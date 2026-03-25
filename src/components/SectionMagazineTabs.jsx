@@ -17,7 +17,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Onliest World Intelligence',
       headline: 'ONLIEST WORLD',
-      cta: { label: 'Learn Onliest World', href: '#journey' },
+      cta: { label: 'Learn Onliest World', href: '/education/onliest-world' },
       image: '/edu-world.png',
       imageAlt: 'Onliest world preview',
     },
@@ -41,7 +41,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Trend Intelligence',
       headline: 'Now',
-      cta: { label: 'Learn Trends', href: '#marketplace' },
+      cta: { label: 'Learn Trends', href: '/education/trending' },
       image: '/ds-9.png',
       imageAlt: 'Trending preview',
     },
@@ -212,7 +212,7 @@ const DEFAULT_TABS = [
     hero: {
       kicker: 'Draping Intelligence',
       headline: 'Saree Draping',
-      cta: { label: 'Learn Saree Draping', href: '/education/saree' },
+      cta: { label: 'Learn Saree Draping', href: '/education/saree-draping' },
       image: '/edu-drape.png',
       imageAlt: 'Draping preview',
     },

@@ -36,16 +36,16 @@ const PAGES = [
 
 // Education hub sections (tab titles + fibre inner page)
 const EDUCATION = [
-  { label: 'Onliest World', href: '/', keywords: 'onliest world intelligence textile' },
-  { label: 'Trending', href: '/marketplace', keywords: 'trending trends' },
-  { label: 'Body Compatibility', href: '/', keywords: 'body compatibility fit shape' },
+  { label: 'Onliest World', href: '/education/onliest-world', keywords: 'onliest world intelligence textile' },
+  { label: 'Trending', href: '/education/trending', keywords: 'trending trends style forecast modern saree blouse' },
+  { label: 'Body Compatibility', href: '/education/body-compatibility', keywords: 'body compatibility fit shape' },
   { label: 'Color', href: '/education/color-theory', keywords: 'color colour skin undertone theory pairing warm cool' },
   { label: 'Fibre & Fabric', href: '/education/fibre-foundations', keywords: 'fibre fabric weave silk cotton' },
   { label: 'Fabric Construction', href: '/education/fabric-construction', keywords: 'fabric construction woven knit textile yarn' },
-  { label: 'Saree', href: '/', keywords: 'saree sari weaving' },
+  { label: 'Saree', href: '/education/saree', keywords: 'saree sari weaving' },
   { label: 'Surface Ornamentation', href: '/education/surface-ornamentation', keywords: 'surface ornamentation embroidery zari beads sequins appliqué lace trims printing' },
   { label: 'Blouse', href: '/education/blouse', keywords: 'blouse neckline sleeve' },
-  { label: 'Saree Draping', href: '/', keywords: 'saree draping drape pallu' },
+  { label: 'Saree Draping', href: '/education/saree-draping', keywords: 'saree draping drape pallu' },
 ];
 
 function buildSearchIndex() {

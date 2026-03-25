@@ -28,9 +28,12 @@ import PageFibreFoundations from './pages/PageFibreFoundations';
 import PageFabricConstruction from './pages/PageFabricConstruction';
 import PageColorTheory from './pages/PageColorTheory';
 import PageSaree from './pages/PageSaree';
+import PageSareeDraping from './pages/PageSareeDraping';
+import PageTrending from './pages/PageTrending';
 import PageBodyCompatibility from './pages/PageBodyCompatibility';
 import PageSurfaceOrnamentation from './pages/PageSurfaceOrnamentation';
 import PageBlouse from './pages/PageBlouse';
+import PageOnliestWorld from './pages/PageOnliestWorld';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -76,6 +79,9 @@ export default function App() {
         <Route path="/education/fabric-construction" element={<PageFabricConstruction />} />
         <Route path="/education/color-theory" element={<PageColorTheory />} />
         <Route path="/education/saree" element={<PageSaree />} />
+        <Route path="/education/trending" element={<PageTrending />} />
+        <Route path="/education/saree-draping" element={<PageSareeDraping />} />
+        <Route path="/education/onliest-world" element={<PageOnliestWorld />} />
         <Route path="/education/body-compatibility" element={<PageBodyCompatibility />} />
         <Route path="/education/surface-ornamentation" element={<PageSurfaceOrnamentation />} />
         <Route path="/education/blouse" element={<PageBlouse />} />
