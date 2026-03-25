@@ -40,6 +40,7 @@ const STORY_SLIDES = [
     ],
     primaryCta: { label: 'Start Designing', href: '#design' },
     secondaryCta: { label: 'Explore the Experience', href: '#experience' },
+    moreHref: '/education/hero/section-0-origin',
   },
   {
     id: 'section-1-problem',
@@ -52,6 +53,7 @@ const STORY_SLIDES = [
       'Bodies and tastes are not standard - they are singular.',
       'True elegance was never meant to be mass-produced; it belongs in the hands of the one who wears it... More',
     ],
+    moreHref: '/education/hero/section-1-problem',
   },
   {
     id: 'section-2-awakening',
@@ -64,6 +66,7 @@ const STORY_SLIDES = [
       'What if you could design something no one else in the world owns?',
       'Onliest unlocks something deeper: your creativity, your confidence, and a garment that carries your name... More',
     ],
+    moreHref: '/education/hero/section-2-awakening',
   },
   {
     id: 'section-3-vision',
@@ -76,6 +79,7 @@ const STORY_SLIDES = [
       'Every saree and blouse is mapped to your body, your preferences, and your story.',
       'Nothing is pulled from a rack - each piece begins as a blank canvas created by you... More',
     ],
+    moreHref: '/education/hero/section-3-vision',
   },
   {
     id: 'section-5-self-discovery',
@@ -88,6 +92,7 @@ const STORY_SLIDES = [
       'You discover your taste, your confidence, and your creative identity.',
       'And when you wear it, it doesn’t just look beautiful - it becomes the design others admire, the design others wish they had created... More',
     ],
+    moreHref: '/education/hero/section-5-self-discovery',
   },
   {
     id: 'section-7-emotion',
@@ -102,6 +107,7 @@ const STORY_SLIDES = [
     ],
     primaryCta: { label: 'Design Now', href: '#design' },
     secondaryCta: { label: 'Request a Demo', href: '#demo' },
+    moreHref: '/education/hero/section-7-emotion',
   },
 ];
 

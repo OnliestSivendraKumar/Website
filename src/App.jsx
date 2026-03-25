@@ -31,6 +31,7 @@ import PageSaree from './pages/PageSaree';
 import PageSareeDraping from './pages/PageSareeDraping';
 import PageSilkSareeType from './pages/PageSilkSareeType';
 import PageTrending from './pages/PageTrending';
+import PageHeroReadMore from './pages/PageHeroReadMore';
 import PageBodyCompatibility from './pages/PageBodyCompatibility';
 import PageSurfaceOrnamentation from './pages/PageSurfaceOrnamentation';
 import PageBlouse from './pages/PageBlouse';
@@ -84,6 +85,7 @@ export default function App() {
         <Route path="/education/trending" element={<PageTrending />} />
         <Route path="/education/saree-draping" element={<PageSareeDraping />} />
         <Route path="/education/onliest-world" element={<PageOnliestWorld />} />
+        <Route path="/education/hero/:sectionId" element={<PageHeroReadMore />} />
         <Route path="/education/body-compatibility" element={<PageBodyCompatibility />} />
         <Route path="/education/surface-ornamentation" element={<PageSurfaceOrnamentation />} />
         <Route path="/education/blouse" element={<PageBlouse />} />
