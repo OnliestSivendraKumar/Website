@@ -7996,6 +7996,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-footer-social {
     flex-shrink: 0;
 }
+.rex-footer-social a,
 .rex-footer-social button { 
     border-radius: 999px;
     padding:0; 
@@ -8003,8 +8004,12 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     background: var(--glass-bg);
     color: var(--plat-70);
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: background 0.2s var(--ease), transform 0.2s var(--ease);
 }
+.rex-footer-social a:hover,
 .rex-footer-social button:hover {
     background: rgba(198, 167, 94, 0.18);
     transform: translateY(-1px);
@@ -8566,6 +8571,12 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     gap: 0.35rem;
     font-size: 0.85rem;
     color: var(--plat-45);
+}
+
+.rex-required-star {
+    color: var(--burg-strong);
+    font-weight: 800;
+    margin-left: 0.35rem;
 }
 
 .rex-page-contact-form input,
@@ -13463,7 +13474,7 @@ body[data-theme="light"] .rex-s2-bg-overlay {
 }
 .rex-resolution-h {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2rem, 4.8vw, 3.25rem);
     font-weight: 400; color: var(--platinum);
     letter-spacing: 0.02em; line-height: 1.15;
 }

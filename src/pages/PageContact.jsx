@@ -120,14 +120,20 @@ export default function PageContact() {
                   <div className="rex-page-contact-row">
                     <h3>Social</h3>
                     <div className="rex-page-contact-social">
-                      <a href="#" aria-label="Visit Onliest on Facebook">
+                      <a href="https://www.facebook.com/profile.php?id=100088638623747" target="_blank" rel="noopener noreferrer" aria-label="Visit Onliest on Facebook">
                         <img src="/fb.svg" alt="" className="rex-page-contact-social-icon" />
                       </a>
-                      <a href="#" aria-label="Visit Onliest on Instagram">
+                      <a href="https://www.instagram.com/onliestworld/" target="_blank" rel="noopener noreferrer" aria-label="Visit Onliest on Instagram">
                         <img src="/insta.svg" alt="" className="rex-page-contact-social-icon" />
                       </a>
-                      <a href="#" aria-label="Visit Onliest on LinkedIn">
+                      <a href="https://www.linkedin.com/in/onliestworld/" target="_blank" rel="noopener noreferrer" aria-label="Visit Onliest on LinkedIn">
                         <img src="/in.svg" alt="" className="rex-page-contact-social-icon" />
+                      </a>
+                      <a href="https://in.pinterest.com/onliestworldpmo" target="_blank" rel="noopener noreferrer" aria-label="Visit Onliest on Pinterest">
+                        <img src="/pinterest.svg" alt="" className="rex-page-contact-social-icon" />
+                      </a>
+                      <a href="https://x.com/OnliestWorld" target="_blank" rel="noopener noreferrer" aria-label="Visit Onliest on Twitter">
+                        <img src="/twitter.svg" alt="" className="rex-page-contact-social-icon" />
                       </a>
                     </div>
                   </div>
@@ -139,7 +145,9 @@ export default function PageContact() {
                 <form className="rex-page-contact-form" onSubmit={handleSubmit}>
                   <div className="rex-page-contact-row-inline">
                     <label>
-                      <span>Name*</span>
+                      <span>
+                        Name <span className="rex-required-star">*</span>
+                      </span>
                       <input
                         type="text"
                         name="name"
@@ -148,7 +156,9 @@ export default function PageContact() {
                       />
                     </label>
                     <label>
-                      <span>E‑mail*</span>
+                      <span>
+                        E-mail <span className="rex-required-star">*</span>
+                      </span>
                       <input
                         type="email"
                         name="email"
@@ -158,7 +168,9 @@ export default function PageContact() {
                     </label>
                   </div>
                   <label>
-                    <span>Message*</span>
+                    <span>
+                      Message <span className="rex-required-star">*</span>
+                    </span>
                     <textarea
                       name="message"
                       rows="4"

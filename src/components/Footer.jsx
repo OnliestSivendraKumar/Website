@@ -72,15 +72,21 @@ export default function Footer() {
       <div className="rex-footer-bottom">
         <div className="rex-footer-social">
           <span>Follow us:</span>
-          <button type="button" aria-label="Onliest on Facebook">
+          <a href="https://www.facebook.com/profile.php?id=100088638623747" target="_blank" rel="noopener noreferrer" aria-label="Onliest on Facebook">
             <img src="/fb.svg" alt="" className="rex-footer-social-icon" />
-          </button>
-          <button type="button" aria-label="Onliest on Instagram">
+          </a>
+          <a href="https://www.instagram.com/onliestworld/" target="_blank" rel="noopener noreferrer" aria-label="Onliest on Instagram">
             <img src="/insta.svg" alt="" className="rex-footer-social-icon" />
-          </button>
-          <button type="button" aria-label="Onliest on LinkedIn">
+          </a>
+          <a href="https://www.linkedin.com/in/onliestworld/" target="_blank" rel="noopener noreferrer" aria-label="Onliest on LinkedIn">
             <img src="/in.svg" alt="" className="rex-footer-social-icon" />
-          </button>
+          </a>
+          <a href="https://in.pinterest.com/onliestworldpmo" target="_blank" rel="noopener noreferrer" aria-label="Onliest on Pinterest">
+            <img src="/pinterest.svg" alt="" className="rex-footer-social-icon" />
+          </a>
+          <a href="https://x.com/OnliestWorld" target="_blank" rel="noopener noreferrer" aria-label="Onliest on Twitter">
+            <img src="/twitter.svg" alt="" className="rex-footer-social-icon" />
+          </a>
         </div>
 
         <div className="rex-footer-copy">
