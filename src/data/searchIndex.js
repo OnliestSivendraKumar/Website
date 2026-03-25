@@ -21,7 +21,7 @@ const PAGES = [
   { label: 'Designers', href: '/designers', keywords: 'designers designer list all' },
   { label: 'Contact Us', href: '/contact', keywords: 'contact help support reach' },
   { label: 'Blog', href: '/blog', keywords: 'blog article journal' },
-  { label: 'FAQ', href: '/faq', keywords: 'faq questions' },
+  { label: 'FAQ', href: '/contact#faq', keywords: 'faq questions contact support' },
   { label: 'Careers', href: '/careers', keywords: 'careers jobs hiring' },
   { label: 'Merchandise', href: '/merchandise', keywords: 'merchandise gift card clips belts' },
   { label: 'Reviews', href: '/reviews', keywords: 'reviews testimonials' },
