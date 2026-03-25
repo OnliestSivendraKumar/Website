@@ -31,12 +31,13 @@ const DEFAULT_TABS = [
     subtitle: 'What’s hot right now — silhouettes, colors, and styling cues.',
     tabImage: '/ds-9.png',
     items: [
-      'Trending saree palettes',
-      'Popular blouse necklines',
-      'Border & pallu preferences',
-      'Surface work intensity',
-      'Occasion-first styling',
-      'Designer-led picks',
+      "COLORS OF THE YEAR",
+      "SIGNATURE FABRICS",
+      "TRENDING BLOUSES",
+      "SIGNATURE SAREES",
+      "MODERN EXCLUSIVITY",
+      "INNOVATIVE DRAPE STYLES",
+      "TRENDING TODAY",
     ],
     hero: {
       kicker: 'Trend Intelligence',
@@ -46,7 +47,7 @@ const DEFAULT_TABS = [
       imageAlt: 'Trending preview',
     },
     detail:
-      'Trends help you buy confidently without guessing. This module breaks down what’s currently trending in saree colors, border widths, pallu styles, and blouse necklines—plus how to adapt those trends to your body type and occasion. You’ll learn “safe trend” formulas (a trending color + classic silhouette), how to avoid short-lived gimmicks, and how to style one trending saree multiple ways with blouse and jewelry changes. We also include quick checks for trend-versus-timeless so your wardrobe stays premium and wearable.',
+      'The Trending section is a curated intelligence space that tracks the evolving landscape of sarees and blouse design, with a focused lens on silk, premium cotton, and contemporary blouse variations. It brings together shifts in aesthetics, material innovation, weaving techniques, and consumer preferences to provide a clear understanding of what is relevant in the current market. This section explores how traditional sarees are being reinterpreted through lighter constructions, refined motifs, and modern color palettes, while premium cotton sarees are gaining prominence for their comfort, texture, and everyday luxury appeal. Equal emphasis is placed on blouse evolution, highlighting changes in neckline structures, sleeve variations, fit, and back design, along with their direct impact on pattern development and garment construction.\n\nBeyond visual trends, the platform analyzes deeper factors such as fabric behavior, drape, and usability across occasions, ensuring that each trend is understood not just stylistically but technically. It also captures emerging draping styles, fusion adaptations, and the growing demand for versatile, wearable designs that cater to both traditional and modern consumers.',
   },
   {
     id: 'body-compatability',
