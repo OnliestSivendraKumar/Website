@@ -91,9 +91,9 @@ const NAV_ITEMS = [
   { id: 'about', label: 'About', type: 'simple' },
   { id: 'marketplace', label: 'Market Place', type: 'mega' },
   { id: 'products', label: 'Products', type: 'simple' },
-  { id: 'merchandise', label: 'Merchandise', type: 'simple' },
+  { id: 'merchandise', label: 'Merchandise', type: null, href: '/merchandise' },
   { id: 'social', label: 'Social Reach', type: 'simple' },
-  { id: 'contact', label: 'Contact Us', type: null },
+  { id: 'contact', label: 'Contact Us', type: null, href: '/contact' },
 ];
 
 function SearchIcon() {
@@ -367,7 +367,7 @@ export default function Header({ hideOnPanels = false }) {
               onMouseLeave={item.type != null ? handleNavItemLeave : undefined}
             >
               {item.type === null ? (
-                <a href="/contact" className="rex-header-link">
+                <a href={item.href || '/'} className="rex-header-link">
                   {item.label}
                 </a>
               ) : (
@@ -515,7 +515,7 @@ export default function Header({ hideOnPanels = false }) {
 
                 if (item.type === null) {
                   return (
-                    <a key={item.id} href="/contact" className="rex-mobile-menu-item" onClick={() => setMobileMenuOpen(false)}>
+                    <a key={item.id} href={item.href || '/'} className="rex-mobile-menu-item" onClick={() => setMobileMenuOpen(false)}>
                       {item.label}
                     </a>
                   );

@@ -63,68 +63,73 @@ export default function PageMerchandise() {
 
         <section className="rex-page-section rex-merch-section" aria-label="Merchandise catalog">
           <div className="rex-page-container rex-page-container--wide">
-            <div className="rex-merch-tabs-wrap">
-              <div className="rex-merch-tabs" role="tablist" aria-label="Filter by category">
-                {CATEGORIES.map((cat) => {
-                  const isActive = activeCategory === cat.id;
-                  return (
-                    <button
-                      key={cat.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={isActive}
-                      className={`rex-merch-tab${isActive ? ' is-active' : ''}`}
-                      onClick={() => setActiveCategory(cat.id)}
+            <div className="rex-merch-layout">
+              <aside className="rex-merch-sidebar" aria-label="Merchandise categories">
+                <p className="rex-merch-sidebar-title">Categories</p>
+                <div className="rex-merch-tabs" role="tablist" aria-label="Filter by category">
+                  {CATEGORIES.map((cat) => {
+                    const isActive = activeCategory === cat.id;
+                    return (
+                      <button
+                        key={cat.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={isActive}
+                        className={`rex-merch-tab${isActive ? ' is-active' : ''}`}
+                        onClick={() => setActiveCategory(cat.id)}
+                      >
+                        {cat.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </aside>
+
+              <div className="rex-merch-content">
+                <div className={`rex-merch-grid${isAnimating ? ' is-animating' : ''}`}>
+                  {filtered.map((product) => (
+                    <article
+                      key={product.id}
+                      className="rex-merch-card"
+                      onClick={() => navigate(`/merchandise/${product.id}`)}
                     >
-                      {cat.label}
-                    </button>
-                  );
-                })}
+                      <div className="rex-merch-card-media">
+                        <img src={product.image} alt={product.name} loading="lazy" />
+                      </div>
+                      <div className="rex-merch-card-body">
+                        <h3 className="rex-merch-card-title">{product.name}</h3>
+                        <div className="rex-merch-card-meta">
+                          {product.subtitle && (
+                            <span className="rex-merch-card-subtitle rex-merch-card-subtitle--truncate">
+                              by {product.subtitle}
+                            </span>
+                          )}
+                        </div>
+                        <div className="rex-merch-card-footer">
+                          {product.price && (
+                            <span className="rex-merch-card-price">{product.price}</span>
+                          )}
+                          <button
+                            type="button"
+                            className="rex-btn rex-btn-primary rex-merch-card-cta"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate(`/merchandise/${product.id}`);
+                            }}
+                          >
+                            View details
+                          </button>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                {filtered.length === 0 && (
+                  <p className="rex-merch-empty">No products in this category yet. Check back soon.</p>
+                )}
               </div>
             </div>
-
-            <div className={`rex-merch-grid${isAnimating ? ' is-animating' : ''}`}>
-              {filtered.map((product) => (
-                <article
-                  key={product.id}
-                  className="rex-merch-card"
-                  onClick={() => navigate(`/merchandise/${product.id}`)}
-                >
-                  <div className="rex-merch-card-media">
-                    <img src={product.image} alt={product.name} loading="lazy" />
-                  </div>
-                    <div className="rex-merch-card-body">
-                      <h3 className="rex-merch-card-title">{product.name}</h3>
-                      <div className="rex-merch-card-meta">
-                        {product.subtitle && (
-                          <span className="rex-merch-card-subtitle rex-merch-card-subtitle--truncate">
-                            by {product.subtitle}
-                          </span>
-                        )}
-                      </div>
-                      <div className="rex-merch-card-footer">
-                        {product.price && (
-                          <span className="rex-merch-card-price">{product.price}</span>
-                        )}
-                        <button
-                          type="button"
-                          className="rex-btn rex-btn-primary rex-merch-card-cta"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            navigate(`/merchandise/${product.id}`);
-                          }}
-                        >
-                          View details
-                        </button>
-                      </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {filtered.length === 0 && (
-              <p className="rex-merch-empty">No products in this category yet. Check back soon.</p>
-            )}
           </div>
         </section>
       </main>
