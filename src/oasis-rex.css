@@ -1068,6 +1068,43 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-fibre-full-p:last-of-type { margin-bottom: 0; }
 
+/* ── Education readability normalization (all inner education pages) ── */
+.rex-fibre-full-p,
+.rex-fibre-section p,
+.rex-saree-prose p,
+.rex-saree-loom-item p,
+.rex-saree-pattern-cols p,
+.rex-saree-resist-cols p,
+.rex-sd-p,
+.rex-blouse-hero-p,
+.rex-blouse-structure-p,
+.rex-blouse-details-p,
+.rex-blouse-elements-p,
+.rex-blouse-necklines-p,
+.rex-blouse-sleeve-back-p,
+.rex-blouse-compatibility-p,
+.rex-blouse-ornamentation-p,
+.rex-blouse-back-surface-p,
+.rex-blouse-occasion-p,
+.rex-body-compat-hero-p,
+.rex-trend-intro,
+.rex-trend-section article p,
+.rex-trend-modern-copy p,
+.rex-trend-drape-copy p,
+.rex-trend-collage-hero p {
+    font-size: clamp(0.98rem, 1.02vw, 1.08rem);
+    line-height: 1.72;
+    margin-bottom: 0.95rem;
+    text-align: left;
+    max-width: 74ch;
+    hyphens: none;
+}
+.rex-sd-list,
+.rex-sd-steps {
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+}
+
 /* ── Divider ── */
 .rex-fibre-divider {
     border: none;
@@ -1388,7 +1425,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-blouse-hero-title {
     margin: 0 0 0.9rem;
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-size: clamp(1.9rem, 3.8vw, 2.7rem);
     font-weight: 700;
     line-height: 1.05;
     color: var(--platinum);
@@ -2520,7 +2557,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-color-edition-title {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-size: clamp(1.9rem, 3.8vw, 2.7rem);
     font-weight: 700;
     color: var(--platinum);
     letter-spacing: 0.02em;
@@ -3074,8 +3111,8 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     margin: 0 calc(-1 * var(--layout-pad-x)) clamp(2.5rem, 5vw, 3.5rem);
     border-radius: 0;
     overflow: hidden;
-    border: 1px solid rgba(198, 167, 94, 0.22);
-    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.35);
+    border: 0;
+    box-shadow: none;
 }
 .rex-saree-hero-visual {
     position: relative;
@@ -3105,16 +3142,16 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     color: var(--plat-70);
     padding: clamp(2rem, 5vw, 3.25rem) clamp(1.5rem, 5vw, 4rem) clamp(2.25rem, 5vw, 3.5rem);
     text-align: center;
-    border-top: 1px solid var(--gold-border);
-    box-shadow: inset 0 1px 0 rgba(198, 167, 94, 0.08);
+    border-top: 0;
+    box-shadow: none;
 }
 .rex-saree-hero-kicker {
     margin: 0 0 0.35rem;
     font-family: var(--font-display);
-    font-size: clamp(2.35rem, 6.5vw, 3.75rem);
+    font-size: clamp(1.9rem, 3.8vw, 2.7rem);
     font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1.05;
+    letter-spacing: 0.08em;
+    line-height: 1.08;
     text-transform: uppercase;
     color: var(--platinum);
 }
@@ -4073,6 +4110,10 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     margin: 0;
     transition: transform 0.22s var(--ease);
 }
+.rex-saree-gallery-link {
+    display: block;
+    text-decoration: none;
+}
 .rex-saree-gallery-item:hover {
     transform: translateY(-4px);
 }
@@ -4103,6 +4144,60 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     text-transform: uppercase;
     color: var(--platinum);
     text-align: center;
+}
+
+.rex-silk-pdf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 0.9rem;
+}
+.rex-silk-pdf-frame-wrap {
+    border: 1px solid rgba(198, 167, 94, 0.28);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: #0b0b0f;
+    position: relative;
+}
+.rex-silk-pdf-frame {
+    display: block;
+    width: 100%;
+    height: min(78vh, 980px);
+    border: 0;
+}
+
+/* Fullscreen: make iframe fill the viewport height (no bottom black strip) */
+.rex-silk-pdf-frame-wrap:fullscreen {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+}
+.rex-silk-pdf-frame-wrap:fullscreen .rex-silk-pdf-frame {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+.rex-silk-pdf-fullscreen-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 5;
+    border: 1px solid rgba(198, 167, 94, 0.35);
+    background: rgba(11, 11, 15, 0.72);
+    color: var(--platinum);
+    border-radius: 999px;
+    padding: 0.5rem 0.85rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.rex-silk-pdf-fullscreen-btn:hover {
+    border-color: rgba(198, 167, 94, 0.6);
 }
 
 @media (max-width: 900px) {

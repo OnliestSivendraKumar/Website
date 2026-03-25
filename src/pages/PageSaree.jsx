@@ -14,6 +14,20 @@ const IMG = {
   patternHero: '/ds-9.png',
   resistHero: '/ds-7.png',
 };
+const SILK_TYPES = [
+  { label: 'Tissue', slug: 'tissue' },
+  { label: 'Uppada', slug: 'uppada' },
+  { label: 'Velvet', slug: 'velvet' },
+  { label: 'Venkatagiri', slug: 'venkatagiri' },
+  { label: 'Mysore Silk', slug: 'mysore-silk' },
+  { label: 'Organza', slug: 'organza' },
+  { label: 'Patola', slug: 'patola' },
+  { label: 'Pochampally Ikat', slug: 'pochampally-ikat' },
+  { label: 'Banaras', slug: 'banaras' },
+  { label: 'Chanderi', slug: 'chanderi' },
+  { label: 'Dharmavaram', slug: 'dharmavaram' },
+  { label: 'Kanjeevaram', slug: 'kanjeevaram' },
+];
 
 export default function PageSaree() {
   useEffect(() => {
@@ -192,6 +206,26 @@ export default function PageSaree() {
                 </p>
               </article>
             </div>
+          </section>
+
+          <section className="rex-saree-silk-gallery" aria-label="12 silk saree types">
+            <h2 className="rex-saree-h2">12 Silk Saree Types</h2>
+            <ul className="rex-saree-gallery">
+              {SILK_TYPES.map((item, idx) => (
+                <li key={item.slug} className="rex-saree-gallery-item">
+                  <a href={`/education/saree/silk/${item.slug}`} className="rex-saree-gallery-link">
+                    <figure className="rex-saree-gallery-fig">
+                      <img
+                        src={`/ds-${(idx % 9) + 1}.png`}
+                        alt={`${item.label} saree type`}
+                        loading="lazy"
+                      />
+                    </figure>
+                    <p className="rex-saree-gallery-caption">{item.label}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <nav className="rex-fibre-footer-cta rex-fibre-footer-nav" aria-label="Education module navigation">

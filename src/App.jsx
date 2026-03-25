@@ -29,6 +29,7 @@ import PageFabricConstruction from './pages/PageFabricConstruction';
 import PageColorTheory from './pages/PageColorTheory';
 import PageSaree from './pages/PageSaree';
 import PageSareeDraping from './pages/PageSareeDraping';
+import PageSilkSareeType from './pages/PageSilkSareeType';
 import PageTrending from './pages/PageTrending';
 import PageBodyCompatibility from './pages/PageBodyCompatibility';
 import PageSurfaceOrnamentation from './pages/PageSurfaceOrnamentation';
@@ -79,6 +80,7 @@ export default function App() {
         <Route path="/education/fabric-construction" element={<PageFabricConstruction />} />
         <Route path="/education/color-theory" element={<PageColorTheory />} />
         <Route path="/education/saree" element={<PageSaree />} />
+        <Route path="/education/saree/silk/:silkType" element={<PageSilkSareeType />} />
         <Route path="/education/trending" element={<PageTrending />} />
         <Route path="/education/saree-draping" element={<PageSareeDraping />} />
         <Route path="/education/onliest-world" element={<PageOnliestWorld />} />
