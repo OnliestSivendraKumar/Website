@@ -28,7 +28,7 @@ const SIMPLE_DROPDOWNS = {
     { label: 'Blog', href: '/blog' },
     { label: 'Reviews', href: '/reviews' },
     { label: 'FAQ', href: '/faq' },
-    { label: 'Press', href: '#social-press' },
+    { label: 'Press Note', href: '#social-press' },
   ],
   products: [
     { label: 'Onliest REX', href: '/products/rex' },
