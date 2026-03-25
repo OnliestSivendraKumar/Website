@@ -4124,6 +4124,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     border: 1px solid rgba(198,167,94,0.3);
     aspect-ratio: 3 / 4;
     transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    position: relative;
 }
 .rex-saree-gallery-item:hover .rex-saree-gallery-fig {
     border-color: rgba(198,167,94,0.55);
@@ -4144,6 +4145,48 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     text-transform: uppercase;
     color: var(--platinum);
     text-align: center;
+}
+
+.rex-saree-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.9rem;
+    background: rgba(0, 0, 0, 0.38);
+    opacity: 0;
+    transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+    transform: scale(0.98);
+}
+
+.rex-saree-gallery-overlay-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--platinum);
+    text-align: center;
+}
+
+.rex-saree-gallery-link:hover .rex-saree-gallery-overlay,
+.rex-saree-gallery-link:focus-visible .rex-saree-gallery-overlay {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.rex-saree-gallery-link:focus-visible {
+    outline: 2px solid rgba(198,167,94,0.65);
+    outline-offset: 4px;
+    border-radius: var(--radius-md);
+}
+
+.rex-saree-gallery-pdficon {
+    color: var(--gold-dim);
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
 }
 
 .rex-silk-pdf-actions {
