@@ -8,7 +8,7 @@ const SIMPLE_DROPDOWNS = {
   about: [
     { label: 'How we work', href: '/about/how-we-work' },
     { label: 'How to customise', href: '/products/design-studio' },
-    { label: 'Our Philosophy', href: '/about' },
+    { label: 'Our Philosophy', href: '/about/our-philosophy' },
     { label: 'Testimonials', href: '/reviews' },
     { label: 'Our Designers', href: '/designers' },
     { label: 'Reviews and Ratings', href: '/reviews' },

@@ -37,6 +37,7 @@ import PageSurfaceOrnamentation from './pages/PageSurfaceOrnamentation';
 import PageBlouse from './pages/PageBlouse';
 import PageOnliestWorld from './pages/PageOnliestWorld';
 import PageHowWeWork from './pages/PageHowWeWork';
+import PageOurPhilosophy from './pages/PageOurPhilosophy';
 import useConstellationParticles from './hooks/useConstellationParticles';
 
 export default function App() {
@@ -78,6 +79,7 @@ export default function App() {
         <Route path="/" element={<HomePage activeLang={activeLang} />} />
         <Route path="/about" element={<PageWelcome />} />
         <Route path="/about/how-we-work" element={<PageHowWeWork />} />
+        <Route path="/about/our-philosophy" element={<PageOurPhilosophy />} />
         <Route path="/marketplace" element={<PageMarketplace />} />
         <Route path="/education/fibre-foundations" element={<PageFibreFoundations />} />
         <Route path="/education/fabric-construction" element={<PageFabricConstruction />} />
