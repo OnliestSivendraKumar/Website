@@ -3922,10 +3922,89 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     height: min(40vh, 420px);
     object-fit: cover;
 }
+.rex-ow-cs-kicker {
+    margin: 0;
+}
+.rex-ow-cs-lead {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 700;
+    color: var(--platinum);
+}
+.rex-ow-cs-drape,
+.rex-ow-cs-diagram-block {
+    display: grid;
+    gap: 0.55rem;
+}
+.rex-ow-cs-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.6fr);
+    gap: 0.9rem;
+    align-items: start;
+}
+.rex-ow-cs-diagram {
+    margin: 0.2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1fr;
+    grid-template-rows: 36px 170px 36px;
+    border: 1px solid rgba(198, 167, 94, 0.28);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+    color: var(--plat-70);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+}
+.rex-ow-cs-diagram-top {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    display: grid;
+    place-items: center;
+    border-left: 1px solid rgba(198, 167, 94, 0.2);
+    border-bottom: 1px solid rgba(198, 167, 94, 0.2);
+}
+.rex-ow-cs-diagram-left {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    display: grid;
+    place-items: center;
+    border-right: 1px solid rgba(198, 167, 94, 0.2);
+}
+.rex-ow-cs-diagram-body {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    place-items: center;
+    border-right: 1px solid rgba(198, 167, 94, 0.2);
+}
+.rex-ow-cs-diagram-pallu {
+    grid-column: 3;
+    grid-row: 2;
+    display: grid;
+    place-items: center;
+}
+.rex-ow-cs-diagram-bottom {
+    grid-column: 2 / 4;
+    grid-row: 3;
+    display: grid;
+    place-items: center;
+    border-top: 1px solid rgba(198, 167, 94, 0.2);
+    border-left: 1px solid rgba(198, 167, 94, 0.2);
+}
+.rex-ow-cs-caption {
+    text-align: center;
+    color: var(--plat-45);
+}
+.rex-ow-cs-final {
+    font-weight: 600;
+    color: var(--platinum);
+}
 
 @media (max-width: 980px) {
     .rex-ow-ti-weaves,
-    .rex-ow-ti-split {
+    .rex-ow-ti-split,
+    .rex-ow-cs-split {
         grid-template-columns: 1fr;
     }
     .rex-ow-list {
@@ -5672,6 +5751,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     scrollbar-gutter: stable;
 }
 .rex-magazine-tab {
+    position: relative;
     width: 100%;
     display: grid;
     grid-template-columns: 40px minmax(0, 1fr);
@@ -5680,7 +5760,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     text-align: left;
     padding: 0.45rem 0.85rem;
     border-radius: 16px;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.08);
     background: rgba(11, 7, 14, 0.72);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -5690,14 +5770,37 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-magazine-tab:hover {
     transform: translateY(-2px);
-    background: rgba(11, 7, 14, 0.78);
+    background: rgba(11, 7, 14, 0.82);
+    border-color: rgba(198, 167, 94, 0.32);
 }
 .rex-magazine-tab.is-active,
 .rex-magazine-tab[aria-selected="true"] {
     box-shadow:
       0 16px 44px rgba(0, 0, 0, 0.62),
-      0 0 0 1px rgba(198, 167, 94, 0.25);
-    background: rgba(11, 7, 14, 0.82);
+      0 0 0 1px rgba(198, 167, 94, 0.55),
+      0 0 20px rgba(198, 167, 94, 0.2);
+    background: linear-gradient(90deg, rgba(40, 28, 18, 0.55) 0%, rgba(11, 7, 14, 0.9) 45%);
+    border-color: rgba(198, 167, 94, 0.75);
+}
+.rex-magazine-tab.is-active::before,
+.rex-magazine-tab[aria-selected="true"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    bottom: 9px;
+    width: 4px;
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(180deg, #f0d9a0 0%, var(--gold) 100%);
+}
+.rex-magazine-tab.is-active .rex-magazine-tab-title,
+.rex-magazine-tab[aria-selected="true"] .rex-magazine-tab-title {
+    color: #fff8e8;
+}
+.rex-magazine-tab.is-active .rex-magazine-tab-img,
+.rex-magazine-tab[aria-selected="true"] .rex-magazine-tab-img {
+    border-color: rgba(198, 167, 94, 0.75);
+    box-shadow: 0 0 0 1px rgba(198,167,94,0.22), 0 6px 16px rgba(0,0,0,0.4);
 }
 .rex-magazine-tab-img {
     width: 40px;

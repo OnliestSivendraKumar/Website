@@ -5,7 +5,7 @@ const GALLERY_COL_2 = ['https://res.cloudinary.com/djlqifbxp/image/upload/v17745
 const GALLERY_COL_3 = ['https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509761/ds-6_pupc0s.gif', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png', '/ds-12.png'];
 
 // Motion GIFs — one per column, inserted at a random position on load
-const MOTION_GIFS = ['https://res.cloudinary.com/djlqifbxp/video/upload/v1774511355/mot-1_uttv4j.mp4', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509897/mot-2_zdyrxf.gif', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509608/mot-3_ns8cmo.gif'];
+const MOTION_GIFS = ['https://res.cloudinary.com/djlqifbxp/image/upload/v1774509608/mot-3_ns8cmo.gif', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509897/mot-2_zdyrxf.gif', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509608/mot-3_ns8cmo.gif'];
 
 function buildColWithGif(col, gifSrc) {
   const arr = [...col];

@@ -20,6 +20,16 @@ export default function PageOnliestWorld() {
     intro:
       'Through varying methods of construction, the artisan decides whether a saree will whisper with the lightness of air or command the room with the gravity of stone. Textile intelligence is the bridge between the raw potential of fibre and the final silhouette of the drape.',
   };
+  const composedContent = {
+    lead: 'Luxury is defined by permanence.',
+    intro: [
+      'In an era defined by acceleration, fashion is quietly returning to something slower, wiser, and more intentional. The modern consumer is no longer searching for excess; she is searching for meaning.',
+      'Across ateliers and design studios, a new classicism is emerging. Thoughtful textiles are preferred over synthetic spectacle. Garments are being designed not just to impress, but to endure.',
+      'And perhaps that is the most modern idea of all.',
+    ],
+    architecture:
+      'When you pick out a saree, you are not just choosing a piece of cloth; you are choosing how you want to feel and move.',
+  };
 
   useEffect(() => {
     document.title = PAGE_TITLE;
@@ -165,6 +175,83 @@ export default function PageOnliestWorld() {
                     <h3 className="rex-fibre-sub-h">THE CULTURAL INTERFACE</h3>
                     <p className="rex-fibre-full-p">
                       Every motif, from geometric rhythm to floral detailing, acts as cultural symbolism. These are not decorative additions alone; they are visual scripts of heritage, occasion, and identity translated through textile language.
+                    </p>
+                  </article>
+                </div>
+              ) : activeTab === 'composed-silhouette' ? (
+                <div className="rex-ow-tab-article rex-ow-cs-article">
+                  <p className="rex-fibre-sub-h rex-ow-cs-kicker">COMPOSED SILHOUETTE</p>
+                  <h3 className="rex-ow-cs-lead">{composedContent.lead}</h3>
+                  {composedContent.intro.map((p) => (
+                    <p key={p} className="rex-fibre-full-p">{p}</p>
+                  ))}
+
+                  <article className="rex-ow-cs-drape">
+                    <h3 className="rex-fibre-sub-h">DRAPE</h3>
+                    <p className="rex-fibre-full-p">
+                      A composed silhouette is structural engineering that responds to the cadence of the body. In a saree, to understand beauty is to read its core components: body, border, pallu, and blouse.
+                    </p>
+                    <div className="rex-ow-cs-split">
+                      <figure className="rex-ow-tab-figure">
+                        <img src="/ds-1.png" alt="Composed saree drape study" loading="lazy" />
+                      </figure>
+                      <p className="rex-fibre-full-p">
+                        True elegance is never accidental. Full saree composition is a measured harmony of surface, grounding, and support. What appears effortless is disciplined construction.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article className="rex-ow-cs-diagram-block">
+                    <h3 className="rex-fibre-sub-h">THE ARCHITECTURE OF ELEGANCE</h3>
+                    <p className="rex-fibre-full-p">{composedContent.architecture}</p>
+                    <figure className="rex-ow-cs-diagram" aria-label="Saree composition diagram">
+                      <div className="rex-ow-cs-diagram-top">Top Border</div>
+                      <div className="rex-ow-cs-diagram-left">Blouse Cloth</div>
+                      <div className="rex-ow-cs-diagram-body">Saree Body</div>
+                      <div className="rex-ow-cs-diagram-pallu">Pallu</div>
+                      <div className="rex-ow-cs-diagram-bottom">Lower Border</div>
+                    </figure>
+                    <p className="rex-fibre-full-p rex-ow-cs-caption">A simple breakdown of the architecture behind silhouette.</p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">FIT ANALYSIS: FALL REQUIREMENT AND STRUCTURAL LOGIC</h3>
+                    <p className="rex-fibre-full-p">
+                      In a saree, fit begins with fall behavior. Certain sarees demand reinforcement at the hem to guide descent and provide weighted anchor. Heavier sarees benefit from firm borders and stronger pallu balance; lighter weaves need subtle stabilization so pleats remain disciplined.
+                    </p>
+                    <p className="rex-fibre-full-p">
+                      Dense brocades carry inherent structure, while open weaves may require strategic underlining to preserve integrity through the day. The objective is not stiffness, but controlled movement.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-cs-split">
+                    <figure className="rex-ow-tab-figure">
+                      <img src="/ds-5.png" alt="Color and border relationship in saree composition" loading="lazy" />
+                    </figure>
+                    <div>
+                      <h3 className="rex-fibre-sub-h">COLOR LOGIC</h3>
+                      <p className="rex-fibre-full-p">
+                        Within saree composition, color is governed by hierarchy, not preference. Body establishes dominance, pallu controls motion emphasis, and borders calibrate proportional discipline.
+                      </p>
+                      <p className="rex-fibre-full-p">
+                        Color does not decorate the saree; it orchestrates it.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">THE DECORATIVE END PIECE</h3>
+                    <p className="rex-fibre-full-p">
+                      Pallu is a study in weight logic. Its density must synchronize with shoulder strength and occasion. If too heavy, it drags; if too light, it loses authority. The ideal pallu offers presence without becoming a burden.
+                    </p>
+                    <figure className="rex-ow-tab-figure">
+                      <img src="/ds-7.png" alt="Pallu and border composition sample" loading="lazy" />
+                    </figure>
+                    <p className="rex-fibre-full-p">
+                      Every saree carries an inherent temperament. Heavier drapes with firm borders suit ceremonies; lighter compositions with softer contrast suit contemporary movement and social settings.
+                    </p>
+                    <p className="rex-fibre-full-p rex-ow-cs-final">
+                      Ultimately, total garment weight is assessed as a unified system — to honor the body through balance.
                     </p>
                   </article>
                 </div>
