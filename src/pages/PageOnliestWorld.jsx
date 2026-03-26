@@ -30,6 +30,23 @@ export default function PageOnliestWorld() {
     architecture:
       'When you pick out a saree, you are not just choosing a piece of cloth; you are choosing how you want to feel and move.',
   };
+  const designContent = {
+    introTop: 'We will summarise your measurements and influence the size and design architecture curated just for you.',
+    introBody: [
+      'The silhouette begins as a quiet study of bodily architecture: shoulder angle, bust placement, torso length, and the natural rhythm of movement. From this understanding, proportion becomes a language — lines are refined, balance is restored, and the frame is elevated.',
+      'We develop structured design formats that allow the wearer to customize within an engineered framework. Every decision is guided by silhouette balance, weight distribution, and proportion logic.',
+    ],
+  };
+  const prototypeContent = {
+    lead: 'The Advanced Engineering System is built on one principle: balance through precision.',
+  };
+  const qualityContent = {
+    lead:
+      'The handloom teaches us proportion, restraint, symbolism, and the emotional weight a textile can carry. Its artistry is not replicated; it is respected, studied, and understood at a structural level.',
+  };
+  const longevityContent = {
+    lead: 'Longevity is defined by how well something endures.',
+  };
 
   useEffect(() => {
     document.title = PAGE_TITLE;
@@ -252,6 +269,261 @@ export default function PageOnliestWorld() {
                     </p>
                     <p className="rex-fibre-full-p rex-ow-cs-final">
                       Ultimately, total garment weight is assessed as a unified system — to honor the body through balance.
+                    </p>
+                  </article>
+                </div>
+              ) : activeTab === 'design' ? (
+                <div className="rex-ow-tab-article rex-ow-design-article">
+                  <p className="rex-fibre-sub-h">DESIGN</p>
+                  <p className="rex-fibre-full-p">{designContent.introTop}</p>
+                  {designContent.introBody.map((p) => (
+                    <p key={p} className="rex-fibre-full-p">{p}</p>
+                  ))}
+
+                  <article className="rex-ow-tab-block rex-ow-design-center">
+                    <h3 className="rex-fibre-sub-h">MEASUREMENT-DRIVEN ENGINEERING</h3>
+                    <p className="rex-fibre-full-p">
+                      Every fashion system is formatted around three primary inputs:
+                    </p>
+                    <ul className="rex-fibre-list">
+                      <li>Body measurements</li>
+                      <li>Movement patterns</li>
+                      <li>Occasion requirements</li>
+                    </ul>
+                    <p className="rex-fibre-full-p">
+                      Customization is never guesswork. It is calibrated through measurable logic.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">SIZE ARCHITECTURE</h3>
+                    <p className="rex-fibre-full-p">
+                      In our system, sizing is not about enlarging or reducing a pattern uniformly; it is proportional recalibration. Bodies do not grow in equal increments, so each size is restructured to preserve balance, silhouette clarity, and structural integrity.
+                    </p>
+                    <p className="rex-fibre-full-p">
+                      We analyze bust-waist-hip relationships as a connected framework. Shoulder width and slope are recalibrated carefully, and armhole depth follows volume and mobility needs so comfort and clean lines coexist.
+                    </p>
+                    <figure className="rex-ow-tab-figure">
+                      <img src="/ds-3.png" alt="Body type reference and proportional planning" loading="lazy" />
+                    </figure>
+                    <p className="rex-fibre-full-p">
+                      Instead of increasing all measurements uniformly, we adjust according to body distribution. This prevents gaping, pulling, slipping, and visual imbalance.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">DESIGN & PATTERN CUSTOMIZATION WITHIN ENGINEERED FRAMEWORK</h3>
+                    <p className="rex-fibre-full-p">
+                      For those who want to be part of the design process, we provide refined, ready-to-use digital blouse patterns with seam allowances, balance markings, and structural guides already built in.
+                    </p>
+                    <p className="rex-fibre-full-p">
+                      Customization is guided, never overwhelming. If a neckline changes, bust support is rebalanced. If sleeves shift, armhole curve is corrected. If embellishments are added, reinforcements are repositioned so creativity never compromises fit.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">ARCHITECTURE OF SUPPORT</h3>
+                    <p className="rex-fibre-full-p">
+                      Beneath elegance lies deliberate structural support. Underwires, interfacings, stabilizers, seam reinforcements, and closures are selected according to morphology and movement requirements, distributing stress evenly across the garment.
+                    </p>
+                    <figure className="rex-ow-design-blue" aria-hidden="true" />
+                    <p className="rex-fibre-full-p">
+                      The support system from cups and underwires to interfacings and closures continues to align with measurements and movement needs, regardless of how the design is personalized.
+                    </p>
+                    <p className="rex-fibre-full-p rex-ow-cs-final">
+                      Customization becomes intelligent.
+                    </p>
+                  </article>
+                </div>
+              ) : activeTab === 'prototype-3d' ? (
+                <div className="rex-ow-tab-article rex-ow-proto-article">
+                  <p className="rex-fibre-sub-h">3D PROTOTYPE</p>
+                  <p className="rex-fibre-full-p">{prototypeContent.lead}</p>
+
+                  <figure className="rex-ow-tab-figure">
+                    <img src="/ds-6fh.png" alt="3D prototype cutting and pattern engineering" loading="lazy" />
+                  </figure>
+
+                  <p className="rex-fibre-full-p">
+                    Every saree and blouse begins with proportional analysis: not just measurements, but how body architecture interacts with fabric, structure, and movement. Neckline engineering is calibrated through bust projection, shoulder width and slope, torso length, and occasion context.
+                  </p>
+                  <p className="rex-fibre-full-p">
+                    At the core lies the blouse as a precision support system. Neckline and sleeve compatibility are engineered according to bust fullness, spacing, and arm mobility, while reinforcements are strategically placed to manage tension from saree weight.
+                  </p>
+
+                  <article className="rex-ow-ti-split">
+                    <figure className="rex-ow-tab-figure rex-ow-tab-figure--left">
+                      <img src="/ds-4.png" alt="Surface ornamentation and texture mapping" loading="lazy" />
+                    </figure>
+                    <div>
+                      <h3 className="rex-fibre-sub-h">SURFACE ORNAMENTATION</h3>
+                      <p className="rex-fibre-full-p">
+                        Surface ornamentation is approached as structural placement, not mere embellishment. Motif density, thread highlights, zari placement, and pleat-zone detailing are mapped to preserve fluidity and reduce bulk.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">STRUCTURAL &amp; COLOR INTELLIGENCE INTEGRATION</h3>
+                    <p className="rex-fibre-full-p">
+                      The advanced engineering system is a complete calibration process where proportion, structure, movement, and color are designed together rather than treated as separate decisions.
+                    </p>
+                    <p className="rex-fibre-full-p">
+                      Undertone analysis filters color families for clarity and luminosity: warm undertones align with earthy reds, maroons, turmeric yellows, and olive greens; cool undertones resonate with jewel blues, emeralds, wine tones, and rose-based palettes.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">DRAPING DEMONSTRATION</h3>
+                    <p className="rex-fibre-full-p">
+                      Through a personalized 3D avatar built to mirror proportions and posture, curated saree structures are tested in motion before being worn. Pleat behavior, pallu anchoring, shoulder symmetry, and movement response are observed from multiple angles.
+                    </p>
+                    <div className="rex-ow-proto-wrap-grid">
+                      <div className="rex-ow-proto-wrap-card">3D Gujarati Wrap</div>
+                      <div className="rex-ow-proto-wrap-card">3D Nauvari Wrap</div>
+                    </div>
+                    <p className="rex-fibre-full-p">
+                      This layered simulation turns draping from a technical step into informed visual dialogue, finalizing silhouette with clarity, confidence, and alignment to design intent.
+                    </p>
+                    <p className="rex-fibre-full-p rex-ow-cs-final">
+                      Expressive without distortion, impressive without compromise.
+                    </p>
+                  </article>
+                </div>
+              ) : activeTab === 'production-quality' ? (
+                <div className="rex-ow-tab-article rex-ow-quality-article">
+                  <p className="rex-fibre-sub-h">PRODUCTION AND QUALITY</p>
+                  <figure className="rex-ow-proto-video">
+                    <div className="rex-ow-proto-video-play" aria-hidden="true">▶</div>
+                  </figure>
+                  <p className="rex-fibre-full-p rex-ow-quality-lead">{qualityContent.lead}</p>
+
+                  <p className="rex-fibre-full-p">
+                    Rooted in admiration for traditional handlooms, we draw inspiration from heritage rhythm, artisan patience, and cultural intelligence embedded in weaving. The intention is to bridge heritage meaning with engineered reliability for contemporary life.
+                  </p>
+
+                  <figure className="rex-ow-tab-figure">
+                    <img src="/ds-9.png" alt="Handloom warp and weft preparation" loading="lazy" />
+                  </figure>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">THREAD COUNT</h3>
+                    <p className="rex-fibre-full-p">
+                      Thread count is a structural decision, not decorative vocabulary. It defines the number of warp and weft threads interlaced within a square inch and directly influences breathability, texture, and stability.
+                    </p>
+                    <p className="rex-fibre-full-p">
+                      Lightweight cotton sarees may operate around 80–120 threads per inch for airflow and ease. Standard silk sarees move into the 150–300 range, while denser ceremonial constructions can extend further for compact, refined structure.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">THE INTRICATE LOGIC OF OUR PROGRAM</h3>
+                    <p className="rex-fibre-full-p"><em>Precision begins at fibre level.</em></p>
+                    <figure className="rex-ow-tab-figure">
+                      <img src="/edu-fibre.jpg" alt="Engineered jacquard and motif architecture" loading="lazy" />
+                    </figure>
+                    <p className="rex-fibre-full-p">
+                      Superior fibre selection ensures consistency in weaving and predictable yarn behavior under tension. Through Jacquard programming, thread movement is pre-calculated so motif architecture is embedded into the fabric structure, not applied on top.
+                    </p>
+                    <p className="rex-fibre-full-p">
+                      Shrinkage is anticipated early by evaluating how each fabric responds to moisture, steam, heat, and pressure before cutting begins.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">FINISHING PROTOCOL</h3>
+                    <p className="rex-fibre-full-p">
+                      Every saree included in our production listing undergoes structured quality evaluation before release. Aesthetic beauty is validated through technical integrity.
+                    </p>
+                    <p className="rex-fibre-full-p">
+                      Fibre verification, weave accuracy, tension balance, metallic adhesion, wrapping tightness, and oxidation resistance are checked across all critical zones.
+                    </p>
+                    <ul className="rex-fibre-list">
+                      <li>Even polishing or calendaring</li>
+                      <li>Color consistency under varied lighting</li>
+                      <li>Clean selvedges and finishing seams</li>
+                      <li>No residual starch stiffness unless intentionally specified</li>
+                    </ul>
+                    <p className="rex-fibre-full-p rex-ow-cs-final">
+                      Quality is engineered, verified, and documented.
+                    </p>
+                  </article>
+                </div>
+              ) : activeTab === 'storage-longevity' ? (
+                <div className="rex-ow-tab-article rex-ow-longevity-article">
+                  <p className="rex-fibre-sub-h">VALUE</p>
+                  <p className="rex-fibre-full-p">{longevityContent.lead}</p>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">TRANSPARENCY &amp; EXCLUSIVITY</h3>
+                    <p className="rex-fibre-full-p">
+                      Every saree we create is evaluated through a defined structural and production framework before it becomes part of our collection. We assess fibre authenticity, weave density, zari construction, ornamentation load, and finishing stability to ensure the textile meets both aesthetic and durability standards.
+                    </p>
+                    <ul className="rex-fibre-list">
+                      <li>Fabric selection logic</li>
+                      <li>Color contrast logic</li>
+                      <li>Zari construction and aging behavior</li>
+                      <li>Design logic and customisation</li>
+                      <li>Ornamentation and structural support</li>
+                      <li>Blouse support architecture</li>
+                      <li>3D avatar fit demonstration</li>
+                    </ul>
+                    <figure className="rex-ow-tab-figure">
+                      <img src="/ds-1.png" alt="Saree preservation and documented craftsmanship" loading="lazy" />
+                    </figure>
+                    <p className="rex-fibre-full-p rex-ow-cs-final">
+                      When you invest in our saree, you are investing in documented craftsmanship.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">STORAGE SCIENCE</h3>
+                    <p className="rex-fibre-full-p">
+                      Textiles respond to environment. Humidity weakens fibres. Sunlight fades color. Pressure creates permanent stress lines. Metallic zari can oxidize with moisture and chemicals. Correct storage protects structure and sheen.
+                    </p>
+                    <ol className="rex-fibre-list rex-ow-list-numbered">
+                      <li><strong>Always store in breathable fabric.</strong> Use unbleached cotton or muslin cloth; avoid plastic covers.</li>
+                      <li><strong>Refold periodically.</strong> Change fold lines every 3–6 months to prevent permanent creasing.</li>
+                      <li><strong>Separate heavy and lightweight sarees.</strong> Do not stack dense Kanjeevarams over delicate weaves.</li>
+                      <li><strong>Protect zari sections.</strong> Wrap zari borders and pallus in soft cotton to reduce friction and oxidation.</li>
+                      <li><strong>Maintain dry storage conditions.</strong> Store in cool, low-humidity environments.</li>
+                      <li><strong>Air occasionally.</strong> Air sarees in shade once or twice a year to release trapped moisture.</li>
+                      <li><strong>Avoid long-term hanging.</strong> Prolonged hanging can distort weave and border alignment.</li>
+                      <li><strong>Dry clean only when necessary.</strong> Frequent chemical processing may weaken fibres.</li>
+                      <li><strong>Address stains immediately.</strong> Spot-treat before storage.</li>
+                      <li><strong>Use natural repellents carefully.</strong> Neem or cedar nearby, but never touching fabric directly.</li>
+                    </ol>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">HOW TO PRESERVE ZARI</h3>
+                    <p className="rex-fibre-full-p">Zari is metallic yarn and requires special care.</p>
+                    <ul className="rex-fibre-list">
+                      <li>Avoid perfume or direct moisture contact</li>
+                      <li>Keep away from damp environments</li>
+                      <li>Wrap in soft cotton when storing</li>
+                      <li>Do not iron directly over zari; use protective layering</li>
+                    </ul>
+                    <p className="rex-fibre-full-p">
+                      Metallic threads can tarnish with humidity and chemical exposure. Prevention is better than restoration.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">WHEN TO DRY CLEAN</h3>
+                    <p className="rex-fibre-full-p">
+                      Dry cleaning is not required after every wear. It is recommended after heavy perspiration, dust exposure, pollution, or before long-term storage. For light wear, airing in shade or gentle spot cleaning is often sufficient.
+                    </p>
+                    <p className="rex-fibre-full-p">
+                      When stored correctly, refolded periodically, and cleaned responsibly, a saree maintains structure, sheen, and emotional value for decades.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-tab-block rex-ow-design-center">
+                    <p className="rex-fibre-full-p">We design for durability.<br />We guide for preservation.</p>
+                    <p className="rex-fibre-full-p">Refined at every stage before it reaches you.</p>
+                    <p className="rex-fibre-full-p rex-ow-cs-final">
+                      What emerges is not just attire, but a precisely structured creation that feels considered, rare, and worth anticipating.
                     </p>
                   </article>
                 </div>
