@@ -355,7 +355,7 @@ export default function Header({ hideOnPanels = false }) {
     >
       <div className="rex-header-inner">
         <a href="/" className="rex-header-logo" aria-label="Onliest home">
-          <img src="/logo.svg" alt="Onliest" />
+          <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774519255/logo_vwktj7.svg" alt="Onliest" />
         </a>
 
         <nav ref={navRef} className="rex-header-nav" aria-label="Main navigation">

@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="rex-footer-top">
         <div className="rex-footer-col rex-footer-col--brand">
           <div className="rex-footer-logo-row">
-            <img src="/logo.svg" alt="Onliest" className="rex-footer-logo" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774519255/logo_vwktj7.svg" alt="Onliest" className="rex-footer-logo" />
             <p className="rex-footer-tagline">
               AI-powered fashion platform blending Indian tradition.
             </p>

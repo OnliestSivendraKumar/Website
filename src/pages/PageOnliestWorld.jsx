@@ -108,7 +108,7 @@ export default function PageOnliestWorld() {
                       <figure className="rex-ow-ti-mini-fig">
                         <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Plain weave diagram" loading="lazy" />
                       </figure>
-                      <h3 className="rex-fibre-sub-h">Plain Weave</h3>
+                      <h3 className="rex-fibre-sub-h">PLAIN WEAVE</h3>
                       <p className="rex-fibre-full-p">
                         The plain weave is a study in perfect balance. By alternating the thread in a simple over-under sequence, the artisan creates a textile of integrity and breathability.
                       </p>
@@ -118,7 +118,7 @@ export default function PageOnliestWorld() {
                       <figure className="rex-ow-ti-mini-fig">
                         <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png" alt="Twill weave rhythm" loading="lazy" />
                       </figure>
-                      <h3 className="rex-fibre-sub-h">Twill Weave</h3>
+                      <h3 className="rex-fibre-sub-h">TWILL WEAVE</h3>
                       <p className="rex-fibre-full-p">
                         A twill weave introduces a subtle diagonal rhythm. By offsetting interlacing points, the weaver creates a stronger but more fluid fabric that follows the body with instinctive ease.
                       </p>
@@ -129,9 +129,13 @@ export default function PageOnliestWorld() {
                     <figure className="rex-ow-tab-figure">
                       <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Satin and jacquard weave references" loading="lazy" />
                     </figure>
-                    <h3 className="rex-fibre-sub-h">Satin Weave and the Programmed Masterpiece</h3>
+                    <h3 className="rex-fibre-sub-h">SATIN WEAVE</h3>
                     <p className="rex-fibre-full-p">
-                      In the pursuit of luminous finish, satin weave uses long floating yarn paths that minimize interruption of light and create liquid-like sheen. In jacquard, motifs are woven directly into the cloth through controlled thread programming, producing dimensional forms with structural authority.
+                      In the pursuit of luminous finish, the satin weave employs a float technique where yarn travels across multiple threads before interlacing. This minimizes interruption of light and creates long, uninterrupted surface sheen.
+                    </p>
+                    <h3 className="rex-fibre-sub-h">JACQUARD WEAVE</h3>
+                    <p className="rex-fibre-full-p">
+                      A jacquard weave embeds motifs directly into the cloth rather than printing them on top. The loom is programmed to lift specific threads independently, allowing complex, dimensional forms to be woven into the fabric structure.
                     </p>
                   </article>
 
@@ -150,15 +154,18 @@ export default function PageOnliestWorld() {
                   </article>
 
                   <article className="rex-ow-tab-block">
-                    <h3 className="rex-fibre-sub-h">The Physics of Pigment and Light</h3>
+                    <h3 className="rex-fibre-sub-h">THE PHYSICS OF PIGMENT AND LIGHT</h3>
                     <p className="rex-fibre-full-p">
                       Color behavior is dictated by the textile surface. Deep tones on high-sheen satin create reflective depth, while matte cotton and hand-spun textures absorb light and produce intellectual softness.
                     </p>
                     <ul className="rex-fibre-list">
                       <li><strong>Luminous Jewel Tones:</strong> Engineered for high-intensity lighting where emeralds, rubies, and sapphires retain depth.</li>
                       <li><strong>Matte Neutrals and Earth Tones:</strong> Calibrated for daylight and outdoor settings, harmonizing with natural shadows.</li>
-                      <li><strong>Cultural Interface:</strong> Floral, geometric, and symbolic motifs act as visual scripts rooted in heritage and occasion.</li>
                     </ul>
+                    <h3 className="rex-fibre-sub-h">THE CULTURAL INTERFACE</h3>
+                    <p className="rex-fibre-full-p">
+                      Every motif, from geometric rhythm to floral detailing, acts as cultural symbolism. These are not decorative additions alone; they are visual scripts of heritage, occasion, and identity translated through textile language.
+                    </p>
                   </article>
                 </div>
               ) : (
