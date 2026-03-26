@@ -6,7 +6,7 @@ import { filterSearchIndex, getRecentSearches, addRecentSearch } from '../data/s
 /* ─── Simple dropdown: list of links ────────────────── */
 const SIMPLE_DROPDOWNS = {
   about: [
-    { label: 'How we work', href: '/about' },
+    { label: 'How we work', href: '/about/how-we-work' },
     { label: 'How to customise', href: '/products/design-studio' },
     { label: 'Our Philosophy', href: '/about' },
     { label: 'Testimonials', href: '/reviews' },
