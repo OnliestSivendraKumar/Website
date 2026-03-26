@@ -7,9 +7,9 @@ import { filterSearchIndex, getRecentSearches, addRecentSearch } from '../data/s
 const SIMPLE_DROPDOWNS = {
   about: [
     { label: 'How we work', href: '/about/how-we-work' },
-    { label: 'How to customise', href: '/products/design-studio' },
+    { label: 'How to Customize', href: '/about/how-to-customize' },
     { label: 'Our Philosophy', href: '/about/our-philosophy' },
-    { label: 'Testimonials', href: '/reviews' },
+    { label: 'Testimonials', href: '/about/testimonials' },
     { label: 'Our Designers', href: '/designers' },
     { label: 'Reviews and Ratings', href: '/reviews' },
     { label: 'Who we are', href: '/about' },

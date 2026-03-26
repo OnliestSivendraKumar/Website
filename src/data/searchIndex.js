@@ -17,6 +17,7 @@ const MARKETPLACE_PRODUCTS = [
 // Pages and main nav targets
 const PAGES = [
   { label: 'About', href: '/about', keywords: 'about us story team' },
+  { label: 'How to Customize', href: '/about/how-to-customize', keywords: 'customize customise customization design flow personalization' },
   { label: 'Market Place', href: '/marketplace', keywords: 'marketplace shop designs saree collection buy' },
   { label: 'Designers', href: '/designers', keywords: 'designers designer list all' },
   { label: 'Contact Us', href: '/contact', keywords: 'contact help support reach' },
@@ -24,7 +25,8 @@ const PAGES = [
   { label: 'FAQ', href: '/contact#faq', keywords: 'faq questions contact support' },
   { label: 'Careers', href: '/careers', keywords: 'careers jobs hiring' },
   { label: 'Merchandise', href: '/merchandise', keywords: 'merchandise gift card clips belts' },
-  { label: 'Reviews', href: '/reviews', keywords: 'reviews testimonials' },
+  { label: 'Reviews', href: '/reviews', keywords: 'reviews ratings feedback' },
+  { label: 'Testimonials', href: '/about/testimonials', keywords: 'testimonials client stories customer voices' },
   { label: 'Return Policy', href: '/policies/return', keywords: 'return policy refund' },
   { label: 'Shipping', href: '/policies/shipping', keywords: 'shipping delivery' },
   { label: 'Onliest REX', href: '/products/rex', keywords: 'rex ai' },
