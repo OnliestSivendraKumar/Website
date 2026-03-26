@@ -5,7 +5,7 @@ import SceneAtelier from './scenes/SceneAtelier';
 import { INTRO_FEATURES, ATELIER_FEATURES } from './scenes/atelierConstants';
 
 const TOTAL_SLIDES = 1; /* 2nd slide hidden for now — set to 2 to show Watch Demo slide */
-const INTRO_DEFAULT_IMAGE = '/at-1.png';
+const INTRO_DEFAULT_IMAGE = 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774516937/at-1_mjmni4.png';
 const SLIDE_DELAY = 7000;
 const FEATURE_ORDER = ['chat', 'screenshare', 'whiteboard'];
 const AUTO_ADVANCE_MS = 6000;
@@ -242,7 +242,7 @@ export default function PanelAtelier({ isActive }) {
             <video
               ref={howVideoRef}
               className="rex-how-modal-video"
-              src="/slide1-live-movements.mp4"
+              src="https://res.cloudinary.com/djlqifbxp/video/upload/v1774510655/slide1-live-movements_fa8nkr.mp4"
               controls
               playsInline
               aria-label="How Onliest Atelier works"
@@ -276,7 +276,7 @@ export default function PanelAtelier({ isActive }) {
             <video
               ref={demoVideoRef}
               className="rex-how-modal-video"
-              src="/slide1-live-movements.mp4"
+              src="https://res.cloudinary.com/djlqifbxp/video/upload/v1774510655/slide1-live-movements_fa8nkr.mp4"
               controls
               playsInline
               aria-label="Onliest Atelier demo"

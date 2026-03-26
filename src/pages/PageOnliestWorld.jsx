@@ -43,10 +43,10 @@ export default function PageOnliestWorld() {
           <section className="rex-ow-board" aria-label="Onliest World editorial layout">
             <div className="rex-ow-mosaic" aria-hidden="true">
               <figure className="rex-ow-tile rex-ow-tile--a">
-                <img src="/ds-1.png" alt="" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png" alt="" loading="lazy" />
               </figure>
               <figure className="rex-ow-tile rex-ow-tile--b">
-                <img src="/ds-2.png" alt="" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="" loading="lazy" />
               </figure>
               <figure className="rex-ow-tile rex-ow-tile--c">
                 <img src="/ds-7.png" alt="" loading="lazy" />
@@ -61,16 +61,16 @@ export default function PageOnliestWorld() {
                 <img src="/ds-5.png" alt="" loading="lazy" />
               </figure>
               <figure className="rex-ow-tile rex-ow-tile--g">
-                <img src="/ds-4.png" alt="" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="" loading="lazy" />
               </figure>
               <figure className="rex-ow-tile rex-ow-tile--h">
-                <img src="/ds-9.png" alt="" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png" alt="" loading="lazy" />
               </figure>
               <figure className="rex-ow-tile rex-ow-tile--i">
-                <img src="/edu-fibre.jpg" alt="" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="" loading="lazy" />
               </figure>
               <figure className="rex-ow-tile rex-ow-tile--j">
-                <img src="/ds-3.png" alt="" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="" loading="lazy" />
               </figure>
               <figure className="rex-ow-tile rex-ow-tile--k">
                 <img src="/ds-6fh.png" alt="" loading="lazy" />
@@ -106,7 +106,7 @@ export default function PageOnliestWorld() {
                   <section className="rex-ow-ti-weaves">
                     <article className="rex-ow-ti-weave-card">
                       <figure className="rex-ow-ti-mini-fig">
-                        <img src="/ds-4.png" alt="Plain weave diagram" loading="lazy" />
+                        <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Plain weave diagram" loading="lazy" />
                       </figure>
                       <h3 className="rex-fibre-sub-h">Plain Weave</h3>
                       <p className="rex-fibre-full-p">
@@ -116,7 +116,7 @@ export default function PageOnliestWorld() {
 
                     <article className="rex-ow-ti-weave-card">
                       <figure className="rex-ow-ti-mini-fig">
-                        <img src="/ds-9.png" alt="Twill weave rhythm" loading="lazy" />
+                        <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png" alt="Twill weave rhythm" loading="lazy" />
                       </figure>
                       <h3 className="rex-fibre-sub-h">Twill Weave</h3>
                       <p className="rex-fibre-full-p">
@@ -127,7 +127,7 @@ export default function PageOnliestWorld() {
 
                   <article className="rex-ow-tab-block">
                     <figure className="rex-ow-tab-figure">
-                      <img src="/edu-fibre.jpg" alt="Satin and jacquard weave references" loading="lazy" />
+                      <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Satin and jacquard weave references" loading="lazy" />
                     </figure>
                     <h3 className="rex-fibre-sub-h">Satin Weave and the Programmed Masterpiece</h3>
                     <p className="rex-fibre-full-p">

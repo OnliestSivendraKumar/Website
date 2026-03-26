@@ -7,8 +7,8 @@ const PAGE_DESCRIPTION =
   'Explore surface ornamentation: embroidery, threads and zari, beads and stones, sequins, appliqué, lace and trims, printing techniques, and design placement for sarees and blouses.';
 
 /* Shared placeholder for repeated section images (hoodie / landscape) */
-const IMG_DIVIDER = '/ds-2.png';
-const IMG_LANDSCAPE = '/ds-4.png';
+const IMG_DIVIDER = 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png';
+const IMG_LANDSCAPE = 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png';
 
 export default function PageSurfaceOrnamentation() {
   useEffect(() => {
@@ -68,12 +68,12 @@ design element.
                   </p>
                 </div>
                 <figure className="rex-surface-hero-figure">
-                  <img src="/ds-1.png" alt="Surface ornamentation in fashion" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png" alt="Surface ornamentation in fashion" loading="lazy" />
                 </figure>
               </div>
               <div className="rex-surface-duo-gallery" aria-label="Surface ornamentation visuals">
                 <figure className="rex-surface-duo-fig rex-surface-duo-fig--wide">
-                  <img src="/ds-4.png" alt="Editorial garment composition" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Editorial garment composition" loading="lazy" />
                 </figure>
                 <figure className="rex-surface-duo-fig rex-surface-duo-fig--tall">
                   <img src="/ds-6fh.png" alt="Monochrome movement portrait" loading="lazy" />
@@ -89,7 +89,7 @@ design element.
             <h2 className="rex-fibre-section-title">Embroidery Techniques</h2>
             <div className="rex-fibre-split rex-fibre-split--image-left">
               <figure className="rex-fibre-figure rex-fibre-figure--tall">
-                <img src="/ds-3.png" alt="Embroidery detail" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Embroidery detail" loading="lazy" />
               </figure>
               <div className="rex-fibre-split-text">
                 <p className="rex-fibre-full-p">

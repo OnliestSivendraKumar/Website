@@ -42,7 +42,7 @@ export default function PageFibreFoundations() {
           <section className="rex-fibre-section" id="fibre-foundation">
             <div className="rex-fibre-float">
               <figure className="rex-fibre-figure rex-fibre-figure--sm">
-                <img src="/ds-1.png" alt="Model in draped textile" loading="eager" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png" alt="Model in draped textile" loading="eager" />
               </figure>
               <div className="rex-fibre-float-text">
                 <p>
@@ -95,7 +95,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--tall">
-                <img src="/ds-9.png" alt="Model in natural fibre saree" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png" alt="Model in natural fibre saree" loading="lazy" />
               </figure>
             </div>
           </section>
@@ -131,7 +131,7 @@ export default function PageFibreFoundations() {
 
           {/* Hero break — botanical/texture */}
           <figure className="rex-fabric-hero">
-            <img src="/edu-fibre.jpg" alt="Textile detail — fabric structure" loading="lazy" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Textile detail — fabric structure" loading="lazy" />
           </figure>
 
           {/* 4. FABRIC CONSTRUCTION — image left, text right (no gap between paragraphs) */}
@@ -139,7 +139,7 @@ export default function PageFibreFoundations() {
             <h2 className="rex-fibre-section-title" style={{ marginBottom: '1rem' }}>Fabric Construction</h2>
             <div className="rex-fibre-float">
               <figure className="rex-fibre-figure rex-fibre-figure--sm">
-                <img src="/ds-2.png" alt="Model in structured garment" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Model in structured garment" loading="lazy" />
               </figure>
               <div className="rex-fibre-float-text">
                 <p>
@@ -178,7 +178,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--tall">
-                <img src="/ds-9.png" alt="Model in woven fabric garment" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png" alt="Model in woven fabric garment" loading="lazy" />
               </figure>
             </div>
           </section>
@@ -229,7 +229,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--tall">
-                <img src="/ds-3.png" alt="Structural fabric detail" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Structural fabric detail" loading="lazy" />
               </figure>
             </div>
           </section>
@@ -261,9 +261,9 @@ export default function PageFibreFoundations() {
               subtle sheen.
             </p>
             <div className="rex-fibre-grid-3" aria-label="Weave type examples">
-              <div className="rex-fibre-grid-img"><img src="/edu-fibre.jpg" alt="Plain weave" loading="lazy" /></div>
-              <div className="rex-fibre-grid-img"><img src="/edu-fibre.jpg" alt="Twill weave" loading="lazy" /></div>
-              <div className="rex-fibre-grid-img"><img src="/edu-fibre.jpg" alt="Satin weave" loading="lazy" /></div>
+              <div className="rex-fibre-grid-img"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Plain weave" loading="lazy" /></div>
+              <div className="rex-fibre-grid-img"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Twill weave" loading="lazy" /></div>
+              <div className="rex-fibre-grid-img"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Satin weave" loading="lazy" /></div>
             </div>
           </section>
 
@@ -292,7 +292,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Thread count detail" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Thread count detail" loading="lazy" />
               </figure>
             </div>
           </section>
@@ -391,11 +391,11 @@ export default function PageFibreFoundations() {
                               portrait extends into text area, thumbs below */}
               <div className="rex-fibre-props-right">
                 <figure className="rex-fibre-props-portrait">
-                  <img src="/ds-3.png" alt="Fashion model in draping fabric" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Fashion model in draping fabric" loading="lazy" />
                 </figure>
                 <div className="rex-fibre-props-thumb-row">
                   <figure className="rex-fibre-props-thumb">
-                    <img src="/ds-4.png" alt="Fabric detail" loading="lazy" />
+                    <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Fabric detail" loading="lazy" />
                   </figure>
                   <figure className="rex-fibre-props-thumb">
                     <img src="/ds-7.png" alt="Fabric in motion" loading="lazy" />
@@ -452,7 +452,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Mulberry silk texture" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Mulberry silk texture" loading="lazy" />
               </figure>
             </div>
 
@@ -468,7 +468,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Tussar silk texture" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Tussar silk texture" loading="lazy" />
               </figure>
             </div>
 
@@ -484,7 +484,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Eri silk texture" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Eri silk texture" loading="lazy" />
               </figure>
             </div>
 
@@ -499,7 +499,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Muga silk texture" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Muga silk texture" loading="lazy" />
               </figure>
             </div>
           </div>
@@ -525,7 +525,7 @@ export default function PageFibreFoundations() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Silk blend fabric" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Silk blend fabric" loading="lazy" />
               </figure>
             </div>
           </section>
@@ -552,7 +552,7 @@ export default function PageFibreFoundations() {
           <div className="rex-fibre-section">
             <div className="rex-fibre-cotton-item">
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Short staple cotton" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Short staple cotton" loading="lazy" />
               </figure>
               <div className="rex-fibre-split-text">
                 <h3 className="rex-fibre-cotton-title">Short Staple Cotton</h3>
@@ -570,7 +570,7 @@ export default function PageFibreFoundations() {
 
             <div className="rex-fibre-cotton-item">
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Long staple cotton" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Long staple cotton" loading="lazy" />
               </figure>
               <div className="rex-fibre-split-text">
                 <h3 className="rex-fibre-cotton-title">Long Staple Cotton</h3>
@@ -588,7 +588,7 @@ export default function PageFibreFoundations() {
 
             <div className="rex-fibre-cotton-item">
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Egyptian cotton" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Egyptian cotton" loading="lazy" />
               </figure>
               <div className="rex-fibre-split-text">
                 <h3 className="rex-fibre-cotton-title">Egyptian Cotton</h3>
@@ -606,7 +606,7 @@ export default function PageFibreFoundations() {
 
             <div className="rex-fibre-cotton-item">
               <figure className="rex-fibre-figure rex-fibre-figure--sq">
-                <img src="/edu-fibre.jpg" alt="Organic cotton" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Organic cotton" loading="lazy" />
               </figure>
               <div className="rex-fibre-split-text">
                 <h3 className="rex-fibre-cotton-title">Organic Cotton</h3>
@@ -841,10 +841,10 @@ export default function PageFibreFoundations() {
           </section>
 
           <div className="rex-fibre-grid-4" aria-label="Fabric texture examples">
-            <div className="rex-fibre-grid-img"><img src="/edu-fibre.jpg" alt="Smooth texture" loading="lazy" /></div>
-            <div className="rex-fibre-grid-img"><img src="/edu-fibre.jpg" alt="Crisp texture" loading="lazy" /></div>
-            <div className="rex-fibre-grid-img"><img src="/edu-fibre.jpg" alt="Soft texture" loading="lazy" /></div>
-            <div className="rex-fibre-grid-img"><img src="/edu-fibre.jpg" alt="Raised texture" loading="lazy" /></div>
+            <div className="rex-fibre-grid-img"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Smooth texture" loading="lazy" /></div>
+            <div className="rex-fibre-grid-img"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Crisp texture" loading="lazy" /></div>
+            <div className="rex-fibre-grid-img"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Soft texture" loading="lazy" /></div>
+            <div className="rex-fibre-grid-img"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Raised texture" loading="lazy" /></div>
           </div>
 
           <section className="rex-fibre-section rex-fibre-full-section">

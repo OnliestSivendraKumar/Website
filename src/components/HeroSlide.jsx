@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-const GALLERY_COL_1 = ['/ds-1.png', '/ds-4.png', '/ds-7.png', '/ds-10.png'];
-const GALLERY_COL_2 = ['/ds-2.png', '/ds-9.png', '/ds-8.png', '/ds-11.png'];
-const GALLERY_COL_3 = ['/ds-3.png', '/ds-6.gif', '/ds-9.png', '/ds-12.png'];
+const GALLERY_COL_1 = ['https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png', '/ds-7.png', '/ds-10.png'];
+const GALLERY_COL_2 = ['https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png', '/ds-8.png', '/ds-11.png'];
+const GALLERY_COL_3 = ['https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509761/ds-6_pupc0s.gif', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png', '/ds-12.png'];
 
 // Motion GIFs — one per column, inserted at a random position on load
-const MOTION_GIFS = ['/mot-1.gif', '/mot-2.gif', '/mot-3.gif'];
+const MOTION_GIFS = ['https://res.cloudinary.com/djlqifbxp/video/upload/v1774511355/mot-1_uttv4j.mp4', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509897/mot-2_zdyrxf.gif', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509608/mot-3_ns8cmo.gif'];
 
 function buildColWithGif(col, gifSrc) {
   const arr = [...col];

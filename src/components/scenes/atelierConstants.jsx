@@ -2,17 +2,17 @@
 
 /* Intro slide: 4 feature cards — each maps to hero image at-1 … at-4 */
 export const INTRO_FEATURES = [
-  { id: 'expert', title: 'Live Expert Guidance', description: 'Navigate with a pro.', icon: 'expert', image: '/at-1.png' },
-  { id: 'cobrowse', title: 'Secure Co-Browsing', description: 'Share your screen safely.', icon: 'cobrowse', image: '/at-2.png' },
-  { id: 'video-support', title: 'Video Support', description: 'Talk to a designer live.', icon: 'video', image: '/at-3.png' },
-  { id: 'learn', title: 'Learn Faster', description: 'Master tools quickly.', icon: 'learn', image: '/at-4.png' },
+  { id: 'expert', title: 'Live Expert Guidance', description: 'Navigate with a pro.', icon: 'expert', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774516937/at-1_mjmni4.png' },
+  { id: 'cobrowse', title: 'Secure Co-Browsing', description: 'Share your screen safely.', icon: 'cobrowse', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774516974/at-2_g4jqln.png' },
+  { id: 'video-support', title: 'Video Support', description: 'Talk to a designer live.', icon: 'video', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517007/at-3_x4pm6t.png' },
+  { id: 'learn', title: 'Learn Faster', description: 'Master tools quickly.', icon: 'learn', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517032/at-4_clrhfk.png' },
 ];
 
 /* Core features: hero images at-5 … at-10 (Live Video Call tab removed) */
 export const ATELIER_FEATURES = [
-  { id: 'chat', title: 'In-Meeting Chat', description: 'Share files and notes in real-time.', icon: 'chat', image: '/at-5.png' },
-  { id: 'screenshare', title: 'Liveshare', description: 'Share your design studio canvas.', icon: 'screenshare', image: '/at-6.png' },
-  { id: 'whiteboard', title: 'Whiteboard', description: 'Sketch and annotate together.', icon: 'pen', image: '/at-7.png' },
+  { id: 'chat', title: 'In-Meeting Chat', description: 'Share files and notes in real-time.', icon: 'chat', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517064/at-5_ye6zqu.png' },
+  { id: 'screenshare', title: 'Liveshare', description: 'Share your design studio canvas.', icon: 'screenshare', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517091/at-6_nxnyz0.png' },
+  { id: 'whiteboard', title: 'Whiteboard', description: 'Sketch and annotate together.', icon: 'pen', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517126/at-7_tpq5yd.png' },
 ];
 
 export function FeatureIcon({ name }) {

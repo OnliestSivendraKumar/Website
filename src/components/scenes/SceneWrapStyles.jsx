@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 
 /* Videos from public folder — first: Compare your designs, second: Try Out Different Draping Styles */
 const WRAP_CAROUSEL_VIDEOS = [
-  { src: '/fitting.mp4', label: 'Fitting', tag: 'Compare your designs' },
-  { src: '/wrap.mp4', label: 'Wrap Styles', tag: 'Try Out Different Draping Styles' },
+  { src: 'https://res.cloudinary.com/djlqifbxp/video/upload/v1774516723/fitting_erknbv.mp4', label: 'Fitting', tag: 'Compare your designs' },
+  { src: 'https://res.cloudinary.com/djlqifbxp/video/upload/v1774516829/wrap_r4pz2k.mp4', label: 'Wrap Styles', tag: 'Try Out Different Draping Styles' },
 ];
 
 const WRAP_STYLES = [

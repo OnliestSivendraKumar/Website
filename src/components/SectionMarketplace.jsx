@@ -1,21 +1,21 @@
 import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 
 const PRODUCTS = [
-  { id: 1, title: 'Mysore Silk Saree', designer: 'Ananya Reddy', rating: 4.9, reviews: 234, price: '18,500', tag: 'Trending', tagColor: 'red', image: '/ds-1.png' },
-  { id: 2, title: 'Banarasi Heritage', designer: 'Ravi Kumar', rating: 5, reviews: 189, price: '24,000', tag: 'New', tagColor: 'green', image: '/ds-2.png' },
-  { id: 3, title: 'Kanjivaram Gold', designer: 'Priya Sharma', rating: 4.8, reviews: 156, price: '32,500', tag: 'Featured', tagColor: 'blue', image: '/ds-3.png' },
-  { id: 4, title: 'Tussar Silk Classic', designer: 'Meera Iyer', rating: 4.7, reviews: 98, price: '14,200', tag: 'New', tagColor: 'green', image: '/ds-4.png' },
-  { id: 5, title: 'Chiffon Elegance', designer: 'Ananya Reddy', rating: 4.9, reviews: 167, price: '9,800', tag: 'Trending', tagColor: 'red', image: '/ds-5.png' },
-  { id: 6, title: 'Cotton Weave', designer: 'Ravi Kumar', rating: 4.6, reviews: 89, price: '6,500', tag: 'Featured', tagColor: 'blue', image: '/ds-6.png' },
+  { id: 1, title: 'Mysore Silk Saree', designer: 'Ananya Reddy', rating: 4.9, reviews: 234, price: '18,500', tag: 'Trending', tagColor: 'red', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png' },
+  { id: 2, title: 'Banarasi Heritage', designer: 'Ravi Kumar', rating: 5, reviews: 189, price: '24,000', tag: 'New', tagColor: 'green', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png' },
+  { id: 3, title: 'Kanjivaram Gold', designer: 'Priya Sharma', rating: 4.8, reviews: 156, price: '32,500', tag: 'Featured', tagColor: 'blue', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png' },
+  { id: 4, title: 'Tussar Silk Classic', designer: 'Meera Iyer', rating: 4.7, reviews: 98, price: '14,200', tag: 'New', tagColor: 'green', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png' },
+  { id: 5, title: 'Chiffon Elegance', designer: 'Ananya Reddy', rating: 4.9, reviews: 167, price: '9,800', tag: 'Trending', tagColor: 'red', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png' },
+  { id: 6, title: 'Cotton Weave', designer: 'Ravi Kumar', rating: 4.6, reviews: 89, price: '6,500', tag: 'Featured', tagColor: 'blue', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png' },
 ];
 
 const PRODUCTS_PAGE_SIZE = 3;
 const PRODUCT_PAGES = Math.ceil(PRODUCTS.length / PRODUCTS_PAGE_SIZE);
 
 const FEATURED_DESIGNERS = [
-  { name: 'Ananya Reddy', specialty: 'Traditional Silk', collections: 24, rating: 4.9, image: '/ds-1.png' },
-  { name: 'Ravi Kumar', specialty: 'Banarasi Weaves', collections: 18, rating: 5, image: '/ds-2.png' },
-  { name: 'Priya Sharma', specialty: 'Kanjivaram Art', collections: 31, rating: 4.8, image: '/ds-3.png' },
+  { name: 'Ananya Reddy', specialty: 'Traditional Silk', collections: 24, rating: 4.9, image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png' },
+  { name: 'Ravi Kumar', specialty: 'Banarasi Weaves', collections: 18, rating: 5, image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png' },
+  { name: 'Priya Sharma', specialty: 'Kanjivaram Art', collections: 31, rating: 4.8, image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png' },
 ];
 
 const MQ_MOBILE = '(max-width: 640px)';

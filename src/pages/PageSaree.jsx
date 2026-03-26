@@ -7,11 +7,11 @@ const PAGE_DESCRIPTION =
   'Explore the saree as luxury textile: weaving fundamentals, loom types, pattern techniques, and resist-dye traditions.';
 
 const IMG = {
-  heroVisual: '/ds-3.png',
-  weavingIntro: '/edu-fibre.jpg',
-  loomHand: '/ds-4.png',
+  heroVisual: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png',
+  weavingIntro: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg',
+  loomHand: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
   loomPower: '/ds-5.png',
-  patternHero: '/ds-9.png',
+  patternHero: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png',
   resistHero: '/ds-7.png',
 };
 const SILK_TYPES = [

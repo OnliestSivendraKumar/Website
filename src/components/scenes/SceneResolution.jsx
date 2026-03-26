@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import { getLangCopy } from '../../i18n';
 
 const STAT_CARDS = [
-  { name: 'Preference Intelligence Engine', label: 'Preference Intelligence', image: '/tech.admin_onliest_fashion_technology_visualization_showing_A_fc80bc37-89bc-4184-83a9-ae871176ce8c_2.png', alt: 'Couture preference intelligence', objectPosition: '50% 50%' },
-  { name: 'AI Fabric Suggestion System', label: 'AI Fabric Suggestion', image: '/tech.admin_onliest_fashion_technology_concept_showing_AI_fabr_d7f74d94-5c03-4642-adcf-9362cf3ae0f9_3.png', alt: 'AI fabric suggestions', objectPosition: '50% 50%' },
-  { name: 'Body-Proportion Fitment Scoring', label: 'Body-Proportion Fitment', image: '/body-proportion-fitment.png', alt: 'Body proportion fitment with measurement overlays', objectPosition: '50% 50%' },
-  { name: 'Blouse Precision Mapping', label: 'Blouse Precision Mapping', image: '/blouse-precision-mapping.png', alt: 'Blouse precision mapping with digital grid overlay', objectPosition: '50% 50%' },
-  { name: 'AR 3D Mannequin Try-On', label: 'AR 3D Mannequin Try-On', image: '/tech.admin_onliest_3D_fashion_mannequin_standing_in_neutral_p_373c752a-2f0a-488d-952f-9b5bc0cee731_1.png', alt: 'AR 3D mannequin try-on', objectPosition: '50% 50%' },
-  { name: 'Self-Learning Style Memory', label: 'Self-Learning Style', image: '/tech.admin_onliest_fashion_technology_visualization_showing_s_23e06dca-a6e0-4bf2-b58c-0f501f5745f0_2.png', alt: 'Self-learning style memory', objectPosition: '50% 50%' },
+  { name: 'Preference Intelligence Engine', label: 'Preference Intelligence', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774511724/tech.admin_onliest_fashion_technology_visualization_showing_A_fc80bc37-89bc-4184-83a9-ae871176ce8c_2_t5pmlq.png', alt: 'Couture preference intelligence', objectPosition: '50% 50%' },
+  { name: 'AI Fabric Suggestion System', label: 'AI Fabric Suggestion', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774511722/tech.admin_onliest_fashion_technology_concept_showing_AI_fabr_d7f74d94-5c03-4642-adcf-9362cf3ae0f9_3_qioknt.png', alt: 'AI fabric suggestions', objectPosition: '50% 50%' },
+  { name: 'Body-Proportion Fitment Scoring', label: 'Body-Proportion Fitment', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774512286/body-proportion-fitment_qddrbb.png', alt: 'Body proportion fitment with measurement overlays', objectPosition: '50% 50%' },
+  { name: 'Blouse Precision Mapping', label: 'Blouse Precision Mapping', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774511725/blouse_ujfbkk.png', alt: 'Blouse precision mapping with digital grid overlay', objectPosition: '50% 50%' },
+  { name: 'AR 3D Mannequin Try-On', label: 'AR 3D Mannequin Try-On', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774511726/tech.admin_onliest_3D_fashion_mannequin_standing_in_neutral_p_373c752a-2f0a-488d-952f-9b5bc0cee731_1_ost5us.png', alt: 'AR 3D mannequin try-on', objectPosition: '50% 50%' },
+  { name: 'Self-Learning Style Memory', label: 'Self-Learning Style', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774511727/tech.admin_onliest_fashion_technology_visualization_showing_s_23e06dca-a6e0-4bf2-b58c-0f501f5745f0_2_njafku.png', alt: 'Self-learning style memory', objectPosition: '50% 50%' },
 ];
 
 const N = STAT_CARDS.length;
@@ -99,7 +99,7 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab, onSho
       <div className="rex-res-image-col" aria-hidden="true">
         <img
           className="rex-res-editorial-img"
-          src="/resolution-editorial.jpg"
+          src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774511608/resolution-editorial_sra5o3.jpg"
           alt="Editorial couture model in golden saree"
         />
         <div className="rex-res-img-veil" aria-hidden="true" />
@@ -157,7 +157,7 @@ export default function SceneResolution({ isActive, activeLang, onGotoTab, onSho
                       alt={card.alt}
                       className="rex-statcard-img"
                       style={{ objectPosition: card.objectPosition || '50% 50%' }}
-                      onError={(e) => { e.target.onerror = null; e.target.src = '/resolution-editorial.jpg'; }}
+                      onError={(e) => { e.target.onerror = null; e.target.src = 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774511608/resolution-editorial_sra5o3.jpg'; }}
                     />
                   </div>
                   <p className="rex-statcard-name" title={card.name}>{card.label}</p>

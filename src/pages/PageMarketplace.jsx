@@ -13,7 +13,7 @@ const MARKETPLACE_ITEMS = [
     price: '1250',
     tag: 'Featured',
     tagColor: 'red',
-    image: '/ds-1.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png',
     category: 'sarees',
   },
   {
@@ -25,7 +25,7 @@ const MARKETPLACE_ITEMS = [
     price: '350',
     tag: 'New',
     tagColor: 'green',
-    image: '/ds-2.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png',
     category: 'blouses',
   },
   {
@@ -37,7 +37,7 @@ const MARKETPLACE_ITEMS = [
     price: '1500',
     tag: 'Premium',
     tagColor: 'blue',
-    image: '/ds-3.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png',
     category: 'sarees',
   },
   {
@@ -49,7 +49,7 @@ const MARKETPLACE_ITEMS = [
     price: '890',
     tag: 'Trending',
     tagColor: 'red',
-    image: '/ds-4.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
     category: 'sarees',
   },
   {

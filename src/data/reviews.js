@@ -7,7 +7,7 @@ export const REVIEWS = [
     name: 'Priya Sharma',
     location: 'Mumbai, India',
     tag: 'Wedding Collection',
-    image: '/ds-1.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png',
   },
   {
     id: 'sarah-johnson-ny',
@@ -17,7 +17,7 @@ export const REVIEWS = [
     name: 'Sarah Johnson',
     location: 'New York, USA',
     tag: 'Festive Fusion',
-    image: '/ds-2.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png',
   },
   {
     id: 'aisha-patel-london',
@@ -27,7 +27,7 @@ export const REVIEWS = [
     name: 'Aisha Patel',
     location: 'London, UK',
     tag: 'Executive Collection',
-    image: '/ds-3.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png',
   },
   {
     id: 'meera-iyer-chennai',
@@ -37,7 +37,7 @@ export const REVIEWS = [
     name: 'Meera Iyer',
     location: 'Chennai, India',
     tag: 'Silk Collection',
-    image: '/ds-4.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
   },
   {
     id: 'james-wilson-sydney',
@@ -47,7 +47,7 @@ export const REVIEWS = [
     name: 'James Wilson',
     location: 'Sydney, Australia',
     tag: 'Festive Fusion',
-    image: '/ds-5.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png',
   },
   {
     id: 'kavitha-nair-dubai',
@@ -57,7 +57,7 @@ export const REVIEWS = [
     name: 'Kavitha Nair',
     location: 'Dubai, UAE',
     tag: 'Wedding Collection',
-    image: '/ds-6.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png',
   },
 ];
 

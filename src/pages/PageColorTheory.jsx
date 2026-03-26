@@ -36,10 +36,10 @@ export default function PageColorTheory() {
           {/* Section 1: Two images — 30% left (taller) | 70% right (wider) */}
           <div className="rex-color-hero-images">
             <figure className="rex-color-hero-fig rex-color-hero-fig--left">
-              <img src="/ds-1.png" alt="Style and movement" loading="eager" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png" alt="Style and movement" loading="eager" />
             </figure>
             <figure className="rex-color-hero-fig rex-color-hero-fig--right">
-              <img src="/ds-3.png" alt="Portrait styling" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Portrait styling" loading="lazy" />
             </figure>
           </div>
 
@@ -82,8 +82,8 @@ export default function PageColorTheory() {
           <section className="rex-fibre-section rex-color-split" id="color-unites">
             <div className="rex-color-split-images">
               <figure className="rex-color-split-fig rex-color-split-fig--top"><img src="/ds-8.png" alt="Composition" loading="lazy" /></figure>
-              <figure className="rex-color-split-fig rex-color-split-fig--bottom"><img src="/edu-fibre.jpg" alt="Detail" loading="lazy" /></figure>
-              <figure className="rex-color-split-fig rex-color-split-fig--full"><img src="/ds-4.png" alt="Style" loading="lazy" /></figure>
+              <figure className="rex-color-split-fig rex-color-split-fig--bottom"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Detail" loading="lazy" /></figure>
+              <figure className="rex-color-split-fig rex-color-split-fig--full"><img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Style" loading="lazy" /></figure>
             </div>
             <div className="rex-color-split-text">
               <h2 className="rex-fibre-section-title">Color Unites the Design</h2>
@@ -130,7 +130,7 @@ export default function PageColorTheory() {
                 </p>
               </div>
               <figure className="rex-color-skin-fig">
-                <img src="/ds-3.png" alt="Skin and tone in styling" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Skin and tone in styling" loading="lazy" />
               </figure>
             </div>
             <div className="rex-color-skin-rest">
@@ -143,14 +143,14 @@ export default function PageColorTheory() {
                 Colors that harmonize with warm undertones include warm reds, coral tones, earthy browns, deep maroons, mustard yellows, and olive greens—enhancing the skin&rsquo;s natural warmth and creating a natural connection between garment and wearer.
               </p>
               <figure className="rex-color-skin-inline-img">
-                <img src="/edu-fibre.jpg" alt="Warm palette texture" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Warm palette texture" loading="lazy" />
               </figure>
               <h3 className="rex-fibre-sub-h">Cool Skin Palettes</h3>
               <p className="rex-fibre-full-p">
                 Cool undertones pair well with colors that share similar cool characteristics: jewel tones like sapphire blue, emerald green, deep purple, and berry shades, as well as soft cool pastels like lavender, powder blue, and rose pink, for a refined and balanced effect. These colors can highlight the clarity and brightness of cool undertones.
               </p>
               <figure className="rex-color-skin-inline-img">
-                <img src="/ds-4.png" alt="Cool palette styling" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Cool palette styling" loading="lazy" />
               </figure>
               <h3 className="rex-fibre-sub-h">Neutral Skin Palettes</h3>
               <p className="rex-fibre-full-p">
@@ -171,7 +171,7 @@ export default function PageColorTheory() {
               Color pairing determines the visual outcome of blouse and saree combinations—whether the ensemble feels unified, varied, or deliberately contrasted. Designers draw on established approaches to create balance and intention.
             </p>
             <figure className="rex-color-pairing-img">
-              <img src="/ds-4.png" alt="Color pairing in practice" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Color pairing in practice" loading="lazy" />
             </figure>
             <h3 className="rex-fibre-sub-h">Monochrome Pairing</h3>
             <p className="rex-fibre-full-p">
@@ -181,7 +181,7 @@ export default function PageColorTheory() {
               A deep-shade saree paired with a lighter or richer blouse variation of the same color creates depth and harmony, resulting in an elegant, cohesive, and understated ensemble.
             </p>
             <figure className="rex-color-pairing-img">
-              <img src="/edu-fibre.jpg" alt="Monochrome texture" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Monochrome texture" loading="lazy" />
             </figure>
             <p className="rex-fibre-full-p">
               Monochrome combinations are often favored in traditional styling, emphasizing fabric texture, weave, or ornamentation over dramatic color contrast.
@@ -203,14 +203,14 @@ export default function PageColorTheory() {
               When used carefully, complementary pairing adds vibrancy without overwhelming the overall composition.
             </p>
             <figure className="rex-color-inline-fig rex-color-inline-fig--sm">
-              <img src="/edu-fibre.jpg" alt="Texture" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Texture" loading="lazy" />
             </figure>
             <h2 className="rex-fibre-section-title">Analogous Pairing</h2>
             <p className="rex-fibre-full-p">
               Analogous colors sit next to each other on the color wheel, sharing similar undertones. These combinations feel naturally harmonious because the colors are closely related. A saree may contain multiple tones within the same palette, allowing the blouse to echo one of those neighboring shades. The transition between colors appears soft and fluid, creating an ensemble that feels layered yet cohesive.
             </p>
             <figure className="rex-color-inline-fig rex-color-inline-fig--sm">
-              <img src="/edu-fibre.jpg" alt="Texture" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Texture" loading="lazy" />
             </figure>
             <p className="rex-fibre-full-p">
               Analogous pairings are often used when a subtle variation in color is desired without strong contrast. Color pairing transforms individual shades into a complete visual story—whether through the quiet elegance of monochrome styling, the bold energy of complementary colors, or the gentle harmony of analogous combinations, thoughtful pairing ensures that the blouse and saree exist together in balance.

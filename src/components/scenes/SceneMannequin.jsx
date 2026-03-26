@@ -82,7 +82,7 @@ export default function SceneMannequin({ isActive, onShowHowVideo, onShowPrivacy
 
             <video
               className="fit-video"
-              src="/Mannequin.mp4"
+              src="https://res.cloudinary.com/djlqifbxp/video/upload/v1774516523/Mannequin_yom4zc.mp4"
               autoPlay muted loop playsInline
               aria-label="3D body scanning demonstration"
             />
@@ -131,7 +131,7 @@ export default function SceneMannequin({ isActive, onShowHowVideo, onShowPrivacy
               <div className="fit-body-inner">
                 <div className="fit-figure-wrap">
                   <img
-                    src="/doll.png"
+                    src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774516578/doll_czzc6q.png"
                     alt="3D mannequin with measurement points"
                     className="fit-silhouette fit-silhouette-img"
                   />

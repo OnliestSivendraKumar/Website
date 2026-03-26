@@ -81,7 +81,7 @@ const MEGA_MENUS = {
     promo: {
       title: 'Exclusive AI Collections',
       subtitle: 'Designer Spotlight',
-      image: '/ds-1.png',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png',
       alt: 'Model wearing a premium Onliest saree',
     },
   },

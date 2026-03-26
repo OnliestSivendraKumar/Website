@@ -29,7 +29,7 @@ export default function PageBlouse() {
           <section className="rex-blouse-hero" aria-label="Blouse introduction">
             <div className="rex-blouse-hero-card">
               <figure className="rex-blouse-hero-fig">
-                <img src="/edu-blouse.png" alt="Blouse design focus" loading="eager" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517968/edu-blouse_hh6olh.png" alt="Blouse design focus" loading="eager" />
               </figure>
               <div className="rex-blouse-hero-copy">
                 <h2 className="rex-blouse-hero-title">BLOUSE</h2>
@@ -171,7 +171,7 @@ export default function PageBlouse() {
             <div className="rex-blouse-fit-mosaic">
               {Array.from({ length: 8 }).map((_, idx) => (
                 <figure key={idx} className="rex-blouse-fit-tile">
-                  <img src={idx % 2 === 0 ? '/ds-2.png' : '/ds-4.png'} alt="" loading="lazy" />
+                  <img src={idx % 2 === 0 ? 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png' : 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png'} alt="" loading="lazy" />
                 </figure>
               ))}
             </div>
@@ -228,7 +228,7 @@ export default function PageBlouse() {
               </p>
 
               <figure className="rex-ed-fig rex-ed-lighthouse-top">
-                <img src="/ds-2.png" alt="Lighthouse detail" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Lighthouse detail" loading="lazy" />
               </figure>
 
               <h2 className="rex-ed-head rex-ed-shoulder-head">SHOULDER TYPES</h2>
@@ -244,10 +244,10 @@ export default function PageBlouse() {
                 <img src="/ds-6fh.png" alt="Mirror feet detail" loading="lazy" />
               </figure>
               <figure className="rex-ed-fig rex-ed-lighthouse-small">
-                <img src="/ds-2.png" alt="Small lighthouse detail" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Small lighthouse detail" loading="lazy" />
               </figure>
               <figure className="rex-ed-fig rex-ed-phone">
-                <img src="/ds-4.png" alt="Portrait phone detail" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Portrait phone detail" loading="lazy" />
               </figure>
 
               <h2 className="rex-ed-head rex-ed-armhole-head">ARMHOLE VARIATIONS</h2>
@@ -262,19 +262,19 @@ export default function PageBlouse() {
                 <img src="/ds-6fh.png" alt="Chair and wall detail" loading="lazy" />
               </figure>
               <figure className="rex-ed-fig rex-ed-diagonal">
-                <img src="/ds-2.png" alt="Diagonal architectural detail" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Diagonal architectural detail" loading="lazy" />
               </figure>
               <figure className="rex-ed-fig rex-ed-building">
-                <img src="/ds-4.png" alt="Building facade detail" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Building facade detail" loading="lazy" />
               </figure>
               <figure className="rex-ed-fig rex-ed-bottle">
                 <img src="/ds-6fh.png" alt="Bottle detail" loading="lazy" />
               </figure>
               <figure className="rex-ed-fig rex-ed-stair-1">
-                <img src="/ds-2.png" alt="Stair detail one" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Stair detail one" loading="lazy" />
               </figure>
               <figure className="rex-ed-fig rex-ed-stair-2">
-                <img src="/ds-2.png" alt="Stair detail two" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Stair detail two" loading="lazy" />
               </figure>
 
               <h2 className="rex-ed-head rex-ed-ease-head">EASE AND GARMENT BALANCE</h2>
@@ -303,7 +303,7 @@ export default function PageBlouse() {
                   Precision at hem level prevents riding, distortion, and imbalance through movement.
                 </p>
                 <figure className="rex-blouse-elements-fig">
-                  <img src="/ds-2.png" alt="Blouse length editorial visual" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Blouse length editorial visual" loading="lazy" />
                 </figure>
               </article>
 
@@ -327,7 +327,7 @@ export default function PageBlouse() {
                   preserve comfort while maintaining a crisp garment profile.
                 </p>
                 <figure className="rex-blouse-elements-fig">
-                  <img src="/ds-4.png" alt="Sleeve length editorial visual" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Sleeve length editorial visual" loading="lazy" />
                 </figure>
               </article>
             </div>
@@ -340,7 +340,7 @@ export default function PageBlouse() {
                 the blouse and can complement different body proportions, jewelry choices, and saree styles.
               </p>
               <figure className="rex-blouse-necklines-fig">
-                <img src="/edu-blouse.png" alt="Neckline perspective editorial visual" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517968/edu-blouse_hh6olh.png" alt="Neckline perspective editorial visual" loading="lazy" />
               </figure>
             </div>
 
@@ -352,7 +352,7 @@ export default function PageBlouse() {
                 the shoulders, arms, and torso.
               </p>
               <figure className="rex-blouse-sleeve-back-fig">
-                <img src="/edu-blouse.png" alt="Sleeve design editorial visual" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517968/edu-blouse_hh6olh.png" alt="Sleeve design editorial visual" loading="lazy" />
               </figure>
 
               <h3 className="rex-blouse-elements-h rex-blouse-sleeve-back-h">Back Designs</h3>
@@ -363,7 +363,7 @@ export default function PageBlouse() {
                 affects aesthetics but also determines how the blouse is worn and secured.
               </p>
               <figure className="rex-blouse-sleeve-back-fig">
-                <img src="/edu-blouse.png" alt="Back design editorial visual" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517968/edu-blouse_hh6olh.png" alt="Back design editorial visual" loading="lazy" />
               </figure>
             </div>
           </section>
@@ -430,10 +430,10 @@ export default function PageBlouse() {
 
               <div className="rex-blouse-pattern-media">
                 <figure className="rex-blouse-pattern-fig rex-blouse-pattern-fig--top">
-                  <img src="/ds-2.png" alt="Pattern architecture visual one" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Pattern architecture visual one" loading="lazy" />
                 </figure>
                 <figure className="rex-blouse-pattern-fig rex-blouse-pattern-fig--bottom">
-                  <img src="/ds-2.png" alt="Pattern architecture visual two" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Pattern architecture visual two" loading="lazy" />
                 </figure>
               </div>
             </div>
@@ -493,13 +493,13 @@ export default function PageBlouse() {
 
             <div className="rex-blouse-compatibility-gallery">
               <figure className="rex-blouse-compatibility-fig">
-                <img src="/ds-2.png" alt="Saree fabric compatibility visual one" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Saree fabric compatibility visual one" loading="lazy" />
               </figure>
               <figure className="rex-blouse-compatibility-fig">
-                <img src="/ds-2.png" alt="Saree fabric compatibility visual two" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Saree fabric compatibility visual two" loading="lazy" />
               </figure>
               <figure className="rex-blouse-compatibility-fig">
-                <img src="/ds-2.png" alt="Saree fabric compatibility visual three" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Saree fabric compatibility visual three" loading="lazy" />
               </figure>
             </div>
           </section>
@@ -523,7 +523,7 @@ export default function PageBlouse() {
                 </p>
               </div>
               <figure className="rex-blouse-texture-fig">
-                <img src="/ds-2.png" alt="Texture balance visual" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Texture balance visual" loading="lazy" />
               </figure>
             </div>
 
@@ -540,7 +540,7 @@ export default function PageBlouse() {
 
             <div className="rex-blouse-ornamentation-row">
               <figure className="rex-blouse-ornamentation-fig">
-                <img src="/ds-2.png" alt="Embroidery placement visual" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Embroidery placement visual" loading="lazy" />
               </figure>
               <div className="rex-blouse-ornamentation-copy">
                 <h3 className="rex-blouse-elements-h">Embroidery Placement</h3>
@@ -560,7 +560,7 @@ export default function PageBlouse() {
 
             <div className="rex-blouse-ornamentation-row">
               <figure className="rex-blouse-ornamentation-fig">
-                <img src="/ds-2.png" alt="Borders and edge detailing visual" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Borders and edge detailing visual" loading="lazy" />
               </figure>
               <div className="rex-blouse-ornamentation-copy">
                 <h3 className="rex-blouse-elements-h">Borders and Edge Detailing</h3>
@@ -613,7 +613,7 @@ export default function PageBlouse() {
             </p>
 
             <figure className="rex-blouse-back-surface-hero-fig">
-              <img src="/ds-2.png" alt="Back design ornamentation panorama visual" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Back design ornamentation panorama visual" loading="lazy" />
             </figure>
 
             <h3 className="rex-blouse-elements-h rex-blouse-back-surface-h">Surface Techniques</h3>

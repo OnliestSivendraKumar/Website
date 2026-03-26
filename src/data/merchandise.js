@@ -4,7 +4,7 @@ export const MERCH_PRODUCTS = [
     category: 'gift-cards',
     name: 'Gift Card',
     subtitle: 'Champagne',
-    image: '/ds-1.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png',
     price: '$50',
     description:
       'Elegant Onliest gift card in a champagne finish. Perfect when you want them to choose their own saree or accessory.',
@@ -15,7 +15,7 @@ export const MERCH_PRODUCTS = [
     category: 'gift-cards',
     name: 'E-Gift Card',
     subtitle: 'Sky Blue',
-    image: '/ds-2.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png',
     price: '$75',
     description:
       'Instant e‑gift card delivered by email in a serene sky‑blue envelope. Ideal for last‑minute celebrations.',
@@ -26,7 +26,7 @@ export const MERCH_PRODUCTS = [
     category: 'gift-cards',
     name: 'Gift Card',
     subtitle: 'Image: Red',
-    image: '/ds-3.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png',
     price: '$100',
     description:
       'Bold red Onliest gift card for statement occasions — weddings, milestones, and once‑in‑a‑lifetime drapes.',
@@ -37,7 +37,7 @@ export const MERCH_PRODUCTS = [
     category: 'gift-cards',
     name: 'E-Gift Card',
     subtitle: 'Fuchsia',
-    image: '/ds-4.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
     price: '$150',
     description:
       'Vibrant fuchsia e‑gift card for your most fashion‑forward friends and family.',
@@ -70,7 +70,7 @@ export const MERCH_PRODUCTS = [
     category: 'saree-clips',
     name: 'Saree Pin Onliest',
     subtitle: 'Decorative pin',
-    image: '/ds-4.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
     price: '$35',
     description:
       'A signature Onliest saree pin that secures pleats while adding a subtle jewel‑like accent.',
@@ -103,7 +103,7 @@ export const MERCH_PRODUCTS = [
     category: 'coffee-mugs',
     name: 'Cup Onliest',
     subtitle: 'Ceramic cup, blue pattern',
-    image: '/ds-1.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png',
     price: '$18',
     description:
       'Blue patterned ceramic mug that brings a quiet studio mood to your morning coffee.',
@@ -114,7 +114,7 @@ export const MERCH_PRODUCTS = [
     category: 'coffee-mugs',
     name: 'Cup Onliest',
     subtitle: 'Ceramic cup, brown wavy pattern',
-    image: '/ds-2.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png',
     price: '$18',
     description:
       'Earth‑toned mug with a wavy stripe motif inspired by flowing drapes.',
@@ -125,7 +125,7 @@ export const MERCH_PRODUCTS = [
     category: 'coffee-mugs',
     name: 'Cup Onliest',
     subtitle: 'Ceramic cup, white',
-    image: '/ds-3.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png',
     price: '$16',
     description:
       'Minimal white mug with subtle Onliest branding for a calm, neutral desk setup.',
@@ -136,7 +136,7 @@ export const MERCH_PRODUCTS = [
     category: 'caps',
     name: 'Cap Onliest',
     subtitle: 'Pink cotton beanie',
-    image: '/ds-4.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
     price: '$32',
     description:
       'Cozy pink beanie with a soft rib and discrete Onliest tag at the hem.',
@@ -169,7 +169,7 @@ export const MERCH_PRODUCTS = [
     category: 'belts',
     name: 'Belt Onliest',
     subtitle: 'Black elastic belt with silver clasp',
-    image: '/ds-1.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png',
     price: '$38',
     description:
       'Elastic belt with a clean clasp that disappears under pallu layers while keeping everything secure.',
@@ -180,7 +180,7 @@ export const MERCH_PRODUCTS = [
     category: 'belts',
     name: 'Belt Onliest',
     subtitle: 'Black leather belt with gold buckle',
-    image: '/ds-2.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png',
     price: '$52',
     description:
       'Classic leather belt with a soft gold buckle that works with sarees, denims and dresses alike.',

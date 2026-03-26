@@ -20,7 +20,7 @@ const HERO_CONTENT = {
       'Every piece feels like it was made only... More',
     ],
     extra: {
-      imageSrc: '/ds-1.png',
+      imageSrc: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png',
       title: 'Make Your First Design Personal',
       intro:
         'Onliest starts with your imagination and turns it into wearable direction. Instead of guessing, you create with clarity.',
@@ -43,7 +43,7 @@ const HERO_CONTENT = {
       'True elegance was never meant to be mass-produced; it belongs in the hands of the one who wears it... More',
     ],
     extra: {
-      imageSrc: '/ds-2.png',
+      imageSrc: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png',
       title: 'Why Standard Always Feels Off',
       intro:
         'When garments are built to fit “average” bodies, the most important part—the way you actually move—gets ignored.',
@@ -66,7 +66,7 @@ const HERO_CONTENT = {
       'Onliest unlocks something deeper: your creativity, your confidence, and a garment that carries your name... More',
     ],
     extra: {
-      imageSrc: '/ds-3.png',
+      imageSrc: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png',
       title: 'From Ideas to Ownership',
       intro:
         'Creation should feel empowering, not confusing. Onliest helps you turn “what if” into a design you truly own.',
@@ -89,7 +89,7 @@ const HERO_CONTENT = {
       'Nothing is pulled from a rack - each piece begins as a blank canvas created by you... More',
     ],
     extra: {
-      imageSrc: '/ds-4.png',
+      imageSrc: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
       title: 'Intelligence That Understands Your Vision',
       intro:
         'AI doesn’t replace craftsmanship—it supports it. It helps translate your choices into precise direction.',
@@ -248,7 +248,7 @@ export default function PageHeroReadMore() {
               }}
             >
               <img
-                src={data.extra?.imageSrc || '/ds-1.png'}
+                src={data.extra?.imageSrc || 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png'}
                 alt={`${data.eyebrow || 'Onliest'} inspiration visual`}
                 loading="lazy"
               />

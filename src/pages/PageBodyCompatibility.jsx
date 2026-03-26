@@ -31,10 +31,10 @@ export default function PageBodyCompatibility() {
           <section className="rex-body-compat-hero rex-body-compat-hero--magazine" aria-label="Body and compatibility intro">
             <div className="rex-body-compat-mag-grid">
               <figure className="rex-body-compat-mag-fig rex-body-compat-mag-fig--top-left">
-                <img src="/ds-2.png" alt="Silhouette and proportion" loading="eager" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Silhouette and proportion" loading="eager" />
               </figure>
               <figure className="rex-body-compat-mag-fig rex-body-compat-mag-fig--top-right">
-                <img src="/ds-1.png" alt="Fashion and body structure" loading="eager" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png" alt="Fashion and body structure" loading="eager" />
               </figure>
 
               <div className="rex-body-compat-mag-title-block">
@@ -54,7 +54,7 @@ export default function PageBodyCompatibility() {
               </div>
 
               <figure className="rex-body-compat-mag-fig rex-body-compat-mag-fig--bottom-right">
-                <img src="/ds-3.png" alt="Garment and body balance" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Garment and body balance" loading="lazy" />
               </figure>
             </div>
           </section>

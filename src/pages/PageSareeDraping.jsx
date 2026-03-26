@@ -11,7 +11,7 @@ const REGIONAL_STYLES = [
   {
     name: 'Nivi Style',
     region: 'Andhra Pradesh',
-    image: '/edu-saree.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png',
     description:
       'The Nivi drape is the most widely practiced saree style in India and forms the foundation for many modern draping methods.',
     steps: [
@@ -23,7 +23,7 @@ const REGIONAL_STYLES = [
   {
     name: 'Bengali Style',
     region: 'West Bengal',
-    image: '/ds-4.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
     description:
       'The Bengali drape is known for its graceful structure and dramatic pallu arrangement, often seen during festivals.',
     steps: [
@@ -35,7 +35,7 @@ const REGIONAL_STYLES = [
   {
     name: 'Seedha Pallu',
     region: 'Gujarat',
-    image: '/edu-saree.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png',
     description:
       'The Seedha Pallu style highlights the decorative pallu at the front, drawing attention to border work and embroidery.',
     steps: [
@@ -72,7 +72,7 @@ const REGIONAL_STYLES = [
   {
     name: 'Madisar Style',
     region: 'Tamil Nadu',
-    image: '/edu-saree.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png',
     description:
       'The Madisar style, traditionally worn by Tamil Brahmin women, combines saree and dhoti draping elements.',
     steps: [
@@ -84,7 +84,7 @@ const REGIONAL_STYLES = [
   {
     name: 'Mundum Neriyathum Style',
     region: 'Kerala',
-    image: '/edu-saree.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png',
     description:
       'A traditional two-piece drape from Kerala consisting of a lower mundu and an upper neriyathu.',
     steps: [
@@ -96,7 +96,7 @@ const REGIONAL_STYLES = [
   {
     name: 'Assamese Mekhela Chador',
     region: 'Assam',
-    image: '/edu-saree.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png',
     description:
       'A two-piece Assamese drape where the lower Mekhela and upper Chador are styled with neat front folds.',
     steps: [
@@ -109,7 +109,7 @@ const REGIONAL_STYLES = [
   {
     name: 'Tribal Style',
     region: 'Central and Eastern India',
-    image: '/edu-saree.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png',
     description:
       'Regional tribal drapes often use shorter fabric lengths and prioritize comfort and mobility for daily work.',
     steps: [
@@ -122,9 +122,9 @@ const REGIONAL_STYLES = [
 ];
 
 const MODERN_STYLES = [
-  { name: 'Belted Saree Drape', image: '/edu-saree.png' },
-  { name: 'Corset Style Saree', image: '/edu-saree.png' },
-  { name: 'Butterfly Style Saree', image: '/edu-saree.png' },
+  { name: 'Belted Saree Drape', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png' },
+  { name: 'Corset Style Saree', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png' },
+  { name: 'Butterfly Style Saree', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png' },
 ];
 
 export default function PageSareeDraping() {
@@ -149,7 +149,7 @@ export default function PageSareeDraping() {
 
           <section className="rex-sd-intro" aria-label="Saree draping introduction">
             <figure className="rex-sd-hero-fig">
-              <img src="/ds-3.png" alt="Saree draping editorial introduction visual" loading="eager" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Saree draping editorial introduction visual" loading="eager" />
             </figure>
             <p className="rex-sd-p">
               Saree draping styles vary widely across India and reflect cultural traditions, climate, and lifestyle.

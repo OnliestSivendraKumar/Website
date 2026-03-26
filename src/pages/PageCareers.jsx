@@ -20,7 +20,7 @@ const JOBS = [
     id: 'it-desktop',
     title: 'IT Desktop Support',
     type: 'Full time',
-    image: '/ds-2.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png',
     description:
       'The Onliest IT team believes in full transparency, being flexible, reliable and great team players. We are problem solvers, always ready to help and support each other and the organization.',
   },
@@ -28,7 +28,7 @@ const JOBS = [
     id: 'summer-intern',
     title: 'IT Summer Intern',
     type: 'Full time',
-    image: '/ds-4.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png',
     description:
       'Onliest is looking for a summer intern to work in the Information & Technology Services area. This position is part of a team which supports Microsoft Server Operating Systems, storage systems, and client device technologies.',
   },
@@ -43,10 +43,10 @@ const JOBS = [
 ];
 
 const GALLERY_ITEMS = [
-  { id: 'g1', image: '/ds-1.png', alt: 'Collaborative team at Onliest' },
-  { id: 'g2', image: '/ds-2.png', alt: 'Our workspace' },
-  { id: 'g3', image: '/ds-3.png', alt: 'Focus and technology' },
-  { id: 'g4', image: '/ds-4.png', alt: 'Design and innovation' },
+  { id: 'g1', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png', alt: 'Collaborative team at Onliest' },
+  { id: 'g2', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png', alt: 'Our workspace' },
+  { id: 'g3', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png', alt: 'Focus and technology' },
+  { id: 'g4', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png', alt: 'Design and innovation' },
 ];
 
 function CloseIcon() {
@@ -114,7 +114,7 @@ export default function PageCareers() {
             <div className="rex-page-hero-media rex-careers-hero-media">
               <figure>
                 <img
-                  src="/resolution-editorial.jpg"
+                  src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774511608/resolution-editorial_sra5o3.jpg"
                   alt="Onliest studio team and space."
                   loading="lazy"
                   width="960"

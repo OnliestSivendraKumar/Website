@@ -49,14 +49,14 @@ export default function SceneDesignStudio({ isActive, onWatchDemo }) {
         <div className="ds-video-inner">
         <img
           key={`ds-static-${selectedMode}`}
-          src={selectedMode === 'saree' ? '/Saree-Canvas.png' : '/Blouse-Canvas.png'}
+          src={selectedMode === 'saree' ? 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774512399/Saree-Canvas_bpoaux.png' : 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774512402/Blouse-Canvas_lvlwf7.png'}
           alt={selectedMode === 'saree' ? 'Saree design canvas' : 'Blouse design canvas'}
           className="ds-video"
           loading="eager"
           draggable="false"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = selectedMode === 'saree' ? '/Saree-Canvas.jpg' : '/Blouse-Canvas.png';
+            e.target.src = selectedMode === 'saree' ? '/Saree-Canvas.jpg' : 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774512402/Blouse-Canvas_lvlwf7.png';
           }}
         />
         </div>

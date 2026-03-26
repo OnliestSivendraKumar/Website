@@ -21,7 +21,7 @@ const CAROUSEL_SLIDES = [
     label: 'Welcome',
     tabLabel: 'Get Started',
     icon: 'play',
-    image: '/chat-0.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517203/chat-0_jsc4zx.png',
     desc: 'Your AI Design Companion — ask anything, get instant answers.',
     messages: [
       { id: 'a1', type: 'agent', text: 'Hi! How may I help you today?' },
@@ -38,7 +38,7 @@ const CAROUSEL_SLIDES = [
     label: 'Design Studio',
     tabLabel: 'Chat with Us',
     icon: 'chat',
-    image: '/chat-1.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517237/chat-1_bqmy1d.png',
     desc: 'Customise neck, sleeves and back styles — design your blouse visually.',
     messages: [
       { id: 'u1', type: 'user', text: 'How can I design my blouse?' },
@@ -55,7 +55,7 @@ const CAROUSEL_SLIDES = [
     label: 'Multi-Language',
     tabLabel: 'Language Support',
     icon: 'globe',
-    image: '/chat-4.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517321/chat-4_dpowvb.png',
     desc: 'Chat in Telugu, Hindi, English and more — your language, your comfort.',
     messages: [
       { id: 'u1', type: 'user', text: 'Can I change the language?' },
@@ -72,7 +72,7 @@ const CAROUSEL_SLIDES = [
     label: 'Order Status',
     tabLabel: 'Track Order',
     icon: 'package',
-    image: '/chat-5.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517342/chat-5_cizmwk.png',
     desc: 'Track your blouse order in real time — from stitching to delivery at your door.',
     messages: [
       { id: 'u1', type: 'user', text: 'Where is my order?' },
@@ -89,7 +89,7 @@ const CAROUSEL_SLIDES = [
     label: 'Conversational Help',
     tabLabel: 'Get Support',
     icon: 'help',
-    image: '/chat-3.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517294/chat-3_hfitgp.png',
     desc: 'Describe your occasion and saree — get personalised recommendations instantly.',
     messages: [
       { id: 'u1', type: 'user', text: 'Hi, I need help choosing a blouse.' },
@@ -106,7 +106,7 @@ const CAROUSEL_SLIDES = [
     label: 'Fashion Guidance',
     tabLabel: 'Style Help',
     icon: 'palette',
-    image: '/chat-2.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517269/chat-2_ujducy.png',
     desc: 'Get expert blouse pairings, colour matches and style ideas for any saree.',
     messages: [
       { id: 'u1', type: 'user', text: 'What blouse would go with my ivory saree?' },
@@ -275,7 +275,7 @@ export default function SceneHalo({ isActive }) {
 
       {/* Greeting loader — visible while speech plays, fades out after */}
       <div className={`halo-loader${isSpeaking ? ' visible' : ''}`} aria-hidden="true">
-        <img src="/loader.png" alt="" className="halo-loader-img" />
+        <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517445/loader_r4rlzh.png" alt="" className="halo-loader-img" />
       </div>
 
       {/* Chat bubbles — split into two aligned columns */}

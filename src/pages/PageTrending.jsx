@@ -40,7 +40,7 @@ export default function PageTrending() {
 
           <section className="rex-trend-section rex-trend-color" aria-label="Color language and visual mood">
             <div className="rex-trend-color-grid">
-              {['/ds-1.png', '/ds-2.png', '/ds-3.png', '/ds-4.png', '/ds-5.png', '/ds-7.png', '/ds-8.png', '/ds-9.png', '/edu-color.png'].map((src) => (
+              {['https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png', '/ds-5.png', '/ds-7.png', '/ds-8.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517786/edu-color_pk8deb.png'].map((src) => (
                 <figure key={src} className="rex-trend-tile">
                   <img src={src} alt="" loading="lazy" />
                 </figure>
@@ -71,11 +71,11 @@ export default function PageTrending() {
             </p>
             <div className="rex-trend-three">
               <article>
-                <img src="/edu-saree.png" alt="Controlled silk saree direction" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png" alt="Controlled silk saree direction" loading="lazy" />
                 <h3>Controlled silk</h3>
               </article>
               <article>
-                <img src="/edu-drape.png" alt="Hybrid cotton saree direction" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518118/edu-drape_ogr35o.png" alt="Hybrid cotton saree direction" loading="lazy" />
                 <h3>Hybrid cotton</h3>
               </article>
               <article>
@@ -90,17 +90,17 @@ export default function PageTrending() {
             <h2 className="rex-trend-title">Signature Silhouettes, We Design How Fabrics Behave</h2>
             <div className="rex-trend-blouse-layout">
               <div className="rex-trend-blouse-left">
-                <img src="/edu-blouse.png" alt="Collared blouse silhouette" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517968/edu-blouse_hh6olh.png" alt="Collared blouse silhouette" loading="lazy" />
                 <p>Collared blouse</p>
               </div>
               <div className="rex-trend-blouse-mid">
-                <img src="/ds-3.png" alt="Corset blouse silhouette" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Corset blouse silhouette" loading="lazy" />
                 <p>Corset blouse</p>
-                <img src="/ds-4.png" alt="Structured blouse silhouette" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Structured blouse silhouette" loading="lazy" />
                 <p>Structured blouse</p>
               </div>
               <div className="rex-trend-blouse-right">
-                <img src="/Saree-Canvas.png" alt="Relaxed blouse silhouette with saree styling" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774512399/Saree-Canvas_bpoaux.png" alt="Relaxed blouse silhouette with saree styling" loading="lazy" />
                 <p>Relaxed blouse</p>
               </div>
             </div>
@@ -110,12 +110,12 @@ export default function PageTrending() {
             <p className="rex-trend-kicker">Sarees</p>
             <div className="rex-trend-collage-wrap">
               <div className="rex-trend-collage-grid">
-                {['/ds-1.png', '/ds-2.png', '/ds-3.png', '/ds-4.png', '/ds-5.png', '/ds-7.png', '/ds-8.png', '/ds-9.png'].map((src) => (
+                {['https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png', '/ds-5.png', '/ds-7.png', '/ds-8.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png'].map((src) => (
                   <img key={src} src={src} alt="" loading="lazy" />
                 ))}
               </div>
               <div className="rex-trend-collage-hero">
-                <img src="/edu-saree.png" alt="Saree hero trend direction" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png" alt="Saree hero trend direction" loading="lazy" />
                 <p>
                   Nothing stands alone. Fabric determines the fall, blouse defines the frame, and drape brings it to life.
                   Each element responds to another to create a balance that is both controlled and fluid.
@@ -126,9 +126,9 @@ export default function PageTrending() {
 
           <section className="rex-trend-section rex-trend-modern" aria-label="Modern market styles">
             <div className="rex-trend-modern-grid">
-              <img src="/ds-2.png" alt="Modern saree styling 1" loading="lazy" />
-              <img src="/ds-3.png" alt="Modern saree styling 2" loading="lazy" />
-              <img src="/ds-4.png" alt="Modern saree styling 3" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Modern saree styling 1" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png" alt="Modern saree styling 2" loading="lazy" />
+              <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509539/ds-4_gia6xv.png" alt="Modern saree styling 3" loading="lazy" />
               <img src="/ds-5.png" alt="Modern saree styling 4" loading="lazy" />
               <img src="/ds-6fh.png" alt="Modern saree styling 5" loading="lazy" />
             </div>
@@ -144,7 +144,7 @@ export default function PageTrending() {
 
           <section className="rex-trend-section rex-trend-drape" aria-label="Drape direction">
             <div className="rex-trend-drape-grid">
-              {['/ds-7.png', '/ds-8.png', '/ds-9.png', '/edu-drape.png', '/edu-saree.png', '/edu-blouse.png'].map((src) => (
+              {['/ds-7.png', '/ds-8.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774518118/edu-drape_ogr35o.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png', 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517968/edu-blouse_hh6olh.png'].map((src) => (
                 <img key={src} src={src} alt="" loading="lazy" />
               ))}
             </div>

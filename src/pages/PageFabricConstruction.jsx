@@ -37,14 +37,14 @@ export default function PageFabricConstruction() {
 
           {/* Hero image — full width */}
           <figure className="rex-fabric-hero">
-            <img src="/edu-fibre.jpg" alt="Textile detail: fibres and construction" loading="eager" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg" alt="Textile detail: fibres and construction" loading="eager" />
           </figure>
 
           {/* Section 1: FABRIC CONSTRUCTION — image left, text right */}
           <section className="rex-fibre-section">
             <div className="rex-fibre-float">
               <figure className="rex-fibre-figure rex-fibre-figure--sm">
-                <img src="/ds-1.png" alt="Model in draped textile" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png" alt="Model in draped textile" loading="lazy" />
               </figure>
               <div className="rex-fibre-float-text">
                 <h2 className="rex-fibre-section-title">Fabric Construction</h2>
@@ -78,7 +78,7 @@ export default function PageFabricConstruction() {
                 </p>
               </div>
               <figure className="rex-fibre-figure rex-fibre-figure--tall">
-                <img src="/ds-9.png" alt="Model in woven fabric garment" loading="lazy" />
+                <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509647/ds-9_wyiqi2.png" alt="Model in woven fabric garment" loading="lazy" />
               </figure>
             </div>
           </section>

@@ -8,7 +8,7 @@ export const POSTS = [
     date: 'Mar 5, 2026',
     excerpt:
       'Step inside a fitting room that understands your body, not just your size — and see how precision scoring removes the guesswork from custom sarees.',
-    image: '/fit.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774511549/fit_rlztbs.png',
   },
   {
     id: 'fabric-intelligence',
@@ -30,7 +30,7 @@ export const POSTS = [
     date: 'Jan 30, 2026',
     excerpt:
       'Follow a saree from blank canvas to finished silhouette using the Design Studio — fabric, blouse, borders and drape all in one flow.',
-    image: '/Saree-Canvas.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774512399/Saree-Canvas_bpoaux.png',
   },
   {
     id: 'halo-experience',
@@ -41,7 +41,7 @@ export const POSTS = [
     date: 'Jan 10, 2026',
     excerpt:
       'See how guided conversations, encrypted sessions and secure co‑browsing turn “I have an idea” into a saree you can actually wear.',
-    image: '/at-1.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774516937/at-1_mjmni4.png',
   },
   {
     id: 'atelier-collaboration',
@@ -52,7 +52,7 @@ export const POSTS = [
     date: 'Dec 15, 2025',
     excerpt:
       'Walk through a live co‑design session where stylists, friends and family review saree options together inside a single secure canvas.',
-    image: '/at-2.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774516974/at-2_g4jqln.png',
   },
   {
     id: 'rex-signals',
@@ -74,7 +74,7 @@ export const POSTS = [
     date: 'Nov 18, 2025',
     excerpt:
       'From daily wear to statement occasions, discover how to plan a couture wardrobe that stays versatile without feeling repetitive.',
-    image: '/ds-3.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-2_n5rdtx.png',
   },
   {
     id: 'fit-scores',
@@ -96,7 +96,7 @@ export const POSTS = [
     date: 'Oct 22, 2025',
     excerpt:
       'Encrypted sessions, permission‑based access and one‑click revoke controls ensure your fittings and designs stay between you and your expert.',
-    image: '/at-3.png',
+    image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517007/at-3_x4pm6t.png',
   },
 ];
 

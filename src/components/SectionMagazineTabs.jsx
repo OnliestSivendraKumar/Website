@@ -5,7 +5,7 @@ const DEFAULT_TABS = [
     id: 'onliest-world',
     title: 'ONLIEST WORLD',
     eyebrow: 'Saree Intelligence',
-    tabImage: '/edu-world.png',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517551/edu-world_se873q.png',
     items: [
       'Textile intelligence',
       'Composed silhouette',
@@ -18,7 +18,7 @@ const DEFAULT_TABS = [
       kicker: 'Onliest World Intelligence',
       headline: 'ONLIEST WORLD',
       cta: { label: 'Learn Onliest World', href: '/education/onliest-world' },
-      image: '/edu-world.png',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517551/edu-world_se873q.png',
       imageAlt: 'Onliest world preview',
     },
     detail:
@@ -29,7 +29,7 @@ const DEFAULT_TABS = [
     title: 'TRENDING',
     eyebrow: 'Saree Intelligence',
     subtitle: 'What’s hot right now — silhouettes, colors, and styling cues.',
-    tabImage: '/education_hub/trending.webp',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517619/trending_dtvt6f.webp',
     items: [
       "COLORS OF THE YEAR",
       "SIGNATURE FABRICS",
@@ -43,7 +43,7 @@ const DEFAULT_TABS = [
       kicker: 'Trend Intelligence',
       headline: 'Trending',
       cta: { label: 'Learn Trends', href: '/education/trending' },
-      image: '/education_hub/trending.webp',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517619/trending_dtvt6f.webp',
       imageAlt: 'Trending preview',
     },
     detail:
@@ -53,7 +53,7 @@ const DEFAULT_TABS = [
     id: 'body-compatability',
     title: 'BODY COMPATABILITY',
     eyebrow: 'Saree Intelligence',
-    tabImage: '/edu-body.png',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517729/edu-body_l9urj3.png',
     items: [
       'Body shapes',
       'Body proportion analysis',
@@ -71,7 +71,7 @@ const DEFAULT_TABS = [
       kicker: 'Body Compatibility',
       headline: 'BodyCompatibility',
       cta: { label: 'Learn Body Compatibility', href: '/education/body-compatibility' },
-      image: '/edu-body.png',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517729/edu-body_l9urj3.png',
       imageAlt: 'Body compatibility illustration',
     },
     detail:
@@ -81,7 +81,7 @@ const DEFAULT_TABS = [
     id: 'color',
     title: 'COLOR',
     eyebrow: 'Saree Intelligence',
-    tabImage: '/edu-color.png',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517786/edu-color_pk8deb.png',
     items: [
       'Color theory',
       'Warm and cool tones',
@@ -96,7 +96,7 @@ const DEFAULT_TABS = [
       kicker: 'Color Intelligence',
       headline: 'Color',
       cta: { label: 'Learn Color', href: '/education/color-theory' },
-      image: '/edu-color.png',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517786/edu-color_pk8deb.png',
       imageAlt: 'Abstract color illustration',
     },
     detail:
@@ -106,7 +106,7 @@ const DEFAULT_TABS = [
     id: 'fabric',
     title: 'FIBRE & FABRIC',
     eyebrow: 'Saree Intelligence',
-    tabImage: '/edu-fibre.jpg',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg',
     items: [
       'Fibre foundation',
       'Fabric construction',
@@ -121,7 +121,7 @@ const DEFAULT_TABS = [
       kicker: 'Fabric Intelligence',
       headline: 'Fibre and Fabric',
       cta: { label: 'Learn Fabric', href: '/education/fibre-foundations' },
-      image: '/edu-fibre.jpg',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517844/edu-fibre_ffsidq.jpg',
       imageAlt: 'Fabric texture and fibre illustration',
     },
     detail:
@@ -131,7 +131,7 @@ const DEFAULT_TABS = [
     id: 'saree',
     title: 'SAREE',
     eyebrow: 'Saree Intelligence',
-    tabImage: '/edu-saree.png',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png',
     items: [
       'Saree weaving',
       'Loom types',
@@ -142,7 +142,7 @@ const DEFAULT_TABS = [
       kicker: 'Saree Intelligence',
       headline: 'Saree',
       cta: { label: 'Learn Saree', href: '/education/saree' },
-      image: '/edu-saree.png',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517902/edu-saree_pe8yoa.png',
       imageAlt: 'Saree weaving and drape illustration',
     },
     detail:
@@ -152,7 +152,7 @@ const DEFAULT_TABS = [
     id: 'surface-ornamentation',
     title: 'SURFACE ORNAMENTATION',
     eyebrow: 'Saree Intelligence',
-    tabImage: '/edu-orienmentation.png',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517937/edu-orienmentation_jwzrjv.png',
     items: [
       'Embroidery techniques',
       'Threads and zari',
@@ -168,7 +168,7 @@ const DEFAULT_TABS = [
       kicker: 'Surface Ornamentation',
       headline: 'Surface Ornamentation',
       cta: { label: 'Learn Surface Ornamentation', href: '/education/surface-ornamentation' },
-      image: '/edu-orienmentation.png',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517937/edu-orienmentation_jwzrjv.png',
       imageAlt: 'Surface ornamentation illustration',
     },
     detail:
@@ -178,7 +178,7 @@ const DEFAULT_TABS = [
     id: 'blouse',
     title: 'BLOUSE',
     eyebrow: 'Saree Intelligence',
-    tabImage: '/edu-blouse.png',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517968/edu-blouse_hh6olh.png',
     items: [
       'Blouse silhouette',
       'Underlining',
@@ -195,7 +195,7 @@ const DEFAULT_TABS = [
       kicker: 'Blouse Intelligence',
       headline: 'Blouse',
       cta: { label: 'Learn Blouse', href: '/education/blouse' },
-      image: '/edu-blouse.png',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517968/edu-blouse_hh6olh.png',
       imageAlt: 'Blouse design illustration',
     },
     detail:
@@ -205,7 +205,7 @@ const DEFAULT_TABS = [
     id: 'draping',
     title: 'SAREE DRAPING',
     eyebrow: 'Saree Intelligence',
-    tabImage: '/edu-drape.png',
+    tabImage: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774518118/edu-drape_ogr35o.png',
     items: [
       'Draping styles',
       'How to drape',
@@ -214,7 +214,7 @@ const DEFAULT_TABS = [
       kicker: 'Draping Intelligence',
       headline: 'Saree Draping',
       cta: { label: 'Learn Saree Draping', href: '/education/saree-draping' },
-      image: '/edu-drape.png',
+      image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774518118/edu-drape_ogr35o.png',
       imageAlt: 'Draping preview',
     },
     detail:

@@ -63,7 +63,7 @@ export default function Footer() {
           <a href="/contact#faq">FAQ&apos;s</a>
           <a href="/careers">Careers</a>
           <div className="rex-footer-help-wrap">
-            <img src="/bot.svg" alt="" className="rex-footer-bot-logo" aria-hidden="true" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518530/bot_ophkke.svg" alt="" className="rex-footer-bot-logo" aria-hidden="true" />
             <span className="rex-footer-help">How can AI REX help you?</span>
           </div>
         </div>
@@ -73,19 +73,19 @@ export default function Footer() {
         <div className="rex-footer-social">
           <span>Follow us:</span>
           <a href="https://www.facebook.com/profile.php?id=100088638623747" target="_blank" rel="noopener noreferrer" aria-label="Onliest on Facebook">
-            <img src="/fb.svg" alt="" className="rex-footer-social-icon" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518572/fb_jf12si.svg" alt="" className="rex-footer-social-icon" />
           </a>
           <a href="https://www.instagram.com/onliestworld/" target="_blank" rel="noopener noreferrer" aria-label="Onliest on Instagram">
-            <img src="/insta.svg" alt="" className="rex-footer-social-icon" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518591/insta_xiuuwz.svg" alt="" className="rex-footer-social-icon" />
           </a>
           <a href="https://www.linkedin.com/in/onliestworld/" target="_blank" rel="noopener noreferrer" aria-label="Onliest on LinkedIn">
-            <img src="/in.svg" alt="" className="rex-footer-social-icon" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518732/in_yryxfz.svg" alt="" className="rex-footer-social-icon" />
           </a>
           <a href="https://in.pinterest.com/onliestworldpmo" target="_blank" rel="noopener noreferrer" aria-label="Onliest on Pinterest">
-            <img src="/pinterest.svg" alt="" className="rex-footer-social-icon" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518610/pinterest_oulenr.svg" alt="" className="rex-footer-social-icon" />
           </a>
           <a href="https://x.com/OnliestWorld" target="_blank" rel="noopener noreferrer" aria-label="Onliest on Twitter">
-            <img src="/twitter.svg" alt="" className="rex-footer-social-icon" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518618/twitter_ugqahr.svg" alt="" className="rex-footer-social-icon" />
           </a>
         </div>
 

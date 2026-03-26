@@ -29,12 +29,12 @@ const FEATURE_CARDS = [
 ];
 
 const FOUNDERS = [
-  { name: 'Vijay K Penmetsa', role: 'CEO', image: '/ds-1.png' },
-  { name: 'SnehaDeep Goli', role: 'CTO', image: '/ds-2.png' },
-  { name: 'Kiran Kumar Balla', role: 'COO', image: '/resolution-editorial.jpg' },
-  { name: 'Bhargav Goli', role: 'Architect', image: '/at-1.png' },
-  { name: 'Ramakrishna', role: 'Program Specialist', image: '/at-2.png' },
-  { name: 'Snigdha Penmetsa', role: 'Manager Operations', image: '/at-3.png' },
+  { name: 'Vijay K Penmetsa', role: 'CEO', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png' },
+  { name: 'SnehaDeep Goli', role: 'CTO', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png' },
+  { name: 'Kiran Kumar Balla', role: 'COO', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774511608/resolution-editorial_sra5o3.jpg' },
+  { name: 'Bhargav Goli', role: 'Architect', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774516937/at-1_mjmni4.png' },
+  { name: 'Ramakrishna', role: 'Program Specialist', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774516974/at-2_g4jqln.png' },
+  { name: 'Snigdha Penmetsa', role: 'Manager Operations', image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774517007/at-3_x4pm6t.png' },
 ];
 
 const TESTIMONIAL = {
@@ -157,7 +157,7 @@ export default function PageWelcome() {
               <div className="rex-page-hero-media">
                 <figure>
                   <img
-                    src="/ds-1.png"
+                    src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png"
                     alt="Onliest design studio — custom saree creation."
                     width="640"
                     height="400"
@@ -201,7 +201,7 @@ export default function PageWelcome() {
             <div className="rex-page-services-grid">
               <div className="rex-page-services-cell rex-page-services-cell--img">
                 <figure>
-                  <img src="/resolution-editorial.jpg" alt="Elegant saree design and craftsmanship." width="480" height="320" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774511608/resolution-editorial_sra5o3.jpg" alt="Elegant saree design and craftsmanship." width="480" height="320" loading="lazy" />
                 </figure>
               </div>
               {FEATURE_CARDS.slice(0, 2).map((card, i) => {
@@ -220,7 +220,7 @@ export default function PageWelcome() {
               })}
               <div className="rex-page-services-cell rex-page-services-cell--img">
                 <figure>
-                  <img src="/ds-2.png" alt="Custom saree design interface and fabric selection." width="480" height="320" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-3_maibel.png" alt="Custom saree design interface and fabric selection." width="480" height="320" loading="lazy" />
                 </figure>
               </div>
               <div className="rex-page-services-cell rex-page-service-card rex-page-service-card--light">
@@ -243,7 +243,7 @@ export default function PageWelcome() {
             <div className="rex-page-testimonial-grid">
               <div className="rex-page-testimonial-media">
                 <figure>
-                  <img src="/resolution-editorial.jpg" alt="Onliest team and craftsmanship." width="640" height="400" loading="lazy" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774511608/resolution-editorial_sra5o3.jpg" alt="Onliest team and craftsmanship." width="640" height="400" loading="lazy" />
                 </figure>
               </div>
               <div className="rex-page-testimonial-card">
@@ -352,7 +352,7 @@ export default function PageWelcome() {
         {/* Get In Touch — full-width CTA strip */}
         <section className="rex-page-cta-strip" aria-labelledby="get-in-touch-heading">
           <div className="rex-page-cta-strip-bg" aria-hidden="true">
-            <img src="/ds-1.png" alt="" />
+            <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774509290/ds-1_ao4fyf.png" alt="" />
           </div>
           <div className="rex-page-cta-strip-content">
             <h2 id="get-in-touch-heading" className="rex-page-cta-strip-title">Get In Touch</h2>

@@ -266,7 +266,7 @@ export default function SceneAIReadsYou({
             <div className="rex-glass rex-s2-video-card rex-s2-card">
               <video
                 className="rex-s2-card-video"
-                src="/slide1-live-movements.mp4"
+                src="https://res.cloudinary.com/djlqifbxp/video/upload/v1774510655/slide1-live-movements_fa8nkr.mp4"
                 autoPlay
                 muted
                 loop
@@ -283,7 +283,7 @@ export default function SceneAIReadsYou({
             <div className="rex-glass rex-s2-video-card rex-s2-card">
               <video
                 className="rex-s2-card-video rex-s2-card-video-couture"
-                src="/couture-bg.mp4"
+                src="https://res.cloudinary.com/djlqifbxp/video/upload/v1774510729/couture-bg_hyq70k.mp4"
                 autoPlay
                 muted
                 loop
@@ -302,7 +302,7 @@ export default function SceneAIReadsYou({
               id="rexS2BlouseCard"
             >
               <img
-                src="/blouse-bg.gif"
+                src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774512202/blouse-bg_pbgbqd.gif"
                 alt="Holographic blouse — precision mapping"
                 className="rex-blouse-card-img"
               />
@@ -454,7 +454,7 @@ export default function SceneAIReadsYou({
                 {/* Right 50%: stunning full-height image */}
                 <figure className="rex-s2-score-figure" aria-hidden="true">
                   <img
-                    src="/fit.png"
+                    src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774511549/fit_rlztbs.png"
                     alt={`Your look at ${fittingScore}% fit — editorial`}
                     className="rex-s2-score-figure-img"
                   />

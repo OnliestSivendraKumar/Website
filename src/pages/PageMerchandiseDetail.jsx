@@ -167,13 +167,13 @@ export default function PageMerchandiseDetail() {
                 <div className="rex-merch-detail-share">
                   <span className="rex-merch-detail-share-label">Share:</span>
                   <a href="#" aria-label="Share on Facebook" className="rex-merch-detail-share-icon">
-                    <img src="/fb.svg" alt="" className="rex-footer-social-icon" />
+                    <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518572/fb_jf12si.svg" alt="" className="rex-footer-social-icon" />
                   </a>
                   <a href="#" aria-label="Share on Instagram" className="rex-merch-detail-share-icon">
-                    <img src="/insta.svg" alt="" className="rex-footer-social-icon" />
+                    <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518591/insta_xiuuwz.svg" alt="" className="rex-footer-social-icon" />
                   </a>
                   <a href="#" aria-label="Share on LinkedIn" className="rex-merch-detail-share-icon">
-                    <img src="/in.svg" alt="" className="rex-footer-social-icon" />
+                    <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518732/in_yryxfz.svg" alt="" className="rex-footer-social-icon" />
                   </a>
                 </div>
               </div>

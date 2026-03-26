@@ -133,13 +133,13 @@ export default function PageBlogDetail() {
                 </div>
                 <div className="rex-blog-detail-rail-divider" />
                 <button type="button" className="rex-blog-detail-rail-icon" aria-label="Share on Facebook">
-                  <img src="/fb.svg" alt="" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518572/fb_jf12si.svg" alt="" />
                 </button>
                 <button type="button" className="rex-blog-detail-rail-icon" aria-label="Share on Instagram">
-                  <img src="/insta.svg" alt="" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518591/insta_xiuuwz.svg" alt="" />
                 </button>
                 <button type="button" className="rex-blog-detail-rail-icon" aria-label="Share on LinkedIn">
-                  <img src="/in.svg" alt="" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774518732/in_yryxfz.svg" alt="" />
                 </button>
                 <button
                   type="button"
