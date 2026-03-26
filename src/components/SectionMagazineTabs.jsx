@@ -29,7 +29,7 @@ const DEFAULT_TABS = [
     title: 'TRENDING',
     eyebrow: 'Saree Intelligence',
     subtitle: 'What’s hot right now — silhouettes, colors, and styling cues.',
-    tabImage: '/ds-9.png',
+    tabImage: '/education_hub/trending.webp',
     items: [
       "COLORS OF THE YEAR",
       "SIGNATURE FABRICS",
@@ -41,9 +41,9 @@ const DEFAULT_TABS = [
     ],
     hero: {
       kicker: 'Trend Intelligence',
-      headline: 'Now',
+      headline: 'Trending',
       cta: { label: 'Learn Trends', href: '/education/trending' },
-      image: '/ds-9.png',
+      image: '/education_hub/trending.webp',
       imageAlt: 'Trending preview',
     },
     detail:

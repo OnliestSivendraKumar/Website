@@ -81,7 +81,7 @@ export default function HomePage({ activeLang, onTabChange }) {
           { value: '30min', label: 'Free Session' },
         ]}
         image={{
-          src: '/ds-1.png',
+          src: '/book/trainerdesigner.webp',
           alt: 'Fashion trainer working with fabrics in a studio.',
           overlay: {
             eyebrow: 'Schedule Now',

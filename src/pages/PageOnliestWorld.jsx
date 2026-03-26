@@ -16,6 +16,10 @@ export default function PageOnliestWorld() {
     { id: 'storage-longevity', label: 'Storage and longevity' },
   ];
   const [activeTab, setActiveTab] = useState(TABS[0].id);
+  const textileContent = {
+    intro:
+      'Through varying methods of construction, the artisan decides whether a saree will whisper with the lightness of air or command the room with the gravity of stone. Textile intelligence is the bridge between the raw potential of fibre and the final silhouette of the drape.',
+  };
 
   useEffect(() => {
     document.title = PAGE_TITLE;
@@ -94,9 +98,74 @@ export default function PageOnliestWorld() {
               <h2 className="rex-fibre-section-title">
                 {TABS.find((t) => t.id === activeTab)?.label}
               </h2>
-              <p className="rex-fibre-full-p">
-                Content placeholder for this tab is ready. Share the content for this topic and I will add it here.
-              </p>
+
+              {activeTab === 'textile-intelligence' ? (
+                <div className="rex-ow-tab-article">
+                  <p className="rex-fibre-full-p">{textileContent.intro}</p>
+
+                  <section className="rex-ow-ti-weaves">
+                    <article className="rex-ow-ti-weave-card">
+                      <figure className="rex-ow-ti-mini-fig">
+                        <img src="/ds-4.png" alt="Plain weave diagram" loading="lazy" />
+                      </figure>
+                      <h3 className="rex-fibre-sub-h">Plain Weave</h3>
+                      <p className="rex-fibre-full-p">
+                        The plain weave is a study in perfect balance. By alternating the thread in a simple over-under sequence, the artisan creates a textile of integrity and breathability.
+                      </p>
+                    </article>
+
+                    <article className="rex-ow-ti-weave-card">
+                      <figure className="rex-ow-ti-mini-fig">
+                        <img src="/ds-9.png" alt="Twill weave rhythm" loading="lazy" />
+                      </figure>
+                      <h3 className="rex-fibre-sub-h">Twill Weave</h3>
+                      <p className="rex-fibre-full-p">
+                        A twill weave introduces a subtle diagonal rhythm. By offsetting interlacing points, the weaver creates a stronger but more fluid fabric that follows the body with instinctive ease.
+                      </p>
+                    </article>
+                  </section>
+
+                  <article className="rex-ow-tab-block">
+                    <figure className="rex-ow-tab-figure">
+                      <img src="/edu-fibre.jpg" alt="Satin and jacquard weave references" loading="lazy" />
+                    </figure>
+                    <h3 className="rex-fibre-sub-h">Satin Weave and the Programmed Masterpiece</h3>
+                    <p className="rex-fibre-full-p">
+                      In the pursuit of luminous finish, satin weave uses long floating yarn paths that minimize interruption of light and create liquid-like sheen. In jacquard, motifs are woven directly into the cloth through controlled thread programming, producing dimensional forms with structural authority.
+                    </p>
+                  </article>
+
+                  <article className="rex-ow-ti-split">
+                    <figure className="rex-ow-tab-figure rex-ow-tab-figure--left">
+                      <img src="/ds-6fh.png" alt="Decorative textile architecture" loading="lazy" />
+                    </figure>
+                    <div>
+                      <p className="rex-fibre-full-p">
+                        In masterworks such as Banarasi sarees, metallic yarns are interlaced to increase density and anchor drape. In contrast, Kanchipuram traditions rely on tightly controlled interlocked construction to create architectural stability.
+                      </p>
+                      <p className="rex-fibre-full-p">
+                        Surface embellishments are treated as structural loads; placement is mapped against pleat zones and pressure points to ensure visual poetry never compromises balance.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article className="rex-ow-tab-block">
+                    <h3 className="rex-fibre-sub-h">The Physics of Pigment and Light</h3>
+                    <p className="rex-fibre-full-p">
+                      Color behavior is dictated by the textile surface. Deep tones on high-sheen satin create reflective depth, while matte cotton and hand-spun textures absorb light and produce intellectual softness.
+                    </p>
+                    <ul className="rex-fibre-list">
+                      <li><strong>Luminous Jewel Tones:</strong> Engineered for high-intensity lighting where emeralds, rubies, and sapphires retain depth.</li>
+                      <li><strong>Matte Neutrals and Earth Tones:</strong> Calibrated for daylight and outdoor settings, harmonizing with natural shadows.</li>
+                      <li><strong>Cultural Interface:</strong> Floral, geometric, and symbolic motifs act as visual scripts rooted in heritage and occasion.</li>
+                    </ul>
+                  </article>
+                </div>
+              ) : (
+                <p className="rex-fibre-full-p">
+                  Content placeholder for this tab is ready. Share the content for this topic and I will add it here.
+                </p>
+              )}
             </div>
           </section>
 
