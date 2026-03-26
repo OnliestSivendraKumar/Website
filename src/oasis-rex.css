@@ -3723,14 +3723,11 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 }
 .rex-ow-board {
     margin: 0 0 clamp(2rem, 4vw, 3rem);
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
-    gap: clamp(1rem, 2.2vw, 1.8rem);
-    align-items: start;
+    display: block;
 }
 .rex-ow-mosaic {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.35rem;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(198, 167, 94, 0.14);
@@ -3755,13 +3752,32 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
 .rex-ow-tile--f,
 .rex-ow-tile--g,
 .rex-ow-tile--h,
-.rex-ow-tile--i {
-    aspect-ratio: 1 / 1;
+.rex-ow-tile--i,
+.rex-ow-tile--j,
+.rex-ow-tile--k {
+    aspect-ratio: 16 / 10;
 }
 .rex-ow-tile--center {
     display: grid;
     place-items: center;
+    grid-column: 2 / span 2;
+    grid-row: 2;
 }
+.rex-ow-tile--a { grid-column: 1; grid-row: 1; }
+.rex-ow-tile--b { grid-column: 2; grid-row: 1; }
+.rex-ow-tile--c { grid-column: 3; grid-row: 1; }
+.rex-ow-tile--d { grid-column: 4; grid-row: 1; }
+
+/* Row 2: only 3 tiles */
+.rex-ow-tile--f { grid-column: 1; grid-row: 2; }
+.rex-ow-tile--e { grid-column: 2 / span 2; grid-row: 2; } /* ONLIEST center card */
+.rex-ow-tile--g { grid-column: 4; grid-row: 2; }
+
+/* Row 3: full 4 tiles */
+.rex-ow-tile--h { grid-column: 1; grid-row: 3; }
+.rex-ow-tile--i { grid-column: 2; grid-row: 3; }
+.rex-ow-tile--j { grid-column: 3; grid-row: 3; }
+.rex-ow-tile--k { grid-column: 4; grid-row: 3; }
 .rex-ow-center-card {
     width: 100%;
     height: 100%;
@@ -3814,10 +3830,47 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     margin-right: auto;
 }
 
+.rex-ow-tabs-block {
+    margin: 0 0 clamp(2rem, 4vw, 3rem);
+}
+.rex-ow-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-bottom: 1rem;
+}
+.rex-ow-tab {
+    appearance: none;
+    border: 1px solid rgba(198, 167, 94, 0.26);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--gold-dim);
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 180ms var(--ease), border-color 180ms var(--ease), color 180ms var(--ease);
+}
+.rex-ow-tab:hover {
+    background: rgba(198, 167, 94, 0.12);
+    border-color: rgba(198, 167, 94, 0.45);
+}
+.rex-ow-tab.is-active {
+    background: rgba(198, 167, 94, 0.2);
+    border-color: rgba(198, 167, 94, 0.65);
+    color: var(--platinum);
+}
+.rex-ow-tab-panel {
+    border: 1px solid rgba(198, 167, 94, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius);
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+}
+
 @media (max-width: 980px) {
-    .rex-ow-board {
-        grid-template-columns: 1fr;
-    }
     .rex-ow-list {
         text-align: left;
         margin-top: 0.35rem;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -7,6 +7,16 @@ const PAGE_DESCRIPTION =
   'Explore Onliest World: textile intelligence, silhouette composition, design systems, prototyping, production quality, and longevity.';
 
 export default function PageOnliestWorld() {
+  const TABS = [
+    { id: 'textile-intelligence', label: 'Textile intelligence' },
+    { id: 'composed-silhouette', label: 'Composed silhouette' },
+    { id: 'design', label: 'Design' },
+    { id: 'prototype-3d', label: '3D prototype' },
+    { id: 'production-quality', label: 'Production and quality check' },
+    { id: 'storage-longevity', label: 'Storage and longevity' },
+  ];
+  const [activeTab, setActiveTab] = useState(TABS[0].id);
+
   useEffect(() => {
     document.title = PAGE_TITLE;
     const meta = document.querySelector('meta[name="description"]');
@@ -55,17 +65,38 @@ export default function PageOnliestWorld() {
               <figure className="rex-ow-tile rex-ow-tile--i">
                 <img src="/edu-fibre.jpg" alt="" loading="lazy" />
               </figure>
+              <figure className="rex-ow-tile rex-ow-tile--j">
+                <img src="/ds-3.png" alt="" loading="lazy" />
+              </figure>
+              <figure className="rex-ow-tile rex-ow-tile--k">
+                <img src="/ds-6fh.png" alt="" loading="lazy" />
+              </figure>
+            </div>
+          </section>
+
+          <section className="rex-ow-tabs-block" aria-label="Onliest World topics">
+            <div className="rex-ow-tabs" role="tablist" aria-label="Onliest World tabs">
+              {TABS.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === tab.id}
+                  className={`rex-ow-tab${activeTab === tab.id ? ' is-active' : ''}`}
+                  onClick={() => setActiveTab(tab.id)}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
 
-            <div className="rex-ow-list-wrap" aria-label="Onliest World pillars">
-              <ul className="rex-ow-list">
-                <li>Textile intelligence</li>
-                <li>Composed silhouette</li>
-                <li>Design</li>
-                <li>3D prototype</li>
-                <li>Production and quality check</li>
-                <li>Storage and longevity</li>
-              </ul>
+            <div className="rex-ow-tab-panel" role="tabpanel">
+              <h2 className="rex-fibre-section-title">
+                {TABS.find((t) => t.id === activeTab)?.label}
+              </h2>
+              <p className="rex-fibre-full-p">
+                Content placeholder for this tab is ready. Share the content for this topic and I will add it here.
+              </p>
             </div>
           </section>
 
