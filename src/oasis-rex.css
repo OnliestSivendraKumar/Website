@@ -9741,7 +9741,7 @@ body[data-theme="dark"] .rex-mobile-menu-select-wrap {
     font-family: var(--font-display);
     font-size: clamp(4rem, 10vw, 6rem);
     line-height: 1;
-    color: var(--burgundy);
+    color: var(--platinum);
     opacity: 0.6;
     position: absolute;
     top: 1rem;
@@ -17500,4 +17500,19 @@ body[data-theme="light"] .fit-upload-btn { border-color: rgba(140,104,32,0.35); 
     .rex-testimonials-stats {
         grid-template-columns: 1fr;
     }
+}
+
+.rex-ow-sequence-panel {
+    display: grid;
+    gap: 2rem;
+}
+
+.rex-ow-sequence-panel .rex-ow-tab-article {
+    border-bottom: 1px solid rgba(216, 179, 91, 0.2);
+    padding-bottom: 1.6rem;
+}
+
+.rex-ow-sequence-panel .rex-ow-tab-article:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -7,15 +7,6 @@ const PAGE_DESCRIPTION =
   'Explore Onliest World: textile intelligence, silhouette composition, design systems, prototyping, production quality, and longevity.';
 
 export default function PageOnliestWorld() {
-  const TABS = [
-    { id: 'textile-intelligence', label: 'Textile intelligence' },
-    { id: 'composed-silhouette', label: 'Composed silhouette' },
-    { id: 'design', label: 'Design' },
-    { id: 'prototype-3d', label: '3D prototype' },
-    { id: 'production-quality', label: 'Production and quality check' },
-    { id: 'storage-longevity', label: 'Storage and longevity' },
-  ];
-  const [activeTab, setActiveTab] = useState(TABS[0].id);
   const textileContent = {
     intro:
       'Through varying methods of construction, the artisan decides whether a saree will whisper with the lightness of air or command the room with the gravity of stone. Textile intelligence is the bridge between the raw potential of fibre and the final silhouette of the drape.',
@@ -105,29 +96,10 @@ export default function PageOnliestWorld() {
             </div>
           </section>
 
-          <section className="rex-ow-tabs-block" aria-label="Onliest World topics">
-            <div className="rex-ow-tabs" role="tablist" aria-label="Onliest World tabs">
-              {TABS.map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeTab === tab.id}
-                  className={`rex-ow-tab${activeTab === tab.id ? ' is-active' : ''}`}
-                  onClick={() => setActiveTab(tab.id)}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-
-            <div className="rex-ow-tab-panel" role="tabpanel">
-              <h2 className="rex-fibre-section-title">
-                {TABS.find((t) => t.id === activeTab)?.label}
-              </h2>
-
-              {activeTab === 'textile-intelligence' ? (
-                <div className="rex-ow-tab-article">
+          <section className="rex-ow-tabs-block rex-ow-sequence-block" aria-label="Onliest World topics">
+            <div className="rex-ow-tab-panel rex-ow-sequence-panel">
+              <article className="rex-ow-tab-article">
+                <h2 className="rex-fibre-section-title">Textile intelligence</h2>
                   <p className="rex-fibre-full-p">{textileContent.intro}</p>
 
                   <section className="rex-ow-ti-weaves">
@@ -194,9 +166,10 @@ export default function PageOnliestWorld() {
                       Every motif, from geometric rhythm to floral detailing, acts as cultural symbolism. These are not decorative additions alone; they are visual scripts of heritage, occasion, and identity translated through textile language.
                     </p>
                   </article>
-                </div>
-              ) : activeTab === 'composed-silhouette' ? (
-                <div className="rex-ow-tab-article rex-ow-cs-article">
+              </article>
+
+              <article className="rex-ow-tab-article rex-ow-cs-article">
+                  <h2 className="rex-fibre-section-title">Composed silhouette</h2>
                   <p className="rex-fibre-sub-h rex-ow-cs-kicker">COMPOSED SILHOUETTE</p>
                   <h3 className="rex-ow-cs-lead">{composedContent.lead}</h3>
                   {composedContent.intro.map((p) => (
@@ -271,9 +244,10 @@ export default function PageOnliestWorld() {
                       Ultimately, total garment weight is assessed as a unified system — to honor the body through balance.
                     </p>
                   </article>
-                </div>
-              ) : activeTab === 'design' ? (
-                <div className="rex-ow-tab-article rex-ow-design-article">
+              </article>
+
+              <article className="rex-ow-tab-article rex-ow-design-article">
+                  <h2 className="rex-fibre-section-title">Design</h2>
                   <p className="rex-fibre-sub-h">DESIGN</p>
                   <p className="rex-fibre-full-p">{designContent.introTop}</p>
                   {designContent.introBody.map((p) => (
@@ -334,9 +308,10 @@ export default function PageOnliestWorld() {
                       Customization becomes intelligent.
                     </p>
                   </article>
-                </div>
-              ) : activeTab === 'prototype-3d' ? (
-                <div className="rex-ow-tab-article rex-ow-proto-article">
+              </article>
+
+              <article className="rex-ow-tab-article rex-ow-proto-article">
+                  <h2 className="rex-fibre-section-title">3D prototype</h2>
                   <p className="rex-fibre-sub-h">3D PROTOTYPE</p>
                   <p className="rex-fibre-full-p">{prototypeContent.lead}</p>
 
@@ -389,9 +364,10 @@ export default function PageOnliestWorld() {
                       Expressive without distortion, impressive without compromise.
                     </p>
                   </article>
-                </div>
-              ) : activeTab === 'production-quality' ? (
-                <div className="rex-ow-tab-article rex-ow-quality-article">
+              </article>
+
+              <article className="rex-ow-tab-article rex-ow-quality-article">
+                  <h2 className="rex-fibre-section-title">Production and quality check</h2>
                   <p className="rex-fibre-sub-h">PRODUCTION AND QUALITY</p>
                   <figure className="rex-ow-proto-video">
                     <div className="rex-ow-proto-video-play" aria-hidden="true">▶</div>
@@ -448,9 +424,10 @@ export default function PageOnliestWorld() {
                       Quality is engineered, verified, and documented.
                     </p>
                   </article>
-                </div>
-              ) : activeTab === 'storage-longevity' ? (
-                <div className="rex-ow-tab-article rex-ow-longevity-article">
+              </article>
+
+              <article className="rex-ow-tab-article rex-ow-longevity-article">
+                  <h2 className="rex-fibre-section-title">Storage and longevity</h2>
                   <p className="rex-fibre-sub-h">VALUE</p>
                   <p className="rex-fibre-full-p">{longevityContent.lead}</p>
 
@@ -503,7 +480,7 @@ export default function PageOnliestWorld() {
                       <li>Keep away from damp environments</li>
                       <li>Wrap in soft cotton when storing</li>
                       <li>Do not iron directly over zari; use protective layering</li>
-                    </ul>
+              </ul>
                     <p className="rex-fibre-full-p">
                       Metallic threads can tarnish with humidity and chemical exposure. Prevention is better than restoration.
                     </p>
@@ -526,12 +503,7 @@ export default function PageOnliestWorld() {
                       What emerges is not just attire, but a precisely structured creation that feels considered, rare, and worth anticipating.
                     </p>
                   </article>
-                </div>
-              ) : (
-                <p className="rex-fibre-full-p">
-                  Content placeholder for this tab is ready. Share the content for this topic and I will add it here.
-                </p>
-              )}
+              </article>
             </div>
           </section>
 

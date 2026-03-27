@@ -294,7 +294,7 @@ export default function SceneHalo({ isActive }) {
                 aria-hidden={!isVisible}
               >
                 <span className="halo-bubble-agent-avatar" aria-hidden="true">
-                  <img src="/chatbot.png" alt="" className="halo-bubble-agent-img" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774527087/chatbot_jfiuji.png" alt="" className="halo-bubble-agent-img" />
                 </span>
                 <span className="halo-bubble-text">{msg.text}</span>
               </div>
@@ -316,7 +316,7 @@ export default function SceneHalo({ isActive }) {
               >
                 <span className="halo-bubble-text">{msg.text}</span>
                 <span className="halo-bubble-avatar" aria-hidden="true">
-                  <img src="/chatfemale.png" alt="" className="halo-bubble-user-img" />
+                  <img src="https://res.cloudinary.com/djlqifbxp/image/upload/v1774527088/chatfemale_gmvjtu.png" alt="" className="halo-bubble-user-img" />
                 </span>
               </div>
             );

@@ -41,7 +41,7 @@ const TESTIMONIAL = {
   quote: 'An experience where creativity and craftsmanship intersect — my dream saree came to life.',
   name: 'Kate Chaven',
   role: 'Client',
-  image: '/chatfemale.png',
+  image: 'https://res.cloudinary.com/djlqifbxp/image/upload/v1774527088/chatfemale_gmvjtu.png',
 };
 
 function IconDesign() {
